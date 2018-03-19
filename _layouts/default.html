@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+
+<head>
+   {% include head.html %}
+</head>
+
+<body class="stretched">
+
+  <!-- Document Wrapper
+	============================================= -->
+  <div id="wrapper" class="clearfix">
+
+    <!-- Header
+		============================================= -->
+    {% include header.html class-dark="dark" %}
+    <!-- #header end -->
+
+    <!-- Content
+    ============================================= -->
+    {{ content }}
+    <!-- #content end -->
+
+    <!-- Footer
+		============================================= -->
+    {% include footer.html %}
+    <!-- #footer end -->
+
+  </div>
+  <!-- #wrapper end -->
+
+  <!-- Go To Top
+	============================================= -->
+  <div id="gotoTop" class="icon-angle-up"></div>
+
+  <!-- External JavaScripts
+	============================================= -->
+  <script src="/js/jquery.js"></script>
+  <script src="/js/plugins.js"></script>
+
+  <!-- Footer Scripts
+	============================================= -->
+  <script src="/js/functions.js"></script>
+  <script>
+    (function (w, d) {
+      var id = 'embedly-platform', n = 'script';
+      if (!d.getElementById(id)) {
+        w.embedly = w.embedly || function () { (w.embedly.q = w.embedly.q || []).push(arguments); };
+        var e = d.createElement(n); e.id = id; e.async = 1;
+        e.src = ('https:' === document.location.protocol ? 'https' : 'http') + '://cdn.embedly.com/widgets/platform.js';
+        var s = d.getElementsByTagName(n)[0];
+        s.parentNode.insertBefore(e, s);
+      }
+    })(window, document);
+  </script>
+  {% include script-activecampaign.html %}
+
+</body>
+
+</html>
