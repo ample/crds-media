@@ -5,95 +5,27 @@
   {% include head.html %}
 </head>
 
-<body class="stretched">
+<body>
 
-  <!-- Document Wrapper
-	============================================= -->
-  <div id="wrapper" class="clearfix">
+  <!-- Content
+    ============================================= -->
+  {{ content }}
+  <!-- #content end -->
 
-    <!-- Header
+  <!-- Footer
 		============================================= -->
-    {% include header.html class-dark="dark" %}
-    <!-- #header end -->
-
-    <!-- Page Title
-    		============================================= -->
-    <section id="page-title" class="page-title-parallax page-title-dark" style="padding: 150px 0; background-image: url('{{ page.featured_image.url }}'); background-size: cover; background-position: center center;"
-      data-bottom-top="background-position:0px 400px;" data-top-bottom="background-position:0px -500px;">
-    
-      <div class="container clearfix">
-        <h1>{{ page.title }}</h1>
-        <span>{{ page.sub_title }}</span>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="#">Home</a>
-          </li>
-          <li class="breadcrumb-item">
-            <a href="#">Pages</a>
-          </li>
-          <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
-        </ol>
-      </div>
-    
-    </section>
-    <!-- #page-title end -->
-
-    <!-- Content
-    		============================================= -->
-    <section id="content">
-    
-      <div class="content-wrap">
-    
-        <div class="container clearfix">
-           
-          {{ page.body | markdownify }}
-          <div class="clear"></div>
-
-          
-          {% if page.url contains "crossfit" %}
-            {% include section-pricing.html %}
-          {% endif %}
-    
-        </div>
-    
-      </div>
-    
-    </section>
-    <!-- #content end -->
-
-
-    <!-- Footer
-		============================================= -->
-    {% include footer.html %}
-    <!-- #footer end -->
+  {% include footer.html %}
+  <!-- #footer end -->
 
   </div>
   <!-- #wrapper end -->
 
-  <!-- Go To Top
-	============================================= -->
-  <div id="gotoTop" class="icon-angle-up"></div>
-
   <!-- External JavaScripts
 	============================================= -->
-  <script src="/js/jquery.js"></script>
-  <script src="/js/plugins.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   <!-- Footer Scripts
 	============================================= -->
-  <script src="/js/functions.js"></script>
-  <script>
-    (function (w, d) {
-      var id = 'embedly-platform', n = 'script';
-      if (!d.getElementById(id)) {
-        w.embedly = w.embedly || function () { (w.embedly.q = w.embedly.q || []).push(arguments); };
-        var e = d.createElement(n); e.id = id; e.async = 1;
-        e.src = ('https:' === document.location.protocol ? 'https' : 'http') + '://cdn.embedly.com/widgets/platform.js';
-        var s = d.getElementsByTagName(n)[0];
-        s.parentNode.insertBefore(e, s);
-      }
-    })(window, document);
-  </script>
 
 </body>
 
