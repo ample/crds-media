@@ -1,9 +1,37 @@
 ---
-layout: default
+layout: contained
 title: Homepage
 permalink: /
 ---
 
-{% include example-include.html %}
+<h1>Crossroads Media</h1>
 
-<h1>Homepage</h1>
+{% assign sorted = site.data.crds.post %}
+<div class="cards-2x">
+  <div class="row">
+
+    {% for post in sorted %}
+    <div class="card card-deck">
+      <a href="/blog/{{ post.slug }}">
+        <img alt="Card image caption" class="card-img-top img-responsive" src="{{ post.featured_image.url }}">
+      </a>
+      <div class="card-block">
+        <a href="/blog/{{ post.slug }}">
+          <h4 class="card-title card-title--overlap text-uppercase">{{ post.title }}</h4>
+        </a>
+        <p class="card-text">
+          <a href="/publications/articles/5587664776?source=2"></a>
+          <span class="">{{ post.author.full_name }}</span> |
+          <span class="text-gray-light">
+             {% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
+             {{ post.published_date | date: date_format }}
+          </span>
+        </p>
+        <p class="card-text">{{ post.body | markdownify | strip_html | truncate:135 }}</p>
+        <a href="/blog/{{ post.slug }}">Read More</a>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+</div>

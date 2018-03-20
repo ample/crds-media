@@ -1,32 +1,65 @@
-<!DOCTYPE html>
-<html dir="ltr" lang="en-US">
-
-<head>
-  {% include head.html %}
-</head>
-
-<body>
+---
+layout: default
+---
 
   <!-- Content
+  ============================================= -->
+    
+  <article class="single-post nobottommargin" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+          <!-- Entry Title
+          ============================================= -->
+
+          <div class="entry-title" >
+            <h2 class="section-header push-half-bottom">{{ page.title | escape }}</h2>
+          </div>
+          <!-- .entry-title end -->
+
+          <!-- Entry Meta
+          ============================================= -->
+          <p class="card-text">
+            <a href="/publications/articles/5587664776?source=2"></a>
+            <span class="">{{ page.author.full_name }}</span> |
+            <span class="text-gray-light">
+              {% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
+              {{ page.published_date | date: date_format }}
+            </span>
+          </p>
+          <!-- .entry-meta end -->
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Entry Image
     ============================================= -->
-  {{ content }}
+    <div class="entry-image push-bottom">
+      <a href="#">
+        <img src="{{ page.featured_image.url }}" alt="{{ page.featured_image.title }}">
+      </a>
+    </div>
+    <!-- .entry-image end -->    
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+
+          <!-- Entry Content
+          ============================================= -->
+          <main>
+            <div class="entry-content notopmargin" itemprop="articleBody">
+              {{ page.body | markdownify }}
+              <!-- Post Single - Content End -->
+            </div>
+          </main>
+          <!-- .entry end -->
+
+        </div>
+      </div>
+    </div>
+
+  </article>
   <!-- #content end -->
-
-  <!-- Footer
-		============================================= -->
-  {% include footer.html %}
-  <!-- #footer end -->
-
-  </div>
-  <!-- #wrapper end -->
-
-  <!-- External JavaScripts
-	============================================= -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-  <!-- Footer Scripts
-	============================================= -->
-
-</body>
-
-</html>

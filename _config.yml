@@ -34,9 +34,9 @@ sass:
 
 contentful:
   spaces:
-    - tsc: # Jekyll _data folder identifier - Required
-        space: ctmmyckif2fs                   # Required
-        access_token: 865b99cd1e453c2f5d4cfeccec6777141941c6e0ea7620586b12b58d56ea52fc  # Required
+    - crds: # Jekyll _data folder identifier - Required
+        space: 6xtqh9zzbhsk                   # Required
+        access_token: d47a0d6ca1eed38cc63f08e336f2979d60535b6f9dea06cf993c6085957552ad  # Required
         # cda_query:                  # Optional
         #   include: 2
         #   limit: 100
@@ -54,15 +54,10 @@ contentful:
 page_gen-dirs: true
 page_gen:
   - index_files: true
-    data: 'tsc.post'
+    data: 'crds.post'
     template: 'post'
     name: 'slug'
     dir: 'blog'
-  - index_files: true 
-    data: 'tsc.page'
-    template: 'page'
-    name: 'slug'
-    dir: ''
 
 # Server Config options
 # livereload: true
