@@ -4,7 +4,7 @@ layout: default
 
   <!-- Content
   ============================================= -->
-    
+
   <article class="single-post nobottommargin" itemscope itemtype="http://schema.org/BlogPosting">
     <div class="container">
       <div class="row">
@@ -41,7 +41,7 @@ layout: default
         <img src="{{ page.featured_image.url }}" alt="{{ page.featured_image.title }}">
       </a>
     </div>
-    <!-- .entry-image end -->    
+    <!-- .entry-image end -->
 
     <div class="container">
       <div class="row">
@@ -51,7 +51,7 @@ layout: default
           ============================================= -->
           <main>
             <div class="entry-content notopmargin" itemprop="articleBody">
-              {{ page.body | markdownify }}
+              {{ page.content | markdownify }}
               <!-- Post Single - Content End -->
             </div>
           </main>
