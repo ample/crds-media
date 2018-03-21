@@ -55,7 +55,7 @@ page_gen-dirs: true
 page_gen:
   - index_files: true
     data: 'crds.post'
-    template: 'post'
+    template: 'article'
     name: 'slug'
     dir: 'blog'
 

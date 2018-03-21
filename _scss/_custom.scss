@@ -4,10 +4,6 @@
 
 // _publication.scss
 .publication {
-  .publication_series {
-    font-size: 16px;
-  }
-
   .publication_hero--video {
     height: 56.25vw;
     max-height: 720px;
@@ -32,22 +28,13 @@
 }
 
 .article {
+  p {
+    line-height: 1.55;
+    margin-bottom: 1rem;
+  }
   .article_inlineImg,
   .article_fullImg {
     margin-bottom: 1rem;
-  }
-  .article_para {
-    font-size: 17px;
-    line-height: 1.55;
-    margin-bottom: 1.5rem;
-  }
-  .article_blockquote {
-    padding: 24px;
-    border-left: 4px solid $cr-cyan;
-    border-top: 0;
-    border-right: 0;
-    border-bottom: 0;
-    font-size: 32px;
   }
   .article_authorBlock {
     display: flex;
@@ -119,6 +106,14 @@
     transform: translateY(-20%);
     background-color: $cr-white;
 
+    .card-title {
+      font-size: 1.75rem;
+
+      @media screen and (min-width: 480px) {
+        font-size:2.0125rem
+      }
+    }
+
     .card-author {
       color: $cr-gray-dark;
     }
@@ -168,11 +163,10 @@
     @media (min-width: 767px) {
       width: fit-content;
     }
-  }
-
-  .card-title {
-    @media (min-width: 767px) {
-      font-size: 3.4375rem;          
-    }  
+    .card-title {
+      @media (min-width: 767px) {
+        font-size: 3.4375rem;        
+      }  
+    }
   }
 }

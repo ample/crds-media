@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-
 <div class="jumbotron jumbotron--tall bg-blue">
   <div class="container">
     <h1 class="section-header text-white">Hot, Fresh Words Written For You</h1>
@@ -12,7 +11,8 @@ layout: default
   {% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
   {% assign sorted = site.data.crds.post %}
   {% assign featured = sorted | first %}
-  <div class="card card--feature card--article">
+  {% assign unfeatured = sorted | slice:1, sorted.size %}
+  <div class="card card--article card--feature">
     <a href="/blog/{{ featured.slug }}">
       <div class="card-bgImage" style="background-image: url('{{ featured.featured_image.url }}');"></div>
       <div class="card-block">
@@ -29,7 +29,7 @@ layout: default
     </a>
   </div>
   <div data-card-deck class="card-deck card-deck--expanded-layout card-deck--wrap">
-    {% for post in sorted %}
+    {% for post in unfeatured %}
       <div class="card card--article">
         <a href="/blog/{{ post.slug }}">
           <div class="card-bgImage" style="background-image: url('{{ post.featured_image.url }}');"></div>
