@@ -29,6 +29,8 @@ module Jekyll
         doc.data['layout'] = 'post'
         doc.data['date'] = published_at
         doc.data['slug'] = slug
+        doc.data['featured_image'] = post['featured_image']
+        doc.data['author'] = post['author_name']
 
         site.posts.docs << doc
       end

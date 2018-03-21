@@ -15,15 +15,15 @@ layout: default
   {% assign unfeatured = sorted | slice:1, sorted.size %}
   <div class="card card--article card--feature">
     <a href="{{ featured.url }}">
-      <div class="card-bgImage" style="background-image: url('{{ featured.featured_image.url }}');"></div>
+      <div class="card-bgImage" style="background-image: url('{{ featured.featured_image }}');"></div>
       <div class="card-block">
         <h4 class="card-title font-family-condensed-extra text-uppercase">{{ featured.title }}</h4>
         <p class="card-text soft-quarter-top flush-bottom">
           <a class="card-author">
-            {{ featured.author.full_name }}
+            {{ featured.author }}
           </a> |
           <span class="card-date">
-              {{ featured.published_date | date: date_format }}
+              {{ featured.date | date: date_format }}
           </span>
         </p>
       </div>
@@ -33,12 +33,12 @@ layout: default
     {% for post in unfeatured %}
       <div class="card card--article">
         <a href="{{ post.url }}">
-          <div class="card-bgImage" style="background-image: url('{{ post.featured_image.url }}');"></div>
+          <div class="card-bgImage" style="background-image: url('{{ post.featured_image }}');"></div>
           <div class="card-block">
             <h4 class="card-title font-family-condensed-extra text-uppercase">{{ post.title }}</h4>
-            <p class="card-text"><a class="card-author">{{ post.author.full_name }}</a> |
+            <p class="card-text"><a class="card-author">{{ post.author }}</a> |
               <span class="card-date">
-                {{ post.published_date | date: date_format }}
+                {{ post.date | date: date_format }}
               </span>
             </p>
           </div>
