@@ -20,7 +20,7 @@ module Jekyll
       blog.posts.each do |post|
         properties = post.instance_variable_get('@properties')
 
-        published_at = DateTime.strptime post.instance_variable_get('@properties')['publish_date'].to_s, '%s'
+        published_at = DateTime.strptime post.instance_variable_get('@properties')['publish_date'].to_s[0..9], '%s'
         slug = properties['slug'].sub(/blog\//,'')
 
         doc = HubspotPost.new("_posts/#{published_at.strftime('%Y-%m-%d')}-#{slug}.md", site: site, collection: site.posts)
