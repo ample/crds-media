@@ -1,11 +1,17 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (5.1.5)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (~> 0.7)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     coderay (1.1.2)
     colorator (1.1.0)
     concurrent-ruby (1.0.5)
+    dotenv (2.2.1)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -13,6 +19,11 @@ GEM
     ffi (1.9.18)
     forwardable-extended (2.6.0)
     http_parser.rb (0.6.0)
+    httparty (0.16.1)
+      multi_xml (>= 0.5.2)
+    hubspot-ruby (0.4.0)
+      activesupport (>= 3.0.0)
+      httparty (>= 0.10.0)
     i18n (0.9.3)
       concurrent-ruby (~> 1.0)
     jekyll (3.7.2)
@@ -44,6 +55,8 @@ GEM
       ruby_dep (~> 1.2)
     mercenary (0.3.6)
     method_source (0.9.0)
+    minitest (5.11.3)
+    multi_xml (0.6.0)
     pathutil (0.16.1)
       forwardable-extended (~> 2.6)
     pry (0.11.3)
@@ -61,11 +74,16 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
+    thread_safe (0.3.6)
+    tzinfo (1.2.5)
+      thread_safe (~> 0.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
+  hubspot-ruby
   jekyll (~> 3.7.2)
   jekyll-feed (~> 0.6)
   jekyll-redirect-from
