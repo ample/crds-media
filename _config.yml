@@ -10,7 +10,7 @@ plugins:
   - jekyll-redirect-from
 
 sass:
-  sass_dir: _sass
+  sass_dir: _scss
 
 # livereload: true
 # reload_port: 4300

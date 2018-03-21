@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
-<head>
-  {% include head.html %}
-</head>
-<body>
-  <div class="container push-bottom">
+
+  <head>
+    {% include head.html %}
+  </head>
+
+  <body>
+    {% include header.html %}
     {{ content }}
-  </div>
-  {% include footer.html %}
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-</body>
+    {% include footer.html %}
+    {% include shared-header-script.html %}
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5391d6a6145291c4"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </body>
 </html>
