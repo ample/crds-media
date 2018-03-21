@@ -2,7 +2,6 @@ require 'dotenv/load'
 require 'pry'
 require 'jekyll'
 require 'hubspot-ruby'
-# require 'hashie'
 
 module Jekyll
 
