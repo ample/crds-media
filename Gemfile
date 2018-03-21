@@ -2,6 +2,9 @@ source "https://rubygems.org"
 
 gem "jekyll", "~> 3.7.2"
 gem "pry"
+gem "dotenv"
+gem "hubspot-ruby"
+gem "hashie"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do

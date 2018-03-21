@@ -1,5 +1,8 @@
+require 'dotenv/load'
 require 'pry'
 require 'jekyll'
+require 'hubspot-ruby'
+# require 'hashie'
 
 module Jekyll
 
@@ -11,15 +14,26 @@ module Jekyll
 
   class HubspotGenerator < Generator
     def generate(site)
-      doc = HubspotPost.new('_posts/2018-03-21-something.md', site: site, collection: site.posts)
 
-      doc.data['title'] = 'This is a test'
-      doc.data['layout'] = 'post'
-      doc.data['date'] = Time.now
-      doc.data['slug'] = 'this-is-a-test'
-      doc.content = 'Curabitur blandit tempus porttitor.'
+      Hubspot.configure(hapikey: ENV['HUBSPOT_API'])
 
-      site.posts.docs << doc
+      blog = Hubspot::Blog.find_by_id ENV['HUBSPOT_BLOG_ID']
+      blog.posts.each do |post|
+        properties = post.instance_variable_get('@properties')
+
+        published_at = DateTime.strptime post.instance_variable_get('@properties')['publish_date'].to_s, '%s'
+        slug = properties['slug'].sub(/blog\//,'')
+
+        doc = HubspotPost.new("_posts/#{published_at.strftime('%Y-%m-%d')}-#{slug}.md", site: site, collection: site.posts)
+        doc.data['title'] = properties['title']
+        doc.content = properties['post_body']
+        doc.data['layout'] = 'post'
+        doc.data['date'] = published_at
+        doc.data['slug'] = slug
+
+        site.posts.docs << doc
+      end
+
     end
   end
 
