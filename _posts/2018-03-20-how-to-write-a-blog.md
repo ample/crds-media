@@ -1,6 +1,6 @@
 ---
 title: Fusce dapibus fermentum massa
-layout: blog
+layout: post
 ---
 
 Tellus ac cursus commodo, tortor mauris condimentum nibh, ut  justo sit amet risus. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.

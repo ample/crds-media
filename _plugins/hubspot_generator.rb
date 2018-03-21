@@ -14,7 +14,7 @@ module Jekyll
       doc = HubspotPost.new('_posts/2018-03-21-something.md', site: site, collection: site.posts)
 
       doc.data['title'] = 'This is a test'
-      doc.data['layout'] = 'blog'
+      doc.data['layout'] = 'post'
       doc.data['date'] = Time.now
       doc.data['slug'] = 'this-is-a-test'
       doc.content = 'Curabitur blandit tempus porttitor.'
