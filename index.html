@@ -15,7 +15,7 @@ layout: default
   {% assign unfeatured = sorted | slice:1, sorted.size %}
   <div class="card card--article card--feature">
     <a href="{{ featured.url }}">
-      <div class="card-bgImage" style="background-image: url('{{ featured.featured_image }}');"></div>
+      <div class="card-bgImage bgCenter" style="background-image: url('{{ featured.featured_image }}');"></div>
       <div class="card-block">
         <h4 class="card-title font-family-condensed-extra text-uppercase">{{ featured.title }}</h4>
         <p class="card-text soft-quarter-top flush-bottom">
@@ -33,7 +33,7 @@ layout: default
     {% for post in unfeatured %}
       <div class="card card--article">
         <a href="{{ post.url }}">
-          <div class="card-bgImage" style="background-image: url('{{ post.featured_image }}');"></div>
+          <div class="card-bgImage sixteen-nine" style="background-image: url('{{ post.featured_image }}');"></div>
           <div class="card-block">
             <h4 class="card-title font-family-condensed-extra text-uppercase">{{ post.title }}</h4>
             <p class="card-text"><a class="card-author">{{ post.author }}</a> |

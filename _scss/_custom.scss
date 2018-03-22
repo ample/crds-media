@@ -91,15 +91,19 @@
   }
 }
 
-.card--article {
-  .card-bgImage {
-    width: 100%;
-    // keep at 16/9 aspect ratio
+.card-bgImage {
+  width: 100%;
+  background-size: cover;
+  &.sixteen-nine {
     padding-bottom: 56.25%;
-    background-size: cover;
+    height: 0;
+  }
+  &.bgCenter {
     background-position: center;
   }
-  
+}
+
+.card--article {
   .card-block {
     padding: .5rem;
     margin-right: 2rem;
