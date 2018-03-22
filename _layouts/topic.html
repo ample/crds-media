@@ -1,7 +1,10 @@
 ---
 layout: default
 ---
+
 {% assign topic_name = page.name %}
+{% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
+
 <div class="container">
   <h2 class="section-header">{{ topic_name }}</h2>
   <div data-card-deck class="card-deck card-deck--expanded-layout card-deck--wrap">

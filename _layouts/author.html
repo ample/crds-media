@@ -5,6 +5,8 @@ layout: default
 {% assign author_bio = page.content %}
 {% assign author_img = page.image %}
 
+{% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
+
 <div class="container">
   <div class="media push-bottom">
     <div class="media-img-wrapper" style="align-items: center;">
