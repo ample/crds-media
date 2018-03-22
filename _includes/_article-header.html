@@ -7,10 +7,10 @@
             </h5> -->
       <h2 class="publication_title section-header flush-top push-half-bottom">{{ page.title | escape }}</h2>
       <div>
-        <span class="publication_series text-gray-light">{{ page.author.full_name }}</span> |
+        <span class="publication_series text-gray-light">{{ page.author }}</span> |
         <span class="article_date">
           {% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
-          {{ page.published_date | date: date_format }}
+          {{ page.date | date: date_format }}
         </span>
       </div>
     </div>
