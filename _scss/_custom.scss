@@ -90,20 +90,20 @@
     padding-bottom: 280px;
   }
 }
+.card--layered {
 
-.card-bgImage {
-  width: 100%;
-  background-size: cover;
-  &.sixteen-nine {
-    padding-bottom: 56.25%;
-    height: 0;
+  .card-bgImage {
+    width: 100%;
+    background-size: cover;
+    &.sixteen-nine {
+      padding-bottom: 56.25%;
+      height: 0;
+    }
+    &.bgCenter {
+      background-position: center;
+    }
   }
-  &.bgCenter {
-    background-position: center;
-  }
-}
 
-.card--article {
   .card-block {
     padding: .5rem;
     margin-right: 2rem;
@@ -132,7 +132,7 @@
   }
 }
 
-.card-deck--expanded-layout .card--article {
+.card-deck--expanded-layout .card--layered {
   margin-bottom: 0;
 
   @media (min-width: 570px) {
