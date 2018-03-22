@@ -1,0 +1,22 @@
+---
+layout: default
+permalink: /topics/index.html
+---
+
+<div class="container">
+  <h2 class="section-header">Topics</h2>
+  <div data-card-deck class="card-deck card-deck--expanded-layout card-deck--wrap">
+    {% for topic in site.topics %}
+      <div class="card">
+        <a href="/topics/{{ topic.link }}">
+          <div class="card-bgImage sixteen-nine" style="background-image: url('{{ topic.image }}');"></div>
+          <div class="card-block">
+            <h4 class="card-title font-family-condensed-extra text-uppercase">{{ topic.name }}</h4>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+  
