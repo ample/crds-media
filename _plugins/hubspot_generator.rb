@@ -30,8 +30,8 @@ module Jekyll
         doc.data['date'] = published_at
         doc.data['slug'] = slug
         doc.data['featured_image'] = post['featured_image']
-        doc.data['author'] = post['author_name']
-
+        doc.data['author'] = post['blog_post_author']['display_name']
+        
         site.posts.docs << doc
       end
 
