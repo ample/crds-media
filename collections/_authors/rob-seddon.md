@@ -1,7 +1,7 @@
 ---
 layout: author
+permalink: /authors/rob-seddon/
 name: Rob Seddon
-link: rob-seddon/
 posts: 0
 image: https://miro.medium.com/fit/c/160/160/1*PlLSyU1L2w0KTqlBDwqNDA.jpeg
 ---

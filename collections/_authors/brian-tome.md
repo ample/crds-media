@@ -1,7 +1,7 @@
 ---
 layout: author
+permalink: /authors/brian-tome/
 name: Brian Tome
-link: brian-tome/
 posts: 1
 image: https://miro.medium.com/fit/c/160/160/1*cSAYRIzpcfpWgat5fKXhgw.jpeg
 ---

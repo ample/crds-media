@@ -1,6 +1,5 @@
 ---
 layout: default
-permalink: /authors/index.html
 ---
 
 <div class="container">
@@ -8,7 +7,7 @@ permalink: /authors/index.html
   <div data-card-deck class="card-deck card-deck--expanded-layout card-deck--wrap">
     {% for author in site.authors %}
     <div class="card card--layered">
-        <a href="/authors/{{ author.link }}">
+        <a href="{{ author.permalink }}">
           <div class="card-bgImage sixteen-nine" style="background-image: url('{{ author.image }}');"></div>
           <div class="card-block">
             <h4 class="card-title text-uppercase font-family-condensed-extra">{{ author.name }}</h4>
