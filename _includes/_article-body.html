@@ -18,6 +18,7 @@
     </div>
     <div class="col-md-8 font-size-base" id="scrollDistance" style="line-height: 1.55;">
       {{ page.content | markdownify }}
+      {% include _author-bio.html %}
     </div>
   </div>
 </article>

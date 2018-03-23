@@ -1,32 +1,21 @@
 ---
 layout: default
 ---
-{% assign author_name = page.name %}
-{% assign author_bio = page.content %}
-{% assign author_img = page.image %}
-
 {% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
+{% assign author = site.authors | where:"name", page.name | first %}
 
 <div class="container">
-  <div class="media push-bottom">
-    <div class="media-img-wrapper" style="align-items: center;">
-      <img class="media-object-default img-circle media-object img-size-5" src="{{ author_img }}" />
-    </div>
-    <div class="media-body" style="max-width: 640px;">
-      <h2 class="component-header">{{ author_name }}</h2>
-      {{ author_bio }}
-    </div>
-  </div>
-
+  {% include _author-bio.html %}
   <div data-card-deck class="card-deck card-deck--expanded-layout card-deck--wrap">
     {% for post in site.posts %}
-      {% if post.author == author_name %}
+      {% if post.author == author.name %}
         <div class="card card--layered">
           <a href="{{ post.url }}">
             <div class="card-bgImage sixteen-nine bgCenter" style="background-image: url('{{ post.featured_image }}');"></div>
             <div class="card-block">
               <h4 class="card-title font-family-condensed-extra text-uppercase">{{ post.title }}</h4>
-              <p class="card-text"><a class="card-author">{{ post.author }}</a> |
+              <p class="card-text">
+                <a href="{{ author.permalink }}">{{ post.author }}</a> |
                 <span class="card-date">
                   {{ post.date | date: date_format }}
                 </span>
