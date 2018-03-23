@@ -2,31 +2,6 @@
   flex-wrap: wrap;
 }
 
-// _publication.scss
-.publication {
-  .publication_hero--video {
-    height: 56.25vw;
-    max-height: 720px;
-
-    .jumbotron {
-      height: 100%;
-    }
-
-    .jumbotron-content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-    }
-  }
-
-  .publication_stickyContent {
-    position: sticky;
-    top: 1rem;
-    margin-bottom: 1rem;
-  }
-}
-
 .article {
   p {
     line-height: 1.55;
@@ -91,7 +66,6 @@
   }
 }
 .card--layered {
-
   .card-bgImage {
     width: 100%;
     background-size: cover;
@@ -158,6 +132,7 @@
   }
 
   .card-bgImage {
+    padding-bottom: 56.25%; 
     @media (min-width: 767px) {
       padding-bottom: 40%;
     }
