@@ -1,16 +1,15 @@
+{% assign author = site.authors | where:"name", page.author | first %}
+
 <div class="publication_header push-top">
   <div class="container">
     <div class="col-md-6 col-md-offset-3">
-      <!--
-            <h5 class="publication_meta metadata flush"><%= assigns[:article]["topic"] %> -
-                <span class="publication_duration"><%= assigns[:article]["duration"] %></span>
-            </h5> -->
+      <h5 class="publication_meta metadata flush">{{ page.topic }}</h5>
       <h2 class="publication_title section-header flush-top push-half-bottom">{{ page.title | escape }}</h2>
       <div>
-        <span class="publication_series text-gray-light">{{ page.author.full_name }}</span> |
+        <a href="{{ author.permalink }}">{{ page.author }}</a> |
         <span class="article_date">
           {% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
-          {{ page.published_date | date: date_format }}
+          {{ page.date | date: date_format }}
         </span>
       </div>
     </div>

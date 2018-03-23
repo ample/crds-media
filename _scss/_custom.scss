@@ -90,16 +90,20 @@
     padding-bottom: 280px;
   }
 }
+.card--layered {
 
-.card--article {
   .card-bgImage {
     width: 100%;
-    // keep at 16/9 aspect ratio
-    padding-bottom: 56.25%;
     background-size: cover;
-    background-position: center;
+    &.sixteen-nine {
+      padding-bottom: 56.25%;
+      height: 0;
+    }
+    &.bgCenter {
+      background-position: center;
+    }
   }
-  
+
   .card-block {
     padding: .5rem;
     margin-right: 2rem;
@@ -128,7 +132,7 @@
   }
 }
 
-.card-deck--expanded-layout .card--article {
+.card-deck--expanded-layout .card--layered {
   margin-bottom: 0;
 
   @media (min-width: 570px) {
