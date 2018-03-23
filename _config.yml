@@ -8,6 +8,7 @@ markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-redirect-from
+  - jekyll-hubspot
 
 sass:
   sass_dir: _scss

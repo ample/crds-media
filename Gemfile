@@ -5,8 +5,9 @@ gem "pry"
 gem "dotenv"
 gem "hubspot-ruby"
 
-# If you have any plugins, put them here!
 group :jekyll_plugins do
+  # gem "jekyll-hubspot", "~> 0.0.1", path: File.join(File.dirname(__FILE__), "../jekyll-hubspot")
+  gem "jekyll-hubspot", "~> 0.0.1", git: 'https://github.com/crdschurch/jekyll-hubspot.git'
   gem "jekyll-feed", "~> 0.6"
   gem 'jekyll-redirect-from'
 end
