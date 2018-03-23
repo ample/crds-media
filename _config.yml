@@ -4,6 +4,8 @@ description: No matter what your beliefs, you are welcome here.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.crossroads.net" # the base hostname & protocol for your site, e.g. http://example.com
 
+permalink: pretty
+
 markdown: kramdown
 plugins:
   - jekyll-feed
@@ -25,6 +27,8 @@ exclude:
 include:
   - _redirects
 
+collections_dir: collections
+
 collections:
   topics:
     output: true
@@ -32,8 +36,6 @@ collections:
   authors:
     output: true
     permalink: /authors/:path/
-
-collections_dir: collections
 
 defaults:
   - scope:
