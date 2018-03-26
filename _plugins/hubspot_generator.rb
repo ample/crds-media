@@ -34,8 +34,6 @@ module Jekyll
         
         site.posts.docs << doc
       end
-
     end
   end
-
 end

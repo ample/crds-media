@@ -1,0 +1,14 @@
+<div class="card card--layered card--feature">
+  <a href="{{ featured.url }}">
+    <div class="card-bgImage bgCenter" style="background-image: url('{{ featured.featured_image }}');"></div>
+    <div class="card-block">
+      <h4 class="card-title font-family-condensed-extra text-uppercase">{{ featured.title }}</h4>
+      <p class="card-text soft-quarter-top flush-bottom">
+        <a href="{{ featured_author.permalink }}">{{ featured.author }}</a> |
+        <span class="card-date">
+          {{ featured.date | date: date_format }}
+        </span>
+      </p>
+    </div>
+  </a>
+</div>
