@@ -1,14 +1,30 @@
-<!-- Pagination links -->
 {% if paginator.total_pages > 1 %}
 <div class="pagination text-center" style="width: 100%;">
   {% if paginator.previous_page %}
     <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
+  {% else %}
+    <span style="color:#979797">Previous</span>
   {% endif %}
-  <span class="page_number ">{{ paginator.page }} of {{ paginator.total_pages }}</span>
+  <div class="page-numbers">
+    {% assign total = paginator.total_pages %}
+    {% for number in (1..total) %}
+      {% if number == 1 and number == paginator.page %}
+        <a class="page-number active" href="/">1</a>
+      {% elsif number == 1%}
+        <a class="page-number" href="/">1</a>
+      {% endif %}
+      
+      {% if number == paginator.page and number != 1 %}
+        <a class="page-number active" href="/page{{ number }}">{{ number }}</a>
+      {% elsif number != 1 %}
+        <a class="page-number" href="/page{{ number }}">{{ number }}</a>
+      {% endif %}
+    {% endfor %}
+  </div>
   {% if paginator.next_page %}
     <a href="{{ paginator.next_page_path }}" class="next">Next</a>
   {% else %}
-    <span class="next ">Next</span>
+    <span style="color:#979797">Next</span>
   {% endif %}
 </div>
 {% endif %}

@@ -12,7 +12,7 @@ plugins:
   - jekyll-redirect-from
   - jekyll-paginate
 
-paginate: 24
+paginate: 8
 paginate_path: "/page:num/"
 
 sass:
