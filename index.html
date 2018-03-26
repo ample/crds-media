@@ -12,9 +12,6 @@ subheading: Welcome to the information buffet. Reading is free, but taking actio
 
 <div class="container">
   {% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
-  {% assign featured = site.posts | first %}
-  {% assign featured_author = site.authors | where:"name", featured.author | first %}
-  {% assign unfeatured = paginator.posts | slice:1, paginator.posts.size %}
 
   <div data-card-deck class="card-deck card-deck--expanded-layout card-deck--wrap">
     {% for post in paginator.posts %}
