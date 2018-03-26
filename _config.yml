@@ -10,6 +10,10 @@ markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-redirect-from
+  - jekyll-paginate
+
+paginate: 24
+paginate_path: "/page:num/"
 
 sass:
   sass_dir: _scss

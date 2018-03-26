@@ -3,7 +3,7 @@ layout: default
 heading: Fresh, Hot Words Written For You
 subheading: Welcome to the information buffet. Reading is free, but taking action is gonna cost you. Dig in.
 ---
-<div class="jumbotron jumbotron--tall bg-blue">
+<div class="jumbotron bg-blue">
   <div class="container">
     <h1 class="section-header text-white">{{ page.heading }}</h1>
     <p style="max-width: 640px; margin-left: auto; margin-right: auto; font-weight: 300;">{{ page.subheading }}</p>
@@ -12,33 +12,22 @@ subheading: Welcome to the information buffet. Reading is free, but taking actio
 
 <div class="container">
   {% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
-  {% assign sorted = site.posts %}
-  {% assign featured = sorted | first %}
+  {% assign featured = site.posts | first %}
   {% assign featured_author = site.authors | where:"name", featured.author | first %}
-  {% assign unfeatured = sorted | slice:1, sorted.size %}
+  {% assign unfeatured = paginator.posts | slice:1, paginator.posts.size %}
 
-  <div class="card card--layered card--feature">
-    <a href="{{ featured.url }}">
-      <div class="card-bgImage bgCenter" style="background-image: url('{{ featured.featured_image }}');"></div>
-      <div class="card-block">
-        <h4 class="card-title font-family-condensed-extra text-uppercase">{{ featured.title }}</h4>
-        <p class="card-text soft-quarter-top flush-bottom">
-          <a href="{{ featured_author.permalink }}">{{ featured.author }}</a> |
-          <span class="card-date">
-              {{ featured.date | date: date_format }}
-          </span>
-        </p>
-      </div>
-    </a>
-  </div>
   <div data-card-deck class="card-deck card-deck--expanded-layout card-deck--wrap">
-    {% for post in unfeatured %}
+    {% for post in paginator.posts %}
       {% assign author = site.authors | where:"name", post.author | first %}
+      {% assign topic = site.topics | where:"name", post.topic | first %}
       <div class="card card--layered">
         <a href="{{ post.url }}">
           <div class="card-bgImage sixteen-nine" style="background-image: url('{{ post.featured_image }}');"></div>
           <div class="card-block">
-            <h4 class="card-title font-family-condensed-extra text-uppercase">{{ post.title }}</h4>
+            {% if topic %}
+            <h5 class="publication_meta metadata push-quarter-ends">{{ topic.name }}</h5>
+            {% endif %}
+            <h4 class="card-title font-family-condensed-extra text-uppercase flush-top">{{ post.title }}</h4>
             <p class="card-text">
               <a href="{{ author.permalink }}">{{ post.author }}</a> |
               <span class="card-date">
@@ -50,4 +39,5 @@ subheading: Welcome to the information buffet. Reading is free, but taking actio
       </div>
     {% endfor %}
   </div>
+  {% include _pagination.html %}
 </div>
