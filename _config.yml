@@ -38,6 +38,29 @@ collections:
     output: true
     permalink: /authors/:path/
 
+hubspot:
+  topics:
+    layout: topic
+    properties:
+      name: name
+      content: description
+      link: slug
+  posts:
+    layout: post
+    properties:
+      title: title
+      content: post_body
+      featured_image: featured_image
+      author: blog_post_author/display_name
+      date: publish_date
+  authors:
+    layout: author
+    properties:
+      content: bio
+      title: displayName
+      name: displayName
+      image: avatar
+
 defaults:
   - scope:
       path: "/topics/"
@@ -49,3 +72,4 @@ defaults:
       type: authors
     values:
       layout: author
+

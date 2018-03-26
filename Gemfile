@@ -3,7 +3,7 @@ source "https://rubygems.org"
 gem "jekyll", "~> 3.7.2"
 gem "pry"
 gem "dotenv"
-gem "hubspot-ruby"
+gem "hubspot-ruby", "~> 0.4.0", git: "https://github.com/ample/hubspot-ruby.git"
 
 group :jekyll_plugins do
   # gem "jekyll-hubspot", "~> 0.0.1", path: File.join(File.dirname(__FILE__), "../jekyll-hubspot")

@@ -1,6 +1,14 @@
 GIT
+  remote: https://github.com/ample/hubspot-ruby.git
+  revision: b50f8db2133ab1ce8278a5addcdc64ec5f0999fc
+  specs:
+    hubspot-ruby (0.4.0)
+      activesupport (>= 3.0.0)
+      httparty (>= 0.10.0)
+
+GIT
   remote: https://github.com/crdschurch/jekyll-hubspot.git
-  revision: 5c3f8df5e5ff882e16aec04b7b34c0a10a8dbd4c
+  revision: 98906cd85334e550b22c344e60970b7375fde979
   specs:
     jekyll-hubspot (0.0.1)
       dotenv
@@ -30,9 +38,6 @@ GEM
     http_parser.rb (0.6.0)
     httparty (0.16.1)
       multi_xml (>= 0.5.2)
-    hubspot-ruby (0.4.0)
-      activesupport (>= 3.0.0)
-      httparty (>= 0.10.0)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     jekyll (3.7.3)
@@ -92,7 +97,7 @@ PLATFORMS
 
 DEPENDENCIES
   dotenv
-  hubspot-ruby
+  hubspot-ruby (~> 0.4.0)!
   jekyll (~> 3.7.2)
   jekyll-feed (~> 0.6)
   jekyll-hubspot (~> 0.0.1)!
