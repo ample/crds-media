@@ -1,0 +1,5 @@
+{% assign words = page.content | number_of_words %}
+{% assign read_time = words | divided_by: 184 %}
+{% if read_time > 0 %}
+  <span class="read-time font-size-small push-quarter-ends">{{ read_time }} minute read</span>
+{% endif %}
