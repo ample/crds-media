@@ -4,6 +4,7 @@ description: No matter what your beliefs, you are welcome here.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.crossroads.net" # the base hostname & protocol for your site, e.g. http://example.com
 
+# disable_hubspot: true
 permalink: pretty
 
 markdown: kramdown
@@ -33,15 +34,16 @@ collections_dir: collections
 collections:
   topics:
     output: true
-    permalink: /topics/:path/
+    permalink: /topics/:path
   authors:
     output: true
-    permalink: /authors/:path/
+    permalink: /authors/:path
 
 hubspot:
   topics:
     layout: topic
     properties:
+      id: id
       name: name
       content: description
       link: slug
@@ -53,6 +55,7 @@ hubspot:
       featured_image: featured_image
       author: blog_post_author/display_name
       date: publish_date
+      topic: topics
   authors:
     layout: author
     properties:

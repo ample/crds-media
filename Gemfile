@@ -6,7 +6,7 @@ gem "dotenv"
 gem "hubspot-ruby", "~> 0.4.0", git: "https://github.com/ample/hubspot-ruby.git"
 
 group :jekyll_plugins do
-  # gem "jekyll-hubspot", "~> 0.0.1", path: File.join(File.dirname(__FILE__), "../jekyll-hubspot")
+  #gem "jekyll-hubspot", "~> 0.0.1", path: File.join(File.dirname(__FILE__), "../jekyll-hubspot")
   gem "jekyll-hubspot", "~> 0.0.1", git: 'https://github.com/crdschurch/jekyll-hubspot.git'
   gem "jekyll-feed", "~> 0.6"
   gem 'jekyll-redirect-from'
