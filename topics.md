@@ -9,7 +9,7 @@ permalink: /topics/index.html
     {% for topic in site.topics %}
       <div class="card card--layered">
         <a href="/topics/{{ topic.link }}">
-          <div class="card-bgImage sixteen-nine bgCenter" style="background-image: url('{{ topic.image }}');"></div>
+         <div class="card-bgImage sixteen-nine bgCenter" style="background-image: url('/images/default_card.jpg');"></div>
           <div class="card-block">
             <h4 class="card-title font-family-condensed-extra text-uppercase">
               {{ topic.name }}
