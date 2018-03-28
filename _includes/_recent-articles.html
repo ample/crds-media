@@ -18,6 +18,22 @@
             </div>
           </a>
         </div>
+      {% else %}
+      {% assign fifth = site.posts[5] %}
+        <div class="card card--layered">
+          <a href="{{ fifth.url }}">
+            <div class="card-bgImage sixteen-nine" style="background-image: url('{{ fifth.featured_image }}');"></div>
+            <div class="card-block">
+              <h4 class="card-title font-family-condensed-extra text-uppercase">{{ fifth.title }}</h4>
+              <p class="card-text">
+                <a href="{{ author.permalink }}">{{ fifth.author }}</a> |
+                <span class="card-date">
+                  {{ fifth.date | date: date_format }}
+                </span>
+              </p>
+            </div>
+          </a>
+        </div>
       {% endif %}
     {% endfor %}
   </div>
