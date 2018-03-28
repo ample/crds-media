@@ -32,7 +32,7 @@ include:
 collections_dir: collections
 
 collections:
-  topics:
+  blogs:
     output: true
     permalink: /topics/:path
   authors:
@@ -40,13 +40,12 @@ collections:
     permalink: /authors/:path
 
 hubspot:
-  topics:
+  blogs:
     layout: topic
     properties:
       id: id
-      name: name
+      title: name
       content: description
-      link: slug
   posts:
     layout: post
     properties:
