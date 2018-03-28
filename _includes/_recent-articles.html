@@ -2,7 +2,7 @@
   <h2 class="collection-header push-bottom">recent articles</h2>
   <div data-card-deck class="card-deck card-deck--expanded-layout card-deck--wrap">
     {% for post in site.posts | limit:4 %}
-      {% assign author = site.authors | where:"name", random_post.author | first %}
+      {% assign author = site.authors | where:"name", post.author | first %}
       <div class="card card--layered">
         <a href="{{ post.url }}">
           <div class="card-bgImage sixteen-nine" style="background-image: url('{{ post.featured_image }}');"></div>
