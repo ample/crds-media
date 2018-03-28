@@ -1,12 +1,12 @@
 {% assign author = site.authors | where:"name", page.author | first %}
 
-<div class="publication_header push-top">
+<div class="article_header push-top">
   <div class="container">
     <div class="col-md-8 col-md-offset-2">
-      <h5 class="publication_meta metadata flush">
+      <h5 class="article_meta metadata flush">
         {% include _read-time.html content=page.content %}
       </h5>
-      <h2 class="publication_title section-header flush-top push-half-bottom">{{ page.title | escape }}</h2>
+      <h2 class="article_title section-header flush-top push-half-bottom">{{ page.title | escape }}</h2>
       <div>
         <a href="{{ author.permalink }}">{{ page.author }}</a> |
         <span class="article_date">
