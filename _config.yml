@@ -53,6 +53,7 @@ hubspot:
       title: title
       content: post_body
       featured_image: featured_image
+      featured_image_alt: featured_image_alt_text
       author: blog_post_author/display_name
       date: publish_date
       topic: topics
@@ -76,3 +77,4 @@ defaults:
     values:
       layout: author
 
+disable_hubspot: true
