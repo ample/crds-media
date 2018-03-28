@@ -3,11 +3,7 @@
     <div class="card-bgImage sixteen-nine" style="background-image: url('{{ post.featured_image }}');"></div>
     <div class="card-block">
         <h5 class="publication_meta metadata flush">
-        {% assign words = post.content | number_of_words %}
-        {% assign read_time = words | divided_by: 184 %}
-        {% if read_time > 0 %}
-          <span class="read-time font-size-smaller push-quarter-ends block">{{ read_time }} minute read</span>
-        {% endif %}
+          {% include _read-time.html content=post.content %}
         </h5>
       <h4 class="card-title font-family-condensed-extra text-uppercase">{{ post.title }}</h4>
       <p class="card-text">

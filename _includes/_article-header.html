@@ -4,10 +4,7 @@
   <div class="container">
     <div class="col-md-8 col-md-offset-2">
       <h5 class="publication_meta metadata flush">
-        {% if page.topic %}
-          {{ page.topic }} -
-        {% endif %}
-        {% include _read-time.html %}
+        {% include _read-time.html content=page.content %}
       </h5>
       <h2 class="publication_title section-header flush-top push-half-bottom">{{ page.title | escape }}</h2>
       <div>
