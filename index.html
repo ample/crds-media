@@ -1,8 +1,12 @@
 ---
 layout: default
+pagination: 
+  enabled: true
 heading: Fresh, Hot Words Written For You
 subheading: Welcome to the information buffet. Reading is free, but taking action is gonna cost you. Dig in.
 ---
+{% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
+
 <div class="jumbotron bg-blue">
   <div class="container">
     <h1 class="section-header text-white">{{ page.heading }}</h1>
@@ -11,8 +15,6 @@ subheading: Welcome to the information buffet. Reading is free, but taking actio
 </div>
 
 <div class="container">
-  {% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
-
   <div data-card-deck class="card-deck card-deck--expanded-layout card-deck--wrap">
     {% for post in paginator.posts %}
       {% assign author = site.authors | where:"name", post.author | first %}
