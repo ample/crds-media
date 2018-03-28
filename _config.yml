@@ -4,6 +4,13 @@ description: No matter what your beliefs, you are welcome here.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.crossroads.net" # the base hostname & protocol for your site, e.g. http://example.com
 
+# The following items will not be processed, by default.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - README.md
+
 # disable_hubspot: true
 permalink: pretty
 
@@ -11,24 +18,20 @@ markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-redirect-from
-  - jekyll-paginate
   - jekyll-hubspot
+  - jekyll-paginate-v2
 
-paginate: 16
-paginate_path: "/page:num/"
+pagination:
+  enabled: true
+  debug: false
+  collection: 'posts'
+  per_page: 4
+  permalink: '/page/:num/'
+  sort_field: 'date'
+  sort_reverse: true
 
 sass:
   sass_dir: _scss
-
-# livereload: true
-# reload_port: 4300
-
-# The following items will not be processed, by default.
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - package.json
-  - README.md
 
 include:
   - _redirects

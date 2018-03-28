@@ -10,7 +10,7 @@ group :jekyll_plugins do
   gem "jekyll-hubspot", "~> 0.0.1", git: 'https://github.com/crdschurch/jekyll-hubspot.git'
   gem "jekyll-feed", "~> 0.6"
   gem 'jekyll-redirect-from'
-  gem 'jekyll-paginate'
+  gem 'jekyll-paginate-v2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
