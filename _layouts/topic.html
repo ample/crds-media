@@ -1,15 +1,14 @@
 ---
 layout: default
 ---
-
-{% assign topic = site.topics | where:"name", page.name | first %}
+{% assign topic = site.blogs | where:"title", page.title | first %}
 {% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
 
 <div class="container">
-  <h2 class="section-header">{{ page.name }}</h2>
+  <h2 class="section-header">{{ page.title }}</h2>
   <div data-card-deck class="card-deck card-deck--expanded-layout card-deck--wrap">
     {% for post in site.posts %}
-      {% if post.topic == topic_name %}
+      {% if post.blog == page.title %}
         {% include _article-card.html %}
       {% endif %}
     {% endfor %}
