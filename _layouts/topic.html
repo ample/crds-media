@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-{% assign topic = site.blogs | where:"title", page.title | first %}
 {% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
 
 <div class="container">
@@ -9,7 +8,7 @@ layout: default
   <div data-card-deck class="card-deck card-deck--expanded-layout card-deck--wrap">
     {% for post in site.posts %}
       {% if post.blog == page.title %}
-        {% include _article-card.html %}
+        {% include _article-card.html content_type=post %}
       {% endif %}
     {% endfor %}
   </div>
