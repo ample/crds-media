@@ -4,6 +4,13 @@ description: No matter what your beliefs, you are welcome here.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.crossroads.net" # the base hostname & protocol for your site, e.g. http://example.com
 
+# The following items will not be processed, by default.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - README.md
+
 # disable_hubspot: true
 permalink: pretty
 
@@ -12,19 +19,19 @@ plugins:
   - jekyll-feed
   - jekyll-redirect-from
   - jekyll-hubspot
+  - jekyll-paginate-v2
+
+pagination:
+  enabled: true
+  debug: false
+  collection: 'posts'
+  per_page: 8
+  permalink: '/page/:num/'
+  sort_field: 'date'
+  sort_reverse: true
 
 sass:
   sass_dir: _scss
-
-# livereload: true
-# reload_port: 4300
-
-# The following items will not be processed, by default.
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - package.json
-  - README.md
 
 include:
   - _redirects
@@ -52,6 +59,7 @@ hubspot:
       title: title
       content: post_body
       featured_image: featured_image
+      featured_image_alt: featured_image_alt_text
       author: blog_post_author/display_name
       date: publish_date
       topic: topics
