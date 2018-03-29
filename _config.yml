@@ -83,5 +83,3 @@ defaults:
       type: authors
     values:
       layout: author
-
-disable_hubspot: true
