@@ -6,15 +6,21 @@ permalink: /topics/index.html
 <div class="container">
   <h2 class="section-header">Topics</h2>
   <div data-card-deck class="card-deck card-deck--expanded-layout card-deck--wrap">
-    {% for topic in site.topics %}
+    {% for topic in site.blogs %}
       <div class="card card--layered">
-        <a href="/topics/{{ topic.link }}">
-         <div class="card-bgImage sixteen-nine bgCenter" style="background-image: url('/images/default_card.jpg');"></div>
+        <a href="{{ topic.url }}">
+          {% for item in site.posts %}
+            {% if item.blog == topic.title %}
+              {% assign post = item %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          <div class="card-bgImage sixteen-nine bgCenter" style="background-image: url('{{ post.featured_image }}');"></div>
           <div class="card-block">
             <h4 class="card-title font-family-condensed-extra text-uppercase">
-              {{ topic.name }}
+              {{ topic.title }}
             </h4>
-            <h5 class="card-subtitle">{{ topic.posts }} articles</h5>
+            <h5 class="card-subtitle">{% include _count.html key="blog" subject=topic.title label="article" %}</h5>
           </div>
         </a>
       </div>
@@ -22,4 +28,3 @@ permalink: /topics/index.html
   </div>
 </div>
 
-  

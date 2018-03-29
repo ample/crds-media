@@ -8,9 +8,9 @@ GIT
 
 GIT
   remote: https://github.com/crdschurch/jekyll-hubspot.git
-  revision: 92ab000811b9114a51e94578bbb643214efa61a6
+  revision: 0a9e4818dd0a9755fafcb8822824811b5f998abc
   specs:
-    jekyll-hubspot (0.0.1)
+    jekyll-hubspot (0.0.2)
       dotenv
       hubspot-ruby
       jekyll
