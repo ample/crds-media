@@ -6,7 +6,7 @@
       <h5 class="publication_meta metadata flush">{{ page.topic }}</h5>
       <h2 class="publication_title section-header flush-top push-half-bottom">{{ page.title | escape }}</h2>
       <div>
-        <a href="{{ author.permalink }}">{{ page.author }}</a> |
+        <a href="{{ author.url }}">{{ page.author }}</a> |
         <span class="article_date">
           {% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
           {{ page.date | date: date_format }}

@@ -23,7 +23,7 @@ subheading: Welcome to the information buffet. Reading is free, but taking actio
       <div class="card-block">
         <h4 class="card-title font-family-condensed-extra text-uppercase">{{ featured.title }}</h4>
         <p class="card-text soft-quarter-top flush-bottom">
-          <a href="{{ featured_author.permalink }}">{{ featured.author }}</a> |
+          <a href="{{ featured_author.url }}">{{ featured.author }}</a> |
           <span class="card-date">
               {{ featured.date | date: date_format }}
           </span>
@@ -40,7 +40,7 @@ subheading: Welcome to the information buffet. Reading is free, but taking actio
           <div class="card-block">
             <h4 class="card-title font-family-condensed-extra text-uppercase">{{ post.title }}</h4>
             <p class="card-text">
-              <a href="{{ author.permalink }}">{{ post.author }}</a> |
+              <a href="{{ author.url }}">{{ post.author }}</a> |
               <span class="card-date">
                 {{ post.date | date: date_format }}
               </span>
