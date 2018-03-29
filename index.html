@@ -17,8 +17,7 @@ subheading: Welcome to the information buffet. Reading is free, but taking actio
 <div class="container">
   <div data-card-deck class="card-deck card-deck--expanded-layout card-deck--wrap">
     {% for post in paginator.posts %}
-      {% assign author = site.authors | where:"name", post.author | first %}
-      {% include _article-card.html %}
+      {% include _article-card.html content_type=post %}
     {% endfor %}
   </div>
   {% include _pagination.html %}
