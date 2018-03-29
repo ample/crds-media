@@ -10,8 +10,8 @@
       </div>
       <div class="article_tags">
         <h5 class="control-label">Tags</h5>
-        {% for tag in page.topic %}
-          <span class="article_tag">{{ tag }}</span>
+        {% for tag in page.topic_names %}
+          <a href="{{ site.tag_search_url }}/search?q=tags: '{{ tag }}'" class="article_tag">{{ tag }}</a>
         {% endfor %}
       </div>
     </div>
