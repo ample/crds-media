@@ -2,6 +2,13 @@
   flex-wrap: wrap;
 }
 
+.cd_subheading {
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 300;
+}
+
 .article {
   p {
     line-height: 1.55;
@@ -80,15 +87,16 @@
 
   .card-block {
     padding: .5rem;
-    margin-right: 2rem;
-    transform: translateY(-20%);
+    margin-right: 1rem;
+    transform: translateY(-2rem);
     background-color: $cr-white;
 
     .card-title {
       font-size: 1.75rem;
+      font-weight: 500;
 
       @media screen and (min-width: 480px) {
-        font-size:2.0125rem
+        font-size: 2.0125rem;
       }
     }
 
