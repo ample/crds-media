@@ -37,7 +37,7 @@ collections:
     permalink: /topics/:path
   authors:
     output: true
-    permalink: /authors/:path
+    permalink: /:collection/:path
 
 hubspot:
   blogs:
@@ -65,8 +65,8 @@ hubspot:
 
 defaults:
   - scope:
-      path: "/topics/"
-      type: topics
+      path: "/topics"
+      type: blogs
     values:
       layout: topic
   - scope:
