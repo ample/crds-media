@@ -9,7 +9,13 @@ permalink: /topics/index.html
     {% for topic in site.blogs %}
       <div class="card card--layered">
         <a href="{{ topic.url }}">
-          <div class="card-bgImage sixteen-nine bgCenter" style="background-image: url('{{ topic.image }}');"></div>
+          {% for item in site.posts %}
+            {% if item.blog == topic.title %}
+              {% assign post = item %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          <div class="card-bgImage sixteen-nine bgCenter" style="background-image: url('{{ post.featured_image }}');"></div>
           <div class="card-block">
             <h4 class="card-title font-family-condensed-extra text-uppercase">
               {{ topic.title }}
