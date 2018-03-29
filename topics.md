@@ -14,7 +14,7 @@ permalink: /topics/index.html
             <h4 class="card-title font-family-condensed-extra text-uppercase">
               {{ topic.title }}
             </h4>
-            <h5 class="card-subtitle">{{ topic.posts }} articles</h5>
+            <h5 class="card-subtitle">{% include _count.html key="blog" subject=topic.title label="article" %}</h5>
           </div>
         </a>
       </div>
