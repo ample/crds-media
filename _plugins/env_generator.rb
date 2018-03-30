@@ -6,9 +6,9 @@ module Jekyll
       @site = site
       @site.config['env'] = ENV['JEKYLL_ENV'] || 'development'
       @site.config['shared_header'] = {
-        "cms" => "//#{env_prefix}.crossroads.net/proxy/content/",
-        "app" => "//#{env_prefix}.crossroads.net/",
-        "img" => "//#{env_prefix}.crossroads.net/proxy/gateway/api/image/profile/",
+        "cms" => "https://#{env_prefix}.crossroads.net/proxy/content/",
+        "app" => "https://#{env_prefix}.crossroads.net/",
+        "img" => "https://#{env_prefix}.crossroads.net/proxy/gateway/api/image/profile/",
         "prefix" => "#{env_prefix unless @site.config['env'] == 'production' }"
       }
     end
