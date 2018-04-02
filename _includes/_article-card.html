@@ -7,11 +7,13 @@
   <a href="{{ post.url }}">
     <div class="card-bgImage sixteen-nine" style="background-image: url('{{ post.featured_image }}');"></div>
     <div class="card-block">
-        <h5 class="card-meta metadata push-quarter-ends">
-          <a href="{{ topic.url }}">{{ topic.title }}</a> -
-          {% include _read-time.html content_type=post %}
-        </h5>
-      <h4 class="card-title font-family-condensed-extra text-uppercase">{{ post.title }}</h4>
+      <h5 class="card-meta metadata push-quarter-ends">
+        <a href="{{ topic.url }}">{{ topic.title }}</a> -
+        {% include _read-time.html content_type=post %}
+      </h5>
+      <a href="{{ post.url }}">
+        <h4 class="card-title font-family-condensed-extra text-uppercase">{{ post.title }}</h4>
+      </a>
       <p class="card-text">
         <a href="{{ author.url }}">{{ post.author }}</a> |
         <span class="card-date">
