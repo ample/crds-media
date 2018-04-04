@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/ample/hubspot-ruby.git
-  revision: b50f8db2133ab1ce8278a5addcdc64ec5f0999fc
+  revision: c8078907db1d928671570baccd7aa3ae24e99047
   specs:
-    hubspot-ruby (0.4.0)
+    hubspot-ruby (0.4.1)
       activesupport (>= 3.0.0)
       httparty (>= 0.10.0)
 

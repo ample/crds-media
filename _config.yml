@@ -3,7 +3,6 @@ email: info@crossroads.net
 description: No matter what your beliefs, you are welcome here.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.crossroads.net" # the base hostname & protocol for your site, e.g. http://example.com
-tag_search_url: "https://int.crossroads.net"
 
 # disable_hubspot: true
 permalink: pretty
