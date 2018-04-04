@@ -1,10 +1,41 @@
----
-layout: default
----
+--- layout: default ---
 
 
-          <div class="error404">404</div>
-    
-          <div class="">
-            <h4>Ooopps.! The Page you were looking for, couldn't be found.</h4>
-          </div>
+<!-- <div class="error404">404</div>
+
+<div class="">
+  <h4>Ooopps.! The Page you were looking for, couldn't be found.</h4>
+</div> -->
+
+<div class="push-top">
+  <div class="col-xs-12">
+    <h1 class="text-lowercase page-header">Oops</h1>
+    <h2 class="tagline push-bottom">We're sorry. This page doesn't seem to exist.</h2>
+  </div>
+  <div class="col-sm-6">
+    <p>Please use the navigation above or search here.</p>
+    <form role="form" action="/search">
+      <div class="form-group">
+        <div class="input-group input-group-lg" ui-sref="search" ng-click="ok($event)">
+          <input class="form-control input-lg" placeholder="Search..." name="q" type="search" />
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-blue">
+              <svg class="icon icon-1" viewbox="0 0 256 256">
+                <use xlink:href="/assets/svgs/icons.svg#search"></use>
+              </svg>
+            </button>
+          </span>
+        </div>
+      </div>
+    </form>
+    <p class="push-top" mce_advimageresize_id="Form_EditForm_Content_mce_0">
+      <strong>Still need help?</strong>
+      <br />Browse our
+      <a href="help">help section</a>,
+      <a href="mailto:websupport@crossroads.net">email us</a> or give us a call at 513‑731‑7400.</p>
+  </div>
+  <div class="col-sm-6 push-top">
+    <img class="img-responsive imgix-fluid full-width" title="404 Page Not Found Crushed Coffee Cup" data-src="//crossroads-media.imgix.net/images/coffee-cup-crushed.jpg"
+      alt="Page not found!" mce_advimageresize_id="Form_EditForm_Content_mce_1" />
+  </div>
+</div>
