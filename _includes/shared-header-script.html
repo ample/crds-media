@@ -1,5 +1,4 @@
 <script>
-  (function(){
     var options = {
         cmsEndpoint: '{{ site.shared_header.cms }}',
         appEndpoint: '{{ site.shared_header.app }}',
@@ -8,5 +7,15 @@
     };
     var header = new CRDS.SharedHeader(options);
         header.render();
-  })();
+
+    $('[data-header]').on('show.bs.dropdown', function () {
+      if (typeof imgix !== 'undefined') {
+        if (typeof imgix.VERSION !== 'undefined') {
+          // assume>= version 3
+          setTimeout(function(){ imgix.init(); }, 100);
+        } else if (typeof imgix.version !== 'undefined') {
+          setTimeout(function(){ imgix.fluid(); }, 100);
+        }
+      }
+    });
 </script>
