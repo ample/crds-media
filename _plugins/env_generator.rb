@@ -5,6 +5,7 @@ module Jekyll
     def generate(site)
       @site = site
       @site.config['env'] = ENV['JEKYLL_ENV'] || 'development'
+      @site.config['search_domain'] = ENV['SEARCH_DOMAIN'] || 'https://www.crossroads.net'
       @site.config['shared_header'] = {
         "cms" => "https://#{env_prefix}.crossroads.net/proxy/content/",
         "app" => "https://#{env_prefix}.crossroads.net/",
