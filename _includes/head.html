@@ -6,14 +6,11 @@
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ " /feed.xml " | prepend: site.baseurl | prepend: site.url }}">
 
-  <!-- Google Tag Manager
-  ============================================= -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-MFS4MJ');</script>
-  <!-- End Google Tag Manager -->
 
     <!-- Icons
   ============================================= -->
@@ -35,13 +32,11 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
 
-  <!-- Stylesheets
-	============================================= -->
   <link rel="stylesheet" href="//d1tmclqz61gqwd.cloudfront.net/styles/crds-styles-2.3.0.min.css">
-  <link rel="stylesheet" href="{{ "assets/main.css " | relative_url }}">
+  {% css_asset_tag application %}
+    - /_assets/stylesheets/application.scss
+  {% endcss_asset_tag %}
 
-  <!-- Document Title
-  ============================================= -->
   <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
   <meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
@@ -52,17 +47,15 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@triumphsc">
 
-  <!-- Analytics
-  ============================================= -->
-
-
-  <!-- Fonts
-  ============================================= -->
   <script src=https://use.typekit.net/ccb3vpa.js></script>
   <script>try { Typekit.load({ async: true }); } catch (e) { }</script>
-
-  <!-- Shared Header
-  ============================================= -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="//d1tmclqz61gqwd.cloudfront.net/javascripts/crds-shared-header-v0.6.2.min.js"></script>
+  <script>
+  var CRDS = {
+    media: {
+      cms: '{{ site.shared_header.cms }}',
+      app: '{{ site.shared_header.app }}',
+      img: '{{ site.shared_header.img }}',
+      prefix: '{{ site.shared_header.prefix }}'
+    }
+  };
+  </script>
