@@ -63,6 +63,9 @@ GEM
       sass (~> 3.4)
     jekyll-watch (2.0.0)
       listen (~> 3.0)
+    jekyll_asset_pipeline (0.6.0)
+      jekyll (~> 3.5)
+      liquid (~> 4.0)
     kramdown (1.16.2)
     liquid (4.0.0)
     listen (3.1.5)
@@ -105,7 +108,9 @@ DEPENDENCIES
   jekyll-hubspot (~> 0.0.1)!
   jekyll-paginate-v2
   jekyll-redirect-from
+  jekyll_asset_pipeline
   pry
+  sass
   tzinfo-data
 
 BUNDLED WITH
