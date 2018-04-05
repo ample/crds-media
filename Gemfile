@@ -4,6 +4,7 @@ gem "jekyll", "~> 3.7.2"
 gem "pry"
 gem "dotenv"
 gem "hubspot-ruby", "~> 0.4.0", git: "https://github.com/ample/hubspot-ruby.git"
+gem "sass"
 
 group :jekyll_plugins do
   # gem "jekyll-hubspot", "~> 0.0.1", path: File.join(File.dirname(__FILE__), "../jekyll-hubspot")
@@ -11,6 +12,7 @@ group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.6"
   gem 'jekyll-redirect-from'
   gem 'jekyll-paginate-v2'
+  gem "jekyll_asset_pipeline"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
