@@ -16,7 +16,7 @@
     "netlify-lambda": "^1.0.0-babel-7-beta"
   },
   "scripts": {
-    "copy": "cp lib/deploy.js lambda/deploy.js",
+    "copy": "mkdir -p lambda && cp lib/deploy.js lambda/deploy.js",
     "lambda-serve": "npm run copy && netlify-lambda serve lambda",
     "build": "npm run copy && netlify-lambda build lambda",
     "start": "npm run lambda-serve"
