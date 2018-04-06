@@ -64,7 +64,7 @@ hubspot:
       featured_image: featured_image
       author: blog_post_author/display_name
       date: publish_date
-      topic: topics
+      topic_names: topic_names
   authors:
     layout: author
     properties:
