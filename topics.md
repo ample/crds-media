@@ -7,7 +7,7 @@ permalink: /topics/index.html
   <h2 class="section-header">Topics</h2>
   <div data-card-deck class="card-deck card-deck--expanded-layout card-deck--wrap">
     {% for topic in site.blogs %}
-      <div class="card card--layered">
+      <div class="card">
         <a href="{{ topic.url }}">
           {% for item in site.posts %}
             {% if item.blog == topic.title %}
@@ -15,16 +15,15 @@ permalink: /topics/index.html
               {% break %}
             {% endif %}
           {% endfor %}
-          <div class="card-bgImage sixteen-nine bgCenter" style="background-image: url('{{ post.featured_image }}');"></div>
-          <div class="card-block">
-            <h4 class="card-title font-family-condensed-extra text-uppercase">
-              {{ topic.title }}
-            </h4>
-            <h5 class="card-subtitle">{% include _count.html key="blog" subject=topic.title label="article" %}</h5>
-          </div>
+          <img class="card-img-top img-responsive" src="{{ post.featured_image }}">
         </a>
+        <div class="card-block">
+          <a href="{{ topic.url }}">
+            <h4 class="card-title card-title--overlap text-uppercase">{{ topic.title }}</h4>
+          </a>
+          <h5 class="card-subtitle">{% include _count.html key="blog" subject=topic.title label="article" %}</h5>
+        </div>
       </div>
     {% endfor %}
   </div>
 </div>
-

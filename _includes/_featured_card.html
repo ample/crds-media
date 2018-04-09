@@ -1,9 +1,12 @@
-<div class="card card--feature">
+<div class="card">
   <a href="{{ featured.url }}">
-    <div class="card-bgImage bgCenter" style="background-image: url('{{ featured.featured_image }}');"></div>
+    <img class="card-img-top img-responsive" src="{{ featured.featured_image }}">
+  </a>
     <div class="card-block">
-      <h4 class="card-title font-family-condensed-extra text-uppercase">{{ featured.title }}</h4>
-      <p class="card-text soft-quarter-top flush-bottom">
+      <a href="{{ featured.url }}">
+        <h4 class="card-title card-title--overlap text-uppercase">{{ featured.title }}</h4>
+      </a>
+      <p class="card-text">
         <a href="{{ featured_author.permalink }}">{{ featured.author }}</a> |
         <span class="card-date">
           {{ featured.date | date: date_format }}
