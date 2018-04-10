@@ -5,7 +5,7 @@ layout: default
 
 <div class="container">
   <h2 class="section-header">{{ page.title }}</h2>
-  <div data-card-deck class="card-deck card-deck--expanded-layout card-deck--wrap">
+  <div data-card-deck class="card-deck card-deck--expanded-layout">
     {% for post in site.posts %}
       {% if post.blog == page.title %}
         {% include _article-card.html content_type=post %}

@@ -2,24 +2,16 @@
   .card-img-top {
     object-fit: cover;
     width: 100%;
-    max-height: 151px;
-
-    @media only screen and (min-width: 768px + 1) { // 🛠 Update value to variable $screen-sm
-      max-height: 95px;
-    }
+    max-height: 200px;
 
     @media only screen and (min-width: 992px + 1) { // 🛠 Update value to variable $screen-md
-      max-height: 124px;
-    }
-
-    @media only screen and (min-width: 1200px) { // 🛠 Update value to variable $screen-lg
-      max-height: 152px;
+      max-height: 150px;
     }
   }
 }
 
-.card-deck--wrap {
-  flex-wrap: wrap;
+.card:nth-child(4n+1) {
+  clear: left;
 }
 
 .cd_subheading {
@@ -95,20 +87,5 @@
 .jumbotron--tall {
   @media (min-width: 767px) {
     padding-bottom: 280px;
-  }
-}
-
-.card-deck--expanded-layout .card--layered {
-  margin-bottom: 0;
-
-  @media (min-width: 570px) {
-    max-width: calc(100%/2);
-  }
-
-  @media (min-width: 767px) {
-    max-width: calc(100%/3);
-  }
-  @media (min-width: 1200px) {
-    max-width: calc(100%/4);
   }
 }

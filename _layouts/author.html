@@ -6,7 +6,7 @@ layout: default
 
 <div class="container">
   {% include _author-bio.html %}
-  <div data-card-deck class="card-deck card-deck--expanded-layout card-deck--wrap">
+  <div data-card-deck class="card-deck card-deck--expanded-layout">
     {% for post in site.posts %}
       {% if post.author == author.name %}
         {% include _article-card.html %}
