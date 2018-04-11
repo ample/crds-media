@@ -4,3 +4,5 @@ _site
 .env
 .vscode
 collections
+node_modules
+lambda
