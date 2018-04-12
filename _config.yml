@@ -42,6 +42,9 @@ include:
 collections_dir: collections
 
 collections:
+  posts:
+    output: true
+    permalink: /articles/:path
   topics:
     output: true
     permalink: /topics/:path
@@ -90,6 +93,11 @@ contentful:
           draft: false
 
 defaults:
+  - scope:
+      path: "/articles"
+      type: posts
+    values:
+      layout: post
   - scope:
       path: "/topics"
       type: topics
