@@ -71,10 +71,6 @@ contentful:
       id: authors
       body: bio
       frontmatter:
-        # associations:
-        #   posts:
-        #     content_type_id: post
-        #     match_field: author/id
         entry_mappings:
           title: name
           name: name
