@@ -11,7 +11,7 @@ markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-redirect-from
-  - jekyll-hubspot
+  - jekyll-contentful
   - jekyll-paginate-v2
 
 sass:
@@ -49,29 +49,20 @@ collections:
     output: true
     permalink: /:collection/:path
 
-hubspot:
-  blogs:
-    layout: topic
-    properties:
-      id: id
-      title: name
-      content: description
-  posts:
-    layout: post
-    properties:
-      title: title
-      content: post_body
-      featured_image: featured_image
-      author: blog_post_author/display_name
-      date: publish_date
-      topic_names: topic_names
-  authors:
-    layout: author
-    properties:
-      content: bio
-      title: displayName
-      name: displayName
-      image: avatar
+contentful:
+  content_types:
+    posts:
+      id: post
+      body: body
+      frontmatter:
+        entry_mappings:
+          title: name
+          featured_image: featuredImage
+          author: author
+          date: publishedDate
+        other:
+          layout: post
+          draft: false
 
 defaults:
   - scope:
