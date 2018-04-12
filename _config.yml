@@ -42,7 +42,7 @@ include:
 collections_dir: collections
 
 collections:
-  blogs:
+  topics:
     output: true
     permalink: /topics/:path
   authors:
@@ -57,21 +57,46 @@ contentful:
       frontmatter:
         entry_mappings:
           title: name
-          featured_image: featuredImage
-          author: author
-          date: publishedDate
+          featured_image: featured_image/url
+          author: author/name
+          topic: category/name
+          date: published_date
         other:
           layout: post
+          draft: false
+    authors:
+      id: authors
+      body: bio
+      frontmatter:
+        # associations:
+        #   posts:
+        #     content_type_id: post
+        #     match_field: author/id
+        entry_mappings:
+          title: name
+          name: name
+          image: profile_image/url
+        other:
+          layout: author
+          draft: false
+    topics:
+      id: category
+      frontmatter:
+        entry_mappings:
+          title: name
+          name: name
+        other:
+          layout: topic
           draft: false
 
 defaults:
   - scope:
       path: "/topics"
-      type: blogs
+      type: topics
     values:
       layout: topic
   - scope:
-      path: "/authors/"
+      path: "/authors"
       type: authors
     values:
       layout: author
