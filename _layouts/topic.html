@@ -5,11 +5,15 @@ layout: default
 
 <div class="container">
   <h2 class="section-header">{{ page.title }}</h2>
-  <div data-card-deck class="card-deck card-deck--expanded-layout card-deck--wrap">
-    {% for post in site.posts %}
-      {% if post.topic == page.title %}
-        {% include _article-card.html content_type=post %}
-      {% endif %}
-    {% endfor %}
+  <div data-card-deck class="card-deck">
+    <div class="cards-4x">
+      <div class="row">
+      {% for post in site.posts %}
+        {% if post.topic == page.title %}
+          {% include _article-card.html content_type=post %}
+        {% endif %}
+      {% endfor %}
+      </div>
+    </div>
   </div>
 </div>
