@@ -5,26 +5,29 @@ permalink: /topics/index.html
 
 <div class="container">
   <h2 class="section-header">Topics</h2>
-  <div data-card-deck class="card-deck card-deck--expanded-layout card-deck--wrap">
-    {% for topic in site.blogs %}
-      <div class="card card--layered">
-        <a href="{{ topic.url }}">
-          {% for item in site.posts %}
-            {% if item.blog == topic.title %}
-              {% assign post = item %}
-              {% break %}
-            {% endif %}
-          {% endfor %}
-          <div class="card-bgImage sixteen-nine bgCenter" style="background-image: url('{{ post.featured_image }}');"></div>
+  <div data-card-deck class="card-deck">
+    <div class="cards-4x">
+      <div class="row">
+      {% for topic in site.blogs %}
+        <div class="card">
+          <a href="{{ topic.url }}">
+            {% for item in site.posts %}
+              {% if item.blog == topic.title %}
+                {% assign post = item %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+            <img class="card-img-top img-responsive" src="{{ post.featured_image }}">
+          </a>
           <div class="card-block">
-            <h4 class="card-title font-family-condensed-extra text-uppercase">
-              {{ topic.title }}
-            </h4>
+            <a href="{{ topic.url }}">
+              <h4 class="card-title card-title--overlap text-uppercase">{{ topic.title }}</h4>
+            </a>
             <h5 class="card-subtitle">{% include _count.html key="blog" subject=topic.title label="article" %}</h5>
           </div>
-        </a>
+        </div>
+      {% endfor %}
       </div>
-    {% endfor %}
+    </div>
   </div>
 </div>
-

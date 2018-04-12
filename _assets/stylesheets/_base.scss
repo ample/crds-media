@@ -1,5 +1,17 @@
-.card-deck--wrap {
-  flex-wrap: wrap;
+.card-deck {
+  .card-img-top {
+    object-fit: cover;
+    width: 100%;
+    max-height: 200px;
+
+    @media only screen and (min-width: 992px + 1) { // 🛠 Update value to variable $screen-md
+      max-height: 150px;
+    }
+  }
+}
+
+.card:nth-child(4n+1) {
+  clear: left;
 }
 
 .cd_subheading {
@@ -11,10 +23,10 @@
 
 .article {
   p {
-    line-height: 1.55;
+    line-height: 1.5; // 🛠 Update with variable $line-height-base
     margin-bottom: 1rem;
   }
-  
+
   .article_tag {
     display: inline-block;
     padding: .5rem .875rem;
@@ -39,7 +51,7 @@
     display: flex;
     align-items: center;
     margin-top: 1rem;
-    
+
     .article_authorAvatar {
       margin-right: 1rem;
     }
@@ -75,90 +87,5 @@
 .jumbotron--tall {
   @media (min-width: 767px) {
     padding-bottom: 280px;
-  }
-}
-.card--layered {
-  .card-bgImage {
-    width: 100%;
-    background-size: cover;
-    &.sixteen-nine {
-      padding-bottom: 56.25%;
-      height: 0;
-    }
-    &.bgCenter {
-      background-position: center;
-    }
-  }
-
-  .card-block {
-    padding: .5rem;
-    margin-right: 1rem;
-    transform: translateY(-2rem);
-    background-color: $cr-white;
-
-    .card-title {
-      font-size: 1.75rem;
-      font-weight: 500;
-
-      @media screen and (min-width: 480px) {
-        font-size: 2.0125rem;
-      }
-    }
-
-    .card-author {
-      color: $cr-gray-dark;
-    }
-    
-    .card-date {
-      color: $cr-gray-light;
-    }
-  }
-
-  a {
-    text-decoration: none;
-  }
-}
-
-.card-deck--expanded-layout .card--layered {
-  margin-bottom: 0;
-
-  @media (min-width: 570px) {
-    max-width: calc(100%/2);
-  }
-
-  @media (min-width: 767px) {
-    max-width: calc(100%/3);
-  }
-  @media (min-width: 1200px) {
-    max-width: calc(100%/4);
-  }
-}
-
-.card--feature {
-  position: relative;
-  padding-left: .5rem;
-  padding-right: .5rem;
-
-  @media (min-width: 767px) {
-    transform: translateY(-50%);
-    margin-bottom: -25%;
-  }
-
-  .card-bgImage {
-    padding-bottom: 56.25%; 
-    @media (min-width: 767px) {
-      padding-bottom: 40%;
-    }
-  }
-
-  .card-block {
-    @media (min-width: 767px) {
-      width: fit-content;
-    }
-    .card-title {
-      @media (min-width: 767px) {
-        font-size: 3.4375rem;        
-      }  
-    }
   }
 }

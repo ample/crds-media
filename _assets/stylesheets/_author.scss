@@ -1,4 +1,8 @@
 .media--author {
+  & .media-img-wrapper {
+    align-items: center;
+  }
+
   a {
     color: inherit;
   }
@@ -7,12 +11,7 @@
     text-decoration: none;
   }
 
-  .img-circle {
-    min-width: 5rem;
-    min-height: 5rem;
-  }
-
-  .media-body {
-    font-size: 1rem;
+  & .media-body {
+    max-width: 640px;
   }
 }
