@@ -1,5 +1,6 @@
-PATH
-  remote: /Users/seancdavis/code/jekyll-contentful
+GIT
+  remote: https://github.com/crdschurch/jekyll-contentful.git
+  revision: a13627fb47567a16d71a988c53102a486fbb9534
   specs:
     jekyll-contentful (0.0.1)
       contentful
