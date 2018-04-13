@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/crdschurch/jekyll-contentful.git
-  revision: a13627fb47567a16d71a988c53102a486fbb9534
+  revision: b7e7a405ee446458c3cbfec2f3c2a1aaadf88040
   specs:
     jekyll-contentful (0.0.1)
       contentful
@@ -20,7 +20,7 @@ GEM
       multi_json (~> 1)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
-    dotenv (2.2.1)
+    dotenv (2.2.2)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
