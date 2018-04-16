@@ -17,7 +17,7 @@ permalink: /topics/index.html
                 {% break %}
               {% endif %}
             {% endfor %}
-            <img class="card-img-top img-responsive" src="{{ post.featured_image }}">
+            <img class="card-img-top img-responsive" src="{{ post.image }}">
           </a>
           <div class="card-block">
             <a href="{{ topic.url }}">

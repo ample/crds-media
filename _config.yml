@@ -55,26 +55,26 @@ collections:
 contentful:
   content_types:
     posts:
-      id: post
+      id: article
       body: body
+      filename: "{{ published_at | date: '%Y-%m-%d' }}-{{ slug }}"
       frontmatter:
         entry_mappings:
-          title: name
-          featured_image: featured_image/url
-          author: author/name
-          topic: category/name
-          date: published_date
+          title: title
+          image: image/url
+          author: author/full_name
+          topic: category/title
+          date: published_at
         other:
           layout: post
           draft: false
     authors:
-      id: authors
-      body: bio
+      id: author
+      body: summary
       frontmatter:
         entry_mappings:
-          title: name
-          name: name
-          image: profile_image/url
+          name: full_name
+          image: image/url
         other:
           layout: author
           draft: false
@@ -82,8 +82,7 @@ contentful:
       id: category
       frontmatter:
         entry_mappings:
-          title: name
-          name: name
+          title: title
         other:
           layout: topic
           draft: false

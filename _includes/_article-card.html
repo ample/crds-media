@@ -1,9 +1,9 @@
 {% assign author = site.authors | where: "name", post.author | first %}
-{% assign topic = site.topics | where: "name", post.topic | first %}
+{% assign topic = site.topics | where: "title", post.topic | first %}
 
 <div class="card">
   <a href="{{ post.url }}">
-    <img class="card-img-top img-responsive" src="{{ post.featured_image }}">
+    <img class="card-img-top img-responsive" src="{{ post.image }}">
   </a>
     <div class="card-block">
       <a href="{{ post.url }}">
@@ -16,7 +16,7 @@
         </span>
       </p>
       <h5 class="metadata push-quarter-ends">
-        <a href="{{ topic.url }}">{{ topic.name }}</a> -
+        <a href="{{ topic.url }}">{{ topic.title }}</a> -
         {% include _read-time.html content_type=post %}
       </h5>
     </div>
