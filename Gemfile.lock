@@ -1,10 +1,9 @@
 GIT
   remote: https://github.com/crdschurch/jekyll-contentful.git
-  revision: b7e7a405ee446458c3cbfec2f3c2a1aaadf88040
+  revision: d26c80ee74a6d3fba6c7102270d82f1087637980
   specs:
     jekyll-contentful (0.0.1)
-      contentful
-      dotenv
+      contentful (>= 2.6.0)
       jekyll
 
 GEM
@@ -15,12 +14,11 @@ GEM
     coderay (1.1.2)
     colorator (1.1.0)
     concurrent-ruby (1.0.5)
-    contentful (2.5.0)
+    contentful (2.6.0)
       http (> 0.8, < 3.0)
       multi_json (~> 1)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
-    dotenv (2.2.2)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -98,7 +96,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  dotenv
   jekyll (~> 3.7.2)
   jekyll-contentful (~> 0.0.1)!
   jekyll-feed (~> 0.6)

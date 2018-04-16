@@ -2,7 +2,6 @@ source "https://rubygems.org"
 
 gem "jekyll", "~> 3.7.2"
 gem "pry"
-gem "dotenv"
 gem "sass"
 
 group :jekyll_plugins do

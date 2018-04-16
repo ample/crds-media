@@ -2,7 +2,10 @@ _site
 .sass-cache
 .jekyll-metadata
 .env
+.envrc
 .vscode
+.netlify
+.asset_pipeline
 collections
 node_modules
 lambda
