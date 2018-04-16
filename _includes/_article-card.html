@@ -1,25 +1,24 @@
-{% if include.content_type %}
-  {% assign author = site.authors | where:"name", include.content_type.author | first %}
-  {% assign topic = site.blogs | where:"title", include.content_type.blog | first %}
-{% endif %}
+{% assign author = site.authors | where: "name", post.author | first %}
+{% assign topic = site.topics | where: "name", post.topic | first %}
 
-<div class="card card--layered">
+<div class="card">
   <a href="{{ post.url }}">
-    <div class="card-bgImage sixteen-nine" style="background-image: url('{{ post.featured_image }}');"></div>
+    <img class="card-img-top img-responsive" src="{{ post.featured_image }}">
+  </a>
     <div class="card-block">
-      <h5 class="card-meta metadata push-quarter-ends">
-        <a href="{{ topic.url }}">{{ topic.title }}</a> -
-        {% include _read-time.html content_type=post %}
-      </h5>
       <a href="{{ post.url }}">
-        <h4 class="card-title font-family-condensed-extra text-uppercase">{{ post.title }}</h4>
+        <h4 class="card-title card-title--overlap text-uppercase">{{ post.title }}</h4>
       </a>
       <p class="card-text">
-        <a href="{{ author.url }}">{{ post.author }}</a> |
+        <a href="{{ author.url }}">{{ author.name }}</a> |
         <span class="card-date">
           {{ post.date | date: date_format }}
         </span>
       </p>
+      <h5 class="metadata push-quarter-ends">
+        <a href="{{ topic.url }}">{{ topic.name }}</a> -
+        {% include _read-time.html content_type=post %}
+      </h5>
     </div>
   </a>
 </div>

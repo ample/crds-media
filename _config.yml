@@ -11,7 +11,7 @@ markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-redirect-from
-  - jekyll-hubspot
+  - jekyll-contentful
   - jekyll-paginate-v2
 
 sass:
@@ -21,7 +21,7 @@ pagination:
   enabled: true
   debug: false
   collection: 'posts'
-  per_page: 8
+  per_page: 16
   permalink: '/page/:num/'
   sort_field: 'date'
   sort_reverse: true
@@ -42,45 +42,65 @@ include:
 collections_dir: collections
 
 collections:
-  blogs:
+  posts:
+    output: true
+    permalink: /articles/:path
+  topics:
     output: true
     permalink: /topics/:path
   authors:
     output: true
     permalink: /:collection/:path
 
-hubspot:
-  blogs:
-    layout: topic
-    properties:
-      id: id
-      title: name
-      content: description
-  posts:
-    layout: post
-    properties:
-      title: title
-      content: post_body
-      featured_image: featured_image
-      author: blog_post_author/display_name
-      date: publish_date
-      topic_names: topic_names
-  authors:
-    layout: author
-    properties:
-      content: bio
-      title: displayName
-      name: displayName
-      image: avatar
+contentful:
+  content_types:
+    posts:
+      id: post
+      body: body
+      frontmatter:
+        entry_mappings:
+          title: name
+          featured_image: featured_image/url
+          author: author/name
+          topic: category/name
+          date: published_date
+        other:
+          layout: post
+          draft: false
+    authors:
+      id: authors
+      body: bio
+      frontmatter:
+        entry_mappings:
+          title: name
+          name: name
+          image: profile_image/url
+        other:
+          layout: author
+          draft: false
+    topics:
+      id: category
+      frontmatter:
+        entry_mappings:
+          title: name
+          name: name
+        other:
+          layout: topic
+          draft: false
 
 defaults:
   - scope:
+      path: "/articles"
+      type: posts
+    values:
+      layout: post
+  - scope:
       path: "/topics"
-      type: blogs
+      type: topics
     values:
       layout: topic
   - scope:
-      path: "/authors/"
+      path: "/authors"
       type: authors
     values:
       layout: author
