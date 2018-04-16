@@ -1,6 +1,5 @@
-GIT
-  remote: https://github.com/crdschurch/jekyll-contentful.git
-  revision: b7e7a405ee446458c3cbfec2f3c2a1aaadf88040
+PATH
+  remote: /Users/tcmacdonald/Sites/jekyll-contentful
   specs:
     jekyll-contentful (0.0.1)
       contentful
@@ -15,7 +14,7 @@ GEM
     coderay (1.1.2)
     colorator (1.1.0)
     concurrent-ruby (1.0.5)
-    contentful (2.5.0)
+    contentful (2.6.0)
       http (> 0.8, < 3.0)
       multi_json (~> 1)
     domain_name (0.5.20170404)
