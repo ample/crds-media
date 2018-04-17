@@ -1,7 +1,7 @@
 <div class="media media--author push-bottom">
   <div class="media-img-wrapper">
     <a href="{{ author.url }}">
-      <img class="media-object-default img-circle img-size-6" src="{{ author.image }}" />
+      <img class="media-object-default img-circle img-size-6" ix-src="{{ author.image | imgix: site.imgix }}" />
     </a>
   </div>
   <div class="media-body">
