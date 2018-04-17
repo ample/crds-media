@@ -1,6 +1,6 @@
 <article class="article font-family-base">
-  <div class="article_hero push-ends" style="background-image: url('{{ page.featured_image }}')">
-    <span class="article_heroCaption text-center block push-half-top push-bottom">{{ page.featured_image.title }}</span>
+  <div class="article_hero push-ends" style="background-image: url('{{ page.image | imgix: site.imgix }}?auto=format,compress')">
+    <span class="article_heroCaption text-center block push-half-top push-bottom">{{ page.image.title }}</span>
   </div>
   <div class="container soft-top">
     <div class="article_share col-md-2 push-bottom">
