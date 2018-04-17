@@ -14,9 +14,6 @@ plugins:
   - jekyll-contentful
   - jekyll-paginate-v2
 
-sass:
-  sass_dir: _scss
-
 pagination:
   enabled: true
   debug: false
@@ -103,3 +100,15 @@ defaults:
       type: authors
     values:
       layout: author
+
+assets:
+  source_maps: true # false on JEKYLL_ENV=production
+  destination: "/assets"
+  compression: true
+  sources:
+  - _assets/stylesheets
+  - _assets/javascripts
+
+imgix:
+  find: images.ctfassets.net/y3a9myzsdjan
+  replace: crds-media.imgix.net
