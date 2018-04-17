@@ -8,11 +8,12 @@ permalink: /topics/index.html
   <div data-card-deck class="card-deck">
     <div class="cards-4x">
       <div class="row">
-      {% for topic in site.blogs %}
+      {% for topic in site.topics %}
         <div class="card">
+          {{ topic.image }}
           <a href="{{ topic.url }}">
             {% for item in site.posts %}
-              {% if item.blog == topic.title %}
+              {% if item.topic == topic.title %}
                 {% assign post = item %}
                 {% break %}
               {% endif %}
