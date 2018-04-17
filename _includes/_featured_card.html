@@ -1,6 +1,6 @@
 <div class="card">
   <a href="{{ featured.url }}">
-    <img class="card-img-top img-responsive" ix-src="{{ featured.image }}">
+    <img class="card-img-top img-responsive" ix-src="{{ featured.image | replace: site.imgix.find, site.imgix.replace }}">
   </a>
     <div class="card-block">
       <a href="{{ featured.url }}">
