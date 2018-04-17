@@ -31,9 +31,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="//d1tmclqz61gqwd.cloudfront.net/styles/crds-styles-2.3.0.min.css">
-  {% css_asset_tag application %}
-    - /_assets/stylesheets/application.scss
-  {% endcss_asset_tag %}
+  {% asset application.scss %}
 
   <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">

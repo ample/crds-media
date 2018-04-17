@@ -8,11 +8,12 @@ permalink: /topics/index.html
   <div data-card-deck class="card-deck">
     <div class="cards-4x">
       <div class="row">
-      {% for topic in site.blogs %}
+      {% for topic in site.topics %}
         <div class="card">
+          {{ topic.image }}
           <a href="{{ topic.url }}">
             {% for item in site.posts %}
-              {% if item.blog == topic.title %}
+              {% if item.topic == topic.title %}
                 {% assign post = item %}
                 {% break %}
               {% endif %}
@@ -23,7 +24,7 @@ permalink: /topics/index.html
             <a href="{{ topic.url }}">
               <h4 class="card-title card-title--overlap text-uppercase">{{ topic.title }}</h4>
             </a>
-            <h5 class="card-subtitle">{% include _count.html key="blog" subject=topic.title label="article" %}</h5>
+            <h5 class="card-subtitle">{% include _count.html key="topic" subject=topic.title label="article" %}</h5>
           </div>
         </div>
       {% endfor %}
