@@ -3,7 +3,7 @@
 
 <div class="card">
   <a href="{{ post.url }}">
-    <img class="card-img-top img-responsive" src="{{ post.image }}">
+    <img class="card-img-top img-responsive" ix-src="{{ post.image | replace: 'images.ctfassets.net/y3a9myzsdjan', 'crds-media.imgix.net' }}">
   </a>
     <div class="card-block">
       <a href="{{ post.url }}">
