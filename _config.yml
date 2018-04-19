@@ -48,6 +48,9 @@ collections:
   authors:
     output: true
     permalink: /:collection/:path
+  podcasts:
+    output: true
+    permalink: /podcasts/:path
 
 contentful:
   content_types:
