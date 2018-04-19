@@ -48,6 +48,9 @@ collections:
   authors:
     output: true
     permalink: /:collection/:path
+  podcasts:
+    output: true
+    permalink: /:collection/:path
 
 contentful:
   content_types:
@@ -83,6 +86,22 @@ contentful:
         other:
           layout: topic
           draft: false
+    podcasts:
+      id: podcast
+      frontmatter:
+        entry_mappings:
+          title: title
+        other:
+          layout: podcast
+          draft: false
+    episodes:
+      id: episode
+      frontmatter:
+        entry_mappings:
+          title: title
+        other:
+          layout: episode
+          draft: false
 
 defaults:
   - scope:
@@ -100,6 +119,11 @@ defaults:
       type: authors
     values:
       layout: author
+  - scope:
+      path: "/podcasts"
+      type: podcasts
+    values:
+      layout: podcast
 
 assets:
   source_maps: true # false on JEKYLL_ENV=production
