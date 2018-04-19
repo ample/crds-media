@@ -4,7 +4,7 @@
     width: 100%;
     max-height: 200px;
 
-    @media only screen and (min-width: 992px + 1) { // 🛠 Update value to variable $screen-md
+    @media only screen and (min-width: $screen-md + 1) {
       max-height: 150px;
     }
   }
@@ -23,7 +23,7 @@
 
 .article {
   p {
-    line-height: 1.5; // 🛠 Update with variable $line-height-base
+    line-height: $line-height-base;
     margin-bottom: 1rem;
   }
 
@@ -91,9 +91,6 @@
 }
 
 h2 {
-  $font-size-h2: 140%;
-  $screen-xs: 480px;
-  // ...
   font-family: 'acumin-pro', helvetica, arial, sans-serif;
   font-weight: 100;
   font-size: $font-size-h2;
