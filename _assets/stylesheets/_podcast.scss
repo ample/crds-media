@@ -1,0 +1,11 @@
+.media--podcast {
+  max-width: $screen-sm;
+
+  & .card {
+    margin-bottom: 3.75rem;
+
+    @media screen and (min-width: $screen-xs) {
+      margin-bottom: 3.875rem;
+    }
+  }
+}

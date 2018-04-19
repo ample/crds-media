@@ -1,3 +1,13 @@
+.landing-header {
+  font-size: 2.75rem;
+  line-height: 2.5rem;
+
+  @media screen and (min-width: $screen-xs) {
+    font-size: 4rem;
+    line-height: 3.625rem;
+  }
+}
+
 .card-deck {
   .card-img-top {
     object-fit: cover;
