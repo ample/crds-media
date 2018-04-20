@@ -51,6 +51,9 @@ collections:
   podcasts:
     output: true
     permalink: /:collection/:path
+  episodes:
+    output: true
+    permalink: /:collection/:path
 
 contentful:
   content_types:
@@ -104,6 +107,7 @@ contentful:
     episodes:
       id: episode
       body: description
+      # filename: "{{ episode_number }}-{{ slug }}"
       frontmatter:
         entry_mappings:
           title: title
@@ -112,6 +116,7 @@ contentful:
           episode_number: episode_number
           season_number: season_number
           date: published_at
+          podcast: podcast/title
         other:
           layout: episode
           draft: false
@@ -137,6 +142,11 @@ defaults:
       type: podcasts
     values:
       layout: podcast
+  - scope:
+      path: "/episodes"
+      type: episodes
+    values:
+      layout: episode
 
 assets:
   source_maps: true # false on JEKYLL_ENV=production
