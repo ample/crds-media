@@ -103,9 +103,15 @@ contentful:
           draft: false
     episodes:
       id: episode
+      body: description
       frontmatter:
         entry_mappings:
           title: title
+          subtitle: subtitle
+          audio_file: audio_file/url
+          episode_number: episode_number
+          season_number: season_number
+          date: published_at
         other:
           layout: episode
           draft: false
