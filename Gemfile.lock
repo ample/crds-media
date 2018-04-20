@@ -1,9 +1,10 @@
 GIT
   remote: https://github.com/crdschurch/jekyll-contentful.git
-  revision: d26c80ee74a6d3fba6c7102270d82f1087637980
+  revision: 4f4af888bec206a656e5c0f6c8bde6197b68eb45
   specs:
     jekyll-contentful (0.0.1)
       contentful (>= 2.6.0)
+      dotenv
       jekyll
 
 GEM
@@ -22,8 +23,9 @@ GEM
     contentful (2.6.0)
       http (> 0.8, < 3.0)
       multi_json (~> 1)
-    domain_name (0.5.20170404)
+    domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.3.0)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -69,7 +71,7 @@ GEM
       nokogiri (~> 1.8)
       pathutil (~> 0.16)
       sprockets (>= 3.3, < 4.1.beta)
-    jekyll-feed (0.9.2)
+    jekyll-feed (0.9.3)
       jekyll (~> 3.3)
     jekyll-paginate-v2 (1.9.4)
       jekyll (~> 3.0)
