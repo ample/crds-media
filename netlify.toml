@@ -1,3 +1,2 @@
 [build]
-  command = "npm run build && bundle exec jekyll contentful && bundle exec jekyll build"
-  functions = "./lambda"
+  command = "bundle exec jekyll contentful && bundle exec jekyll build"
