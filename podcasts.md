@@ -11,7 +11,7 @@ layout: default
       {% for podcast in site.podcasts %}
         <div class="card">
           <a href="{{ podcast.url }}">
-            <img class="" src="{{ podcast.image }}">
+            <img class="" src="{{ podcast.image | imgix: site.imgix }}">
           </a>
           <div class="card-block hard-bottom">
             <a href="{{ podcast.url }}">

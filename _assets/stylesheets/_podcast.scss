@@ -7,5 +7,9 @@
     @media screen and (min-width: $screen-xs) {
       margin-bottom: 3.875rem;
     }
+
+    & img {
+      min-width: 100%; //This can probably be removed when we refactor cards
+    }
   }
 }
