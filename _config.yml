@@ -32,6 +32,7 @@ exclude:
   - Gemfile.lock
   - package.json
   - README.md
+  - _migrations
 
 include:
   - _redirects
