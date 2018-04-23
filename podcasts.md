@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div class="container media-podcast">
-  <p class="flush-bottom"><a href="{{ site.url }}">Media</a>/</p>
+  <p class="flush-bottom soft-quarter-bottom"><a href="{{ site.url }}">Media</a>/</p>
   <h2 class="section-header landing-header flush-top">Podcasts</h2>
   <div data-card-deck class="card-deck">
     <div class="cards-2x">
