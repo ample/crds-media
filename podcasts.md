@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div class="container media--podcast">
+<div class="container media-podcast">
   <p class="flush-bottom"><a href="{{ site.url }}">Media</a>/</p>
   <h2 class="section-header landing-header flush-top">Podcasts</h2>
   <div data-card-deck class="card-deck">
@@ -17,7 +17,7 @@ layout: default
             <a href="{{ podcast.url }}">
               <h4 class="card-title card-title--overlap text-uppercase">{{ podcast.title }}</h4>
             </a>
-              <p>{{ podcast.content | strip_html | truncatewords: 25 }}</p>
+            <p>{{ podcast.content | strip_html | truncatewords: 25 }}</p>
           </div>
         </div>
       {% endfor %}
