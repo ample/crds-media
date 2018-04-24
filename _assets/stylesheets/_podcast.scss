@@ -1,6 +1,25 @@
 .media-podcast {
   max-width: $screen-sm;
 
+  p.breadcrumb {
+    position: relative;
+    margin-bottom: -.5rem;
+    color: $cr-gray-light;
+    margin-top: 3rem;
+    background-color: transparent;
+  }
+
+  .landing-header {
+    font-size: 2.75rem;
+    line-height: 2.75rem;
+
+    @media screen and (min-width: $screen-xs) {
+      font-size: 4rem;
+      line-height: 4rem;
+    }
+  }
+
+
   & .card {
     margin-bottom: 3.75rem;
 
@@ -9,7 +28,7 @@
     }
 
     & img {
-      min-width: 100%; //This can probably be removed when we refactor cards
+      min-width: 100%; // 🛠 probably remove once we refactor cards
     }
   }
 }
