@@ -49,6 +49,12 @@ collections:
   authors:
     output: true
     permalink: /:collection/:path
+  podcasts:
+    output: true
+    permalink: /:collection/:path
+  episodes:
+    output: true
+    permalink: /:collection/:path
 
 contentful:
   content_types:
@@ -84,6 +90,37 @@ contentful:
         other:
           layout: topic
           draft: false
+    podcasts:
+      id: podcast
+      body: description
+      frontmatter:
+        entry_mappings:
+          title: title
+          subtitle: subtitle
+          image: image/url
+          authors: [authors, full_name]
+          apple_podcasts_url: apple_podcasts_url
+          google_play_url: google_play_url
+          stitcher_url: stitcher_url
+        other:
+          layout: podcast
+          draft: false
+    episodes:
+      id: episode
+      body: description
+      # filename: "{{ episode_number }}-{{ slug }}"
+      frontmatter:
+        entry_mappings:
+          title: title
+          subtitle: subtitle
+          audio_file: audio_file/url
+          episode_number: episode_number
+          season_number: season_number
+          date: published_at
+          podcast: podcast/title
+        other:
+          layout: episode
+          draft: false
 
 defaults:
   - scope:
@@ -101,6 +138,16 @@ defaults:
       type: authors
     values:
       layout: author
+  - scope:
+      path: "/podcasts"
+      type: podcasts
+    values:
+      layout: podcast
+  - scope:
+      path: "/episodes"
+      type: episodes
+    values:
+      layout: episode
 
 assets:
   source_maps: true # false on JEKYLL_ENV=production
