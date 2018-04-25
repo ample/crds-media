@@ -15,51 +15,14 @@ subheading: Read them. Share them. Talk to someone about them. Do something with
 </div>
 
 <div class="container">
-
-  <!-- Articles -->
-  <div class="push-bottom">
-    <div class="border-bottom push-bottom">
-      <a href="/articles" class="pull-right push-half-top">See All</a>
-      <h2 class="push-half-bottom">Articles</h2>
-    </div>
-    <div data-card-deck class="card-deck">
-      <div class="cards-4x">
-        <div class="row">
-        {% for post in site.posts limit: 8 %}
-          {% include _article-card.html content_type=post %}
-        {% endfor %}
-        </div>
+  <div data-card-deck class="card-deck">
+    <div class="cards-4x">
+      <div class="row">
+      {% for post in paginator.posts %}
+        {% include _article-card.html content_type=post %}
+      {% endfor %}
       </div>
     </div>
   </div>
-
-  <!-- Podcasts -->
-  <div class="push-bottom">
-    <div class="border-bottom push-bottom">
-      <a href="/podcasts" class="pull-right push-half-top">See All</a>
-      <h2 class="push-half-bottom">Podcast Episodes</h2>
-    </div>
-    <div data-card-deck class="card-deck">
-      <div class="cards-4x">
-        <div class="row">
-        {% for episode in site.episodes limit: 8 %}
-          <div class="card">
-            <a href="{{ episode.url }}">
-              <img class="" src="{{ episode.image | imgix: site.imgix }}">
-            </a>
-            <div class="card-block">
-              <a href="{{ episode.url }}">
-                <h4 class="card-title card-title--overlap text-uppercase">{{ episode.title }}</h4>
-              </a>
-              <p class="card-text">
-                {{ episode.content | strip_html | truncatewords: 25 }}
-              </p>
-            </div>
-          </div>
-        {% endfor %}
-        </div>
-      </div>
-    </div>
-  </div>
-
+  {% include _pagination.html %}
 </div>
