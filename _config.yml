@@ -117,6 +117,7 @@ contentful:
           season_number: season_number
           date: published_at
           podcast: podcast/title
+          image: podcast/image/url
         other:
           layout: episode
           draft: false
