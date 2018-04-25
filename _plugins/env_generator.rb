@@ -16,6 +16,7 @@ module Jekyll
         "img" => "https://#{env_prefix}.crossroads.net/proxy/gateway/api/image/profile/",
         "prefix" => "#{env_prefix unless @site.config['env'] == 'production' }"
       }
+      @site.config['url'] = ENV['SITE_URL'] if ENV['SITE_URL']
     end
 
     private
