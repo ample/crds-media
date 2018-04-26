@@ -1,4 +1,4 @@
-// import markdown from 'markdown';
+
 
 // dom stuff
 var title = document.querySelector('[data-title]');
@@ -26,14 +26,20 @@ function setImageSrc(obj) {
 
 }
 
+function parseBody(obj) {
+  var parsed = markdown.toHTML(obj);
+  postBody.innerHTML = parsed;
+}
+
 function setText(obj) {
   title.innerText = obj.title;
   postDate.innerText = obj.published_at;
   authorLink.innerText = obj.author.sys.id;
-  postBody.innerText = obj.body;
+  
 }
 
 function renderPage(data) {
+  parseBody(data.body);
   setText(data);
   createTags(data.tags);
 }
