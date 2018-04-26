@@ -1,3 +1,11 @@
+// 1. Master podcast styles
+// 2. Podcast series styles
+// 3. Podcast episode styles
+
+
+
+
+// 1. Master podcast styles
 .media-podcast {
     max-width: 750px;
 
@@ -33,6 +41,78 @@
   }
 }
 
+
+
+
+// 2. Podcast series styles
+.media-podcast-show {
+  & .jumbotron {
+    padding-top: 15px;
+
+    @media screen and (min-width: $screen-xs) {
+      padding-top: 60px;
+    }
+  }
+
+  & .podcast-hero {
+    height: 575px;
+
+    @media screen and (min-width: $screen-xs) {
+      height: 350px;
+    }
+  }
+
+  .feature-img {
+    width: 323px;
+    height: 323px;
+
+    @media screen and (min-width: $screen-xs) {
+      width: 330px;
+      height: 330px;
+    }
+  }
+
+  hr.hero {
+    width: 31px;
+    height: 3px;
+    color: rgba($cr-white, 0.6);
+    margin-left: 0;
+  }
+
+  .breadcrumb {
+    background-color: transparent;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 0;
+    padding-top: 20px;
+
+    @media screen and (min-width: $screen-xs) {
+      padding: 0;
+    }
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    line-height: 1.5rem;
+
+    @media screen and (min-width: $screen-xs) {
+      font-size: 1.1875rem;
+      line-height: 1.8675rem;
+    }
+  }
+  .content {
+    margin-top: 30px;
+
+    @media screen and (min-width: $screen-xs) {
+      margin-top: 81px;
+    }
+  }
+}
+
+
+
+
+// 3. Podcast episode styles
 .media-podcast-episode {
   padding-bottom: 60px;
 
@@ -105,69 +185,5 @@
     font-size: 2rem;
     line-height: 1;
     text-transform: uppercase;
-  }
-}
-
-.media-podcast-show {
-  & .jumbotron {
-    padding-top: 15px;
-
-    @media screen and (min-width: $screen-xs) {
-      padding-top: 60px;
-    }
-  }
-
-  & .podcast-hero {
-    height: 575px;
-
-    @media screen and (min-width: $screen-xs) {
-      height: 350px;
-    }
-  }
-
-  .feature-img {
-    width: 323px;
-    height: 323px;
-
-    @media screen and (min-width: $screen-xs) {
-      width: 330px;
-      height: 330px;
-    }
-  }
-
-  hr.hero {
-    width: 31px;
-    height: 3px;
-    color: rgba($cr-white, 0.6);
-    margin-left: 0;
-  }
-
-  .breadcrumb {
-    background-color: transparent;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    margin-bottom: 0;
-    padding-top: 20px;
-
-    @media screen and (min-width: $screen-xs) {
-      padding: 0;
-    }
-  }
-
-  .subtitle {
-    font-size: 1rem;
-    line-height: 1.5rem;
-
-    @media screen and (min-width: $screen-xs) {
-      font-size: 1.1875rem;
-      line-height: 1.8675rem;
-    }
-  }
-  .content {
-    margin-top: 30px;
-
-    @media screen and (min-width: $screen-xs) {
-      margin-top: 81px;
-    }
   }
 }
