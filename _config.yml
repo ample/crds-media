@@ -99,6 +99,7 @@ contentful:
           title: title
           subtitle: subtitle
           image: image/url
+          background: bg_image/url
           authors: [authors, full_name]
           apple_podcasts_url: apple_podcasts_url
           google_play_url: google_play_url
