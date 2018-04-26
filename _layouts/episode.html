@@ -2,21 +2,31 @@
 layout: default
 ---
 
-<div class="container-fluid podcast-episode-header">
-  <div class="podcast-episode-image">
-    <img src="" alt="podcast image">
+<div class="media-podcast-episode">
+  <div class="container-fluid episode-header-background">
+    <header class="container episode-header">
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 mobile-wrapper">
+          <div class="episode-thumbnail-image__desktop">
+            <img src="http://www.placecage.com/c/120/120" alt="podcast image">
+          </div>
+          <div class="episode-text">
+            <p class="episode-breadcrumbs"><a href="#media">Media</a> / <a href="#media">Podcasts</a> / <a href="#media">IKR?</a> /</p>
+            <p class="episode-title">Episode 9: The one about loss... and poop</p>
+          </div>
+          <div class="episode-thumbnail-image__mobile">
+            <img src="http://www.placecage.com/c/120/120" alt="podcast image">
+          </div>
+        </div>
+      </div>
+    </header>
   </div>
 
-  <div class="podcast-episode-text">
-    <p class="podcast-episode-breadcrumbs"><a href="#media">Media</a> / <a href="#media">Podcasts</a> / <a href="#media">IKR?</a> /</p>
-    <p class="podcast-episode-title">Episode 9: The one about loss... and poop</p>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <p>Farts</p>
+  <div class="container push-top soft-top">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        {% include _podcast-episode-description-block.html %}
+      </div>
     </div>
   </div>
 </div>
