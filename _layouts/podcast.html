@@ -1,7 +1,53 @@
 ---
 layout: default
 ---
+{% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
+<!-- {% assign author = site.authors | where:"name", page.name | first %} -->
 
-Hello Podcast!
-
-I'm from the podcast.html file.
+<section class="media-podcast-show">
+  <section class="podcast-hero jumbotron" style="background-image: url('{{ page.background | imgix: site.imgix }}?auto=format,compress')">
+    <div class="container">
+     <div class="row" width="946">
+       <div class="col-sm-4">
+         <img class="feature-img" src="{{ page.image | imgix: site.imgix }}?auto=format,compress"/>
+        </div>
+      <div class="col-sm-8 text-left">
+        <p class="breadcrumb hard"> <a href="{{ site.url }}">Media</a> / <a href="{{ site.url }}/podcasts">Podcasts</a> /</p>
+        <h1 class="font-family-condensed-extra text-uppercase flush-top">{{ page.title }}</h1>
+        <hr class="hero">
+        <p class="subtitle">{{ page.subtitle }}</p>
+      </div>
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+      <p>{{ page.content | strip_html }}</p>
+      </div>
+      </div>
+      <div>
+        <div class="addthis_toolbox addthis_default_style"></div>
+        <div class="custom_images">
+          <a class="addthis_button_facebook">SVG here</a>
+          <a class="addthis_button_twitter">SVG here</a>
+          <!-- This is supposed to be a link
+            <a class="addthis_button_more">SVG here</a> -->
+        </div>
+      </div>
+    </div>
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">
+    <h2 class="component-header">Episodes</h2>
+  </div>
+</div>
+</div>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+    <h2 class="component-header">Subscribe</h2>
+  </div>
+</div>
+</div>
+</section>

@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Podcasts
 ---
 
 <div class="container media-podcast">
