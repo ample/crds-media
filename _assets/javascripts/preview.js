@@ -8,7 +8,10 @@ Marked.setOptions({
 
 // dom stuff
 var title = document.querySelector('[data-title]');
-var authorLink = document.querySelector('[data-author-link]');
+var authorNames = document.querySelectorAll('[data-author-name]');
+var authorLinks = document.querySelectorAll('[data-author-link]');
+var authorBio = document.querySelector('[data-author-bio]');
+var authorImg = document.querySelector('[data-author-img]');
 var postDate = document.querySelector('[data-post-date]');
 var postBody = document.querySelector('[data-body]');
 var tagContainer = document.querySelector('[data-tags]');
@@ -39,6 +42,21 @@ function parseBodyMarkdown(obj) {
   postBody.innerHTML = parsed;
 }
 
+function setAuthor(name, slug, bio, img) {
+  for (var i = 0; i < authorNames.length; i += 1) {
+    authorNames[i].innerText = name;
+  }
+
+  for (var k = 0; k < authorLinks.length; k += 1) {
+    authorLinks[k].href = `/authors/${slug}`;
+  }
+
+  authorBio.innerText = bio;
+  getAsset(img).then(function(res) {
+    authorImg.style = `background-image: url('${res.fields.file.url}')`;
+  });
+}
+
 function setText(obj) {
   title.innerText = obj.title;
   postDate.innerText = obj.published_at;
@@ -58,7 +76,8 @@ function renderPage(data) {
 
   // author
   getSingleEntry(data.author.sys.id).then(function(res) {
-    authorLink.innerText = res.fields.full_name;
+    console.log(res);
+    setAuthor(res.fields.full_name, res.fields.slug, res.fields.summary, res.fields.image.sys.id);
   }).catch(function(err) {
     console.log(err);
   });
