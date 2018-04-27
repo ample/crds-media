@@ -1,4 +1,15 @@
+var Marked = marked;
 
+Marked.setOptions({
+  pedantic: false,
+  gfm: true,
+  tables: true,
+  breaks: false,
+  sanitize: false,
+  smartLists: true,
+  smartypants: false,
+  xhtml: false
+});
 
 // dom stuff
 var title = document.querySelector('[data-title]');
@@ -27,15 +38,14 @@ function setImageSrc(obj) {
 }
 
 function parseBody(obj) {
-  var parsed = markdown.toHTML(obj);
+  var parsed = Marked(obj);
   postBody.innerHTML = parsed;
 }
 
 function setText(obj) {
   title.innerText = obj.title;
   postDate.innerText = obj.published_at;
-  authorLink.innerText = obj.author.sys.id;
-  
+  authorLink.innerText = obj.author.sys.id; 
 }
 
 function renderPage(data) {
@@ -44,26 +54,30 @@ function renderPage(data) {
   createTags(data.tags);
 }
 
-function reqListener () {
-  var res = JSON.parse(this.response);
-  let data = [];
-  console.log(res)
-  for (let i = 0; i < res.items.length; i += 1) {
-    var postId = getUrlParameter();
-    if (res.items[i].sys.id == postId) {
-      data.push(res.items[i].fields);
-    }
-  }
-  console.log(data[0]);
-  renderPage(data[0]);
+function getAsset(id) {
+  var assetUrl = 'https://preview.contentful.com/spaces/y3a9myzsdjan/assets/' + id + '?access_token=31349caf7c9b1e390583a84a741a754d976984c27c2c70d831050b9804e80edf';
+  makeRequest(assetUrl);
 }
 
-// make a request to Contentful for preview content
-function fetchData(url) {
+function makeRequest(url) {
   var newXHR = new XMLHttpRequest();
   newXHR.open( 'GET', url );
   newXHR.send();
-  newXHR.addEventListener( 'load', reqListener );
+  newXHR.onload = function() {
+    var data = JSON.parse(newXHR.response);
+    console.log(data);
+    renderPage(data.fields);
+    return data;
+  }
+};
+
+// make a request to Contentful for preview content
+function getSingleEntry() {
+  var postId = getUrlParameter();
+  if (postId !== '') {
+    var url = 'https://preview.contentful.com/spaces/y3a9myzsdjan/environments/master/entries/' + postId + '?access_token=31349caf7c9b1e390583a84a741a754d976984c27c2c70d831050b9804e80edf';
+    var test = makeRequest(url);
+  }
 }
 
-fetchData('https://preview.contentful.com/spaces/y3a9myzsdjan/environments/master/entries?access_token=31349caf7c9b1e390583a84a741a754d976984c27c2c70d831050b9804e80edf');
+getSingleEntry();
