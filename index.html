@@ -45,7 +45,7 @@ subheading: Read them. Share them. Talk to someone about them. Do something with
         {% for episode in site.episodes limit: 8 %}
           <div class="card">
             <a href="{{ episode.url }}">
-              <img class="" src="{{ episode.image | imgix: site.imgix }}">
+              <img src="{{ episode.image | imgix: site.imgix | append: site.imgix_placeholder_args }}">
             </a>
             <div class="card-block">
               <a href="{{ episode.url }}">

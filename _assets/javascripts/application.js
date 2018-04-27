@@ -2,6 +2,7 @@
 //= require ./vendor/bootstrap.min
 //= require ./vendor/imgix.min
 //= require ./vendor/crds-shared-header-v0.7.1.min
+//= require ./components/images
 
 $(document).ready(function(){
   var options = {

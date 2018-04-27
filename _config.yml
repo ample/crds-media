@@ -162,3 +162,5 @@ assets:
 imgix:
   find: images.ctfassets.net/y3a9myzsdjan
   replace: crds-media.imgix.net
+
+imgix_placeholder_args: "?w=10&auto=format,compress"

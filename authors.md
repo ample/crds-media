@@ -11,7 +11,7 @@ title: Authors
       {% for author in site.authors %}
         <div class="card">
           <a href="{{ author.url }}">
-            <img class="card-img-top img-responsive" src="{{ author.image }}">
+            <img class="card-img-top img-responsive" src="{{ author.image | imgix: site.imgix | append: site.imgix_placeholder_args }}">
           </a>
           <div class="card-block">
             <a href="{{ author.url }}">
