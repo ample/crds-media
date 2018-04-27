@@ -1,7 +1,61 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
   <head>
-    {% include head.html %}
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="crossroads media" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MFS4MJ');</script>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="//dz6ito7tas43n.cloudfront.net/images/favicon/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="//dz6ito7tas43n.cloudfront.net/images/favicon/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="//dz6ito7tas43n.cloudfront.net/images/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="//dz6ito7tas43n.cloudfront.net/images/favicon/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="//dz6ito7tas43n.cloudfront.net/images/favicon/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="//dz6ito7tas43n.cloudfront.net/images/favicon/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="//dz6ito7tas43n.cloudfront.net/images/favicon/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="//dz6ito7tas43n.cloudfront.net/images/favicon/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="//dz6ito7tas43n.cloudfront.net/images/favicon/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="//dz6ito7tas43n.cloudfront.net/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="194x194" href="//dz6ito7tas43n.cloudfront.net/images/favicon/favicon-194x194.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="//dz6ito7tas43n.cloudfront.net/images/favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="//dz6ito7tas43n.cloudfront.net/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="//dz6ito7tas43n.cloudfront.net/images/favicon/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#a37304">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="//d1tmclqz61gqwd.cloudfront.net/styles/crds-styles-2.3.0.min.css">
+    {% asset application.scss %}
+
+    <title>{% if page.title and page.title != site.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
+    <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:image" content="{{ site.baseurl }}/{% if page.image %}{{ page.image | escape }}{% else %}{{ site.image | escape }}{% endif %}">
+    <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@crdschurch">
+
+    <script>
+    var CRDS = {
+      media: {
+        cms: '{{ site.shared_header.cms }}',
+        app: '{{ site.shared_header.app }}',
+        img: '{{ site.shared_header.img }}',
+        prefix: '{{ site.shared_header.prefix }}'
+      }
+    };
+    </script>
   </head>
   <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFS4MJ"
