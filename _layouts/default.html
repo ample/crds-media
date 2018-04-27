@@ -9,12 +9,6 @@
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
 
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-MFS4MJ');</script>
-
     <link rel="apple-touch-icon" sizes="57x57" href="//dz6ito7tas43n.cloudfront.net/images/favicon/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="//dz6ito7tas43n.cloudfront.net/images/favicon/apple-touch-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="//dz6ito7tas43n.cloudfront.net/images/favicon/apple-touch-icon-72x72.png">
@@ -55,6 +49,8 @@
         prefix: '{{ site.shared_header.prefix }}'
       }
     };
+
+    var JEKYLL_ENV = '{{ site.env }}';
     </script>
   </head>
   <body>
@@ -65,7 +61,7 @@
     {{ content }}
     {% include footer.html %}
 
-    <script src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5391d6a6145291c4" async></script>
-    {% asset application.js %}
+    <script type="text/javascript" src="{% asset application.js @path %}"></script>
+    <script async type="text/javascript" src="{% asset application_deferred.js @path %}"></script>
   </body>
 </html>

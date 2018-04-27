@@ -1,0 +1,5 @@
+//= require ./vendor/jquery-3.3.1.min
+//= require ./vendor/bootstrap.min
+//= require ./vendor/imgix.min
+//= require ./vendor/addthis_widget.min
+//= require_tree ./components
