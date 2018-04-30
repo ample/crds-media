@@ -1,12 +1,10 @@
 var Marked = marked;
-
 Marked.setOptions({
   sanitize: false,
   smartLists: true,
   smartypants: false
 });
 
-// dom stuff
 var title = document.querySelector('[data-title]');
 var authorNames = document.querySelectorAll('[data-author-name]');
 var authorLinks = document.querySelectorAll('[data-author-link]');
@@ -18,12 +16,6 @@ var tagContainer = document.querySelector('[data-tags]');
 var heroContainer = document.querySelector('[data-hero-image]');
 var heroCaption = document.querySelector('[data-hero-caption]');
 
-function getUrlParameter() {
-  var sPageURL = decodeURIComponent(window.location.search),
-  sParameterName = sPageURL.split('=');
-  return sParameterName[1];
-}
-
 function createTags(arr) {
   for (var i = 0; i < arr.length; i+= 1) {
     var elm = document.createElement('a');
@@ -33,7 +25,7 @@ function createTags(arr) {
   }
 }
 
-function setImage(src) {
+function setHeroImage(src) {
   heroContainer.style = `background-image: url('${src}');`;
 }
 
@@ -42,7 +34,7 @@ function parseBodyMarkdown(obj) {
   postBody.innerHTML = parsed;
 }
 
-function setAuthor(name, slug, bio, img) {
+function setAuthorInfo(name, slug, bio, img) {
   for (var i = 0; i < authorNames.length; i += 1) {
     authorNames[i].innerText = name;
   }
@@ -69,15 +61,14 @@ function renderPage(data) {
   
   // image
   getAsset(data.image.sys.id).then(function(res) {
-    setImage(res.fields.file.url);
+    setHeroImage(res.fields.file.url);
   }).catch(function(err) {
     console.log(`error: ${err}`);
   });
 
   // author
   getSingleEntry(data.author.sys.id).then(function(res) {
-    console.log(res);
-    setAuthor(res.fields.full_name, res.fields.slug, res.fields.summary, res.fields.image.sys.id);
+    setAuthorInfo(res.fields.full_name, res.fields.slug, res.fields.summary, res.fields.image.sys.id);
   }).catch(function(err) {
     console.log(err);
   });
@@ -85,7 +76,7 @@ function renderPage(data) {
 
 function getAsset(id) {
   return new Promise(function(resolve, reject) {
-    var assetUrl = 'https://preview.contentful.com/spaces/y3a9myzsdjan/assets/' + id + '?access_token=31349caf7c9b1e390583a84a741a754d976984c27c2c70d831050b9804e80edf';
+    var assetUrl = `https://preview.contentful.com/spaces/y3a9myzsdjan/assets/${id}?access_token=31349caf7c9b1e390583a84a741a754d976984c27c2c70d831050b9804e80edf`;
     resolve(makeRequest(assetUrl));
   })
 }
@@ -106,13 +97,19 @@ function makeRequest(url) {
   });
 };
 
+function getUrlParameter() {
+  var sPageURL = decodeURIComponent(window.location.search),
+  sParameterName = sPageURL.split('=');
+  return sParameterName[1];
+}
+
 // make a request to Contentful for preview content
 function getSingleEntry(id) {
   return new Promise(function(resolve, reject) {
     var postId;
     id === undefined ? postId  = getUrlParameter() : postId = id;
     if (postId !== '') {
-      var url = 'https://preview.contentful.com/spaces/y3a9myzsdjan/environments/master/entries/' + postId + '?access_token=31349caf7c9b1e390583a84a741a754d976984c27c2c70d831050b9804e80edf';
+      var url = 'https://preview.contentful.com/spaces/y3a9myzsdjan/entries/' + postId + '?access_token=31349caf7c9b1e390583a84a741a754d976984c27c2c70d831050b9804e80edf';
       makeRequest(url).then(function(res) {
         resolve(res);
       })
