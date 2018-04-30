@@ -70,6 +70,7 @@ contentful:
           topic: category/title
           date: published_at
           slug: slug
+          tags: tags
         other:
           layout: post
           draft: false
