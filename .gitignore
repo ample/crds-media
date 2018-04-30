@@ -11,3 +11,4 @@ _site
 collections
 node_modules
 lambda
+contentful-export-*
