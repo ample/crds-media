@@ -1,10 +1,3 @@
-var Marked = marked;
-Marked.setOptions({
-  sanitize: false,
-  smartLists: true,
-  smartypants: false
-});
-
 var title = document.querySelector('[data-title]');
 var authorNames = document.querySelectorAll('[data-author-name]');
 var authorLinks = document.querySelectorAll('[data-author-link]');
@@ -16,7 +9,18 @@ var tagContainer = document.querySelector('[data-tags]');
 var heroContainer = document.querySelector('[data-hero-image]');
 var heroCaption = document.querySelector('[data-hero-caption]');
 
-function createTags(arr) {
+function parseBodyMarkdown(obj) {
+  var Marked = marked;
+  Marked.setOptions({
+    sanitize: false,
+    smartLists: true,
+    smartypants: false
+  });
+  var parsedMd = Marked(obj);
+  postBody.innerHTML = parsedMd;
+}
+
+function setTags(arr) {
   for (var i = 0; i < arr.length; i+= 1) {
     var elm = document.createElement('a');
     elm.classList.add('article_tag');
@@ -27,11 +31,6 @@ function createTags(arr) {
 
 function setHeroImage(src) {
   heroContainer.style = `background-image: url('${src}');`;
-}
-
-function parseBodyMarkdown(obj) {
-  var parsed = Marked(obj);
-  postBody.innerHTML = parsed;
 }
 
 function setAuthorInfo(name, slug, bio, img) {
@@ -52,22 +51,20 @@ function setAuthorInfo(name, slug, bio, img) {
 function setText(obj) {
   title.innerText = obj.title;
   postDate.innerText = obj.published_at;
+  parseBodyMarkdown(obj.body);
 }
 
 function renderPage(data) {
-  parseBodyMarkdown(data.body);
   setText(data);
-  createTags(data.tags);
+  data.tags !== undefined ? setTags(data.tags) : '';
   
-  // image
   getAsset(data.image.sys.id).then(function(res) {
     setHeroImage(res.fields.file.url);
   }).catch(function(err) {
-    console.log(`error: ${err}`);
+    console.log(err);
   });
 
-  // author
-  getSingleEntry(data.author.sys.id).then(function(res) {
+  getEntry(data.author.sys.id).then(function(res) {
     setAuthorInfo(res.fields.full_name, res.fields.slug, res.fields.summary, res.fields.image.sys.id);
   }).catch(function(err) {
     console.log(err);
@@ -79,6 +76,25 @@ function getAsset(id) {
     var assetUrl = `https://preview.contentful.com/spaces/y3a9myzsdjan/assets/${id}?access_token=31349caf7c9b1e390583a84a741a754d976984c27c2c70d831050b9804e80edf`;
     resolve(makeRequest(assetUrl));
   })
+}
+
+function getEntry(id) {
+  return new Promise(function(resolve, reject) {
+    var postId;
+    id === undefined ? postId  = getUrlParameter() : postId = id;
+    if (postId !== '') {
+      var url = 'https://preview.contentful.com/spaces/y3a9myzsdjan/entries/' + postId + '?access_token=31349caf7c9b1e390583a84a741a754d976984c27c2c70d831050b9804e80edf';
+      makeRequest(url).then(function(res) {
+        resolve(res);
+      })
+    }  
+  })
+}
+
+function getUrlParameter() {
+  var sPageURL = decodeURIComponent(window.location.search),
+  sParameterName = sPageURL.split('=');
+  return sParameterName[1];
 }
 
 function makeRequest(url) {
@@ -97,26 +113,6 @@ function makeRequest(url) {
   });
 };
 
-function getUrlParameter() {
-  var sPageURL = decodeURIComponent(window.location.search),
-  sParameterName = sPageURL.split('=');
-  return sParameterName[1];
-}
-
-// make a request to Contentful for preview content
-function getSingleEntry(id) {
-  return new Promise(function(resolve, reject) {
-    var postId;
-    id === undefined ? postId  = getUrlParameter() : postId = id;
-    if (postId !== '') {
-      var url = 'https://preview.contentful.com/spaces/y3a9myzsdjan/entries/' + postId + '?access_token=31349caf7c9b1e390583a84a741a754d976984c27c2c70d831050b9804e80edf';
-      makeRequest(url).then(function(res) {
-        resolve(res);
-      })
-    }  
-  })
-}
-
-getSingleEntry().then(function(res) {
+getEntry().then(function(res) {
   renderPage(res.fields);
 });
