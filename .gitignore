@@ -1,4 +1,5 @@
 _site
+.DS*
 .sass-cache
 .jekyll-metadata
 .jekyll-cache
@@ -11,3 +12,4 @@ collections
 node_modules
 lambda
 .cache
+contentful-export-*

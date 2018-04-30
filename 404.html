@@ -9,10 +9,10 @@ layout: default
   </div>
   <div class="col-sm-6">
     <p>Please use the navigation above or search here.</p>
-    <form role="form" action="/search">
+    <form role="form" action="{{ site.search_domain }}/search">
       <div class="form-group">
         <div class="input-group input-group-lg">
-          <input class="form-control input-lg" placeholder="Search..." type="search" />
+          <input class="form-control input-lg" placeholder="Search..." type="search" name="q">
           <span class="input-group-btn">
             <button type="submit" class="btn btn-blue">
               <svg class="icon icon-1" viewbox="0 0 256 256">
