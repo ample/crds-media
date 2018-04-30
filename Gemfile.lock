@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/crdschurch/jekyll-contentful.git
-  revision: 4f4af888bec206a656e5c0f6c8bde6197b68eb45
+  revision: 2fadd32f132a1733b7f39c79260c2b36a9eb18bc
   specs:
     jekyll-contentful (0.0.1)
       contentful (>= 2.6.0)
@@ -20,16 +20,16 @@ GEM
     coderay (1.1.2)
     colorator (1.1.0)
     concurrent-ruby (1.0.5)
-    contentful (2.6.0)
+    contentful (2.8.0)
       http (> 0.8, < 3.0)
       multi_json (~> 1)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
-    dotenv (2.3.0)
+    dotenv (2.4.0)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
-    eventmachine (1.2.5)
+    eventmachine (1.2.6)
     execjs (2.7.0)
     extras (0.3.0)
       forwardable-extended (~> 2.5)
