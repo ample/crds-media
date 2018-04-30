@@ -104,6 +104,7 @@ contentful:
           apple_podcasts_url: apple_podcasts_url
           google_play_url: google_play_url
           stitcher_url: stitcher_url
+          slug: slug
         other:
           layout: podcast
           draft: false
@@ -121,6 +122,7 @@ contentful:
           date: published_at
           podcast: podcast/title
           image: podcast/image/url
+          slug: slug
         other:
           layout: episode
           draft: false
