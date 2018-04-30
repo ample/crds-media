@@ -51,10 +51,10 @@ collections:
     permalink: /:collection/:path
   podcasts:
     output: true
-    permalink: /:collection/:path
+    permalink: /:collection/:slug
   episodes:
     output: true
-    permalink: /:collection/:path
+    permalink: /:collection/:slug
 
 contentful:
   content_types:
