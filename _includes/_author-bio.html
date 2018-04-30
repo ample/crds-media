@@ -1,13 +1,17 @@
 <div class="media media-author push-bottom">
   <div class="media-img-wrapper">
-    <a href="{{ author.url }}">
-      <div class="media-object-default img-circle img-size-5" style="background-image:url('{{ author.image | imgix: site.imgix }}');"></div>
+    <a href="{{ author.url }}" data-author-link>
+      <div data-author-img class="media-object-default img-circle img-size-5" style="background-image:url('{{ author.image | imgix: site.imgix }}');"></div>
     </a>
   </div>
   <div class="media-body">
-    <a href="{{ author.url }}">
-      <h2 class="component-header push-quarter-ends">{{ author.name }}</h2>
-      {{ author.content }}
+    <a href="{{ author.url }}" data-author-link>
+      <h2 class="component-header push-quarter-ends" data-author-name>{{ author.name }}</h2>
+      {% if page.title == "Preview" %}
+        <p data-author-bio></p>
+      {% else %}
+        {{ author.content }}
+      {% endif %}
     </a>
   </div>
 </div>

@@ -13,5 +13,24 @@
 
     <script src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5391d6a6145291c4" async></script>
     {% asset application.js %}
+    {% if page.title == "Preview" %}
+      <script src="https://unpkg.com/marked@0.3.19/lib/marked.js"></script>
+      <script src="https://cdn.rawgit.com/mattmccray/liquid.js/master/dist/liquid.min.js"></script>
+      
+      <!-- embedly support -->
+      <script>
+        (function(w, d){
+          var id='embedly-platform', n = 'script';
+          if (!d.getElementById(id)){
+            w.embedly = w.embedly || function() {(w.embedly.q = w.embedly.q || []).push(arguments);};
+            var e = d.createElement(n); e.id = id; e.async=1;
+            e.src = ('https:' === document.location.protocol ? 'https' : 'http') + '://cdn.embedly.com/widgets/platform.js';
+            var s = d.getElementsByTagName(n)[0];
+            s.parentNode.insertBefore(e, s);
+          }
+        })(window, document);
+      </script>
+      {% asset preview.js %}
+    {% endif %}
   </body>
 </html>
