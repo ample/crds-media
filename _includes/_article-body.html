@@ -8,10 +8,10 @@
         <h5 class="control-label">Share</h5>
         <div class="addthis_sharing_toolbox"></div>
       </div>
-      {% if page.topic_names.size > 0 %}
+      {% if page.tags.size > 0 %}
       <div class="article_tags">
         <h5 class="control-label">Tags</h5>
-        {% for tag in page.topic_names %}
+        {% for tag in page.tags %}
           <a href="{{ site.search_domain }}/search?q=tags: '{{ tag }}'" class="article_tag">{{ tag }}</a>
         {% endfor %}
       </div>
