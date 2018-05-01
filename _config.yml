@@ -51,10 +51,10 @@ collections:
     permalink: /:collection/:path
   podcasts:
     output: true
-    permalink: /:collection/:slug
+    permalink: /:collection/:path
   episodes:
     output: true
-    permalink: /:collection/:slug
+    permalink: /:collection/:path
 
 contentful:
   content_types:
@@ -70,7 +70,6 @@ contentful:
           topic: category/title
           date: published_at
           slug: slug
-          tags: tags
         other:
           layout: post
           draft: false
@@ -101,18 +100,17 @@ contentful:
           subtitle: subtitle
           image: image/url
           background: bg_image/url
-          authors: [author, full_name]
+          authors: [authors, full_name]
           apple_podcasts_url: apple_podcasts_url
           google_play_url: google_play_url
           stitcher_url: stitcher_url
-          slug: slug
         other:
           layout: podcast
           draft: false
     episodes:
       id: episode
       body: description
-      filename: "{{ episode_number }}-{{ slug }}"
+      # filename: "{{ episode_number }}-{{ slug }}"
       frontmatter:
         entry_mappings:
           title: title
@@ -121,10 +119,8 @@ contentful:
           episode_number: episode_number
           season_number: season_number
           date: published_at
-          episode_length: episode_length
           podcast: podcast/title
           image: podcast/image/url
-          slug: slug
         other:
           layout: episode
           draft: false
