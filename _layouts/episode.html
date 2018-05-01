@@ -7,15 +7,19 @@ layout: default
     <header class="container episode-header">
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2 mobile-wrapper">
+          <!-- Layout for img on desktop -->
           <div class="episode-thumbnail-image__desktop">
-            <img src="http://www.placecage.com/c/120/120" alt="podcast image">
+            <img src="{{ page.image | imgix: site.imgix }}?auto=format,compress" alt="{{ podcast.title }}">
           </div>
+
           <div class="episode-text">
-            <p class="episode-breadcrumbs"><a href="#media">Media</a> / <a href="#media">Podcasts</a> / <a href="#media">IKR?</a> /</p>
-            <p class="podcast-section-header">Episode 9: The one about loss... and poop</p>
+            <p class="episode-breadcrumbs"><a href="{{ site.url }}">Media</a> / <a href="{{ site.url }}/podcasts">Podcasts</a> / <a href="{{ site.url }}/podcasts/">IKR?</a> /</p>
+            <p class="podcast-section-header">{{ page.title }}</p>
           </div>
+
+          <!-- Layout for img on mobile -->
           <div class="episode-thumbnail-image__mobile">
-            <img src="http://www.placecage.com/c/120/120" alt="podcast image">
+            <img src="{{ page.image | imgix: site.imgix }}?auto=format,compress" alt="{{ podcast.title }}">
           </div>
         </div>
       </div>
