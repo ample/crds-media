@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/crdschurch/crds-styles.git
+  revision: 9cb458e63280944293f80c3a662087eb54fad218
+  branch: feature/US13259-audit-assets
+  specs:
+    crds-styles (2.4.1)
+      bootstrap-sass (~> 3.3.7)
+      sass (>= 3.2)
+
+GIT
   remote: https://github.com/crdschurch/jekyll-contentful.git
   revision: 2fadd32f132a1733b7f39c79260c2b36a9eb18bc
   specs:
@@ -17,6 +26,11 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    autoprefixer-rails (8.4.1)
+      execjs
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     coderay (1.1.2)
     colorator (1.1.0)
     concurrent-ruby (1.0.5)
@@ -33,7 +47,7 @@ GEM
     execjs (2.7.0)
     extras (0.3.0)
       forwardable-extended (~> 2.5)
-    fastimage (2.1.1)
+    fastimage (2.1.3)
     ffi (1.9.23)
     forwardable-extended (2.6.0)
     http (2.2.2)
@@ -105,7 +119,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     public_suffix (3.0.2)
-    rack (2.0.4)
+    rack (2.0.5)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -131,6 +145,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass (~> 3.3.7)
+  crds-styles!
   jekyll (~> 3.7.2)
   jekyll-assets
   jekyll-contentful (~> 0.0.1)!
