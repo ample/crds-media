@@ -14,7 +14,6 @@ group :jekyll_plugins do
   gem 'jekyll-paginate-v2'
   gem 'jekyll-assets'
 
-  gem 'bootstrap-sass', '~> 3.3.7'
   # gem 'crds-styles', path: File.expand_path('../crds-styles', __dir__)
   gem 'crds-styles', github: 'crdschurch/crds-styles', branch: 'feature/US13259-audit-assets'
 end

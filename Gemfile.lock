@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/crdschurch/crds-styles.git
-  revision: 9cb458e63280944293f80c3a662087eb54fad218
+  revision: 999d89f42654b17104d79ccab7349dd019bb76b5
   branch: feature/US13259-audit-assets
   specs:
     crds-styles (2.4.1)
@@ -145,7 +145,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass (~> 3.3.7)
   crds-styles!
   jekyll (~> 3.7.2)
   jekyll-assets
