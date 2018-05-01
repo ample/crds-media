@@ -2,7 +2,7 @@
 layout: default
 ---
 {% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
-<!-- {% assign author = site.authors | where:"name", page.name | first %} -->
+{% assign author = site.authors | where:"name", page.name %}
 
 <section class="media-podcast-show">
   <section class="podcast-hero jumbotron" style="background-image: url('{{ page.background | imgix: site.imgix }}?auto=format,compress')">
@@ -27,30 +27,82 @@ layout: default
       <div class="col-sm-8 col-sm-offset-2">
         <p>{{ page.content | strip_html }}</p>
         <p class="push-ends">Hosted by
-          <a href="#">Alli Patterson</a> and
-          <a href="#">Latasha Patrick</a>
+          <a href="#">{{ page.authors | join: " and " }}
+          </a>
         </p>
       </div>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 col-sm-offset-2 hard-left">
-            {% include _social-share.html %}
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        {% include _social-share.html %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <h2 class="podcast-section-header push-top-large">Episodes</h2>
+        <!-- Tabs -->
+        {% for episode in site.episodes %} {% if episode.podcast == page.title and episode.season_number != nil %}
+        <!-- Nav tabs -->
+        <div>
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+              <a href="#description" aria-controls="description" role="tab" data-toggle="tab">
+                Season {{ episode.season_number | reverse }}</a>
+            </li>
+          </ul>
+        </div>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="description">
+            {% for episode in site.episodes %} {% if episode.podcast == page.title and episode.season_number == 3 %}
+            <a href="{{ episode.url }}">
+              <h3 class="list-title">Episode {{ episode.episode_number }}: {{ episode.title }}</h3>
+            </a>
+            <p class="metadata">{{ episode.date | date: date_format }} {% if episode.date != nil and episode.episode_length != nil %}
+              <span class="divider">•</span>
+              {% endif %} {{ episode.episode_length }}
+            </p>
+            <p class="episode-description">{{ episode.content | strip_html }}</p>
+            {% endif %} {% endfor %}
+          </div>
+          {% else %}
+          <p class="font-family-base">Sorry we don't have any episodes here yet. Please check back soon!</p>
+          {% endif %}
+          <!-- <li role="presentation"><a href="#show-notes" aria-controls="show-notes" role="tab" data-toggle="tab">Season 2</a></li>
+              <li role="presentation"><a href="#transcription" aria-controls="transcription" role="tab" data-toggle="tab">Season 1</a></li> -->
+          {% endfor %}
+          <div role="tabpanel" class="tab-pane" id="show-notes">
+            {% for episode in site.episodes %} {% if episode.podcast == page.title and episode.season_number == 2 %}
+            <a href="{{ episode.url }}">
+              <h3 class="">{{ episode.episode_number }}: {{ episode.title }}</h3>
+            </a>
+            <p class="metadata">{{ episode.date}} {% if episode.date != nil and episode.episode_length != nil %} * {% endif %} {{ episode.episode_length
+              }}
+            </p>
+            {% endif %} {% endfor %}
+          </div>
+
+          <div role="tabpanel" class="tab-pane" id="transcription">
+            {% for episode in site.episodes %} {% if episode.podcast == page.title and episode.season_number == 1 %}
+            <a href="{{ episode.url }}">
+              <h3 class="">{{ episode.episode_number }}: {{ episode.title }}</h3>
+            </a>
+            <p class="metadata">{{ episode.date}} {% if episode.date != nil and episode.episode_length != nil %} * {% endif %} {{ episode.episode_length
+              }}
+            </p>
+            {% endif %} {% endfor %}
+          </div>
         </div>
       </div>
     </div>
-    <div class="container">
+
+    <div class="container last-section">
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2 hard-left">
-          <h2 class="podcast-section-header">Episodes</h2>
+          <h2 class="podcast-section-header flush-top">Subscribe</h2>
+          {% include _podcast-subscribe.html %}
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 col-sm-offset-2 hard-left">
-          <h2 class="podcast-section-header">Subscribe</h2>
-        </div>
-      </div>
-    </div>
+  </div>
 </section>

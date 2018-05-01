@@ -101,8 +101,7 @@ contentful:
           subtitle: subtitle
           image: image/url
           background: bg_image/url
-          authors: authors, full_name
-          authors: authors/full_name
+          authors: [author, full_name]
           apple_podcasts_url: apple_podcasts_url
           google_play_url: google_play_url
           stitcher_url: stitcher_url
@@ -122,6 +121,7 @@ contentful:
           episode_number: episode_number
           season_number: season_number
           date: published_at
+          episode_length: episode_length
           podcast: podcast/title
           image: podcast/image/url
           slug: slug

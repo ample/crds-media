@@ -41,6 +41,27 @@
   }
 }
 
+.podcast-subscribe {
+  p {
+    padding-right: 10px;
+    float: left;
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  &:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+
+  img {
+    height: 33px;
+  }
+}
+
  // 🛠 Replace with variables when crds-styles is added
 .podcast-section-header {
   font-family: "acumin-pro-extra-condensed", sans-serif;
@@ -98,6 +119,7 @@
 
   .breadcrumb {
     background-color: transparent;
+    position: relative;
     font-size: 1rem;
     line-height: 1.5rem;
     margin-bottom: 0;
@@ -113,8 +135,8 @@
     line-height: 1.5rem;
 
     @media screen and (min-width: $screen-xs) {
-      font-size: 1.1875rem;
-      line-height: 1.8675rem;
+      font-size: $font-size-large;
+      line-height: $line-height-large;
     }
   }
   .content {
@@ -122,6 +144,38 @@
 
     @media screen and (min-width: $screen-xs) {
       margin-top: 81px;
+    }
+
+    & p {
+      font-size: $font-size-large;
+      line-height: $line-height-large;
+
+      &.metadata {
+        font-size: $font-size-smaller;
+        line-height: 0.8125rem; //13px
+      }
+
+      &.episode-description {
+        font-size: $font-size-small;
+        line-height: 1.25rem; //20px
+      }
+    }
+
+    .push-top-large {
+      margin-top: 60px;
+    }
+
+    .last-section {
+      padding-bottom: 120px;
+    }
+
+    & .list-title {
+      font-size: $font-size-large;
+      line-height: $line-height-large;
+
+      &:first-child{
+        margin-top: 0;
+      }
     }
   }
 }
