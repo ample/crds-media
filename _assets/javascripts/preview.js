@@ -8,6 +8,12 @@ var postBody = document.querySelector('[data-body]');
 var tagContainer = document.querySelector('[data-tags]');
 var heroContainer = document.querySelector('[data-hero-image]');
 var heroCaption = document.querySelector('[data-hero-caption]');
+var preloader = document.querySelector('[data-preview-preloader]');
+
+function hidePreloader() {
+  preloader.style.opacity = 0;
+  preloader.style.zIndex = -1;
+}
 
 function parseBodyMarkdown(obj) {
   var Marked = marked;
@@ -60,6 +66,7 @@ function renderPage(data) {
   
   getAsset(data.image.sys.id).then(function(res) {
     setHeroImage(res.fields.file.url);
+    bgImageLoaded(res.fields.file.url);
   }).catch(function(err) {
     console.log(err);
   });
@@ -113,6 +120,20 @@ function makeRequest(url) {
   });
 };
 
-getEntry().then(function(res) {
-  renderPage(res.fields);
-});
+function init() {
+  getEntry().then(function(res) {
+    renderPage(res.fields);
+  }).catch(function(err) {
+    console.log(err);
+  });
+}
+
+init();
+
+function bgImageLoaded(src) {
+  var img = new Image();
+  img.onload = function() {
+    hidePreloader();
+  }
+  img.src = src;
+}
