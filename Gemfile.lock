@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/crdschurch/crds-styles.git
+  revision: 087df18d7689f9dab0c025a157db3f07c0340b22
+  branch: feature/US13259-audit-assets
+  specs:
+    crds-styles (2.4.1)
+      bootstrap-sass (~> 3.3.7)
+      sass (>= 3.2)
+
+GIT
   remote: https://github.com/crdschurch/jekyll-contentful.git
   revision: 2fadd32f132a1733b7f39c79260c2b36a9eb18bc
   specs:
@@ -24,6 +33,11 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    autoprefixer-rails (8.4.1)
+      execjs
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     coderay (1.1.2)
     colorator (1.1.0)
     concurrent-ruby (1.0.5)
@@ -142,6 +156,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
+  crds-styles!
   jekyll (~> 3.7.2)
   jekyll-assets
   jekyll-contentful (~> 0.0.1)!

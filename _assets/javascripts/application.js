@@ -12,5 +12,4 @@ $(document).ready(function(){
   };
   var header = new CRDS.SharedHeader(options);
       header.render();
-  var foot = new CRDS.SharedFooter(options);
 });
