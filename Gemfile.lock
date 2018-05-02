@@ -7,6 +7,13 @@ GIT
       dotenv
       jekyll
 
+PATH
+  remote: vendor/gems/jekyll-crds
+  specs:
+    jekyll-crds (0.0.1)
+      httparty
+      jekyll
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -45,6 +52,8 @@ GEM
       domain_name (~> 0.5)
     http-form_data (1.0.3)
     http_parser.rb (0.6.0)
+    httparty (0.16.2)
+      multi_xml (>= 0.5.2)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     jekyll (3.7.3)
@@ -97,6 +106,7 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     multi_json (1.13.1)
+    multi_xml (0.6.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     pathutil (0.16.1)
@@ -134,6 +144,7 @@ DEPENDENCIES
   jekyll (~> 3.7.2)
   jekyll-assets
   jekyll-contentful (~> 0.0.1)!
+  jekyll-crds (~> 0.0.1)!
   jekyll-feed (~> 0.6)
   jekyll-paginate-v2
   jekyll-redirect-from
