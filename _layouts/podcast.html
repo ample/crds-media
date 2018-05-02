@@ -67,7 +67,7 @@ layout: default
         </div>
         <!-- Tab panes -->
         <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="description">
+          <div role="tabpanel" class="tab-pane active" id="#{{ season }}">
             {% for episode in site.episodes %}
             {% if episode.podcast == page.title and episode.season_number == 3 %}
             <a href="{{ episode.url }}">
