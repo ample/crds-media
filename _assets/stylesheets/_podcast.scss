@@ -73,11 +73,16 @@
 
 // 2. Podcast series styles
 .media-podcast-show {
-  & .jumbotron {
-    padding-top: 15px;
+  & .podcast-hero  {
+    color: $cr-white;
+    height: 575px;
 
     @media screen and (min-width: $screen-xs) {
-      padding-top: 60px;
+      height: 350px;
+    }
+
+    & a, a:visited, a:hover, a:focus, a:active{
+      color: $cr-white;
     }
 
     // 🛠 Replace with variables when crds-styles is added
@@ -90,13 +95,39 @@
         line-height: 3.625rem;
       }
     }
-  }
 
-  & .podcast-hero {
-    height: 575px;
+    & .podcast-background {
+      position: relative;
+      width: 100vw;
+      height: 575px;
+      overflow: hidden;
 
-    @media screen and (min-width: $screen-xs) {
+      @media screen and (min-width: $screen-xs) {
+        height: 350px;
+      }
+
+      img {
+        min-height: 575px;
+        width: 100%;
+        width: 100vw;
+
+        @media screen and (min-width: $screen-xs) {
+          min-height: 350px;
+        }
+      }
+    }
+
+    & .header-text {
+      position: absolute;
+      width: 100vw;
       height: 350px;
+      top: 0;
+      background-color: rgba($cr-black, 0.2);
+      padding-top: 15px;
+
+      @media screen and (min-width: $screen-xs) {
+        padding-top: 60px;
+      }
     }
   }
 

@@ -1,11 +1,15 @@
-<p>There are seasons in life when you're just not okay. How do you deal, find hope, choose to get up in the morning when everything inside you is fighting against that? After a year of compounding personal losses, Courtney found her faith shaken to the very core. And yet, her journey toward healing brought her face to face with a God who deals in reality, values honesty, and chooses resurrection. She visits the IKR team to tell her incredible story.</p>
+{% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
+
+{% assign author = site.authors | where:"name", page.name %}
+
+<p>{{ page.content | strip_html }}</p>
 
 <p class="flush-bottom push-top">Hosted by
-  <a href="#">Alli Patterson</a> and
+  <a href="#">{{ podcast.authors }}</a> and
   <a href="#">Latasha Patrick</a>
 </p>
 
-<p>March 28, 2018 &bull; 36 min</p>
+<p>{{ page.date | date: date_format }} {% if page.episode_length != nil %}<span class="divider">•</span> {{ page.episode_length }} {% endif %}</p>
 
 <!-- Social icons -->
 <div class="soft-half-top push-top">
@@ -28,30 +32,16 @@
 <!-- End topics -->
 
 <!-- Tags -->
+{% if page.tags.size > 0 %}
 <p class="flush-bottom soft-half-top">
   <strong>Tags</strong>
 </p>
 <ul class="list-inline">
+  {% for tag in page.tags %}
   <li>
-    <a href="#">love</a>
+    <a href="{{ site.search_domain }}/search?q=tags: '{{ tag }}'" title="Search {{ tag }}">{{ tag }}</a>
   </li>
-  <li>
-    <a href="#">relationships</a>
-  </li>
-  <li>
-    <a href="#">loss of faith</a>
-  </li>
-  <li>
-    <a href="#">hardship</a>
-  </li>
-  <li>
-    <a href="#">moms</a>
-  </li>
-  <li>
-    <a href="#">children</a>
-  </li>
-  <li>
-    <a href="#">poop</a>
-  </li>
+  {% endfor %}
 </ul>
+{% endif %}
 <!-- End tags -->
