@@ -51,18 +51,14 @@ layout: default
         <!-- Nav tabs -->
         <div>
           <ul class="nav nav-tabs" role="tablist">
-            {% for episode in site.episodes reversed %}
-            {% assign season = episode.season_number %}
-            {% if episode.podcast == page.title and season != nil %}
-            <li role="presentation"
-            {% if forloop.first %}
-            class="active"
-            {% endif %}>
-              <a href="#{{ season }}" aria-controls="description" role="tab" data-toggle="tab">
-                Season {{ season }}</a>
-            </li>
-            {% endif %}
-            {% endfor %}
+              {% assign episode_numbers = site.episodes | where: "podcast", page.title | sort: "season_number" | map: "season_number" | uniq | reverse %}
+              {% for episode_number in episode_numbers %}
+                <li role="presentation" {% if forloop.first %}class="active"{% endif %}>
+                  <a href="#{{ episode_number }}" aria-controls="description" role="tab" data-toggle="tab">
+                    Season {{ episode_number }}
+                  </a>
+                </li>
+              {% endfor %}
           </ul>
         </div>
         <!-- Tab panes -->
