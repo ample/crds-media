@@ -1,2 +1,2 @@
 [build]
-  command = "bundle exec jekyll contentful && bundle exec jekyll build"
+  command = "bundle exec jekyll crds && bundle exec jekyll contentful && bundle exec jekyll build"

@@ -1,5 +1,4 @@
-require 'pry'
-require 'contentful'
+require 'active_support/inflector'
 
 module Jekyll
   module Commands
@@ -18,7 +17,22 @@ module Jekyll
 
         def process!(args, options)
           site = scaffold(args)
-          binding.pry
+          client = Jekyll::Crds::Client.new
+          %w(sharedGlobalHeader footer).each do |title|
+            begin
+              directory = File.join(site.config['source'], '_includes')
+              FileUtils.mkdir_p(directory)
+              filename = File.join(directory, ActiveSupport::Inflector.underscore("_#{title}") + ".html")
+              file = File.open(filename, "w")
+              if file.write(client.select(title)['content'])
+                Jekyll.logger.info "#{filename} imported"
+              end
+            rescue IOError => e
+              Jekyll.logger.error "There was a problem importing: #{filename}"
+            ensure
+              file.close unless file.nil?
+            end
+          end
         end
 
         def scaffold(args)

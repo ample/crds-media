@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem "jekyll", "~> 3.7.2"
+gem 'activesupport'
 
 group :development do
   gem "pry"
