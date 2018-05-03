@@ -1,11 +1,11 @@
 GIT
   remote: git://github.com/crdschurch/crds-styles.git
-  revision: 999d89f42654b17104d79ccab7349dd019bb76b5
+  revision: 6e13cb7991c22523c205c6427d814c19991bafc5
   branch: feature/US13259-audit-assets
   specs:
-    crds-styles (2.4.1)
-      bootstrap-sass (~> 3.3.7)
-      sass (>= 3.2)
+    crds-styles (2.5.0)
+      bootstrap-sass (~> 3.3)
+      sass (~> 3.2)
 
 GIT
   remote: https://github.com/crdschurch/jekyll-contentful.git
