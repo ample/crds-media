@@ -1,0 +1,10 @@
+.text-gray-lighter {
+  color: $cr-gray-lighter;
+}
+
+@media (max-width: 767px) {
+  .cards-2x-sm .card {
+    float: left;
+    max-width: 50%;
+  }  
+}
