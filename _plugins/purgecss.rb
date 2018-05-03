@@ -7,7 +7,11 @@ end
 Jekyll::Hooks.register(:site, :post_write) do |_site|
   # Temp file to store options. Command line would not accept a series of
   # whitelist classes, and there are a few classes purgecss is missing.
-  config_file = '_plugins/purgecss.js'
+  config_file = 'tmp/purgecss.js'
+  # Make sure the tmp directory exists.
+  FileUtils.mkdir('tmp') unless Dir.exist?('tmp')
+  # Delete existing config file, if it exists.
+  File.delete(config_file) if File.exist?(config_file)
   # Configuration JS to write to the file. (Docs: https://www.purgecss.com/configuration)
   config_text = """module.exports = #{{
     content: ['_site/**/*.html'],
@@ -18,6 +22,4 @@ Jekyll::Hooks.register(:site, :post_write) do |_site|
   File.open(config_file, 'w+') { |f| f.write(config_text) }
   # Run purgecss command.
   system("purgecss --config #{config_file} --out _site/assets")
-  # Delete configuration file.
-  File.delete(config_file)
 end
