@@ -62,5 +62,10 @@
 
     <script type="text/javascript" src="{% asset application.js @path %}"></script>
     <script async type="text/javascript" src="{% asset application_deferred.js @path %}"></script>
+
+    {% if page.title == "Preview" %}
+      <script src="https://unpkg.com/marked@0.3.19/lib/marked.js"></script>
+      {% asset preview.js %}
+    {% endif %}
   </body>
 </html>
