@@ -1,3 +1,4 @@
+<div class="alert alert-success hide" data-role="copy-success">You copied something</div>
 <div class="addthis_toolbox addthis_default_style">
   <div class="custom_images">
     <a class="addthis_button_facebook">
@@ -10,7 +11,7 @@
         <use xlink:href="/assets/svgs/icons.svg#twitter"></use>
       </svg>
     </a>
-    <a href="{{ podcast.url }}">
+    <a href="javascript:void(0);" class="clipboard" data-clipboard-text="{{site.url}}{{ page.url }}">
       <svg class="icon" viewBox="0 0 256 256">
         <use xlink:href="/assets/svgs/icons.svg#link"></use>
       </svg>
