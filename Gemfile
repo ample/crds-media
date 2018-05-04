@@ -13,7 +13,11 @@ group :jekyll_plugins do
   gem 'jekyll-redirect-from'
   gem 'jekyll-paginate-v2'
   gem 'jekyll-assets'
+
+  # gem 'crds-styles', path: File.expand_path('../crds-styles', __dir__)
+  gem 'crds-styles', github: 'crdschurch/crds-styles', branch: 'feature/US13259-audit-assets'
 end
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

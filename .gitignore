@@ -12,3 +12,4 @@ collections
 node_modules
 lambda
 contentful-export-*
+tmp
