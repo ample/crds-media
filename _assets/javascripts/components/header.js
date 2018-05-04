@@ -7,5 +7,6 @@ $(document).ready(function(){
   };
   var header = new CRDS.SharedHeader(options);
       header.render();
-  var foot = new CRDS.SharedFooter(options);
+
+  $('div[data-header]').css('visibility', 'visible');
 });
