@@ -1,0 +1,47 @@
+{% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
+
+{% assign author = site.authors | where:"name", page.name %}
+
+<p>{{ page.content | strip_html }}</p>
+
+<p class="flush-bottom push-top">Hosted by
+  <a href="#">{{ podcast.authors }}</a> and
+  <a href="#">Latasha Patrick</a>
+</p>
+
+<p>{{ page.date | date: date_format }} {% if page.episode_length != nil %}<span class="divider">•</span> {{ page.episode_length }} {% endif %}</p>
+
+<!-- Social icons -->
+<div class="soft-half-top push-top">
+    {% include _social-share.html %}
+</div>
+<!-- End social icons -->
+
+<!-- Topics -->
+<p class="flush-bottom soft-top">
+  <strong>Topics</strong>
+</p>
+<ul class="list-inline">
+  <li>
+    <a href="#">Parenting</a>
+  </li>
+  <li>
+    <a href="#">Marriage</a>
+  </li>
+</ul>
+<!-- End topics -->
+
+<!-- Tags -->
+{% if page.tags.size > 0 %}
+<p class="flush-bottom soft-half-top">
+  <strong>Tags</strong>
+</p>
+<ul class="list-inline">
+  {% for tag in page.tags %}
+  <li>
+    <a href="{{ site.search_domain }}/search?q=tags: '{{ tag }}'" title="Search {{ tag }}">{{ tag }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+<!-- End tags -->

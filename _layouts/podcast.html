@@ -1,7 +1,112 @@
 ---
 layout: default
 ---
+{% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
+<section class="media-podcast-show">
+  <section class="podcast-hero jumbotron hard-top">
+    <div class="podcast-background">
+      <img src="{{ page.background | imgix: site.imgix }}?auto=format,compress">
+    </div>
+    <div class="header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <img class="feature-img" src="{{ page.image | imgix: site.imgix }}?auto=format,compress" />
+          </div>
+          <div class="col-sm-8 text-left">
+            <p class="breadcrumb hard">
+              <a href="{{ site.url }}">Media</a> /
+              <a href="{{ site.url }}/podcasts">Podcasts</a> /</p>
+            <h1 class="podcast-section-header flush-top">{{ page.title }}</h1>
+            <hr class="hero">
+            <p class="subtitle">{{ page.subtitle }}</p>
+            <p class="push-top">
+              <a href="{{ page.apple_podcasts_url }}">
+              <img src="//dz6ito7tas43n.cloudfront.net/images/apple-podcasts.svg" alt="Apple Podcast button">
+            </a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="container content">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <p>{{ page.content | strip_html }}</p>
+        <p class="push-ends">Hosted by
+            {% for author_name in page.authors %}
+            {% assign author = site.authors | where:"name", author_name | first %}
+            {% if author %}
+              <a href="{{ author.url }}">{{ author.name }}</a> {% if forloop.last == false %} and {% endif %}
+            {% endif %}
+          {% endfor%}
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        {% include _social-share.html %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <h2 class="podcast-section-header push-top-large">Episodes</h2>
+        <!-- Tabs -->
+        <!-- Nav tabs -->
+        <div>
+          <ul class="nav nav-tabs" role="tablist">
+            {% assign season_numbers = site.episodes | where: "podcast", page.title | sort: "season_number" | map: "season_number" | uniq | reverse %}
+            {% for season_number in season_numbers %}
+              <li role="presentation" {% if forloop.first %}class="active"{% endif %}>
+                <a href="#season-{{ season_number }}" aria-controls="description" role="tab" data-toggle="tab">
+                  Season {{ season_number }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
 
-Hello Podcast!
+        <!-- Tab Panes -->
+        <div class="tab-content">
+          {% assign groups = site.episodes | where: "podcast", page.title | sort: "season_number" | reverse | group_by: "season_number" %}
 
-I'm from the podcast.html file.
+          {% for group in groups %}
+            {% assign season_number = group.items | map: "season_number" | first %}
+            <div role="tabpanel" class="tab-pane {% if forloop.first %}active{% endif %}" id="season-{{ season_number }}">
+
+              {% assign episodes = group.items | sort: "episode_number" | reverse %}
+              {% for episode in episodes %}
+                <a href="{{ episode.url }}">
+                  <h3 class="list-title">Episode {{ episode.episode_number }}: {{ episode.title }}</h3>
+                </a>
+
+                <p class="metadata">{{ episode.date | date: date_format }}
+                  {% if episode.date != nil and episode.episode_length != nil %}
+                  <span class="divider">•</span>
+                  {% endif %}
+                  {{ episode.episode_length }}
+                </p>
+
+                <p class="episode-description">{{ episode.content | strip_html | truncatewords: 35 }}</p>
+              {% endfor %}
+            </div>
+            {% endfor %}
+
+            {% if groups.size == 0 %}
+
+              <p class="font-family-base soft-ends push-bottom">Sorry we don't have any episodes here yet. Please check back soon!</p>
+
+            {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="last-section">
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+          <h2 class="podcast-section-header flush-top">Subscribe</h2>
+          {% include _podcast-subscribe.html %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
