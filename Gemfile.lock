@@ -1,7 +1,7 @@
 GIT
-  remote: git://github.com/crdschurch/crds-styles.git
-  revision: 6e13cb7991c22523c205c6427d814c19991bafc5
-  branch: feature/US13259-audit-assets
+  remote: https://github.com/crdschurch/crds-styles.git
+  revision: a5f62ad73992524f3baa0a46bd390d33d8bb056f
+  branch: development
   specs:
     crds-styles (2.5.0)
       bootstrap-sass (~> 3.3)

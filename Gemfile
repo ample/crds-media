@@ -15,7 +15,7 @@ group :jekyll_plugins do
   gem 'jekyll-assets'
 
   # gem 'crds-styles', path: File.expand_path('../crds-styles', __dir__)
-  gem 'crds-styles', github: 'crdschurch/crds-styles', branch: 'feature/US13259-audit-assets'
+  gem 'crds-styles', git: 'https://github.com/crdschurch/crds-styles.git', branch: 'development'
 end
 
 
