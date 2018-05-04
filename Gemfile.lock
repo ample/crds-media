@@ -1,6 +1,15 @@
 GIT
+  remote: https://github.com/crdschurch/crds-styles.git
+  revision: a5f62ad73992524f3baa0a46bd390d33d8bb056f
+  branch: development
+  specs:
+    crds-styles (2.5.0)
+      bootstrap-sass (~> 3.3)
+      sass (~> 3.2)
+
+GIT
   remote: https://github.com/crdschurch/jekyll-contentful.git
-  revision: 4f4af888bec206a656e5c0f6c8bde6197b68eb45
+  revision: 2fadd32f132a1733b7f39c79260c2b36a9eb18bc
   specs:
     jekyll-contentful (0.0.1)
       contentful (>= 2.6.0)
@@ -17,23 +26,28 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    autoprefixer-rails (8.4.1)
+      execjs
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     coderay (1.1.2)
     colorator (1.1.0)
     concurrent-ruby (1.0.5)
-    contentful (2.6.0)
+    contentful (2.8.0)
       http (> 0.8, < 3.0)
       multi_json (~> 1)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
-    dotenv (2.3.0)
+    dotenv (2.4.0)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
-    eventmachine (1.2.5)
+    eventmachine (1.2.6)
     execjs (2.7.0)
     extras (0.3.0)
       forwardable-extended (~> 2.5)
-    fastimage (2.1.1)
+    fastimage (2.1.3)
     ffi (1.9.23)
     forwardable-extended (2.6.0)
     http (2.2.2)
@@ -105,7 +119,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     public_suffix (3.0.2)
-    rack (2.0.4)
+    rack (2.0.5)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -131,6 +145,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  crds-styles!
   jekyll (~> 3.7.2)
   jekyll-assets
   jekyll-contentful (~> 0.0.1)!
