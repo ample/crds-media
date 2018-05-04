@@ -11,4 +11,5 @@ _site
 collections
 node_modules
 lambda
+.cache
 contentful-export-*

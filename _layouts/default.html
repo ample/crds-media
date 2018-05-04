@@ -13,5 +13,9 @@
 
     <script src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5391d6a6145291c4" async></script>
     {% asset application.js %}
+    {% if page.title == "Preview" %}
+      <script src="https://unpkg.com/marked@0.3.19/lib/marked.js"></script>
+      {% asset preview.js %}
+    {% endif %}
   </body>
 </html>
