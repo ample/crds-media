@@ -163,4 +163,8 @@ assets:
   - _assets/stylesheets
   - _assets/javascripts
 
+
+imgix_placeholder_args: "?w=10&auto=format,compress"
+
 typekit_url: https://use.typekit.net/ccb3vpa.css
+

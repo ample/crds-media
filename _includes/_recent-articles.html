@@ -10,7 +10,7 @@
           {% assign fifth = site.posts[5] %}
           <div class="card">
               <a href="{{ post.url }}">
-                <img class="card-img-top img-responsive" ix-src="{{ post.image | imgix: site.imgix }}">
+                <img class="card-img-top" src="{{ post.image | imgix: site.imgix | append: site.imgix_placeholder_args }}" data-optimize-img>
               </a>
               <div class="card-block">
                 <a href="{{ post.url }}">
