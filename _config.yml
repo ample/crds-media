@@ -161,6 +161,4 @@ assets:
   - _assets/stylesheets
   - _assets/javascripts
 
-imgix:
-  find: images.ctfassets.net/y3a9myzsdjan
-  replace: crds-media.imgix.net
+typekit_url: https://use.typekit.net/ccb3vpa.css
