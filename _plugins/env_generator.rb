@@ -5,6 +5,7 @@ module Jekyll
     def generate(site)
       @site = site
       @site.config['env'] = ENV['JEKYLL_ENV'] || 'development'
+      @site.config['ENV'] = ENV.to_h
       @site.config['imgix'] = {
         'find': ENV['IMGIX_SRC'],
         'replace': ENV['IMGIX_DOMAIN']

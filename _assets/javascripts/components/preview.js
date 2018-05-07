@@ -80,7 +80,7 @@ function renderPage(data) {
 
 function getAsset(id) {
   return new Promise(function(resolve, reject) {
-    var assetUrl = `https://preview.contentful.com/spaces/p9oq1ve41d7r/assets/${id}?access_token=07dff4723654b162907857891dbea72825ac95e6b85b3c51847834b7d4dfce16`;
+    var assetUrl = `https://preview.contentful.com/spaces/${CONTENTFUL_SPACE_ID}/assets/${id}?access_token=${CONTENTFUL_PREVIEW_TOKEN}`;
     resolve(makeRequest(assetUrl));
   })
 }
@@ -90,7 +90,7 @@ function getEntry(id) {
     var postId;
     id === undefined ? postId  = getUrlParameter() : postId = id;
     if (postId !== '') {
-      var url = 'https://preview.contentful.com/spaces/p9oq1ve41d7r/entries/' + postId + '?access_token=07dff4723654b162907857891dbea72825ac95e6b85b3c51847834b7d4dfce16';
+      var url = `https://preview.contentful.com/spaces/${CONTENTFUL_SPACE_ID}/entries/${postId}?access_token=${CONTENTFUL_PREVIEW_TOKEN}`;
       makeRequest(url).then(function(res) {
         resolve(res);
       });
