@@ -36,7 +36,10 @@ function setTags(arr) {
 }
 
 function setHeroImage(src) {
-  heroContainer.style = `background-image: url('${src}');`;
+  heroContainer.removeAttribute('src');
+  heroContainer.setAttribute('ix-src', src.replace(IMGIX_SRC, IMGIX_DOMAIN));
+  heroContainer.classList.add('img-responsive');
+  imgix.init();
 }
 
 function setAuthorInfo(name, slug, bio, img) {
@@ -62,7 +65,7 @@ function setText(obj) {
 
 function renderPage(data) {
   setText(data);
-  data.tags !== undefined ? setTags(data.tags) : '';
+  if (data.tags !== undefined) { setTags(data.tags) }
 
   getAsset(data.image.sys.id).then(function(res) {
     setHeroImage(res.fields.file.url);
@@ -128,7 +131,7 @@ function init() {
   });
 }
 
-$(document).ready(init);
+init();
 
 function bgImageLoaded(src) {
   var img = new Image();
