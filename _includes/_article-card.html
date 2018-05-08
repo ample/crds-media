@@ -3,22 +3,21 @@
 
 <div class="card">
   <a href="{{ post.url }}">
-    <img class="card-img-top img-responsive" ix-src="{{ post.image | imgix: site.imgix }}">
+    <img src="{{ post.image | imgix: site.imgix | append: site.imgix_placeholder_args }}" alt="" class="card-img-top" data-optimize-img>
   </a>
-    <div class="card-block">
-      <a href="{{ post.url }}">
-        <h4 class="card-title card-title--overlap text-uppercase">{{ post.title }}</h4>
-      </a>
-      <p class="card-text">
-        <a href="{{ author.url }}">{{ author.name }}</a> |
-        <span class="card-date">
-          {{ post.date | date: date_format }}
-        </span>
-      </p>
-      <h5 class="metadata push-quarter-ends">
-        <a href="{{ topic.url }}">{{ topic.title }}</a> -
-        {% include _read-time.html content_type=post %}
-      </h5>
-    </div>
-  </a>
+  <div class="card-block">
+    <a href="{{ post.url }}">
+      <h4 class="card-title card-title--overlap text-uppercase">{{ post.title }}</h4>
+    </a>
+    <p class="card-text">
+      <a href="{{ author.url }}">{{ author.name }}</a> |
+      <span class="card-date">
+        {{ post.date | date: date_format }}
+      </span>
+    </p>
+    <h5 class="metadata push-quarter-ends">
+      <a href="{{ topic.url }}">{{ topic.title }}</a> -
+      {% include _read-time.html content_type=post %}
+    </h5>
+  </div>
 </div>

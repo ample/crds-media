@@ -2,4 +2,59 @@
 layout: default
 ---
 
-Hello Episode!
+<div class="media-podcast-episode">
+  <div class="container-fluid episode-header-background">
+    <header class="container episode-header">
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 mobile-wrapper">
+          <!-- Layout for img on desktop -->
+          <div class="episode-thumbnail-image__desktop">
+            <img src="{{ page.image | imgix: site.imgix }}?auto=format,compress" alt="{{ podcast.title }}">
+          </div>
+
+          <div class="episode-text">
+            <p class="episode-breadcrumbs"><a href="{{ site.url }}">Media</a> / <a href="{{ site.url }}/podcasts">Podcasts</a> / <a href="{{ site.url }}/podcasts/">IKR?</a> /</p>
+            <p class="podcast-section-header">{{ page.title }}</p>
+          </div>
+
+          <!-- Layout for img on mobile -->
+          <div class="episode-thumbnail-image__mobile">
+            <img src="{{ page.image | imgix: site.imgix }}?auto=format,compress" alt="{{ podcast.title }}">
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <div class="container push-top soft-top">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <h2 class="podcast-section-header">This episode</h2>
+
+        <div>
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a></li>
+            <li role="presentation"><a href="#show-notes" aria-controls="show-notes" role="tab" data-toggle="tab">Show notes</a></li>
+            <li role="presentation"><a href="#transcription" aria-controls="transcription" role="tab" data-toggle="tab">Transcription</a></li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="description">
+
+              {% include _podcast-episode-description-block.html %}
+
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="show-notes">Show notes</div>
+
+            <div role="tabpanel" class="tab-pane" id="transcription">Transcription</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include _newsletter.html %}

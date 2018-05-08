@@ -103,6 +103,7 @@ contentful:
           title: title
           subtitle: subtitle
           image: image/url
+          background: bg_image/url
           authors: [author, full_name]
           apple_podcasts_url: apple_podcasts_url
           google_play_url: google_play_url
@@ -165,6 +166,8 @@ assets:
   - _assets/stylesheets
   - _assets/javascripts
 
-imgix:
-  find: images.ctfassets.net/y3a9myzsdjan
-  replace: crds-media.imgix.net
+
+imgix_placeholder_args: "?w=10&auto=format,compress"
+
+typekit_url: https://use.typekit.net/ccb3vpa.css
+

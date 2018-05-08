@@ -1,5 +1,13 @@
+// 1. Master podcast styles
+// 2. Podcast series styles
+// 3. Podcast episode styles
+
+
+
+
+// 1. Master podcast styles
 .media-podcast {
-  max-width: $screen-sm;
+  max-width: 750px;
 
   p.breadcrumb {
     position: relative;
@@ -29,6 +37,245 @@
 
     & img {
       min-width: 100%; // 🛠 probably remove once we refactor cards
+    }
+  }
+}
+
+.podcast-subscribe {
+  p {
+    padding-right: 10px;
+    float: left;
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  &:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+
+  img {
+    height: 33px;
+  }
+}
+
+ // 🛠 Replace with variables when crds-styles is added
+.podcast-section-header {
+  font-family: "acumin-pro-extra-condensed", sans-serif;
+  font-size: 2rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+
+// 2. Podcast series styles
+.media-podcast-show {
+  & .podcast-hero  {
+    color: $cr-white;
+    height: 575px;
+
+    @media screen and (min-width: $screen-sm) {
+      height: 350px;
+    }
+
+    & a, a:visited, a:hover, a:focus, a:active{
+      color: $cr-white;
+    }
+
+    // 🛠 Replace with variables when crds-styles is added
+    & .podcast-section-header {
+      font-size: 2.75rem;
+      line-height: 2.5rem;
+
+      @media screen and (min-width: $screen-sm) {
+        font-size: 4rem;
+        line-height: 3.625rem;
+      }
+    }
+
+    & .podcast-background {
+      position: relative;
+      width: 100vw;
+      height: 575px;
+      overflow: hidden;
+
+      @media screen and (min-width: $screen-sm) {
+        height: 350px;
+      }
+
+      img {
+        min-height: 575px;
+        width: 100%;
+        width: 100vw;
+
+        @media screen and (min-width: $screen-sm) {
+          min-height: 350px;
+        }
+      }
+    }
+
+    & .header-text {
+      position: absolute;
+      width: 100vw;
+      height: 350px;
+      top: 0;
+      background-color: rgba($cr-black, 0.2);
+      padding-top: 15px;
+
+      @media screen and (min-width: $screen-sm) {
+        padding-top: 60px;
+      }
+    }
+  }
+
+  .feature-img {
+    width: 323px;
+    height: 323px;
+
+    @media screen and (min-width: $screen-sm) {
+      width: 330px;
+      height: 330px;
+    }
+  }
+
+  hr.hero {
+    width: 31px;
+    height: 3px;
+    color: rgba($cr-white, 0.6);
+    margin-left: 0;
+  }
+
+  .breadcrumb {
+    background-color: transparent;
+    position: relative;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 0;
+    padding-top: 20px;
+
+    @media screen and (min-width: $screen-sm) {
+      padding: 0;
+    }
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    line-height: 1.5rem;
+
+    @media screen and (min-width: $screen-sm) {
+      font-size: $font-size-large;
+      line-height: $line-height-large;
+    }
+  }
+  .content {
+    margin-top: 30px;
+
+    @media screen and (min-width: $screen-sm) {
+      margin-top: 81px;
+    }
+
+    & p {
+      font-size: $font-size-large;
+      line-height: $line-height-large;
+
+      &.metadata {
+        font-size: $font-size-smaller;
+        line-height: 0.8125rem; //13px
+      }
+
+      &.episode-description {
+        font-size: $font-size-small;
+        line-height: 1.25rem; //20px
+      }
+    }
+
+    .push-top-large {
+      margin-top: 60px;
+    }
+
+    .last-section {
+      padding-bottom: 120px;
+    }
+
+    & .list-title {
+      font-size: $font-size-large;
+      line-height: $line-height-large;
+
+      &:first-child{
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+
+
+
+// 3. Podcast episode styles
+.media-podcast-episode {
+  .episode-header-background {
+    background: fuchsia;
+    padding: 2rem 0 1rem;
+  }
+
+  .episode-header {
+    color: $cr-white;
+
+    .episode-thumbnail-image__desktop,
+    .episode-thumbnail-image__mobile {
+      box-shadow: 0 0 8px 0 rgba(0,0,0, .15);
+    }
+
+    .episode-thumbnail-image__desktop {
+      display: none;
+      height: 120px;
+      width: 120px;
+      position: absolute;
+      margin-top: .5rem;
+
+      @media screen and (min-width: $screen-sm) {
+        display: block;
+        margin-left: -9rem;
+      }
+    }
+
+    .episode-thumbnail-image__mobile {
+      flex: 0 0 80px;
+      height: 80px;
+      margin-top: 2rem;
+
+      @media screen and (min-width: $screen-sm) {
+        display: none;
+      }
+    }
+
+    .mobile-wrapper {
+      display: flex;
+    }
+
+    .episode-breadcrumbs {
+      color: rgba($cr-white, .6);
+      margin-bottom: 0;
+      padding-bottom: 1rem;
+      position: relative;
+
+      a {
+        color: $cr-white;
+      }
+    }
+
+    // 🛠 Replace with variables when crds-styles is added
+    .podcast-section-header {
+      font-size: 2.5rem;
+      margin-top: -1rem;
+      margin-right: 1.25rem;
+
+      @media screen and (min-width: $screen-xs) {
+        font-size: 3rem;
+      }
     }
   }
 }

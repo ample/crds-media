@@ -1,7 +1,5 @@
 <article class="article font-family-base">
-  <div class="article_hero push-ends" style="background-image: url('{{ page.image | imgix: site.imgix }}?auto=format,compress')">
-    <span class="article_heroCaption text-center block push-half-top push-bottom">{{ page.image.title }}</span>
-  </div>
+  <img data-hero-image class="article-hero" src="{{ page.image | imgix: site.imgix | append: site.imgix_placeholder_args }}" data-optimize-img>
   <div class="container soft-top">
     <div class="article_share col-md-2 push-bottom">
       <div class="push-bottom">
@@ -9,7 +7,7 @@
         <div class="addthis_sharing_toolbox"></div>
       </div>
       {% if page.tags.size > 0 %}
-      <div class="article_tags">
+      <div class="article_tags" data-tags>
         <h5 class="control-label">Tags</h5>
         {% for tag in page.tags %}
           <a href="{{ site.search_domain }}/search?q=tags: '{{ tag }}'" class="article_tag">{{ tag }}</a>
@@ -18,6 +16,7 @@
       {% endif %}
     </div>
     <div class="article_body col-md-8 font-size-base" id="scrollDistance">
+      <div data-body></div>
       {{ page.content | markdownify }}
       {% include _author-bio.html %}
     </div>
