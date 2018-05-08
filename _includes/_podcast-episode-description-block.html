@@ -16,25 +16,22 @@
 
 <p>{{ page.date | date: date_format }} {% if page.episode_length != nil %}<span class="divider">•</span> {{ page.episode_length }} {% endif %}</p>
 
-<!-- Social icons -->
 <div class="soft-half-top push-top">
     {% include _social-share.html %}
 </div>
-<!-- End social icons -->
 
-<!-- Topics -->
+<!-- Topic -->
+{% assign topic = site.topics | where: "title", page.topic | first %}
+{% if page.topic.size > 0 %}
 <p class="flush-bottom soft-top">
-  <strong>Topics</strong>
+  <strong>Topic</strong>
 </p>
 <ul class="list-inline">
   <li>
-    <a href="#">Parenting</a>
-  </li>
-  <li>
-    <a href="#">Marriage</a>
+    <a href="{{ topic.url }}">{{ topic.title }}</a>
   </li>
 </ul>
-<!-- End topics -->
+{% endif %}
 
 <!-- Tags -->
 {% if page.tags.size > 0 %}
@@ -49,4 +46,3 @@
   {% endfor %}
 </ul>
 {% endif %}
-<!-- End tags -->
