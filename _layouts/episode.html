@@ -46,8 +46,14 @@ layout: default
           <!-- Nav tabs -->
           <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a></li>
+
+            {% if page.notes %}
             <li role="presentation"><a href="#show-notes" aria-controls="show-notes" role="tab" data-toggle="tab">Show notes</a></li>
+            {% endif %}
+
+            {% if page.transcript %}
             <li role="presentation"><a href="#transcription" aria-controls="transcription" role="tab" data-toggle="tab">Transcription</a></li>
+            {% endif %}
           </ul>
 
           <!-- Tab panes -->
@@ -58,9 +64,17 @@ layout: default
 
             </div>
 
-            <div role="tabpanel" class="tab-pane" id="show-notes">Show notes</div>
+            {% if page.notes %}
+            <div role="tabpanel" class="tab-pane" id="show-notes">
+              <p>{{ page.notes | strip_html }}</p>
+            </div>
+            {% endif %}
 
-            <div role="tabpanel" class="tab-pane" id="transcription">Transcription</div>
+            {% if page.transcript %}
+            <div role="tabpanel" class="tab-pane" id="transcription">
+              <p>{{ page.transcript }}</p>
+            </div>
+            {% endif %}
           </div>
         </div>
       </div>
