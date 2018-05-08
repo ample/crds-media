@@ -5,10 +5,10 @@ layout: default
 
 <div class="media-podcast-episode">
 
-  <div class="container-fluid episode-header-background">
+  <div class="episode-header-background">
 
     {% for podcast in podcasts %}
-    <div class="row podcast-background-image">
+    <div class="podcast-background-image">
       {% if podcast.background %}
       <img src="{{ podcast.background | imgix: site.imgix }}?auto=format,compress">
       {% else %}

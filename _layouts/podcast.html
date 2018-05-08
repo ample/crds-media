@@ -77,7 +77,7 @@ layout: default
               {% assign episodes = group.items | sort: "episode_number" | reverse %}
               {% for episode in episodes %}
                 <a href="{{ episode.url }}">
-                  <h3 class="list-title">Episode {{ episode.episode_number }}: {{ episode.title }}</h3>
+                  <h3 class="list-title text-capitalize">Episode {{ episode.episode_number }}: {{ episode.title }}</h3>
                 </a>
 
                 <p class="metadata">{{ episode.date | date: date_format }}
