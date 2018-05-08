@@ -4,7 +4,9 @@ layout: default
 {% assign podcasts = site.podcasts | where:"title", page.podcast %}
 
 <div class="media-podcast-episode">
+
   <div class="container-fluid episode-header-background">
+
     {% for podcast in podcasts %}
     <div class="row podcast-background-image">
       {% if podcast.background %}
@@ -13,8 +15,9 @@ layout: default
       <img src="{{ page.image | imgix: site.imgix }}?auto=format,compress">
       {% endif %}
     </div>
-      {% endfor%}
-    <header class="container episode-header hard-sides">
+    {% endfor %}
+
+    <header class="container episode-header">
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2 mobile-wrapper">
           <!-- Layout for img on desktop -->
@@ -23,7 +26,7 @@ layout: default
           </div>
 
           <div class="episode-text">
-            <p class="episode-breadcrumbs"><a href="{{ site.url }}">Media</a> / <a href="{{ site.url }}/podcasts">Podcasts</a> / <a href="{{ site.url }}/podcasts/">IKR?</a> /</p>
+            <p class="episode-breadcrumbs"><a href="/">Media</a> / <a href="/podcasts">Podcasts</a> / <a href="{% for podcast in podcasts %}{{ podcast.url }}">{{ podcast.title }}{% endfor %}</a> /</p>
             <p class="podcast-section-header">{{ page.title }}</p>
           </div>
 
@@ -34,9 +37,11 @@ layout: default
         </div>
       </div>
     </header>
+
   </div>
 
   <div class="container push-top soft-top">
+
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
         <h2 class="podcast-section-header">This episode</h2>
@@ -76,9 +81,11 @@ layout: default
             {% endif %}
           </div>
         </div>
+
       </div>
     </div>
-    <div class="row">
+
+    <div class="row soft-bottom-120">
       <div class="col-sm-8 col-sm-offset-2">
         <h2 class="podcast-section-header flush-top">Subscribe</h2>
         {% for podcast in podcasts %}
@@ -99,10 +106,12 @@ layout: default
             </a>
           </p>
         </div>
-        {% endfor%}
+        {% endfor %}
       </div>
     </div>
+
   </div>
+
 </div>
 
-{% include _newsletter.html %}
+<!-- {% include _newsletter.html %} -->
