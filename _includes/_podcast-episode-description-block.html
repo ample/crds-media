@@ -22,7 +22,7 @@
 
 <!-- Topic -->
 {% assign topic = site.topics | where: "title", page.topic | first %}
-{% if page.topic.size > 0 %}
+{% if page.topic %}
 <p class="flush-bottom soft-top">
   <strong>Topic</strong>
 </p>
@@ -34,7 +34,7 @@
 {% endif %}
 
 <!-- Tags -->
-{% if page.tags.size > 0 %}
+{% if page.tags %}
 <p class="flush-bottom soft-half-top">
   <strong>Tags</strong>
 </p>
