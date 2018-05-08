@@ -11,7 +11,6 @@ layout: default
       <img src="{{ podcast.background | imgix: site.imgix }}?auto=format,compress">
       {% else %}
       <img src="{{ page.image | imgix: site.imgix }}?auto=format,compress">
-
       {% endif %}
     </div>
       {% endfor%}
@@ -77,6 +76,30 @@ layout: default
             {% endif %}
           </div>
         </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <h2 class="podcast-section-header flush-top">Subscribe</h2>
+        {% for podcast in podcasts %}
+        <div class="podcast-subscribe">
+          <p>
+            <a href="{{ podcast.apple_podcasts_url }}">
+              <img src="//dz6ito7tas43n.cloudfront.net/images/apple-podcasts.svg" alt="Apple Podcast button">
+            </a>
+          </p>
+          <p>
+            <a href="{{ podcast.google_play_url }}">
+              <img src="//dz6ito7tas43n.cloudfront.net/images/google-play-badge.svg" alt="Google Play button">
+            </a>
+          </p>
+          <p>
+            <a href="{{ podcast.stitcher_url }}">
+              <img src="//crds-cms-uploads.imgix.net/content/images/listen-on-stitcher.jpg" alt="Stitcher button">
+            </a>
+          </p>
+        </div>
+        {% endfor%}
       </div>
     </div>
   </div>
