@@ -1,10 +1,21 @@
 ---
 layout: default
 ---
+{% assign podcasts = site.podcasts | where:"title", page.podcast %}
 
 <div class="media-podcast-episode">
   <div class="container-fluid episode-header-background">
-    <header class="container episode-header">
+    {% for podcast in podcasts %}
+    <div class="row podcast-background-image">
+      {% if podcast.background %}
+      <img src="{{ podcast.background | imgix: site.imgix }}?auto=format,compress">
+      {% else %}
+      <img src="{{ page.image | imgix: site.imgix }}?auto=format,compress">
+
+      {% endif %}
+    </div>
+      {% endfor%}
+    <header class="container episode-header hard-sides">
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2 mobile-wrapper">
           <!-- Layout for img on desktop -->

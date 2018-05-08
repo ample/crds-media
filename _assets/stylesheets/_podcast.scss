@@ -216,13 +216,47 @@
 
 // 3. Podcast episode styles
 .media-podcast-episode {
+  position: relative;
+
   .episode-header-background {
-    background: fuchsia;
-    padding: 2rem 0 1rem;
+    background: $cr-cyan;
+
+    & .podcast-background-image {
+      position: relative;
+      width: 100vw;
+      height: 185px;
+      overflow: hidden;
+
+      @media screen and (min-width: $screen-sm) {
+        height: 125px;
+      }
+
+      img {
+        min-height: 185px;
+        width: 100%;
+        width: 100vw;
+
+        @media screen and (min-width: $screen-sm) {
+          min-height: 125px;
+        }
+      }
+    }
   }
 
   .episode-header {
     color: $cr-white;
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    min-height: 185px;
+    max-height: 185px;
+    background-color: rgba($cr-black, 0.2);
+
+    @media screen and (min-width: $screen-sm) {
+      min-height: 125px;
+      max-height: 125px;
+    }
 
     .episode-thumbnail-image__desktop,
     .episode-thumbnail-image__mobile {
@@ -234,7 +268,8 @@
       height: 120px;
       width: 120px;
       position: absolute;
-      margin-top: .5rem;
+      margin-top: 2rem;
+      margin-right: 1rem;
 
       @media screen and (min-width: $screen-sm) {
         display: block;
@@ -246,10 +281,16 @@
       flex: 0 0 80px;
       height: 80px;
       margin-top: 2rem;
+      margin-right: 1rem;
 
       @media screen and (min-width: $screen-sm) {
         display: none;
       }
+    }
+
+    .episode-text {
+      margin-top: 2rem;
+      margin-left: 1rem;
     }
 
     .mobile-wrapper {
