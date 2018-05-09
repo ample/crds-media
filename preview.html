@@ -1,0 +1,22 @@
+---
+layout: default
+draft: true
+stylesheet: preview_deferred
+title: Preview
+image: "/assets/svgs/preview-placeholder.svg"
+author: Brian Tome
+topic: Preview
+date: 2018-04-13T00:00-04:00
+slug: its-a-preview
+preloader: true
+js_vars:
+- IMGIX_DOMAIN
+- IMGIX_SRC
+tags:
+- Preview
+---
+
+{% assign author = site.authors | where:"name", page.author | first %}
+{% include _article-header.html %}
+{% include _article-body.html %}
+{% include _recent-articles.html %}

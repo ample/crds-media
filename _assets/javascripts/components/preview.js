@@ -11,6 +11,7 @@ var heroCaption = document.querySelector('[data-hero-caption]');
 var preloader = document.querySelector('[data-preview-preloader]');
 
 function hidePreloader() {
+  console.log($('[data-preview-preloader]').length);
   preloader.style.opacity = 0;
   preloader.style.zIndex = -1;
 }
@@ -83,17 +84,20 @@ function renderPage(data) {
 
 function getAsset(id) {
   return new Promise(function(resolve, reject) {
-    var assetUrl = `https://preview.contentful.com/spaces/${CONTENTFUL_SPACE_ID}/assets/${id}?access_token=${CONTENTFUL_PREVIEW_TOKEN}`;
+    var accessToken = getUrlParameter('access_token'),
+        spaceId = getUrlParameter('space_id');
+    var assetUrl = `https://preview.contentful.com/spaces/${spaceId}/assets/${id}?access_token=${accessToken}`;
     resolve(makeRequest(assetUrl));
   })
 }
 
 function getEntry(id) {
   return new Promise(function(resolve, reject) {
-    var postId;
-    id === undefined ? postId  = getUrlParameter() : postId = id;
-    if (postId !== '') {
-      var url = `https://preview.contentful.com/spaces/${CONTENTFUL_SPACE_ID}/entries/${postId}?access_token=${CONTENTFUL_PREVIEW_TOKEN}`;
+    if (id === undefined) { id = getUrlParameter('id') }
+    var accessToken = getUrlParameter('access_token'),
+        spaceId = getUrlParameter('space_id');
+    if (id && accessToken && spaceId) {
+      var url = `https://preview.contentful.com/spaces/${spaceId}/entries/${id}?access_token=${accessToken}`;
       makeRequest(url).then(function(res) {
         resolve(res);
       });
@@ -101,10 +105,9 @@ function getEntry(id) {
   });
 }
 
-function getUrlParameter() {
-  var sPageURL = decodeURIComponent(window.location.search),
-  sParameterName = sPageURL.split('=');
-  return sParameterName[1];
+function getUrlParameter(name) {
+  var url = new URL(window.location.href);
+  return url.searchParams.get(name);
 }
 
 function makeRequest(url) {
