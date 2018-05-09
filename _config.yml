@@ -130,7 +130,43 @@ contentful:
         other:
           layout: episode
           draft: false
-
+    albums:
+      id: album
+      body: description
+      frontmatter:
+        entry_mappings:
+          title: title
+          subtitle: subtitle
+          date: published_at
+          image: image/url
+          bg_image: bg_image/url
+          spotify_url: spotify
+          apple_music_url: apple_music
+          google_play_url: google_play
+          slug: slug
+        other:
+          layout: album
+          draft: false
+    songs:
+      id: song
+      body: description
+      frontmatter:
+        entry_mappings:
+          title: title
+          subtitle: subtitle
+          date: published_at
+          album: album/title
+          image: image/url
+          bg_image: bg_image/url
+          spotify_url: spotify
+          apple_music_url: apple_music
+          google_play_url: google_play
+          youtube_url: youtube
+          slug: slug
+        other:
+          layout: song
+          draft: false   
+            
 defaults:
   - scope:
       path: "/articles"
