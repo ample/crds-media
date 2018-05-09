@@ -1,9 +1,22 @@
 ---
 layout: default
 ---
+{% assign podcasts = site.podcasts | where:"title", page.podcast %}
 
 <div class="media-podcast-episode">
-  <div class="container-fluid episode-header-background">
+
+  <div class="episode-header-background">
+
+    {% for podcast in podcasts %}
+    <div class="podcast-background-image">
+      {% if podcast.background %}
+      <img src="{{ podcast.background | imgix: site.imgix }}?auto=format,compress">
+      {% else %}
+      <img src="{{ page.image | imgix: site.imgix }}?auto=format,compress">
+      {% endif %}
+    </div>
+    {% endfor %}
+
     <header class="container episode-header">
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2 mobile-wrapper">
@@ -13,7 +26,7 @@ layout: default
           </div>
 
           <div class="episode-text">
-            <p class="episode-breadcrumbs"><a href="{{ site.url }}">Media</a> / <a href="{{ site.url }}/podcasts">Podcasts</a> / <a href="{{ site.url }}/podcasts/">IKR?</a> /</p>
+            <p class="episode-breadcrumbs"><a href="/">Media</a> / <a href="/podcasts">Podcasts</a> / <a href="{% for podcast in podcasts %}{{ podcast.url }}">{{ podcast.title }}{% endfor %}</a> /</p>
             <p class="podcast-section-header">{{ page.title }}</p>
           </div>
 
@@ -24,9 +37,11 @@ layout: default
         </div>
       </div>
     </header>
+
   </div>
 
   <div class="container push-top soft-top">
+
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
         <h2 class="podcast-section-header">This episode</h2>
@@ -35,8 +50,14 @@ layout: default
           <!-- Nav tabs -->
           <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a></li>
+
+            {% if page.notes %}
             <li role="presentation"><a href="#show-notes" aria-controls="show-notes" role="tab" data-toggle="tab">Show notes</a></li>
+            {% endif %}
+
+            {% if page.transcript %}
             <li role="presentation"><a href="#transcription" aria-controls="transcription" role="tab" data-toggle="tab">Transcription</a></li>
+            {% endif %}
           </ul>
 
           <!-- Tab panes -->
@@ -47,14 +68,48 @@ layout: default
 
             </div>
 
-            <div role="tabpanel" class="tab-pane" id="show-notes">Show notes</div>
+            {% if page.notes %}
+            <div role="tabpanel" class="tab-pane" id="show-notes">
+              <p>{{ page.notes | strip_html }}</p>
+            </div>
+            {% endif %}
 
-            <div role="tabpanel" class="tab-pane" id="transcription">Transcription</div>
+            {% if page.transcript %}
+            <div role="tabpanel" class="tab-pane" id="transcription">
+              <p>{{ page.transcript }}</p>
+            </div>
+            {% endif %}
           </div>
         </div>
+
       </div>
     </div>
-  </div>
-</div>
 
-{% include _newsletter.html %}
+    <div class="row soft-7-bottom">
+      <div class="col-sm-8 col-sm-offset-2">
+        <h2 class="podcast-section-header flush-top">Subscribe</h2>
+        {% for podcast in podcasts %}
+        <div class="podcast-subscribe">
+          <p>
+            <a href="{{ podcast.apple_podcasts_url }}">
+              <img src="//dz6ito7tas43n.cloudfront.net/images/apple-podcasts.svg" alt="Apple Podcast button">
+            </a>
+          </p>
+          <p>
+            <a href="{{ podcast.google_play_url }}">
+              <img src="//dz6ito7tas43n.cloudfront.net/images/google-play-badge.svg" alt="Google Play button">
+            </a>
+          </p>
+          <p>
+            <a href="{{ podcast.stitcher_url }}">
+              <img src="//crds-cms-uploads.imgix.net/content/images/listen-on-stitcher.jpg" alt="Stitcher button">
+            </a>
+          </p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+
+</div>

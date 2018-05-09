@@ -1,35 +1,37 @@
 {% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
 
-{% assign author = site.authors | where:"name", page.name %}
 
 <p>{{ page.content | strip_html }}</p>
 
 <p class="flush-bottom push-top">Hosted by
-  <a href="#">{{ podcast.authors }}</a> and
-  <a href="#">Latasha Patrick</a>
+  {% for podcast in podcasts %}
+    {% for author_name in podcast.authors %}
+      {% assign author = site.authors | where:"name", author_name | first %}
+      {% if author %}
+      <a href="{{ author.url }}">{{ author.name }}</a> {% if forloop.last == false %} and {% endif %}
+      {% endif %}
+    {% endfor%}
+  {% endfor %}
 </p>
 
 <p>{{ page.date | date: date_format }} {% if page.episode_length != nil %}<span class="divider">•</span> {{ page.episode_length }} {% endif %}</p>
 
-<!-- Social icons -->
 <div class="soft-half-top push-top">
     {% include _social-share.html %}
 </div>
-<!-- End social icons -->
 
-<!-- Topics -->
+<!-- Topic -->
+{% assign topic = site.topics | where: "title", page.topic | first %}
+{% if page.topic %}
 <p class="flush-bottom soft-top">
-  <strong>Topics</strong>
+  <strong>Topic</strong>
 </p>
 <ul class="list-inline">
   <li>
-    <a href="#">Parenting</a>
-  </li>
-  <li>
-    <a href="#">Marriage</a>
+    <a href="{{ topic.url }}">{{ topic.title }}</a>
   </li>
 </ul>
-<!-- End topics -->
+{% endif %}
 
 <!-- Tags -->
 {% if page.tags.size > 0 %}
@@ -44,4 +46,3 @@
   {% endfor %}
 </ul>
 {% endif %}
-<!-- End tags -->
