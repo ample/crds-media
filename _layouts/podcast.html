@@ -5,7 +5,7 @@ layout: default
 <section class="media-podcast-show">
   <section class="podcast-hero jumbotron hard-top">
     <div class="podcast-background">
-      <img src="{{ page.background | imgix: site.imgix }}?auto=format,compress">
+      <img src="{{ page.background | imgix: site.imgix | append: site.imgix_params.placeholder }}" data-optimize-img>
     </div>
     <div class="header-text">
       <div class="container">
