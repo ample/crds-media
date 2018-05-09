@@ -55,7 +55,7 @@ collections:
   episodes:
     output: true
     permalink: /:collection/:slug
- albums:
+  albums:
     output: true
     permalink: /:collection/:slug
   songs:
