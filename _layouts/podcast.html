@@ -7,23 +7,27 @@ layout: default
     <div class="podcast-background">
       <img src="{{ page.background | imgix: site.imgix | append: site.imgix_params.placeholder }}" data-optimize-img>
     </div>
-    <div class="header-text">
+    <div class="header-content">
       <div class="container">
         <div class="row">
-          <div class="col-sm-4">
-            <img class="feature-img" src="{{ page.image | imgix: site.imgix }}?auto=format,compress" />
-          </div>
-          <div class="col-sm-8 text-left">
-            <p class="breadcrumb hard">
-              <a href="{{ site.url }}">Media</a> /
-              <a href="{{ site.url }}/podcasts">Podcasts</a> /</p>
-            <h1 class="podcast-section-header flush-top">{{ page.title }}</h1>
-            <hr class="hero">
-            <p class="subtitle">{{ page.subtitle }}</p>
-            <p class="push-top">
-              <a href="{{ page.apple_podcasts_url }}">
-              <img src="//dz6ito7tas43n.cloudfront.net/images/apple-podcasts.svg" alt="Apple Podcast button">
-            </a></p>
+
+          <div class="mobile-wrapper">
+            <div class="">
+              <img class="feature-img" src="{{ page.image | imgix: site.imgix }}?auto=format,compress" />
+            </div>
+            <div class="text-left header-text">
+              <p class="breadcrumb hard">
+                <a href="/">Media</a> /
+                <a href="/podcasts">Podcasts</a> /</p>
+              <h1 class="podcast-section-header flush-top">{{ page.title }}</h1>
+              <hr class="hero">
+              <p class="subtitle">{{ page.subtitle }}</p>
+              <p class="push-top">
+                <a href="{{ page.apple_podcasts_url }}">
+                <img src="//dz6ito7tas43n.cloudfront.net/images/apple-podcasts.svg" alt="Apple Podcast button">
+              </a></p>
+            </div>
+
           </div>
         </div>
       </div>

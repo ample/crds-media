@@ -73,6 +73,15 @@
 
 // 2. Podcast series styles
 .media-podcast-show {
+
+  .mobile-wrapper {
+    display: block;
+
+    @media screen and (min-width: $screen-sm) {
+      display: flex;
+    }
+  }
+
   & .podcast-hero  {
     color: $cr-white;
     height: 575px;
@@ -107,26 +116,34 @@
       }
 
       img {
-        min-height: 575px;
+        min-height: 100%;
         width: 100%;
-        width: 100vw;
-
-        @media screen and (min-width: $screen-sm) {
-          min-height: 350px;
-        }
+        object-fit: cover;
+        object-position: 50% 0;
       }
     }
 
-    & .header-text {
+    & .header-content {
       position: absolute;
       width: 100vw;
       height: 350px;
       top: 0;
       background-color: rgba($cr-black, 0.2);
-      padding-top: 15px;
+      padding-top: 1rem;
 
       @media screen and (min-width: $screen-sm) {
         padding-top: 60px;
+      }
+    }
+
+    & .header-text{
+      padding-left: 1rem;
+      padding-right: 1rem;
+      position: relative;
+
+      @media screen and (min-width: $screen-sm) {
+        padding-left: 410px;
+        position: absolute;
       }
     }
   }
@@ -134,10 +151,13 @@
   .feature-img {
     width: 323px;
     height: 323px;
+    position: relative;
+    padding-left: 1rem;
 
     @media screen and (min-width: $screen-sm) {
       width: 330px;
       height: 330px;
+      position: absolute;
     }
   }
 
@@ -246,6 +266,12 @@
       flex: 0 0 80px;
       height: 80px;
       margin-top: 2rem;
+      margin-right: 1rem;
+      margin-left: 1rem;
+
+      & img {
+        height: 100%;
+      }
 
       @media screen and (min-width: $screen-sm) {
         display: none;
