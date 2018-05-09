@@ -64,6 +64,6 @@
     {% if page.preloader %}{% include _preloader.html %}{% endif %}
 
     <script type="text/javascript" src="{% asset application.js @path %}"></script>
-    <script async type="text/javascript" src="{% asset {{page.stylesheet}} @path %}"></script>
+    <script async type="text/javascript" src="{% asset {{page.js_manifest}} @path %}"></script>
   </body>
 </html>

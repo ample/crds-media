@@ -132,7 +132,7 @@ defaults:
   - scope:
       path: ""
     values:
-      stylesheet: application_deferred
+      js_manifest: application_deferred
   - scope:
       path: "/articles"
       type: posts
