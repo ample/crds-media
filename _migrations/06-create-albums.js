@@ -15,9 +15,9 @@ module.exports = function up (migration) {
     linkType: 'Entry',
     validations: [{ linkContentType: [ 'author' ] }]
   });
-  article.createField('spotify').name('Spotify URL').type('Symbol');
-  article.createField('apple_music').name('Apple Music URL').type('Symbol');
-  article.createField('google_play').name('Google Play URL').type('Symbol');
+  article.createField('spotify_url').name('Spotify URL').type('Symbol');
+  article.createField('apple_music_url').name('Apple Music URL').type('Symbol');
+  article.createField('google_play_url').name('Google Play URL').type('Symbol');
   article.createField('published_at').name('Published At').type('Date').required(true);
 
   article.changeEditorInterface('slug', 'slugEditor');

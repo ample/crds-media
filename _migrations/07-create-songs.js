@@ -17,10 +17,10 @@ module.exports = function (migration) {
   article.createField('album').name('Album').type('Link').linkType('Entry').validations([{ linkContentType: ['album'] }]);
   article.createField('image').name('Image').type('Link').linkType('Asset');
   article.createField('bg_image').name('Background Image').type('Link').linkType('Asset');
-  article.createField('spotify').name('Spotify URL').type('Symbol');
-  article.createField('apple_music').name('Apple Music URL').type('Symbol');
-  article.createField('google_play').name('Google Play URL').type('Symbol');
-  article.createField('youtube').name('YouTube URL').type('Symbol');
+  article.createField('spotify_url').name('Spotify URL').type('Symbol');
+  article.createField('apple_music_url').name('Apple Music URL').type('Symbol');
+  article.createField('google_play_url').name('Google Play URL').type('Symbol');
+  article.createField('youtube_url').name('YouTube URL').type('Symbol');
   article.createField('published_at').name('Published At').type('Date').required(true);
 
   article.changeEditorInterface('slug', 'slugEditor');
