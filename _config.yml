@@ -143,9 +143,9 @@ contentful:
           date: published_at
           image: image/url
           bg_image: bg_image/url
-          spotify_url: spotify
-          apple_music_url: apple_music
-          google_play_url: google_play
+          spotify_url: spotify_url
+          apple_music_url: apple_music_url
+          google_play_url: google_play_url
           slug: slug
         other:
           layout: album
@@ -161,10 +161,10 @@ contentful:
           album: album/title
           image: image/url
           bg_image: bg_image/url
-          spotify_url: spotify
-          apple_music_url: apple_music
-          google_play_url: google_play
-          youtube_url: youtube
+          spotify_url: spotify_url
+          apple_music_url: apple_music_url
+          google_play_url: google_play_url
+          youtube_url: youtube_url
           slug: slug
         other:
           layout: song
