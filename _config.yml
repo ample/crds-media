@@ -164,6 +164,8 @@ assets:
   - _assets/javascripts
 
 imgix_placeholder_args: "?w=10&auto=format,compress"
-imgix_card_sizes: "(min-width: 992px) 415px, (min-width: 768px) 690px, (min-width: 0px) 100vw"
+image_sizes:
+  cards_4x: "(min-width: 992px) 415px, (min-width: 768px) 690px, (min-width: 0px) 100vw"
+  cards_2x: "(min-width: 768px) 690px, (min-width: 0px) 100vw"
 
 typekit_url: https://use.typekit.net/ccb3vpa.css
