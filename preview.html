@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 draft: true
 stylesheet: preview_deferred
 title: Preview
@@ -16,8 +16,3 @@ js_vars:
 tags:
 - Preview
 ---
-
-{% assign author = site.authors | where:"name", page.author | first %}
-{% include _article-header.html %}
-{% include _article-body.html %}
-{% include _recent-articles.html %}

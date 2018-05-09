@@ -16,10 +16,11 @@
       {% endif %}
     </div>
     <div class="article_body col-md-8 font-size-base" id="scrollDistance">
-      <div data-body></div>
-      {% unless page.preview %}
+      {% if page.preview %}
+        <div data-body></div>
+      {% else %}
         {{ page.content | markdownify }}
-      {% endunless %}
+      {% endif %}
       {% include _author-bio.html %}
     </div>
   </div>
