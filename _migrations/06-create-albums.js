@@ -1,4 +1,4 @@
-module.exports = function up (migration) {
+module.exports = function (migration) {
   const article = migration.createContentType('album')
     .name('Album')
     .description('A Crossroads Music album')
