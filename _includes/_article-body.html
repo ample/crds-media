@@ -17,7 +17,9 @@
     </div>
     <div class="article_body col-md-8 font-size-base" id="scrollDistance">
       <div data-body></div>
-      {{ page.content | markdownify }}
+      {% unless page.preview %}
+        {{ page.content | markdownify }}
+      {% endunless %}
       {% include _author-bio.html %}
     </div>
   </div>

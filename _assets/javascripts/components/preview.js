@@ -11,7 +11,6 @@ var heroCaption = document.querySelector('[data-hero-caption]');
 var preloader = document.querySelector('[data-preview-preloader]');
 
 function hidePreloader() {
-  console.log($('[data-preview-preloader]').length);
   preloader.style.opacity = 0;
   preloader.style.zIndex = -1;
 }
@@ -53,8 +52,12 @@ function setAuthorInfo(name, slug, bio, img) {
   }
 
   authorBio.innerText = bio;
+
   getAsset(img).then(function(res) {
-    authorImg.style = `background-image: url('${res.fields.file.url}')`;
+    authorImg.removeAttribute('src');
+    authorImg.setAttribute('ix-src', res.fields.file.url.replace(IMGIX_SRC, IMGIX_DOMAIN));
+    authorImg.classList.add('img-responsive');
+    imgix.init();
   });
 }
 
