@@ -1,6 +1,10 @@
 ---
 layout: default
 title: Music
+worship_training_headline: Be Part of This
+worship_training_copy: Worship Training helps you grow musical or technical 
+                        giftings so you can serve the community.
+worship_training_cta: Learn More
 ---
 
 {% assign sorted_songs = site.songs | reverse %}
@@ -17,7 +21,7 @@ title: Music
       </h4>
       <h1 class="section-header flush-top push-quarter-bottom">{{ hero.title }}</h1>
       <h6 class="font-size-base text-gray-lighter">
-        Stream or buy this single, watch it live and sed posuere consectetur est at lobortis.
+        {{ hero.description }}
       </h6>
       <a class="btn btn-lg btn-white btn-outline" href="{{ hero.url }}">Rock Out</a>
     </div>
@@ -59,7 +63,6 @@ title: Music
             </div>
           </div>
         {% endfor %}
-        <a href="#">Load more songs</a>
       </div>
     </div>
   </div>
@@ -68,36 +71,22 @@ title: Music
 <div class="row bg-gray soft">
   <div class="container">
     <div class="jumbotron-2x">
-      <div class="jumbotron jumbotron-xl" style="background-image: url('//crds-cms-uploads.imgix.net/content/images/crossroads-worship-training-music.jpg');">
-        <h2 class="section-header flush-top push-quarter-bottom text-white">Be Part of This</h2>
-        <h6 class="font-size-base text-gray-lighter">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repundiandae quos reicienae cum.
-        </h6>
-        <a class="btn btn-white btn-outline" href="#">Check out worship training</a>
+      <div class="jumbotron flush-ends hard-bottom" style="background-image: url('//crds-cms-uploads.imgix.net/content/images/crossroads-worship-training-music.jpg');">
+        <h2 class="section-header push-top push-quarter-bottom text-white">{{ page.worship_training_headline }}</h2>
+        <h6 class="font-size-base font-family-base-light text-gray-lighter">{{ page.worship_training_copy }}</h6>
+        <a class="btn btn-white btn-lg btn-outline font-family-base-light" href="https://www.crossroads.net/worshiptraining">{{ page.worship_training_cta }}</a>
       </div>
-      <div class="jumbotron jumbotron-xl bg-charcoal">
-        
-        <h2 class="section-header flush-top push-quarter-bottom hidden">Crossroads Music</h2>
-        <a class="btn btn-white btn-outline" href="#">Follow us on Instagram</a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <h3>Get our newest stuff sent straight to your inbox</h3>
-        <p>
-          Don't like having to check back again and again to find what's changed?
-          We get you. Subscribe to our monthly Media Newsletter to receive all the latest media.
-        </p>
-      </div>
-      <div class="col-md-6">
-        <div class="input-group">
-          <input class="form-control" placeholder="First Name" type="text">
-          <span class="input-group-btn">
-            <button class="btn btn-secondary" type="submit">
-              Submit
-            </button>
-          </span>
+      <div class="jumbotron flush-ends bg-charcoal">
+        <div class="d-flex flex-column align-items-center justify-content-center">
+          <svg class="icon icon-2 text-white" viewbox="0 0 256 256">
+            <use xlink:href="/assets/svgs/icons.svg#instagram-2"></use>
+          </svg>
+          <svg class="text-white push-top" viewbox="0 0 256 80" width="60%">
+            <use xlink:href="/assets/svgs/icons.svg#crds-music"></use>
+          </svg>
         </div>
+        <h2 class="section-header flush-top push-quarter-bottom hidden">Crossroads Music</h2>
+        <a class="btn btn-white btn-lg btn-outline font-family-base-light" href="https://www.instagram.com/crdsmusic/">Follow us on Instagram</a>
       </div>
     </div>
   </div>
