@@ -163,9 +163,13 @@ assets:
   - _assets/stylesheets
   - _assets/javascripts
 
-imgix_placeholder_args: "?w=10&auto=format,compress"
+imgix_params:
+  placeholder: "?w=10&auto=format,compress"
+  avatar: "?auto=format,compress&w=80&h=80&fit=crop"
+
 image_sizes:
   cards_4x: "(min-width: 992px) 415px, (min-width: 768px) 690px, (min-width: 0px) 100vw"
   cards_2x: "(min-width: 768px) 690px, (min-width: 0px) 100vw"
+  avatar: "80px"
 
 typekit_url: https://use.typekit.net/ccb3vpa.css

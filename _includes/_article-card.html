@@ -3,7 +3,7 @@
 
 <div class="card">
   <a href="{{ post.url }}">
-    <img src="{{ post.image | imgix: site.imgix | append: site.imgix_placeholder_args }}" alt="" class="card-img-top" data-optimize-img sizes="{{ site.image_sizes.cards_4x }}">
+    <img src="{{ post.image | imgix: site.imgix | append: site.imgix_params.placeholder }}" alt="" class="card-img-top" data-optimize-img sizes="{{ site.image_sizes.cards_4x }}">
   </a>
   <div class="card-block">
     <a href="{{ post.url }}">
