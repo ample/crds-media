@@ -170,6 +170,7 @@ imgix_params:
 image_sizes:
   cards_4x: "(min-width: 992px) 415px, (min-width: 768px) 690px, (min-width: 0px) 100vw"
   cards_2x: "(min-width: 768px) 690px, (min-width: 0px) 100vw"
+  podcast_thumb: "(min-width: 768px) 330px, (min-width: 0px) 323px"
   avatar: "80px"
 
 typekit_url: https://use.typekit.net/ccb3vpa.css
