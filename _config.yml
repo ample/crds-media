@@ -130,6 +130,10 @@ contentful:
 
 defaults:
   - scope:
+      path: ""
+    values:
+      js_manifest: application_deferred
+  - scope:
       path: "/articles"
       type: posts
     values:

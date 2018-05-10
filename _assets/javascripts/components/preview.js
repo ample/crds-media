@@ -36,7 +36,10 @@ function setTags(arr) {
 }
 
 function setHeroImage(src) {
-  heroContainer.style = `background-image: url('${src}');`;
+  heroContainer.removeAttribute('src');
+  heroContainer.setAttribute('ix-src', src.replace(IMGIX_SRC, IMGIX_DOMAIN));
+  heroContainer.classList.add('img-responsive');
+  imgix.init();
 }
 
 function setAuthorInfo(name, slug, bio, img) {
@@ -49,8 +52,12 @@ function setAuthorInfo(name, slug, bio, img) {
   }
 
   authorBio.innerText = bio;
+
   getAsset(img).then(function(res) {
-    authorImg.style = `background-image: url('${res.fields.file.url}')`;
+    authorImg.removeAttribute('src');
+    authorImg.setAttribute('ix-src', res.fields.file.url.replace(IMGIX_SRC, IMGIX_DOMAIN));
+    authorImg.classList.add('img-responsive');
+    imgix.init();
   });
 }
 
@@ -62,8 +69,8 @@ function setText(obj) {
 
 function renderPage(data) {
   setText(data);
-  data.tags !== undefined ? setTags(data.tags) : '';
-  
+  if (data.tags !== undefined) { setTags(data.tags) }
+
   getAsset(data.image.sys.id).then(function(res) {
     setHeroImage(res.fields.file.url);
     bgImageLoaded(res.fields.file.url);
@@ -80,17 +87,20 @@ function renderPage(data) {
 
 function getAsset(id) {
   return new Promise(function(resolve, reject) {
-    var assetUrl = `https://preview.contentful.com/spaces/y3a9myzsdjan/assets/${id}?access_token=b7ce682a8b8666ebc82b4bafea48a855723c62a0a4e08f805e5e7998b3d2ddb2`;
+    var accessToken = getUrlParameter('access_token'),
+        spaceId = getUrlParameter('space_id');
+    var assetUrl = `https://preview.contentful.com/spaces/${spaceId}/assets/${id}?access_token=${accessToken}`;
     resolve(makeRequest(assetUrl));
   })
 }
 
 function getEntry(id) {
   return new Promise(function(resolve, reject) {
-    var postId;
-    id === undefined ? postId  = getUrlParameter() : postId = id;
-    if (postId !== '') {
-      var url = 'https://preview.contentful.com/spaces/y3a9myzsdjan/entries/' + postId + '?access_token=b7ce682a8b8666ebc82b4bafea48a855723c62a0a4e08f805e5e7998b3d2ddb2';
+    if (id === undefined) { id = getUrlParameter('id') }
+    var accessToken = getUrlParameter('access_token'),
+        spaceId = getUrlParameter('space_id');
+    if (id && accessToken && spaceId) {
+      var url = `https://preview.contentful.com/spaces/${spaceId}/entries/${id}?access_token=${accessToken}`;
       makeRequest(url).then(function(res) {
         resolve(res);
       });
@@ -98,10 +108,9 @@ function getEntry(id) {
   });
 }
 
-function getUrlParameter() {
-  var sPageURL = decodeURIComponent(window.location.search),
-  sParameterName = sPageURL.split('=');
-  return sParameterName[1];
+function getUrlParameter(name) {
+  var url = new URL(window.location.href);
+  return url.searchParams.get(name);
 }
 
 function makeRequest(url) {
