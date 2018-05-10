@@ -1,21 +1,20 @@
 ---
 layout: default
 ---
-{% assign podcasts = site.podcasts | where:"title", page.podcast %}
+{% assign podcast = site.podcasts | where:"title", page.podcast | first %}
+{% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
 
 <div class="media-podcast-episode">
 
   <div class="episode-header-background">
 
-    {% for podcast in podcasts %}
     <div class="podcast-background-image">
       {% if podcast.background %}
-      <img src="{{ podcast.background | imgix: site.imgix }}?auto=format,compress">
+        <img src="{{ podcast.background | imgix: site.imgix }}?auto=format,compress">
       {% else %}
-      <img src="{{ page.image | imgix: site.imgix }}?auto=format,compress">
+        <img src="{{ page.image | imgix: site.imgix }}?auto=format,compress">
       {% endif %}
     </div>
-    {% endfor %}
 
     <header class="container episode-header">
       <div class="row">
@@ -26,7 +25,7 @@ layout: default
           </div>
 
           <div class="episode-text">
-            <p class="episode-breadcrumbs"><a href="/">Media</a> / <a href="/podcasts">Podcasts</a> / <a href="{% for podcast in podcasts %}{{ podcast.url }}">{{ podcast.title }}{% endfor %}</a> /</p>
+            <p class="episode-breadcrumbs"><a href="/">Media</a> / <a href="/podcasts">Podcasts</a> / <a href="{{ podcast.url }}">{{ podcast.title }}</a> /</p>
             <p class="podcast-section-header">{{ page.title }}</p>
           </div>
 
@@ -44,51 +43,95 @@ layout: default
 
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
-        <h2 class="podcast-section-header">This episode</h2>
-
+        <div class="embedded-audio-player">
+          {{ page.audio_embed_code }}
+        </div>
+        <h2 class="podcast-section-header mobile-push-half-top">This episode</h2>
         <div>
           <!-- Nav tabs -->
           <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a></li>
 
-            {% if page.notes %}
+            {% if page.show_notes %}
             <li role="presentation"><a href="#show-notes" aria-controls="show-notes" role="tab" data-toggle="tab">Show notes</a></li>
             {% endif %}
 
-            {% if page.transcript %}
+            {% if page.transcription %}
             <li role="presentation"><a href="#transcription" aria-controls="transcription" role="tab" data-toggle="tab">Transcription</a></li>
             {% endif %}
           </ul>
 
           <!-- Tab panes -->
           <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="description">
-
-              {% include _podcast-episode-description-block.html %}
-
+            <div role="tabpanel" class="tab-pane soft-bottom active" id="description">
+              <p>{{ page.content | strip_html | markdownify }}</p>
             </div>
 
-            {% if page.notes %}
-            <div role="tabpanel" class="tab-pane" id="show-notes">
-              <p>{{ page.notes | strip_html }}</p>
+            {% if page.show_notes %}
+            <div role="tabpanel" class="tab-pane soft-bottom" id="show-notes">
+              <p>{{ page.show_notes | strip_html | markdownify }}</p>
             </div>
             {% endif %}
 
-            {% if page.transcript %}
-            <div role="tabpanel" class="tab-pane" id="transcription">
-              <p>{{ page.transcript }}</p>
+            {% if page.transcription %}
+            <div role="tabpanel" class="tab-pane soft-bottom" id="transcription">
+              <p>{{ page.transcription | strip_html | markdownify }}</p>
             </div>
             {% endif %}
           </div>
         </div>
+      </div>
+    </div>
 
+    <div class="row push-bottom">
+      <div class="col-sm-8 col-sm-offset-2">
+        <p class="flush-bottom">Hosted by
+          {% for author_name in podcast.authors %}
+            {% assign author = site.authors | where:"name", author_name | first %}
+            {% if author %}
+              <a href="{{ author.url }}">{{ author.name }}</a> {% if forloop.last == false %} and {% endif %}
+            {% endif %}
+          {% endfor %}
+        </p>
+
+        <p>{{ page.date | date: date_format }} {% if page.audio_duration != nil %}<span class="divider push-quarter-sides">•</span> {{ page.audio_duration }} mins{% endif %}</p>
+
+        <div class="soft-half-top push-top">
+            {% include _social-share.html %}
+        </div>
+
+        <!-- Topic -->
+        {% assign topic = site.topics | where: "title", page.topic | first %}
+        {% if page.topic %}
+        <p class="flush-bottom soft-top">
+          <strong>Topic</strong>
+        </p>
+        <ul class="list-inline">
+          <li>
+            <a href="{{ topic.url }}">{{ topic.title }}</a>
+          </li>
+        </ul>
+        {% endif %}
+
+        <!-- Tags -->
+        {% if page.tags.size > 0 %}
+        <p class="flush-bottom soft-half-top">
+          <strong>Tags</strong>
+        </p>
+        <ul class="list-inline">
+          {% for tag in page.tags %}
+          <li>
+            <a href="{{ site.search_domain }}/search?q=tags: '{{ tag }}'" title="Search {{ tag }}">{{ tag }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
       </div>
     </div>
 
     <div class="row soft-7-bottom">
       <div class="col-sm-8 col-sm-offset-2">
         <h2 class="podcast-section-header flush-top">Subscribe</h2>
-        {% for podcast in podcasts %}
         <div class="podcast-subscribe">
           <p>
             <a href="{{ podcast.apple_podcasts_url }}">
@@ -106,7 +149,6 @@ layout: default
             </a>
           </p>
         </div>
-        {% endfor %}
       </div>
     </div>
 
