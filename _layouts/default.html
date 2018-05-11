@@ -49,23 +49,21 @@
       }
     };
 
-    var JEKYLL_ENV = '{{ site.env }}';
+    var JEKYLL_ENV = '{{ site.jekyll_env }}';
     </script>
-  </head>
-  <body>
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFS4MJ"
+
+{% if page.js_vars %}{% include _js_vars.html %}{% endif %}
+<script type="text/javascript" src="{% asset application.js @path %}"></script>
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFS4MJ"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     {% include header.html %}
     {{ content }}
     {% include footer.html %}
+    {% if page.preloader %}{% include _preloader.html %}{% endif %}
 
-    <script type="text/javascript" src="{% asset application.js @path %}"></script>
-    <script async type="text/javascript" src="{% asset application_deferred.js @path %}"></script>
-
-    {% if page.title == "Preview" %}
-      <script src="https://unpkg.com/marked@0.3.19/lib/marked.js"></script>
-      {% asset preview.js %}
-    {% endif %}
+    <script async type="text/javascript" src="{% asset {{page.js_manifest}} @path %}"></script>
   </body>
 </html>

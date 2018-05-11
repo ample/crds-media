@@ -1,0 +1,12 @@
+@media (min-width: $screen-sm) {
+  .feature-cards {
+    display: flex;
+    flex-direction:row;
+    &.card-deck--expanded-layout .card,
+    .card {
+      max-width: none;
+      flex: 0 1 31%;
+      margin-right: 2%;
+    }
+  }
+}
