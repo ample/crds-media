@@ -14,5 +14,13 @@
     max-width: 50%;
     margin-left: 15px;
     margin-right: 15px;
+    
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }

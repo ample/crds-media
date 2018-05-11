@@ -5,12 +5,13 @@ worship_training_headline: Be Part of This
 worship_training_copy: Worship Training helps you grow musical or technical 
                         giftings so you can serve the community.
 worship_training_cta: Learn More
+worship_training_img: //crds-cms-uploads.imgix.net/content/images/crossroads-worship-training-music.jpg
 ---
 
 {% assign sorted_songs = site.songs | reverse %}
 
 <div class="container">
-  <p class="breadcrumb breadcrumb-media flush-bottom hard"><a href="{{ site.url }}">Media</a> /</p>
+  <p class="breadcrumb flush-bottom hard"><a href="{{ site.url }}">Media</a> /</p>
   <h2 class="section-header landing-header flush-top push-bottom">Music</h2>
   {% assign hero = sorted_songs | first %}
   <div class="jumbotron jumbotron-xl" style="background-image: url('{{ hero.image | imgix: site.imgix }}')">
@@ -69,14 +70,14 @@ worship_training_cta: Learn More
 </div>
 
 <div class="row bg-gray soft">
-  <div class="container">
+  <div class="container push-ends">
     <div class="jumbotron-2x">
-      <div class="jumbotron flush-ends hard-bottom" style="background-image: url('//crds-cms-uploads.imgix.net/content/images/crossroads-worship-training-music.jpg');">
+      <div class="jumbotron" style="background-image: url('{{ page.worship_training_img | imgix: site.imgix }}');">
         <h2 class="section-header push-top push-quarter-bottom text-white">{{ page.worship_training_headline }}</h2>
-        <h6 class="font-size-base font-family-base-light text-gray-lighter">{{ page.worship_training_copy }}</h6>
+        <span class="font-size-base font-family-base-light text-gray-lighter push-bottom block">{{ page.worship_training_copy }}</span>
         <a class="btn btn-white btn-lg btn-outline font-family-base-light" href="https://www.crossroads.net/worshiptraining">{{ page.worship_training_cta }}</a>
       </div>
-      <div class="jumbotron flush-ends bg-charcoal">
+      <div class="jumbotron bg-charcoal">
         <div class="d-flex flex-column align-items-center justify-content-center">
           <svg class="icon icon-2 text-white" viewbox="0 0 256 256">
             <use xlink:href="/assets/svgs/icons.svg#instagram-2"></use>

@@ -11,6 +11,14 @@
   font-weight: 300;
 }
 
+.breadcrumb {
+  position: relative;
+  margin-bottom: -.5rem;
+  color: $cr-gray-light;
+  margin-top: 3rem;
+  background-color: transparent;
+}
+
 // 🛠 Remove once we refactor cards
 .card-deck {
   .card-img-top {
