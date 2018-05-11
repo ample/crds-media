@@ -11,9 +11,9 @@ worship_training_cta: Learn More
 
 <div class="container">
   <p class="breadcrumb breadcrumb-media flush-bottom hard"><a href="{{ site.url }}">Media</a> /</p>
-  <h2 class="section-header landing-header flush-top">Music</h2>
+  <h2 class="section-header landing-header flush-top push-bottom">Music</h2>
   {% assign hero = sorted_songs | first %}
-  <div class="jumbotron jumbotron-xl" style="background-image: url('{{ hero.image }}">
+  <div class="jumbotron jumbotron-xl" style="background-image: url('{{ hero.image | imgix: site.imgix }}')">
     <div class="bg-overlay"></div>
     <div class="jumbotron-content">
       <h4 class="font-size-small text-uppercase text-gray-lighter">
@@ -34,7 +34,7 @@ worship_training_cta: Learn More
         {% for song in featured %}
           <div class="card">
             <a href="{{ song.url }}">
-              <img class="card-img-unrestrained" src="{{ song.image }}">
+              <img class="card-img-unrestrained" src="{{ song.image | imgix: site.imgix | append: site.imgix_placeholder_args }}" data-optimize-img>
             </a>
             <div class="card-block hard">
               <a href="{{ song.url }}">
