@@ -9,10 +9,11 @@ $(document).ready(function() {
 
     // Loop through all the images with "data-optimize-img" attributes on the
     // page and initialize imgix with the full-sized image.
-    for (let img of $('img[data-optimize-img]')) {
-      let src = $(img).attr('src').split('?')[0];
+    for (var img of $('img[data-optimize-img]')) {
+      var src = $(img).attr('src').split('?')[0];
       $(img).addClass('img-responsive');
-      $(img).attr('ix-src', src);
+      var ix_params = $(img).attr('ix-params');
+      $(img).attr('ix-src', src + '?auto=format,compress&' + ix_params);
     }
 
     imgix.init();
