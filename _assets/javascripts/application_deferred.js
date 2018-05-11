@@ -8,4 +8,4 @@
 //= require ./components/gtm
 //= require ./components/header
 //= require ./components/images
-//= require ./components/new-card-carousel
+//= require ./components/carousels
