@@ -1,18 +1,18 @@
 module.exports = function (migration) {
-  const article = migration.createContentType('episode')
+  const episode = migration.createContentType('episode')
     .name('Episode')
     .description('A podcast episode')
     .displayField('title');
 
-  article.createField('title').name('Title').type('Symbol').required(true);
-  article.createField('subtitle').name('Subtitle').type('Symbol');
-  article.createField('slug').name('Slug').type('Symbol').required(true).validations([{ unique: true }]);
-  article.createField('description').name('Description').type('Text');
-  article.createField('audio_file').name('Audio File').type('Link').linkType('Asset');
-  article.createField('podcast').name('Podcast').type('Link').linkType('Entry').required(true).validations([{ linkContentType: ['podcast'] }]);
-  article.createField('episode_number').name('Episode Number').type('Integer');
-  article.createField('season_number').name('Season Number').type('Integer');
-  article.createField('published_at').name('Published At').type('Date').required(true);
+  episode.createField('title').name('Title').type('Symbol').required(true);
+  episode.createField('subtitle').name('Subtitle').type('Symbol');
+  episode.createField('slug').name('Slug').type('Symbol').required(true).validations([{ unique: true }]);
+  episode.createField('description').name('Description').type('Text');
+  episode.createField('audio_file').name('Audio File').type('Link').linkType('Asset');
+  episode.createField('podcast').name('Podcast').type('Link').linkType('Entry').required(true).validations([{ linkContentType: ['podcast'] }]);
+  episode.createField('episode_number').name('Episode Number').type('Integer');
+  episode.createField('season_number').name('Season Number').type('Integer');
+  episode.createField('published_at').name('Published At').type('Date').required(true);
 
-  article.changeEditorInterface('slug', 'slugEditor');
+  episode.changeEditorInterface('slug', 'slugEditor');
 };
