@@ -16,7 +16,7 @@ Jekyll::Hooks.register(:site, :post_write) do |_site|
   config_text = """module.exports = #{{
     content: ['_site/**/*.html'],
     css: [Dir.glob('_site/assets/*.css').first],
-    whitelist: ['pull-right', 'border-bottom']
+    whitelist: %w(pull-right border-bottom nav mobile-menu crds-shared-header header modal fade nav nav-pills nav-primary pull-right hidden-xs hidden-sm dropdown dropdown-menu row featured-row col-sm-3 navbar-left hidden-md hidden-lg hidden-xl pull-right dropdown pull-right profile-menu hidden-xs hidden-sm hide navbar-brand logo)
   }.stringify_keys.to_json}"""
   # Write configuration file.
   File.open(config_file, 'w+') { |f| f.write(config_text) }
