@@ -152,6 +152,35 @@ layout: default
       </div>
     </div>
 
+      <!-- Podcasts -->
+      <div class="push-bottom row">
+        <div class="col-sm-8 col-sm-offset-2">
+          <div class="push-bottom">
+            <h2 class="podcast-section-header flush-top">More content to explore</h2>
+          </div>
+          <div data-card-deck class="card-deck carousel" data-crds-carousel="mobile-scroll">
+            <div class="cards-3x">
+              <div class="row">
+                {% assign limited = site.podcasts | sort: 'date' | reverse | slice: 0, 4 | exclude: podcast.title %}
+                {% for podcast in limited limit: 3 %}
+                  <div class="card carousel-cell">
+                    <a href="{{ podcast.url }}">
+                      <img class="card-img-unrestrained" src="{{ podcast.image | imgix: site.imgix | append: site.imgix_placeholder_args }}" data-optimize-img>
+                    </a>
+                    <div class="card-block hard-bottom">
+                      <a href="{{ podcast.url }}">
+                        <h4 class="card-title card-title--overlap text-uppercase">{{ podcast.title }}</h4>
+                      </a>
+                      <p>{{ podcast.content  }}</p>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
   </div>
 
 </div>
