@@ -1,20 +1,12 @@
-// 🛠 Move these to CRDS-Styles
-
-.cards-3x .card {
-  @media screen and (max-width: $screen-sm - 1) {
-    @include make-sm-column(12);
-  }
-  @media screen and (min-width: $screen-sm) {
-    @include make-sm-column(4);
-    // &:nth-child(even) {
-    //   // clear: left;
-    // }
-  }
-}
-
-
-.cards-3x {
-  .feature-cards:not([data-carousel]) {
-    @include make-row();
+@media (min-width: $screen-sm) {
+  .feature-cards {
+    display: flex;
+    flex-direction:row;
+    &.card-deck--expanded-layout .card,
+    .card {
+      max-width: none;
+      flex: 0 1 31%;
+      margin-right: 2%;
+    }
   }
 }
