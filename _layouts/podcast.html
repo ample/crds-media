@@ -13,7 +13,11 @@ layout: default
 
           <div class="mobile-wrapper">
             <div class="">
+<<<<<<< HEAD
               <img class="feature-img" src="{{ page.image | imgix: site.imgix | append: site.imgix_params.placeholder }}" data-optimize-img sizes="{{ site.image_sizes.podcast_thumb }}">
+=======
+              <img class="feature-img img-responsive" src="{{ page.image | imgix: site.imgix }}?auto=format,compress&w=500&h=500&fit=crop" />
+>>>>>>> development
             </div>
             <div class="text-left header-text">
               <p class="breadcrumb hard">
@@ -81,14 +85,16 @@ layout: default
               {% assign episodes = group.items | sort: "episode_number" | reverse %}
               {% for episode in episodes %}
                 <a href="{{ episode.url }}">
-                  <h3 class="list-title">Episode {{ episode.episode_number }}: {{ episode.title }}</h3>
+                  <h3 class="list-title text-capitalize">Episode {{ episode.episode_number }}: {{ episode.title }}</h3>
                 </a>
 
                 <p class="metadata">{{ episode.date | date: date_format }}
-                  {% if episode.date != nil and episode.episode_length != nil %}
+                  {% if episode.date != nil and episode.audio_duration != nil %}
                   <span class="divider">•</span>
                   {% endif %}
-                  {{ episode.episode_length }}
+                  {% if episode.audio_duration %}
+                    {{ episode.audio_duration }} mins
+                  {% endif %}
                 </p>
 
                 <p class="episode-description">{{ episode.content | strip_html | truncatewords: 35 }}</p>
@@ -104,7 +110,7 @@ layout: default
         </div>
       </div>
     </div>
-    <div class="last-section">
+    <div class="soft-7-bottom">
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
           <h2 class="podcast-section-header flush-top">Subscribe</h2>

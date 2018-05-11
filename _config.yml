@@ -117,18 +117,27 @@ contentful:
         entry_mappings:
           title: title
           subtitle: subtitle
-          audio_file: audio_file/url
           episode_number: episode_number
           season_number: season_number
           date: published_at
           podcast: podcast/title
           image: podcast/image/url
           slug: slug
+          topic: category/title
+          tags: tags
+          show_notes: show_notes
+          transcription: transcription
+          audio_duration: audio_duration
+          audio_embed_code: audio_embed_code
         other:
           layout: episode
           draft: false
 
 defaults:
+  - scope:
+      path: ""
+    values:
+      js_manifest: application_deferred
   - scope:
       path: "/articles"
       type: posts
