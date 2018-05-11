@@ -12,7 +12,7 @@ title: Podcasts
         {% for podcast in site.podcasts %}
           <div class="card">
             <a href="{{ podcast.url }}">
-              <img class="card-img-unrestrained" src="{{ podcast.image | imgix: site.imgix | append: site.imgix_placeholder_args }}" data-optimize-img>
+              <img src="{{ podcast.image | imgix: site.imgix | append: site.imgix_placeholder_args }}" data-optimize-img ix-params="w=600&h=400&fit=crop">
             </a>
             <div class="card-block hard-bottom">
               <a href="{{ podcast.url }}">
