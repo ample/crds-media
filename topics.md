@@ -18,7 +18,7 @@ permalink: /topics/index.html
                 {% break %}
               {% endif %}
             {% endfor %}
-            <img class="card-img-top img-responsive" src="{{ post.image | imgix: site.imgix | append: site.imgix_params.placeholder }}" data-optimize-img>
+            <img class="card-img-top img-responsive" src="{{ post.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_card }}" data-optimize-img>
           </a>
           <div class="card-block">
             <a href="{{ topic.url }}">
