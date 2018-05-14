@@ -10,9 +10,47 @@ The following sections outline behavior, features, and processes specific to thi
 
 ### Images
 
-...
+With the help of imgix, we are using two strategies to increase performance while rendering images:
+
+- Pixellated placeholders
+- `srcset` and `sizes` attributes
+
+It works like this:
+
+1. Images are pixellated (but proportional to their desired result) on page load.
+2. The `images.js` script processes all images with the `data-optimize-img` attribute.
+3. At the time of processing, the source of the image is converted to the properly sizes image by setting the `ix-src` attribute and then re-initializing `imgix.js`.
+4. From there the browser takes over and chooses the correct source from the combination of the `srcset` attribute (set by `imgix.js` during processing) and the `sizes` attribute (set manually, see below for more info).
+
+_Note: If the desired full-size imgix parameters are different than those of the placeholder, you may optionally use a `ix-params` attribute. However, if styled correctly, this should not be necessary._
+
+We build the source by taking the original source, adding an imgix replacement filter and then the proper placeholder parameters. The available parameters can be seen in the `_config.yml` file.
+
+Sizes are also available in the config file to make the markup a little cleaner.
+
+#### Example
+
+Here is an example of markup:
+
+```html
+<img src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}" sizes="{{ site.image_sizes.full_width }}" data-optimize-img>
+```
+
+This would translate to something like the following (before processing):
+
+```html
+<img src="//crds-media-int.imgix.net/5G62zla1zOsmKqSo8wmomI/d46b0ec8a96339c72f25b56b7c2dd99b/isle-of-skye.jpg?auto=format,compress&w=10" sizes="100vw" data-optimize-img>
+```
 
 ### CSS
+
+We're using [PurgeCSS](https://www.purgecss.com/) to optimize our CSS file. This has enabled us to reduce the main CSS file by 90-95%, which has increased performance significantly.
+
+PurgeCSS is run immediately following a build. This replaces the main CSS file with the optimized version.
+
+_GOTCHA!_ PurgeCSS can only target the markup that gets generated during the build. This means that if you don't see a class selector in the output CSS file, you may have to add it to the whitelist. But note, if you're developing, try restarting your server before adding a selector to the whitelist.
+
+To add a class to the whitelist, add it to the `whitelist:` option in `_plugins/purgecss.rb`.
 
 ### Frontmatter
 
