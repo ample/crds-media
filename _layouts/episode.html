@@ -10,9 +10,9 @@ layout: default
 
     <div class="podcast-background-image">
       {% if podcast.background %}
-        <img src="{{ podcast.background | imgix: site.imgix }}?auto=format,compress">
+        <img src="{{ podcast.background | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}" sizes="{{ site.image_sizes.full_width }}" data-optimize-img>
       {% else %}
-        <img src="{{ page.image | imgix: site.imgix }}?auto=format,compress">
+        <img src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}" sizes="{{ site.image_sizes.full_width }}" data-optimize-img>
       {% endif %}
     </div>
 
@@ -21,7 +21,7 @@ layout: default
         <div class="col-sm-8 col-sm-offset-2 mobile-wrapper">
           <!-- Layout for img on desktop -->
           <div class="episode-thumbnail-image__desktop">
-            <img src="{{ page.image | imgix: site.imgix }}?auto=format,compress&w=120&h=120&fit=crop" alt="{{ podcast.title }}">
+            <img src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" alt="{{ podcast.title }}" sizes="{{ site.image_sizes.episode_thumb }}" data-optimize-img>
           </div>
 
           <div class="episode-text">
@@ -31,7 +31,7 @@ layout: default
 
           <!-- Layout for img on mobile -->
           <div class="episode-thumbnail-image__mobile">
-            <img src="{{ page.image | imgix: site.imgix }}?auto=format,compress" alt="{{ podcast.title }}">
+            <img src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" alt="{{ podcast.title }}" sizes="{{ site.image_sizes.episode_thumb }}" data-optimize-img>
           </div>
         </div>
       </div>
@@ -167,7 +167,7 @@ layout: default
             {% for podcast in limited limit: 3 %}
               <div class="card carousel-cell">
                 <a href="{{ podcast.url }}">
-                  <img src="{{ podcast.image | imgix: site.imgix | append: site.imgix_placeholder_args }}" data-optimize-img>
+                  <img src="{{ podcast.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.cards_3x_centered_carousel }}" data-optimize-img>
                 </a>
                 <div class="card-block hard-bottom">
                   <a href="{{ podcast.url }}">

@@ -1,6 +1,6 @@
 <div class="card">
   <a href="{{ podcast.url }}">
-    <img src="{{ podcast.image | imgix: site.imgix | append: site.imgix_placeholder_args }}" data-optimize-img ix-params="w=600&h=600&fit=crop">
+    <img src="{{ podcast.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
   </a>
   <div class="card-block hard-bottom">
     <a href="{{ podcast.url }}">
