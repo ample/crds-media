@@ -8,26 +8,7 @@
             {% include _article-card.html content_type=post %}
           {% else %}
           {% assign fifth = site.posts[5] %}
-          <div class="card">
-              <a href="{{ post.url }}">
-                <img class="card-img-top" src="{{ post.image | imgix: site.imgix | append: site.imgix_placeholder_args }}" data-optimize-img>
-              </a>
-              <div class="card-block">
-                <a href="{{ post.url }}">
-                  <h4 class="card-title card-title--overlap text-uppercase">{{ post.title }}</h4>
-                </a>
-                <p class="card-text">
-                  <a href="{{ author.url }}">{{ post.author }}</a> |
-                  <span class="card-date">
-                    {{ post.date | date: date_format }}
-                  </span>
-                </p>
-                <h5 class="metadata push-quarter-ends">
-                  <a href="{{ topic.url }}">{{ topic.title }}</a> -
-                  {% include _read-time.html content_type=post %}
-                </h5>
-              </div>
-            </div>
+            {% include _article-card.html %}
           {% endif %}
         {% endfor %}
         </div>
