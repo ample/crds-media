@@ -1,9 +1,9 @@
 module Jekyll
-  module CapitalizeAll
-    def capitalize_all(words)
-      return words.split(' ').map(&:capitalize).join(' ')
+  module Titleize
+    def titleize(words)
+      return words.titleize
     end
   end
 end
 
-Liquid::Template.register_filter(Jekyll::CapitalizeAll)
+Liquid::Template.register_filter(Jekyll::Titleize)

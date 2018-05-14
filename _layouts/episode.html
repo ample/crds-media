@@ -89,7 +89,7 @@ layout: default
           {% for author_name in podcast.authors %}
             {% assign author = site.authors | where:"name", author_name | first %}
             {% if author %}
-              <a href="{{ author.url }}">{{ author.name | capitalize_all }}</a> {% if forloop.last == false %} and {% endif %}
+              <a href="{{ author.url }}">{{ author.name | titleize }}</a> {% if forloop.last == false %} and {% endif %}
             {% endif %}
           {% endfor %}
         </p>
