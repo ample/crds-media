@@ -79,6 +79,8 @@ function renderPage(data) {
       console.log(err);
     });
   } else {
+    //  🛠  Even if image does not exist yet, do not hide preloader until author
+    //  has loaded, if author exists.
     hidePreloader();
   }
 
