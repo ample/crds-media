@@ -167,7 +167,7 @@ layout: default
             {% for podcast in limited limit: 3 %}
               <div class="card carousel-cell">
                 <a href="{{ podcast.url }}">
-                  <img src="{{ podcast.image | imgix: site.imgix | append: site.imgix_placeholder_args }}" data-optimize-img>
+                  <img src="{{ podcast.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.cards_3x_centered_carousel }}" data-optimize-img>
                 </a>
                 <div class="card-block hard-bottom">
                   <a href="{{ podcast.url }}">
