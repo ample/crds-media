@@ -17,7 +17,8 @@ title: Authors
             <a href="{{ author.url }}">
               <h4 class="card-title card-title--overlap text-uppercase">{{ author.name }}</h4>
             </a>
-            <h5 class="card-subtitle">{% include _count.html key="author" subject=author.name label="article" %}</h5>
+            <h5 class="card-subtitle">{% include _count.html collection=site.posts key="author" subject=author.name label="article" %}</h5>
+            <h5 class="card-subtitle">{% include _count.html collection=site.podcasts key="authors" subject=author.name label="podcast" %}</h5>
           </div>
         </div>
       {% endfor %}
