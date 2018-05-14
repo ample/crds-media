@@ -24,16 +24,16 @@ layout: default
   {% endif %}
 
   <!-- Podcasts -->
-  {% assign host = site.podcasts | where:"authors", page.title %}
-  {% if host.size > 0 %}
+  {% assign podcasts = site.podcasts | where:"authors", page.title %}
 
+  {% if podcasts.size > 0 %}
     <div class="border-bottom push-bottom">
         <h2 class="push-half-bottom">Podcasts</h2>
     </div>
     <div data-card-deck class="card-deck">
       <div class="cards-4x">
         <div class="row">
-          {% for podcast in host %}
+          {% for podcast in podcasts %}
             {% include _podcast-card.html %}
           {% endfor %}
         </div>
