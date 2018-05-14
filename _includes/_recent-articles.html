@@ -17,7 +17,7 @@
                   <h4 class="card-title card-title--overlap text-uppercase">{{ post.title }}</h4>
                 </a>
                 <p class="card-text">
-                  <a href="{{ author.url }}">{{ post.author }}</a> |
+                  <a href="{{ author.url }}">{{ post.author | capitalize_all }}</a> |
                   <span class="card-date">
                     {{ post.date | date: date_format }}
                   </span>

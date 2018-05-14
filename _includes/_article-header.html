@@ -7,7 +7,7 @@
       </h5>
       <h2 class="article_title section-header flush-top push-half-bottom" data-title>{{ page.title | escape }}</h2>
       <div>
-        <a href="{{ author.url }}" data-author-name>{{ page.author }}</a> |
+        <a href="{{ author.url }}" data-author-name>{{ page.author | capitalize_all }}</a> |
         <span class="article_date" data-post-date>
           {% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
           {{ page.date | date: date_format }}
