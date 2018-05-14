@@ -24,7 +24,8 @@ permalink: /topics/index.html
             <a href="{{ topic.url }}">
               <h4 class="card-title card-title--overlap text-uppercase">{{ topic.title }}</h4>
             </a>
-            <h5 class="card-subtitle">{% include _count.html key="topic" subject=topic.title label="article" %}</h5>
+            <h5 class="card-subtitle">{% include _count.html collection=site.posts key="topic" subject=topic.title label="article" %}</h5>
+            <h5 class="card-subtitle">{% include _count.html collection=site.episodes key="topic" subject=topic.title label="podcast" %}</h5>
           </div>
         </div>
       {% endfor %}

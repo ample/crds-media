@@ -1,5 +1,2 @@
-{% assign total = 0 %}
-{% for item in site.posts %}
-  {% if item[include.key] == include.subject %}{% assign total=total | plus:1 %}{% endif %}
-{% endfor %}
-{{ total }} {{include.label}}{% if total > 1%}s{% endif %}
+{% assign count = include.collection | where: include.key, include.subject | size %}
+{{ count | pluralize: include.label }}
