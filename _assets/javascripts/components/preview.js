@@ -71,18 +71,24 @@ function renderPage(data) {
   setText(data);
   if (data.tags !== undefined) { setTags(data.tags) }
 
-  getAsset(data.image.sys.id).then(function(res) {
-    setHeroImage(res.fields.file.url);
-    bgImageLoaded(res.fields.file.url);
-  }).catch(function(err) {
-    console.log(err);
-  });
+  if (data.image) {
+    getAsset(data.image.sys.id).then(function(res) {
+      setHeroImage(res.fields.file.url);
+      bgImageLoaded(res.fields.file.url);
+    }).catch(function(err) {
+      console.log(err);
+    });
+  } else {
+    hidePreloader();
+  }
 
-  getEntry(data.author.sys.id).then(function(res) {
-    setAuthorInfo(res.fields.full_name, res.fields.slug, res.fields.summary, res.fields.image.sys.id);
-  }).catch(function(err) {
-    console.log(err);
-  });
+  if (data.author) {
+    getEntry(data.author.sys.id).then(function(res) {
+      setAuthorInfo(res.fields.full_name, res.fields.slug, res.fields.summary, res.fields.image.sys.id);
+    }).catch(function(err) {
+      console.log(err);
+    });
+  }
 }
 
 function getAsset(id) {
