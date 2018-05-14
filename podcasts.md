@@ -10,17 +10,7 @@ title: Podcasts
       <div class="cards-2x">
         <div class="row">
         {% for podcast in site.podcasts %}
-          <div class="card">
-            <a href="{{ podcast.url }}">
-              <img src="{{ podcast.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
-            </a>
-            <div class="card-block hard-bottom">
-              <a href="{{ podcast.url }}">
-                <h4 class="card-title card-title--overlap text-uppercase">{{ podcast.title }}</h4>
-              </a>
-              <p>{{ podcast.content | strip_html | truncatewords: 25 }}</p>
-            </div>
-          </div>
+          {% include _podcast-card.html %}
         {% endfor %}
         </div>
       </div>
