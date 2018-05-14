@@ -21,14 +21,15 @@ layout: default
     </div>
   </div>
 
-  <div class="border-bottom push-bottom">
-    <h2 class="push-half-bottom">Podcasts</h2>
-  </div>
-  <div data-card-deck class="card-deck">
-    <div class="cards-4x">
-      <div class="row">
-      {% for ep in site.episodes %}
-        {% if ep.topic == page.title %}
+  {% assign episodes = site.episodes | where:"topic", page.title %}
+  {% if episodes.size > 0 %}
+    <div class="border-bottom push-bottom">
+      <h2 class="push-half-bottom">Podcasts</h2>
+    </div>
+    <div data-card-deck class="card-deck">
+      <div class="cards-4x">
+        <div class="row">
+        {% for ep in episodes %}
           <div class="card">
             <a href="{{ ep.url }}">
               <img src="{{ ep.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
@@ -40,9 +41,9 @@ layout: default
               <p>{{ ep.content | strip_html | truncatewords: 25 }}</p>
             </div>
           </div>
-        {% endif %}
-      {% endfor %}
+        {% endfor %}
+        </div>
       </div>
     </div>
-  </div>
+  {% endif %}
 </div>
