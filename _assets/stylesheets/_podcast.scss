@@ -161,6 +161,7 @@
   }
 
   .feature-img {
+    margin: 0 auto;
     max-width: 100%;
     max-height: 323px;
     position: relative;
@@ -283,9 +284,10 @@
       max-height: 125px;
     }
 
-    .episode-thumbnail-image__desktop,
-    .episode-thumbnail-image__mobile {
+    .episode-thumbnail-image__desktop img,
+    .episode-thumbnail-image__mobile img {
       box-shadow: 0 0 8px 0 rgba(0,0,0, .15);
+      width: 100%;
     }
 
     .episode-thumbnail-image__desktop {
@@ -293,10 +295,7 @@
       position: absolute;
       margin-top: 2rem;
       margin-right: 1rem;
-
-      & img {
-        height: 100%;
-      }
+      width: 7.5rem;
 
       @media screen and (min-width: $screen-sm) {
         display: block;
@@ -305,15 +304,11 @@
     }
 
     .episode-thumbnail-image__mobile {
-      flex: 0 0 80px;
-      height: 80px;
+      flex: 0 0 5rem;
       margin-top: 2rem;
       margin-right: 1rem;
       margin-left: 1rem;
-
-      & img {
-        height: 100%;
-      }
+      width: 5rem;
 
       @media screen and (min-width: $screen-sm) {
         display: none;

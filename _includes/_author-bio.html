@@ -1,7 +1,7 @@
 <div class="media media-author push-bottom">
   <div class="media-img-wrapper">
     <a href="{{ author.url }}" data-author-link>
-      <img data-author-img src="{{ author.image | imgix: site.imgix | append: site.imgix_params.placeholder }}" class="img-circle img-size-5" sizes="{{ site.image_sizes.avatar }}" data-optimize-img>
+      <img data-author-img src="{{ author.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" class="img-circle img-size-5" sizes="{{ site.image_sizes.avatar }}" data-optimize-img>
     </a>
   </div>
   <div class="media-body">

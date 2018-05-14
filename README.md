@@ -1,16 +1,20 @@
-# Crossroads Media
+Crossroads Media
+==========
 
-Media site for Crossroads
+Media site for Crossroads.
 
-## Troubleshooting
+Project-Specific Functionality
+----------
 
-If you run into an error on your terminal saying `NoMethodError: undefined method 'sub' for nil:NilClass` here are some steps to fix it:
-1. Make sure your .env is correct
-2. Delete the `/collections` directory
-3. Run `bundle update jekyll-contentful`
-4. Run `bundle exec jekyll contentful && bundle exec jekyll serve`
+The following sections outline behavior, features, and processes specific to this project:
 
-## Custom Frontmatter Support
+### Images
+
+...
+
+### CSS
+
+### Frontmatter
 
 The following is a list of custom options for frontmatter arguments beyond what Jekyll offers.
 
@@ -20,6 +24,17 @@ The following is a list of custom options for frontmatter arguments beyond what 
 | `js_vars` | `nil` | An array of local environment variables to load as global JavaScript variables. **The names of env vars will match JS vars exactly.** |
 | `preloader` | `nil` | If truthy, it will render a preloading spinner on the page. |
 
-## License
+Troubleshooting
+----------
+
+If you run into an error on your terminal saying `NoMethodError: undefined method 'sub' for nil:NilClass` here are some steps to fix it:
+
+1. Make sure your `.env` is correct
+2. Delete the `/collections` directory
+3. Run `bundle update jekyll-contentful`
+4. Run `bundle exec jekyll contentful && bundle exec jekyll serve`
+
+License
+----------
 
 This project is licensed under the [3-Clause BSD License](https://opensource.org/licenses/BSD-3-Clause).
