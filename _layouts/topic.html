@@ -4,13 +4,42 @@ layout: default
 {% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
 
 <div class="container">
-  <h2 class="section-header">{{ page.title }}</h2>
+  <h1 class="section-header">{{ page.title }}</h1>
+
+  <div class="border-bottom push-bottom">
+    <h2 class="push-half-bottom">Articles</h2>
+  </div>
   <div data-card-deck class="card-deck">
     <div class="cards-4x">
       <div class="row">
       {% for post in site.posts %}
         {% if post.topic == page.title %}
           {% include _article-card.html content_type=post %}
+        {% endif %}
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="border-bottom push-bottom">
+    <h2 class="push-half-bottom">Podcasts</h2>
+  </div>
+  <div data-card-deck class="card-deck">
+    <div class="cards-4x">
+      <div class="row">
+      {% for ep in site.episodes %}
+        {% if ep.topic == page.title %}
+          <div class="card">
+            <a href="{{ ep.url }}">
+              <img src="{{ ep.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
+            </a>
+            <div class="card-block hard-bottom">
+              <a href="{{ ep.url }}">
+                <h4 class="card-title card-title--overlap text-uppercase">{{ ep.title }}</h4>
+              </a>
+              <p>{{ ep.content | strip_html | truncatewords: 25 }}</p>
+            </div>
+          </div>
         {% endif %}
       {% endfor %}
       </div>
