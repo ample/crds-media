@@ -1,0 +1,34 @@
+.text-gray-lighter {
+  color: $cr-gray-lighter;
+}
+
+@media (max-width: 767px) {
+  .cards-2x-sm .card {
+    float: left;
+    max-width: 50%;
+  }  
+}
+
+.bg-gray {
+  background-color: $cr-gray;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center; 
+}
+
+.font-family-base-mid {
+  font-weight: 500;
+}
