@@ -35,7 +35,7 @@ worship_training_img: //crds-cms-uploads.imgix.net/content/images/crossroads-wor
         {% for song in featured %}
           <div class="card">
             <a href="{{ song.url }}">
-              <img class="card-img-unrestrained" src="{{ song.image | imgix: site.imgix | append: site.imgix_placeholder_args }}" data-optimize-img>
+              <img src="{{ song.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_card }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>
             </a>
             <div class="card-block hard">
               <a href="{{ song.url }}">
@@ -55,7 +55,7 @@ worship_training_img: //crds-cms-uploads.imgix.net/content/images/crossroads-wor
         {% for song in unfeatured %}
           <div class="card">
             <a href="{{ song.url }}">
-              <img class="card-img-unrestrained" src="{{ song.image | imgix: site.imgix | append: site.imgix_placeholder_args }}" data-optimize-img />
+              <img src="{{ song.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_card }}" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
             </a>
             <div class="card-block hard">
               <a href="{{ song.url }}">
