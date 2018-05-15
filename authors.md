@@ -11,13 +11,14 @@ title: Authors
       {% for author in site.authors %}
         <div class="card">
           <a href="{{ author.url }}">
-            <img class="card-img-top img-responsive" src="{{ author.image | imgix: site.imgix | append: site.imgix_placeholder_args }}" data-optimize-img>
+            <img class="card-img-top img-responsive" src="{{ author.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_card }}" data-optimize-img>
           </a>
           <div class="card-block">
             <a href="{{ author.url }}">
               <h4 class="card-title card-title--overlap text-uppercase">{{ author.name }}</h4>
             </a>
-            <h5 class="card-subtitle">{% include _count.html key="author" subject=author.name label="article" %}</h5>
+            <h5 class="card-subtitle">{% include _count.html collection=site.posts key="author" subject=author.name label="article" %}</h5>
+            <h5 class="card-subtitle">{% include _count.html collection=site.podcasts key="authors" subject=author.name label="podcast" %}</h5>
           </div>
         </div>
       {% endfor %}

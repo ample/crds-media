@@ -18,13 +18,14 @@ permalink: /topics/index.html
                 {% break %}
               {% endif %}
             {% endfor %}
-            <img class="card-img-top img-responsive" src="{{ post.image | imgix: site.imgix | append: site.imgix_placeholder_args }}" data-optimize-img>
+            <img class="card-img-top img-responsive" src="{{ post.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_card }}" data-optimize-img>
           </a>
           <div class="card-block">
             <a href="{{ topic.url }}">
               <h4 class="card-title card-title--overlap text-uppercase">{{ topic.title }}</h4>
             </a>
-            <h5 class="card-subtitle">{% include _count.html key="topic" subject=topic.title label="article" %}</h5>
+            <h5 class="card-subtitle">{% include _count.html collection=site.posts key="topic" subject=topic.title label="article" %}</h5>
+            <h5 class="card-subtitle">{% include _count.html collection=site.episodes key="topic" subject=topic.title label="podcast" %}</h5>
           </div>
         </div>
       {% endfor %}

@@ -11,9 +11,9 @@ $(document).ready(function() {
     // page and initialize imgix with the full-sized image.
     for (var img of $('img[data-optimize-img]')) {
       var src = $(img).attr('src').split('?')[0];
+      var ix_params = $(img).attr('ix-params') || $(img).attr('src').split('?')[1];
       $(img).addClass('img-responsive');
-      var ix_params = $(img).attr('ix-params');
-      $(img).attr('ix-src', src + '?auto=format,compress&' + ix_params);
+      $(img).attr('ix-src', src + '?' + ix_params);
     }
 
     imgix.init();
