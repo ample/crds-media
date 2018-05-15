@@ -1,2 +1,1 @@
-{% assign count = include.collection | where: include.key, include.subject | size %}
-{{ count | pluralize: include.label }}
+{{ include.collection | where: include.key, include.subject | size | pluralize: include.label }}
