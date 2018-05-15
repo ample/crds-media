@@ -9,18 +9,19 @@
 
 .jumbotron-2x {
   display: flex;
+  flex-direction: column;
   .jumbotron {
     flex: 1;
-    max-width: 50%;
-    margin-left: 15px;
-    margin-right: 15px;
-    
-    &:first-child {
-      margin-left: 0;
+    @media (min-width: $screen-md) {
+      max-width: 50%;
+      
+      &:first-child {
+        margin-right: 24px;
+      }
     }
+  }
 
-    &:last-child {
-      margin-right: 0;
-    }
+  @media (min-width: $screen-md) {
+    flex-direction: row;
   }
 }
