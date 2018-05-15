@@ -55,6 +55,12 @@ collections:
   episodes:
     output: true
     permalink: /:collection/:slug
+  albums:
+    output: true
+    permalink: /:collection/:slug
+  songs:
+    output: true
+    permalink: /:collection/:slug
 
 contentful:
   content_types:
@@ -132,7 +138,43 @@ contentful:
         other:
           layout: episode
           draft: false
-
+    albums:
+      id: album
+      body: description
+      frontmatter:
+        entry_mappings:
+          title: title
+          subtitle: subtitle
+          date: published_at
+          image: image/url
+          bg_image: bg_image/url
+          spotify_url: spotify_url
+          apple_music_url: apple_music_url
+          google_play_url: google_play_url
+          slug: slug
+        other:
+          layout: album
+          draft: false
+    songs:
+      id: song
+      body: description
+      frontmatter:
+        entry_mappings:
+          title: title
+          subtitle: subtitle
+          date: published_at
+          album: album/title
+          image: image/url
+          bg_image: bg_image/url
+          spotify_url: spotify_url
+          apple_music_url: apple_music_url
+          google_play_url: google_play_url
+          youtube_url: youtube_url
+          slug: slug
+        other:
+          layout: song
+          draft: false   
+            
 defaults:
   - scope:
       path: ""
