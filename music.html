@@ -2,7 +2,7 @@
 layout: default
 title: Music
 worship_training_headline: Be Part of This
-worship_training_copy: Worship Training helps you grow musical or technical 
+worship_training_copy: Worship Training helps you grow musical or technical
                         giftings so you can serve the community.
 worship_training_cta: Learn More
 worship_training_img: //crds-cms-uploads.imgix.net/content/images/crossroads-worship-training-music.jpg
@@ -14,7 +14,7 @@ worship_training_img: //crds-cms-uploads.imgix.net/content/images/crossroads-wor
   <p class="breadcrumb flush-bottom hard"><a href="{{ site.url }}">Media</a> /</p>
   <h2 class="section-header landing-header flush-top push-bottom">Music</h2>
   {% assign hero = sorted_songs | first %}
-  <div class="jumbotron jumbotron-xl" style="background-image: url('{{ hero.image | imgix: site.imgix }}')">
+  <div class="jumbotron jumbotron-xl" style="background-image: url('{{ hero.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
     <div class="bg-overlay"></div>
     <div class="jumbotron-content">
       <h4 class="font-size-small text-uppercase text-gray-lighter">
@@ -72,7 +72,7 @@ worship_training_img: //crds-cms-uploads.imgix.net/content/images/crossroads-wor
 <div class="container-fluid bg-gray soft">
   <div class="container push-top">
     <div class="jumbotron-2x">
-      <div class="jumbotron" style="background-image: url('{{ page.worship_training_img | imgix: site.imgix }}');">
+      <div class="jumbotron" style="background-image: url('{{ page.worship_training_img | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
         <h2 class="section-header push-top push-quarter-bottom text-white">{{ page.worship_training_headline }}</h2>
         <span class="font-size-base font-family-base-light text-gray-lighter push-bottom block">{{ page.worship_training_copy }}</span>
         <a class="btn btn-white btn-lg btn-outline font-family-base-light" href="https://www.crossroads.net/worshiptraining">{{ page.worship_training_cta }}</a>

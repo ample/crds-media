@@ -42,6 +42,14 @@ This would translate to something like the following (before processing):
 <img src="//crds-media-int.imgix.net/5G62zla1zOsmKqSo8wmomI/d46b0ec8a96339c72f25b56b7c2dd99b/isle-of-skye.jpg?auto=format,compress&w=10" sizes="100vw" data-optimize-img>
 ```
 
+#### Background Images
+
+Background images work similarly, with three exceptions:
+
+- A `data-optimize-bg-img` attribute is required for the processing.
+- The dimensions of the imgix image are set automatically based on the container (i.e. it assumes a _cover_ background approach).
+- The script watches for changes to the size of the window and will update the background image appropriately.
+
 ### CSS
 
 We're using [PurgeCSS](https://www.purgecss.com/) to optimize our CSS file. This has enabled us to reduce the main CSS file by 90-95%, which has increased performance significantly.
