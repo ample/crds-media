@@ -1,21 +1,21 @@
 <div class="podcast-subscribe">
-  {% if page.apple_podcasts_url.size > 1 %}
+  {% if include.content_type.apple_podcasts_url.size > 1 %}
     <p>
-      <a href="{{ page.apple_podcasts_url }}">
+      <a href="{{ include.content_type.apple_podcasts_url }}">
         <img src="//dz6ito7tas43n.cloudfront.net/images/apple-podcasts.svg" alt="Apple Podcast button">
       </a>
     </p>
   {% endif %}
-  {% if page.google_play_url.size > 1 %}
+  {% if include.content_type.google_play_url.size > 1 %}
     <p>
-      <a href="{{ page.google_play_url }}">
+      <a href="{{ include.content_type.google_play_url }}">
         <img src="//dz6ito7tas43n.cloudfront.net/images/google-play-badge.svg" alt="Google Play button">
       </a>
     </p>
   {% endif %}
-  {% if page.stitcher_url.size > 1 %}
+  {% if include.content_type.stitcher_url.size > 1 %}
     <p>
-      <a href="{{ page.stitcher_url }}">
+      <a href="{{ include.content_type.stitcher_url }}">
         <img src="//crds-cms-uploads.imgix.net/content/images/listen-on-stitcher.jpg" alt="Stitcher button">
       </a>
     </p>
