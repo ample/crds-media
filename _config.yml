@@ -122,7 +122,6 @@ contentful:
       frontmatter:
         entry_mappings:
           title: title
-          subtitle: subtitle
           episode_number: episode_number
           season_number: season_number
           date: published_at
@@ -173,8 +172,8 @@ contentful:
           slug: slug
         other:
           layout: song
-          draft: false   
-            
+          draft: false
+
 defaults:
   - scope:
       path: ""
