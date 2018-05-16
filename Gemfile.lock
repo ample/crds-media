@@ -17,6 +17,12 @@ GIT
       jekyll
 
 PATH
+  remote: vendor/gems/paging-mister-hyde
+  specs:
+    paging-mister-hyde (0.0.1)
+      jekyll
+
+PATH
   remote: vendor/gems/jekyll-crds
   specs:
     jekyll-crds (0.0.1)
@@ -164,6 +170,7 @@ DEPENDENCIES
   jekyll-feed (~> 0.6)
   jekyll-paginate-v2
   jekyll-redirect-from
+  paging-mister-hyde (~> 0.0.1)!
   pry
   tzinfo-data
 
