@@ -129,60 +129,41 @@ layout: default
       </div>
     </div>
 
-    <div class="row soft-7-bottom">
-      <div class="col-sm-8 col-sm-offset-2">
-        <h2 class="podcast-section-header flush-top">Subscribe</h2>
-        <div class="podcast-subscribe">
-          <p>
-            <a href="{{ podcast.apple_podcasts_url }}">
-              <img src="//dz6ito7tas43n.cloudfront.net/images/apple-podcasts.svg" alt="Apple Podcast button">
-            </a>
-          </p>
-          <p>
-            <a href="{{ podcast.google_play_url }}">
-              <img src="//dz6ito7tas43n.cloudfront.net/images/google-play-badge.svg" alt="Google Play button">
-            </a>
-          </p>
-          <p>
-            <a href="{{ podcast.stitcher_url }}">
-              <img src="//crds-cms-uploads.imgix.net/content/images/listen-on-stitcher.jpg" alt="Stitcher button">
-            </a>
-          </p>
-        </div>
-      </div>
-    </div>
+    {% include _podcast-subscribe.html content_type=podcast %}
 
-    <!-- Podcasts-->
-    <div class="more-podcasts push-bottom row">
-      <div class="col-sm-8 col-sm-offset-2">
+    <!-- Explore More Content-->
+    {% if site.podcasts.size > 1 %}
+      <div class="more-podcasts push-bottom row">
+        <div class="col-sm-8 col-sm-offset-2">
 
-        <div class="push-bottom">
-          <h2 class="podcast-section-header flush-top">More content to explore</h2>
-        </div>
-
-        <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
-          <div class="feature-cards">
-
-            {% assign limited = site.podcasts | sort: 'date' | reverse | slice: 0, 4 | exclude: podcast.title %}
-            {% for podcast in limited limit: 3 %}
-              <div class="card carousel-cell">
-                <a href="{{ podcast.url }}">
-                  <img src="{{ podcast.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.cards_3x_centered_carousel }}" data-optimize-img>
-                </a>
-                <div class="card-block hard-bottom">
-                  <a href="{{ podcast.url }}">
-                    <h4 class="card-title card-title--overlap text-uppercase">{{ podcast.title }}</h4>
-                  </a>
-                  <p>{{ podcast.content | truncate }}</p>
-                </div>
-              </div>
-            {% endfor %}
-
+          <div class="push-bottom">
+            <h2 class="podcast-section-header flush-top">More content to explore</h2>
           </div>
-        </div>
 
+          <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
+            <div class="feature-cards">
+
+              {% assign limited = site.podcasts | sort: 'date' | reverse | slice: 0, 4 | exclude: podcast.title %}
+              {% for podcast in limited limit: 3 %}
+                <div class="card carousel-cell">
+                  <a href="{{ podcast.url }}">
+                    <img src="{{ podcast.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.cards_3x_centered_carousel }}" data-optimize-img>
+                  </a>
+                  <div class="card-block hard-bottom">
+                    <a href="{{ podcast.url }}">
+                      <h4 class="card-title card-title--overlap text-uppercase">{{ podcast.title }}</h4>
+                    </a>
+                    <p>{{ podcast.content | truncate }}</p>
+                  </div>
+                </div>
+              {% endfor %}
+
+            </div>
+          </div>
+
+        </div>
       </div>
-    </div>
+    {% endif %}
 
   </div>
 </div>
