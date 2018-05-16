@@ -14,7 +14,7 @@ worship_training_img: //crds-cms-uploads.imgix.net/content/images/crossroads-wor
   <p class="breadcrumb flush-bottom hard"><a href="{{ site.url }}">Media</a> /</p>
   <h2 class="section-header landing-header flush-top push-bottom">Music</h2>
   {% assign hero = sorted_songs | first %}
-  <div class="jumbotron jumbotron-xl" style="background-image: url('{{ hero.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
+  <div class="jumbotron jumbotron-xl" style="background-image: url('{{ hero.bg_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
     <div class="bg-overlay"></div>
     <div class="jumbotron-content">
       <h4 class="font-size-small text-uppercase text-gray-lighter">
