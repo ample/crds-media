@@ -5,7 +5,6 @@ module.exports = function (migration) {
     .displayField('title');
 
   episode.createField('title').name('Title').type('Symbol').required(true);
-  episode.createField('subtitle').name('Subtitle').type('Symbol');
   episode.createField('slug').name('Slug').type('Symbol').required(true).validations([{ unique: true }]);
   episode.createField('description').name('Description').type('Text');
   episode.createField('audio_file').name('Audio File').type('Link').linkType('Asset');
