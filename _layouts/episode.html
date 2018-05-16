@@ -129,14 +129,7 @@ layout: default
       </div>
     </div>
 
-    {% if podcast.apple_podcasts_url.size > 1 or podcast.google_play_url.size > 1 or podcast.stitcher_url.size > 1 %}
-      <div class="row soft-7-bottom">
-        <div class="col-sm-8 col-sm-offset-2">
-          <h2 class="podcast-section-header flush-top">Subscribe</h2>
-          {% include _podcast-subscribe.html content_type=podcast %}
-        </div>
-      </div>
-    {% endif %}
+    {% include _podcast-subscribe.html content_type=podcast %}
 
     <!-- Explore More Content-->
     {% if site.podcasts.size > 1 %}

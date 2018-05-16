@@ -1,23 +1,30 @@
-<div class="podcast-subscribe">
-  {% if include.content_type.apple_podcasts_url.size > 1 %}
-    <p>
-      <a href="{{ include.content_type.apple_podcasts_url }}">
-        <img src="//dz6ito7tas43n.cloudfront.net/images/apple-podcasts.svg" alt="Apple Podcast button">
-      </a>
-    </p>
-  {% endif %}
-  {% if include.content_type.google_play_url.size > 1 %}
-    <p>
-      <a href="{{ include.content_type.google_play_url }}">
-        <img src="//dz6ito7tas43n.cloudfront.net/images/google-play-badge.svg" alt="Google Play button">
-      </a>
-    </p>
-  {% endif %}
-  {% if include.content_type.stitcher_url.size > 1 %}
-    <p>
-      <a href="{{ include.content_type.stitcher_url }}">
-        <img src="//crds-cms-uploads.imgix.net/content/images/listen-on-stitcher.jpg" alt="Stitcher button">
-      </a>
-    </p>
-  {% endif %}
-</div>
+{% if include.content_type.apple_podcasts_url.size > 1 or include.content_type.google_play_url.size > 1 or include.content_type.stitcher_url.size > 1 %}
+  <div class="row soft-7-bottom">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h2 class="podcast-section-header flush-top">Subscribe</h2>
+      <div class="podcast-subscribe">
+        {% if include.content_type.apple_podcasts_url.size > 1 %}
+          <p>
+            <a href="{{ include.content_type.apple_podcasts_url }}">
+              <img src="//dz6ito7tas43n.cloudfront.net/images/apple-podcasts.svg" alt="Apple Podcast button">
+            </a>
+          </p>
+        {% endif %}
+        {% if include.content_type.google_play_url.size > 1 %}
+          <p>
+            <a href="{{ include.content_type.google_play_url }}">
+              <img src="//dz6ito7tas43n.cloudfront.net/images/google-play-badge.svg" alt="Google Play button">
+            </a>
+          </p>
+        {% endif %}
+        {% if include.content_type.stitcher_url.size > 1 %}
+          <p>
+            <a href="{{ include.content_type.stitcher_url }}">
+              <img src="//crds-cms-uploads.imgix.net/content/images/listen-on-stitcher.jpg" alt="Stitcher button">
+            </a>
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endif %}
