@@ -12,19 +12,6 @@ plugins:
   - jekyll-feed
   - jekyll-redirect-from
   - jekyll-contentful
-  - jekyll-paginate-v2
-
-pagination:
-  enabled: true
-  debug: false
-  collection: 'posts'
-  per_page: 16
-  permalink: '/page/:num/'
-  sort_field: 'date'
-  sort_reverse: true
-
-# livereload: true
-# reload_port: 4300
 
 # The following items will not be processed, by default.
 exclude:
