@@ -4,7 +4,7 @@
     <div class="article_share col-md-2 push-bottom">
       <div class="push-bottom">
         <h5 class="control-label">Share</h5>
-        <div class="addthis_sharing_toolbox"></div>
+        {% include _social-share.html %}
       </div>
       {% if page.tags.size > 0 %}
       <div class="article_tags" data-tags>
