@@ -1,7 +1,7 @@
 module Jekyll
   module Titleize
     def titleize(words)
-      return words.titleize
+      words.nil? ? words : words.send(:titleize)
     end
   end
 end
