@@ -106,13 +106,15 @@ layout: default
         </div>
       </div>
     </div>
-    <div class="soft-7-bottom">
-      <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-          <h2 class="podcast-section-header flush-top">Subscribe</h2>
-          {% include _podcast-subscribe.html %}
+    {% if page.apple_podcasts_url.size > 1 or page.google_play_url.size > 1 or page.stitcher_url.size > 1 %}
+      <div class="soft-7-bottom">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">
+            <h2 class="podcast-section-header flush-top">Subscribe</h2>
+            {% include _podcast-subscribe.html %}
+          </div>
         </div>
       </div>
-    </div>
+    {% endif %}
   </div>
 </section>
