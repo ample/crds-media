@@ -20,11 +20,11 @@ subheading: Read them. Share them. Talk to someone about them. Do something with
   <div data-card-deck class="card-deck">
     <div class="cards-4x">
       <div class="row">
-      {% for post in page.posts %}
-        {% include _article-card.html content_type=post %}
+      {% for post in page.posts.docs %}
+        {% include _article-card.html collection="posts" %}
       {% endfor %}
       </div>
     </div>
   </div>
-  {% include _pagination.html link_root="articles" %}
+  {% include _pagination.html collection="posts" link_root="articles" %}
 </div>
