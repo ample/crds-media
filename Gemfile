@@ -4,7 +4,8 @@ gem "jekyll", "~> 3.7.2"
 gem 'activesupport'
 
 group :development do
-  gem "pry"
+  gem 'pry'
+  gem 'pry-nav'
 end
 
 group :test do
