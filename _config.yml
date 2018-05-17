@@ -20,6 +20,7 @@ exclude:
   - package.json
   - README.md
   - _migrations
+  - vendor
 
 include:
   - _redirects
