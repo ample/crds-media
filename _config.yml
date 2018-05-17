@@ -28,7 +28,7 @@ include:
 collections_dir: collections
 
 collections:
-  posts:
+  articles:
     output: true
     permalink: /articles/:slug
   topics:
@@ -52,7 +52,7 @@ collections:
 
 contentful:
   content_types:
-    posts:
+    articles:
       id: article
       body: body
       filename: "{{ published_at | date: '%Y-%m-%d' }}-{{ slug }}"
@@ -66,7 +66,7 @@ contentful:
           slug: slug
           tags: tags
         other:
-          layout: post
+          layout: article
           draft: false
     authors:
       id: author
@@ -169,7 +169,7 @@ defaults:
       js_manifest: application_deferred
   - scope:
       path: "/articles"
-      type: posts
+      type: articles
     values:
       layout: post
   - scope:

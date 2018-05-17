@@ -12,7 +12,7 @@ describe PagingMisterHyde::Paginator do
   end
 
   it 'should paginate' do
-    data = @page.data['posts']
+    data = @page.data['articles']
     expect(data['docs']).to be_a(Array)
   end
 
@@ -28,7 +28,7 @@ describe PagingMisterHyde::Paginator do
 
   context 'physical file' do
     it 'should be populated with values required by _pagination.html partial' do
-      data = @page.data['posts']
+      data = @page.data['articles']
       pagination_expectations(data)
     end
   end
@@ -36,7 +36,7 @@ describe PagingMisterHyde::Paginator do
   context 'dynamically generated file' do
     it 'should be populated with value required by _pagination.html partial' do
       @site.pages.each do |p|
-        data = p.data['posts']
+        data = p.data['articles']
         pagination_expectations(data)
       end
     end
@@ -45,7 +45,7 @@ describe PagingMisterHyde::Paginator do
   private
 
     def pagination_expectations(frontmatter)
-      expect(frontmatter['total_pages']).to eq(@articles.count)
+      expect(frontmatter['total_pages']).to eq(@articles.count + 1)
       expect(frontmatter['page']).to be_instance_of(Integer)
 
       if frontmatter['page'] == 1
@@ -54,7 +54,7 @@ describe PagingMisterHyde::Paginator do
         expect(frontmatter['previous_page']).to be_instance_of(Integer)
       end
 
-      if frontmatter['page'] == @articles.count
+      if frontmatter['page'] == @articles.count + 1
         expect(frontmatter['next_page']).to be(false)
       else
         expect(frontmatter['next_page']).to be_instance_of(Integer)
@@ -71,7 +71,7 @@ describe PagingMisterHyde::Paginator do
           "destination" => File.join(fixtures_dir, '_site')
         }))
         site = Jekyll::Site.new(cfg)
-        site.collections['posts'].read
+        site.collections['articles'].read
         site
       end
     end

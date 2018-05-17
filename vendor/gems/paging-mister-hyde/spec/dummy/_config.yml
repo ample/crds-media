@@ -1,6 +1,0 @@
-collections_dir: fixtures
-
-collections:
-  posts:
-    output: true
-    permalink: /posts/:path/
