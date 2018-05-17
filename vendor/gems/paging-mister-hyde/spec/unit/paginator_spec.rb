@@ -16,6 +16,16 @@ describe PagingMisterHyde::Paginator do
     expect(data['docs']).to be_a(Array)
   end
 
+  it 'should return previous page number' do
+    expect(@paginator.send(:previous_page_number, 2)).to eq(1)
+    expect(@paginator.send(:previous_page_number, 1)).to eq(false)
+  end
+
+  it 'should return next page number' do
+    expect(@paginator.send(:next_page_number, 2, 3)).to eq(3)
+    expect(@paginator.send(:next_page_number, 3, 3)).to eq(false)
+  end
+
   context 'physical file' do
     it 'should be populated with values required by _pagination.html partial' do
       data = @page.data['posts']

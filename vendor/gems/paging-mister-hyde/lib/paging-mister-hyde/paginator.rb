@@ -31,10 +31,10 @@ module PagingMisterHyde
       total_pages = collection.count
 
       # For each collection of docs...
-      collection.each_with_index do |docs, i|
+      collection[1..collection.count].each_with_index do |docs, i|
 
         # Set some things
-        page_num = (i + 1)
+        page_num = (i + 2)
         base = @page.instance_variable_get('@base')
         dir = @page.instance_variable_get('@dir')
         path = File.basename(@page.instance_variable_get('@path'))
