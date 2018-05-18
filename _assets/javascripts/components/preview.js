@@ -57,7 +57,9 @@ function setAuthorInfo(name, slug, bio, img) {
     authorImg.removeAttribute('src');
     authorImg.setAttribute('ix-src', res.fields.file.url.replace(IMGIX_SRC, IMGIX_DOMAIN));
     authorImg.classList.add('img-responsive');
-    imgix.init();
+    imgix.init({
+      force: true
+    })
   });
 }
 
