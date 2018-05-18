@@ -70,6 +70,28 @@ The following is a list of custom options for frontmatter arguments beyond what 
 | `js_vars` | `nil` | An array of local environment variables to load as global JavaScript variables. **The names of env vars will match JS vars exactly.** |
 | `preloader` | `nil` | If truthy, it will render a preloading spinner on the page. |
 
+### Pagination
+
+You can paginate one or more collections, on a per-page basis, by defining a `paginate` object in template front-matter. In the following example, the `articles` collection will be reduced to multiple pages containing `8` or less document instances and exposed to the template via the `page.articles` variable...
+
+```liquid
+---
+...
+paginate:
+  articles:
+    per: 8
+---
+
+{% for doc in page.articles.docs %}
+  ...
+{% endfor %}
+
+{% include _pagination.html collection="articles" %}
+```
+
+The pages will be generated dynamically according to the name of the template. For example, if the file described in the example above was named `articles.html` &mdash; the paths for the generated pages would resolve to `/articles/page/2`, `/articles/page/3`, etc.
+
+
 Troubleshooting
 ----------
 

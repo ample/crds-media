@@ -12,19 +12,6 @@ plugins:
   - jekyll-feed
   - jekyll-redirect-from
   - jekyll-contentful
-  - jekyll-paginate-v2
-
-pagination:
-  enabled: true
-  debug: false
-  collection: 'posts'
-  per_page: 16
-  permalink: '/page/:num/'
-  sort_field: 'date'
-  sort_reverse: true
-
-# livereload: true
-# reload_port: 4300
 
 # The following items will not be processed, by default.
 exclude:
@@ -33,6 +20,7 @@ exclude:
   - package.json
   - README.md
   - _migrations
+  - vendor
 
 include:
   - _redirects
@@ -40,7 +28,7 @@ include:
 collections_dir: collections
 
 collections:
-  posts:
+  articles:
     output: true
     permalink: /articles/:slug
   topics:
@@ -64,7 +52,7 @@ collections:
 
 contentful:
   content_types:
-    posts:
+    articles:
       id: article
       body: body
       filename: "{{ published_at | date: '%Y-%m-%d' }}-{{ slug }}"
@@ -78,7 +66,7 @@ contentful:
           slug: slug
           tags: tags
         other:
-          layout: post
+          layout: article
           draft: false
     authors:
       id: author
@@ -181,7 +169,7 @@ defaults:
       js_manifest: application_deferred
   - scope:
       path: "/articles"
-      type: posts
+      type: articles
     values:
       layout: post
   - scope:
