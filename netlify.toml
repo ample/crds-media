@@ -1,2 +1,2 @@
 [build]
-  command = "npm i -g purgecss && bundle exec jekyll crds && bundle exec jekyll contentful && bundle exec jekyll build"
+  command = "npm i -g purgecss && bundle exec jekyll crds && bundle exec jekyll contentful && bundle exec rspec ./vendor && bundle exec jekyll build"

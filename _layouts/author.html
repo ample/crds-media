@@ -7,7 +7,7 @@ layout: default
 <div class="container">
   {% include _author-bio.html %}
 
-  {% assign articles = site.posts | where:"author", author.name %}
+  {% assign articles = site.articles | where:"author", author.name %}
   {% if articles.size > 0  %}
     <div class="border-bottom push-bottom">
         <h2 class="push-half-bottom">Articles</h2>
