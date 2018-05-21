@@ -42,6 +42,12 @@
   width: 100%;
 }
 
+// Fix for fading placeholder images in
+.card-title--overlap {
+  position: relative;
+  z-index: 1;
+}
+
 // 🛠 Update when CRDS-Styles is brought it
 h2 {
   font-family: 'acumin-pro', helvetica, arial, sans-serif;

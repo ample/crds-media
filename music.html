@@ -71,24 +71,22 @@ worship_training_img: //crds-cms-uploads.imgix.net/content/images/crossroads-wor
 
 <div class="container-fluid bg-gray soft">
   <div class="container push-top">
-    <div class="jumbotron-2x">
-      <div class="jumbotron" style="background-image: url('{{ page.worship_training_img | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
-        <h2 class="section-header push-top push-quarter-bottom text-white">{{ page.worship_training_headline }}</h2>
-        <span class="font-size-base font-family-base-light text-gray-lighter push-bottom block">{{ page.worship_training_copy }}</span>
-        <a class="btn btn-white btn-lg btn-outline font-family-base-light" href="https://www.crossroads.net/worshiptraining">{{ page.worship_training_cta }}</a>
+    <div class="jumbotron col-md-6" style="background-image: url('{{ page.worship_training_img | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
+      <h2 class="section-header push-top push-quarter-bottom text-white">{{ page.worship_training_headline }}</h2>
+      <span class="font-size-base font-family-base-light text-gray-lighter push-bottom block">{{ page.worship_training_copy }}</span>
+      <a class="btn btn-white btn-lg btn-outline font-family-base-light" href="https://www.crossroads.net/worshiptraining">{{ page.worship_training_cta }}</a>
+    </div>
+    <div class="jumbotron bg-charcoal col-md-6">
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <svg class="icon icon-2 text-white" viewbox="0 0 256 256">
+          <use xlink:href="/assets/svgs/icons.svg#instagram-2"></use>
+        </svg>
+        <svg class="text-white push-top" viewbox="0 0 256 80" width="60%">
+          <use xlink:href="/assets/svgs/icons.svg#crds-music"></use>
+        </svg>
       </div>
-      <div class="jumbotron bg-charcoal">
-        <div class="d-flex flex-column align-items-center justify-content-center">
-          <svg class="icon icon-2 text-white" viewbox="0 0 256 256">
-            <use xlink:href="/assets/svgs/icons.svg#instagram-2"></use>
-          </svg>
-          <svg class="text-white push-top" viewbox="0 0 256 80" width="60%">
-            <use xlink:href="/assets/svgs/icons.svg#crds-music"></use>
-          </svg>
-        </div>
-        <h2 class="section-header flush-top push-quarter-bottom hidden">Crossroads Music</h2>
-        <a class="btn btn-white btn-lg btn-outline font-family-base-light" href="https://www.instagram.com/crdsmusic/">Follow us on Instagram</a>
-      </div>
+      <h2 class="section-header flush-top push-quarter-bottom hidden">Crossroads Music</h2>
+      <a class="btn btn-white btn-lg btn-outline font-family-base-light" href="https://www.instagram.com/crdsmusic/">Follow us on Instagram</a>
     </div>
   </div>
 </div>
