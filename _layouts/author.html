@@ -41,4 +41,31 @@ layout: default
     </div>
   {% endif %}
 
+  <!-- Podcasts -->
+  {% assign albums = site.albums | where:"authors", page.title %}
+
+  {% if albums.size > 0 %}
+    <div class="border-bottom push-bottom">
+        <h2 class="push-half-bottom">Albums</h2>
+    </div>
+    <div data-card-deck class="card-deck">
+      <div class="cards-4x">
+        <div class="row">
+          {% for album in albums %}
+            <div class="card">
+              <a href="{{ album.url }}">
+                <img src="{{ album.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
+              </a>
+              <div class="card-block hard">
+                <a href="{{ album.url }}">
+                  <h5 class="text-gray-dark font-family-base-mid">{{ album.title }}</h5>
+                </a>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
 </div>

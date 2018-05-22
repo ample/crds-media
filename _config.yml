@@ -133,6 +133,7 @@ contentful:
           title: title
           subtitle: subtitle
           date: published_at
+          authors: author/full_name
           image: image/url
           bg_image: bg_image/url
           spotify_url: spotify_url
