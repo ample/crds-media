@@ -95,7 +95,7 @@ contentful:
           subtitle: subtitle
           image: image/url
           background: bg_image/url
-          authors: [author, full_name]
+          authors: author/full_name
           apple_podcasts_url: apple_podcasts_url
           google_play_url: google_play_url
           stitcher_url: stitcher_url

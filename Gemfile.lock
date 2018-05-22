@@ -9,9 +9,10 @@ GIT
 
 GIT
   remote: https://github.com/crdschurch/jekyll-contentful.git
-  revision: 2fadd32f132a1733b7f39c79260c2b36a9eb18bc
+  revision: cc3f9172d005796962e0ed9673266d55e3766471
   specs:
-    jekyll-contentful (0.0.1)
+    jekyll-contentful (0.0.2)
+      activesupport
       contentful (>= 2.6.0)
       dotenv
       jekyll
@@ -57,7 +58,7 @@ GEM
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
-    eventmachine (1.2.6)
+    eventmachine (1.2.7)
     execjs (2.7.0)
     extras (0.3.0)
       forwardable-extended (~> 2.5)
@@ -206,7 +207,7 @@ DEPENDENCIES
   guard-rspec
   jekyll (~> 3.7.2)
   jekyll-assets
-  jekyll-contentful (~> 0.0.1)!
+  jekyll-contentful (~> 0.0.2)!
   jekyll-crds (~> 0.0.1)!
   jekyll-feed (~> 0.6)
   jekyll-redirect-from
