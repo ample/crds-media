@@ -136,6 +136,7 @@ contentful:
           authors: author/full_name
           image: image/url
           bg_image: bg_image/url
+          author: author/full_name
           spotify_url: spotify_url
           apple_music_url: apple_music_url
           google_play_url: google_play_url
@@ -150,14 +151,24 @@ contentful:
         entry_mappings:
           title: title
           subtitle: subtitle
+          details: details
+          lyrics: lyrics
+          topic: category/title
+          topic_slug: category/slug
+          tags: tags
+          author: author/full_name
+          audio_duration: audio_duration
+          album_title: album/title
+          album_image: album/image/url
+          album_slug: album/slug
           date: published_at
-          album: album/title
           image: image/url
           bg_image: bg_image/url
           spotify_url: spotify_url
           apple_music_url: apple_music_url
           google_play_url: google_play_url
           youtube_url: youtube_url
+          related_videos: related_videos
           slug: slug
         other:
           layout: song
@@ -206,6 +217,7 @@ imgix_params:
   placeholder: "auto=format,compress&w=10"
   placeholder_card: "auto=format,compress&w=12&h=9&fit=crop"
   placeholder_square: "auto=format,compress&w=10&h=10&fit=crop"
+  placeholder_16x9: "auto=format,compress&w=16&h=9&fit=crop"
 
 image_sizes:
   cards_4x: "(min-width: 992px) 212.5px, (min-width: 768px) 345px, (min-width: 0px) 100vw"
@@ -215,5 +227,6 @@ image_sizes:
   episode_thumb: "(min-width: 768px) 120px, (min-width: 0px) 80px"
   avatar: "80px"
   full_width: "100vw"
+  half_width: "50vw"
 
 typekit_url: https://use.typekit.net/ccb3vpa.css

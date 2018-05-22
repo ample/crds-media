@@ -2,7 +2,7 @@
   color: $cr-gray-lighter;
 }
 
-@media (max-width: 767px) {
+@media (max-width: $screen-md) {
   .cards-2x-sm .card {
     float: left;
     max-width: 50%;
@@ -13,6 +13,11 @@
   background-color: $cr-gray;
 }
 
+.font-family-base-mid {
+  font-weight: 500;
+}
+
+// Bootstrap 4
 .d-flex {
   display: flex;
 }
@@ -29,6 +34,29 @@
   align-items: center; 
 }
 
-.font-family-base-mid {
-  font-weight: 500;
+.align-items-start {
+  align-items: start;
+}
+
+.flex-column-reverse {
+  flex-direction: column-reverse;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.flex-md-row {
+  @media (min-width: $screen-md) {
+    flex-direction: row;
+  }
+}
+
+// custom
+.flex-130 {
+  flex: 0 0 130px;
+}
+
+.flex-shrink {
+  flex-shrink: 1;
 }
