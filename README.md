@@ -72,7 +72,7 @@ The following is a list of custom options for frontmatter arguments beyond what 
 
 ### Pagination
 
-You can paginate one or more collections, on a per-page basis, by defining a `paginate` object in template front-matter. In the following example, the `articles` collection will be reduced to multiple pages containing `8` or less document instances and exposed to the template via the `page.articles` variable...
+You can paginate one or more collections, on a per-page basis, by defining a `paginate` object in template front-matter. In the following example, the `articles` collection will be reduced to multiple pages containing `8` or fewer document instances and exposed to the template via the `page.articles` variable...
 
 ```liquid
 ---
@@ -91,6 +91,33 @@ paginate:
 
 The pages will be generated dynamically according to the name of the template. For example, if the file described in the example above was named `articles.html` &mdash; the paths for the generated pages would resolve to `/articles/page/2`, `/articles/page/3`, etc.
 
+#### Sorting Collections
+
+Pagination takes the collection as presented by Jekyll. You can optionally add a `sort` option to choose a data parameter to use to sort the collection. The first string is the method by which you'd like to sort and the second is the sorting direction (`asc`/`desc`). The direction is optional.
+
+For example, if you wanted to sort articles in reverse chronological order, that might look something like this:
+
+```liquid
+---
+...
+paginate:
+  articles:
+    per: 8
+    sort: date desc
+---
+```
+
+But if you wanted to sort articles by title, that can look like this:
+
+```liquid
+---
+...
+paginate:
+  articles:
+    per: 8
+    sort: title
+---
+```
 
 Troubleshooting
 ----------

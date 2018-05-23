@@ -53,8 +53,15 @@ module PagingMisterHyde
     protected
 
       def paginated_collection(type)
+        collection = @site.collections[type].docs
+        if cfg.dig(type, 'sort')
+          sort_by, sort_in = cfg.dig(type, 'sort') ? cfg.dig(type, 'sort').split(' ') : nil
+          collection.sort_by! { |d| d.data[sort_by] } if sort_by
+          collection.reverse! if sort_in == 'desc'
+        end
+
         per = @cfg.dig(type, 'per')
-        @site.collections[type].docs.each_slice(per).to_a
+        collection.each_slice(per).to_a
       end
 
       def previous_page_number(n)
