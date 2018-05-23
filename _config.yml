@@ -49,6 +49,9 @@ collections:
   songs:
     output: true
     permalink: /:collection/:slug
+  videos:
+    output: true
+    permalink: /:collection/:slug
 
 contentful:
   content_types:
@@ -173,6 +176,21 @@ contentful:
         other:
           layout: song
           draft: false
+    videos:
+      id: video
+      body: description
+      frontmatter:
+        entry_mappings:
+          title: title
+          subtitle: subtitle
+          author: author
+          date: published_at
+          image: image/url
+          source_url: source_url
+          slug: slug
+        other:
+          layout: video
+          draft: false
 
 defaults:
   - scope:
@@ -217,7 +235,7 @@ imgix_params:
   placeholder: "auto=format,compress&w=10"
   placeholder_card: "auto=format,compress&w=12&h=9&fit=crop"
   placeholder_square: "auto=format,compress&w=10&h=10&fit=crop"
-  placeholder_16x9: "auto=format,compress&w=16&h=9&fit=crop"
+  placeholder_sixteen_nine: "auto=format,compress&w=16&h=9&fit=crop"
 
 image_sizes:
   cards_4x: "(min-width: 992px) 212.5px, (min-width: 768px) 345px, (min-width: 0px) 100vw"
