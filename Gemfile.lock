@@ -9,9 +9,9 @@ GIT
 
 GIT
   remote: https://github.com/crdschurch/jekyll-contentful.git
-  revision: cc3f9172d005796962e0ed9673266d55e3766471
+  revision: 5332056ae8755ab93b4070cfc8ff761802694a21
   specs:
-    jekyll-contentful (0.0.2)
+    jekyll-contentful (0.0.3)
       activesupport
       contentful (>= 2.6.0)
       dotenv
@@ -207,7 +207,7 @@ DEPENDENCIES
   guard-rspec
   jekyll (~> 3.7.2)
   jekyll-assets
-  jekyll-contentful (~> 0.0.2)!
+  jekyll-contentful (~> 0.0.3)!
   jekyll-crds (~> 0.0.1)!
   jekyll-feed (~> 0.6)
   jekyll-redirect-from
