@@ -2,19 +2,38 @@
   color: $cr-gray-lighter;
 }
 
+.text-xs-left {
+  @media only screen and (max-width: $screen-sm) {
+    text-align: left;
+  }
+}
+
 @media (max-width: $screen-md) {
   .cards-2x-sm .card {
     float: left;
     max-width: 50%;
-  }  
+  }
 }
 
 .bg-gray {
   background-color: $cr-gray;
 }
 
+.white-faded {
+  color: rgba($cr-white, 0.8); // #FFFFFF
+}
+
 .font-family-base-mid {
   font-weight: 500;
+}
+
+//Copied from crds-styles in order to override .jumbotron p sizing
+.font-size-base p {
+  font-size: $font-size-base!important; // 16px
+
+  @media screen and (min-width: $screen-xs) {
+    font-size: $font-size-large!important; // 19px
+  }
 }
 
 // Bootstrap 4
@@ -31,7 +50,7 @@
 }
 
 .align-items-center {
-  align-items: center; 
+  align-items: center;
 }
 
 .align-items-start {

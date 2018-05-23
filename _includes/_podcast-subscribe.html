@@ -2,29 +2,29 @@
   <div class="row soft-7-bottom">
     <div class="col-sm-8 col-sm-offset-2">
       <h2 class="podcast-section-header flush-top">Subscribe</h2>
-      <div class="podcast-subscribe">
+      <ul class="list-inline icons">
         {% if include.content_type.apple_podcasts_url.size > 1 %}
-          <p>
+          <li>
             <a href="{{ include.content_type.apple_podcasts_url }}">
               <img src="//dz6ito7tas43n.cloudfront.net/images/apple-podcasts.svg" alt="Apple Podcast button">
             </a>
-          </p>
+          </li>
         {% endif %}
         {% if include.content_type.google_play_url.size > 1 %}
-          <p>
+          <li>
             <a href="{{ include.content_type.google_play_url }}">
               <img src="//dz6ito7tas43n.cloudfront.net/images/google-play-badge.svg" alt="Google Play button">
             </a>
-          </p>
+          </li>
         {% endif %}
         {% if include.content_type.stitcher_url.size > 1 %}
-          <p>
+          <li>
             <a href="{{ include.content_type.stitcher_url }}">
               <img src="//crds-cms-uploads.imgix.net/content/images/listen-on-stitcher.jpg" alt="Stitcher button">
             </a>
-          </p>
+          </li>
         {% endif %}
-      </div>
+        </ul>
     </div>
   </div>
 {% endif %}

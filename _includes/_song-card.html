@@ -1,10 +1,10 @@
 <div class="card">
   <a href="{{ song.url }}">
-    <img src="{{ song.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_card }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>
+    <img src="{{ song.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_16x9 }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>
   </a>
   <div class="card-block hard">
     <a href="{{ song.url }}">
-      <h5 class="text-gray-dark font-family-base-mid">{{ song.title }}</h5>
+      <h5 class="card-title">{{ song.title }}</h5>
     </a>
   </div>
 </div>

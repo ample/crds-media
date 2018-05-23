@@ -1,4 +1,4 @@
---- 
+---
 layout: default
 ---
 {% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
@@ -14,10 +14,10 @@ layout: default
           <a href="/music">Music</a> /
         </span>
         <h1 class="section-header flush-top">{{ page.title }}</h1>
-        <div style="font-size: 19px;">{{ page.content }}</div>
+        <div class="font-size-base white-faded">{{ page.content }}</div>
       </div>
       <div class="col-md-4 push-bottom">
-        <img src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}" sizes="{{ site.image_sizes.full_width }}" data-optimize-img>
+        <img src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}" sizes="{{ site.image_sizes.music_thumb }}" data-optimize-img>
       </div>
     </div>
     <div class="row text-left push-bottom">
@@ -79,7 +79,7 @@ layout: default
         <li role="presentation">
           <a href="#lyrics" aria-controls="lyrics" role="tab" data-toggle="tab">Lyrics</a>
         </li>
-        {% endif %} 
+        {% endif %}
       </ul>
 
       <div class="tab-content">
@@ -99,9 +99,9 @@ layout: default
       </div>
 
       <div class="push-top">
-        {% include _social-share.html %} 
+        {% include _social-share.html %}
       </div>
-      
+
       <!-- Topic -->
       {% assign topic = site.topics | where: "title", page.topic | first %}
       {% if page.topic %}

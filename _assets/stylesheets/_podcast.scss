@@ -32,28 +32,6 @@
     }
   }
 }
-
-.podcast-subscribe {
-  p {
-    padding-right: 10px;
-    float: left;
-
-    &:last-child {
-      padding-right: 0;
-    }
-  }
-
-  &:after {
-    content: "";
-    clear: both;
-    display: block;
-  }
-
-  img {
-    height: 33px;
-  }
-}
-
  // 🛠 Replace with variables when crds-styles is added
 .podcast-section-header {
   font-family: "acumin-pro-extra-condensed", sans-serif;

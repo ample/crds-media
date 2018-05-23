@@ -99,3 +99,27 @@ h3 {
     }
   }
 }
+
+.icons {
+  & li {
+    height: 33px;
+  }
+
+  &.narrow li{
+    width: 90px;
+    padding: 0 .5rem;
+
+    @media only screen and (min-width: $screen-md) {
+      width: 110px;
+      padding: 0 .5rem 0 0;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  img {
+    height: 100%;
+  }
+}
