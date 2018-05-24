@@ -1,5 +1,18 @@
 window.CRDS = window.CRDS || {};
 
+// ---------------------------------------- | Images
+
+CRDS.Images = function(img) {};
+CRDS.Images.prototype.constructor = CRDS.Images;
+CRDS.Images.prototype.init = function(parent='body') {
+  $(parent + ' img[data-optimize-img]').each(function(idx, img) {
+    new CRDS.ImageOptimizer(img);
+  });
+  $(parent + ' [data-optimize-bg-img]').each(function(idx, bgEl) {
+    new CRDS.BgImageOptimizer(bgEl);
+  });
+};
+
 // ---------------------------------------- | ImageOptimizer
 
 CRDS.ImageOptimizer = function(img) {
@@ -62,8 +75,10 @@ CRDS.ImageOptimizer.prototype.transitionImg = function() {
     this.tmpImg.removeAttr('style');
     this.tmpImg.removeClass('tmp-img-placeholder');
     this.tmpImg.attr('data-img-processed', true);
-    this.img.remove();
-    this.img = undefined;
+    if(this.img !== undefined) {
+      this.img.remove();
+      this.img = undefined;
+    }
   }, this), this.timeToFade);
 }
 
@@ -145,13 +160,12 @@ CRDS.BgImageOptimizer.prototype.transitionImg = function() {
 // ---------------------------------------- | Initializer
 
 $(document).ready(function() {
-  $('img[data-optimize-img]').each(function(idx, img) {
-    new CRDS.ImageOptimizer(img);
-  });
-
-  $('[data-optimize-bg-img]').each(function(idx, bgEl) {
-    new CRDS.BgImageOptimizer(bgEl);
-  });
+  if(typeof window.CRDS['_instances'] === "undefined") {
+    window.CRDS['_instances'] = {}
+  }
+  imgs = new CRDS.Images();
+  imgs.init();
+  window.CRDS['_instances']['Images'] = imgs;
 });
 
 // ---------------------------------------- | Window Resize Adjustments

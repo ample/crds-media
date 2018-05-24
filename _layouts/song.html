@@ -25,28 +25,6 @@ layout: default
         {% include _external-music-links.html %}
       </div>
     </div>
-    <!-- <div class="row text-left">
-      <div class="col-sm-10 col-sm-offset-1">
-        <h5 class="font-size-base font-family-base text-gray-light push-half-bottom">watch</h2>
-          <div data-card-deck class="card-deck">
-            <div class="cards-4x">
-              {% for video in page.related_videos %} {% assign fields = video["raw"]["fields"] %}
-              <div class="card">
-                <a href="{{ fields.source_link }}">
-                  <img src="{{ fields.image.url | imgix: site.imgix | append: site.imgix_placeholder_args }}" alt="" class="card-img-top" data-optimize-img>
-                </a>
-                <div class="card-block">
-                  <a href="{{ fields.source_link }}">
-                    <h4 class="card-title">{{ fields.title }}</h4>
-                    <h5 class="card-subtitle">{{ fields.subtitle }}</h5>
-                  </a>
-                </div>
-              </div>
-              {% endfor %}
-            </div>
-          </div>
-      </div>
-    </div> -->
   </div>
 </div>
 <div class="container soft-7-bottom">

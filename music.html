@@ -6,53 +6,58 @@ worship_training_copy: Worship Training helps you grow musical or technical
                         giftings so you can serve the community.
 worship_training_cta: Learn More
 worship_training_img: //crds-cms-uploads.imgix.net/content/images/crossroads-worship-training-music.jpg
+paginate:
+  songs:
+    offset: 3
+    per: 8
+    sort: date desc
 ---
 
-{% assign sorted_songs = site.songs | reverse %}
-
-<div class="container">
+<div class="container push-bottom">
   <p class="breadcrumb flush-bottom hard"><a href="/">Media</a> /</p>
   <h2 class="section-header landing-header flush-top push-bottom">Music</h2>
-  {% assign hero = sorted_songs | first %}
-  <div class="jumbotron jumbotron-xl" style="background-image: url('{{ hero.bg_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
-    <div class="bg-overlay"></div>
-    <div class="jumbotron-content">
-      <h4 class="font-size-small text-uppercase text-gray-lighter">
-        Newest Song
-      </h4>
-      <h1 class="section-header flush-top push-quarter-bottom">{{ hero.title }}</h1>
-      <h6 class="font-size-base text-gray-lighter">
-        {{ hero.content }}
-      </h6>
-      <a class="btn btn-lg btn-white btn-outline" href="{{ hero.url }}">Rock Out</a>
-    </div>
-  </div>
 
-  <div class="card-deck">
-    <div class="cards-2x">
-      <div class="row">
-        {% assign featured = sorted_songs | slice: 1, 2 %}
-        {% for song in featured %}
-          <div class="card">
-            <a href="{{ song.url }}">
-              <img src="{{ song.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_card }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>
-            </a>
-            <div class="card-block hard">
-              <a href="{{ song.url }}">
-                <h5 class="text-gray-dark font-family-base-mid">{{ song.title }}</h5>
-              </a>
-            </div>
-          </div>
-        {% endfor %}
+  {% if page.songs.page == 1 %}
+    {% assign hero = page.songs.offset | first %}
+    <div class="jumbotron jumbotron-xl" style="background-image: url('{{ hero.bg_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
+      <div class="bg-overlay"></div>
+      <div class="jumbotron-content">
+        <h4 class="font-size-small text-uppercase text-gray-lighter">
+          Newest Song
+        </h4>
+        <h1 class="section-header flush-top push-quarter-bottom">{{ hero.title }}</h1>
+        <h6 class="font-size-base text-gray-lighter">
+          {{ hero.content }}
+        </h6>
+        <a class="btn btn-lg btn-white btn-outline" href="{{ hero.url }}">Rock Out</a>
       </div>
     </div>
-  </div>
+
+    <div class="card-deck">
+      <div class="cards-2x">
+        <div class="row">
+          {% assign featured = page.songs.offset | slice: 1, 2 %}
+          {% for song in featured %}
+            <div class="card">
+              <a href="{{ song.url }}">
+                <img src="{{ song.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_card }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>
+              </a>
+              <div class="card-block hard">
+                <a href="{{ song.url }}">
+                  <h5 class="text-gray-dark font-family-base-mid">{{ song.title }}</h5>
+                </a>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
 
   <div class="card-deck">
-    <div class="cards-4x cards-2x-sm">
-      <div class="row">
-        {% assign unfeatured = sorted_songs | slice: 3, site.songs.size %}
-        {% for song in unfeatured %}
+    <div class="cards-4x cards-2x-sm" data-page="songs">
+      <div class="row" data-page-number="{{ page.songs.page }}">
+        {% for song in page.songs.docs %}
           <div class="card">
             <a href="{{ song.url }}">
               <img src="{{ song.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_card }}" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
@@ -65,9 +70,14 @@ worship_training_img: //crds-cms-uploads.imgix.net/content/images/crossroads-wor
           </div>
         {% endfor %}
       </div>
+      <div class="loading hide">
+        {% include _preloader.html %}
+      </div>
     </div>
+    {% include _pagination.html collection="songs" link_root="music" remote=true %}
   </div>
 </div>
+
 
 <div class="container-fluid bg-gray soft">
   <div class="container push-top">

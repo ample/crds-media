@@ -91,6 +91,42 @@ paginate:
 
 The pages will be generated dynamically according to the name of the template. For example, if the file described in the example above was named `articles.html` &mdash; the paths for the generated pages would resolve to `/articles/page/2`, `/articles/page/3`, etc.
 
+#### Offsetting Collections
+
+You can abstract the first `n` items from your paginated collection by defining an `offset` number. This is helpful if you'd like to expose a certain number of "featured" entries on the landing page of your collection. For example...
+
+```liquid
+---
+...
+paginate:
+  articles:
+    offset: 3
+    per: 8
+---
+
+{{ page.articles.offset }} // the first 3 items
+
+{{ page.articles.docs }} // the rest of paginated collection, sans the first 3 items
+```
+
+#### Asyncronous Page Loading
+
+You can implement an async 'load more' interaction automatically by ensuring your template contains the following concerns. Note, this approach will hide the static pagination elements from the user and present a link that will dynamically append the next page's worth of items on each click.
+
+```liquid
+<div data-page="songs">
+  <div data-page-number="{{ page.songs.page }}">
+    {% for song in page.songs.docs %}
+      ...
+    {% endfor %}
+  </div>
+  <div class="loading hide">
+    {% include _preloader.html %}
+  </div>
+</div>
+{% include _pagination.html collection="songs" remote=true %}
+```
+
 #### Sorting Collections
 
 Pagination takes the collection as presented by Jekyll. You can optionally add a `sort` option to choose a data parameter to use to sort the collection. The first string is the method by which you'd like to sort and the second is the sorting direction (`asc`/`desc`). The direction is optional.

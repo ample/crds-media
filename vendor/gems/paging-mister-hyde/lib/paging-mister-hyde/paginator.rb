@@ -9,6 +9,7 @@ module PagingMisterHyde
       @cfg = page.data.dig('paginate')
 
       @cfg.keys.map do |type|
+        offset_collection(type)
         pages = paginated_collection(type)
         decorate_page(@page, type, 1, pages.count, pages.first)
         paginate(type, pages)
@@ -18,13 +19,18 @@ module PagingMisterHyde
     # For every collection in frontmatter
     # decorate the page with params needed in _pagination.html
     def decorate_page(page, type, page_num, total_pages, docs)
-      page.data[type] = {
+      attrs = {
         "docs" => docs,
         "total_pages" => total_pages,
         "page" => page_num,
         "previous_page" => previous_page_number(page_num),
         "next_page" => next_page_number(page_num, total_pages)
       }
+      if page.data.keys.include?(type)
+        page.data[type].merge!(attrs)
+      else
+        page.data[type] = attrs
+      end
     end
 
     def paginate(type, collection)
@@ -52,16 +58,27 @@ module PagingMisterHyde
 
     protected
 
+      def offset_collection(type)
+        if n = @cfg.dig(type, 'offset')
+          @page.data[type] = { "offset" => sorted_collection(type).take(n).to_a }
+        end
+      end
+
       def paginated_collection(type)
+        collection = sorted_collection(type)
+        per = @cfg.dig(type, 'per')
+        offset = @cfg.dig(type, 'offset') || 0
+        collection.drop(offset).each_slice(per).to_a
+      end
+
+      def sorted_collection(type)
         collection = @site.collections[type].docs
-        if cfg.dig(type, 'sort')
-          sort_by, sort_in = cfg.dig(type, 'sort') ? cfg.dig(type, 'sort').split(' ') : nil
+        if @cfg.dig(type, 'sort')
+          sort_by, sort_in = @cfg.dig(type, 'sort') ? @cfg.dig(type, 'sort').split(' ') : nil
           collection.sort_by! { |d| d.data[sort_by] } if sort_by
           collection.reverse! if sort_in == 'desc'
         end
-
-        per = @cfg.dig(type, 'per')
-        collection.each_slice(per).to_a
+        collection
       end
 
       def previous_page_number(n)

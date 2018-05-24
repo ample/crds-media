@@ -9,3 +9,4 @@
 //= require ./components/header
 //= require ./components/images
 //= require ./components/carousels
+//= require ./components/pagination

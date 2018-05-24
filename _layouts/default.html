@@ -55,7 +55,7 @@
 {% if page.js_vars %}{% include _js_vars.html %}{% endif %}
 <script type="text/javascript" src="{% asset application.js @path %}"></script>
 </head>
-<body>
+<body{% if page.path == 'preview.html' %} class="preview"{% endif %}>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFS4MJ"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 

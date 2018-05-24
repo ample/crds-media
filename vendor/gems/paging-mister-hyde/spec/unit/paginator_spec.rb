@@ -2,13 +2,34 @@ require 'spec_helper'
 
 describe PagingMisterHyde::Paginator do
 
-  before(:each) do
+  before do
     @base = FileUtils.pwd
     @site = scaffold(@base)
   end
 
+  context 'with an offset' do
+
+    before do
+      @total_docs = @site.collections['articles'].docs.count
+      @page = Jekyll::Page.new(@site, @base, "", "articles.html")
+      @page.data['paginate'] = {
+        "articles" => {
+          "offset" => 5,
+          "per" => @total_docs
+        }
+      }
+      @paginator = PagingMisterHyde::Paginator.new(@site, @page)
+    end
+
+    it 'should exclude the offset items from front of the pagination array' do
+      expect(@page.data.dig('articles', 'offset').count).to eq(5)
+      expect(@page.data.dig('articles', 'docs').count).to eq(@total_docs - 5)
+    end
+
+  end
+
   context 'Articles' do
-    before(:each) do
+    before do
       @filename = "articles.html"
       @page = Jekyll::Page.new(@site, @base, "", @filename)
       @paginator = PagingMisterHyde::Paginator.new(@site, @page)
@@ -53,10 +74,12 @@ describe PagingMisterHyde::Paginator do
         end
       end
     end
+
   end
 
   context 'Podcasts' do
-    before(:each) do
+
+    before do
       @filename = 'podcasts.html'
       @page = Jekyll::Page.new(@site, @base, '', @filename)
       @paginator = PagingMisterHyde::Paginator.new(@site, @page)
@@ -66,10 +89,9 @@ describe PagingMisterHyde::Paginator do
       data = @page.data['podcasts']['docs']
       titles = data.collect { |d| d.data['title'] }
       exp_titles = @site.collections['podcasts'].sort_by { |d| d.data['title'] }.collect { |d| d.data['title'] }
-
-      # binding.pry
       expect(titles).to eq(exp_titles)
     end
+
   end
 
   private
@@ -101,7 +123,14 @@ describe PagingMisterHyde::Paginator do
           "destination" => File.join(fixtures_dir, '_site')
         }))
         site = Jekyll::Site.new(cfg)
-        site.collections.keys.each { |key| site.collections[key].read }
+        site.collections.keys.each { |key|
+
+          # NOTE: we need to limit which collections are parsed otherwise build times increase exponentially
+          if %w(articles podcasts).include?(key)
+            site.collections[key].read
+          end
+
+        }
         site
       end
     end
