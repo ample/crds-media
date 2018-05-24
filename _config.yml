@@ -244,6 +244,7 @@ image_sizes:
   music_thumb: "(min-width: 768px) 360px, (min-width: 0px) 323px"
   podcast_thumb: "(min-width: 768px) 330px, (min-width: 0px) 323px"
   episode_thumb: "(min-width: 768px) 120px, (min-width: 0px) 80px"
+  album_thumb: "96px"
   avatar: "80px"
   full_width: "100vw"
   half_width: "50vw"

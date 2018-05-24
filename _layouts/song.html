@@ -99,8 +99,10 @@ layout: default
         </p>
         <div class="media flush-top">
           <div class="d-flex flex-row-reverse">
-            <div class="media-object img-size-5">
-              <img src="{{ page.album_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}" sizes="{{ site.image_sizes.full_width }}" data-optimize-img />
+            <div class="media-object img-size-6">
+              <a href="/albums/{{ page.album_slug }}">
+                <img src="{{ page.album_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}" sizes="{{ site.image_sizes.album_thumb }}" data-optimize-img />
+              </a>
             </div>
           </div>
 
