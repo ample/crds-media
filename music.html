@@ -11,7 +11,7 @@ worship_training_img: //crds-cms-uploads.imgix.net/content/images/crossroads-wor
 {% assign sorted_songs = site.songs | reverse %}
 
 <div class="container">
-  <p class="breadcrumb flush-bottom hard"><a href="{{ site.url }}">Media</a> /</p>
+  <p class="breadcrumb flush-bottom hard"><a href="/">Media</a> /</p>
   <h2 class="section-header landing-header flush-top push-bottom">Music</h2>
   {% assign hero = sorted_songs | first %}
   <div class="jumbotron jumbotron-xl" style="background-image: url('{{ hero.bg_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>

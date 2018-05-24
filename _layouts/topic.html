@@ -29,18 +29,8 @@ layout: default
     <div data-card-deck class="card-deck">
       <div class="cards-4x">
         <div class="row">
-        {% for ep in episodes %}
-          <div class="card">
-            <a href="{{ ep.url }}">
-              <img src="{{ ep.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
-            </a>
-            <div class="card-block hard-bottom">
-              <a href="{{ ep.url }}">
-                <h4 class="card-title card-title--overlap text-uppercase">{{ ep.title }}</h4>
-              </a>
-              <p>{{ ep.content | strip_html | truncatewords: 25 }}</p>
-            </div>
-          </div>
+        {% for podcast in episodes %}
+          {% include _podcast-card.html %}
         {% endfor %}
         </div>
       </div>
