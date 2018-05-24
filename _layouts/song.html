@@ -16,7 +16,7 @@ layout: default
         <h1 class="section-header flush-top">{{ page.title }}</h1>
         <div class="font-size-base white-faded">{{ page.content }}</div>
       </div>
-      <div class="col-md-4 push-bottom">
+      <div class="col-md-4 push-bottom mobile-center-block">
         <img src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}" sizes="{{ site.image_sizes.music_thumb }}" data-optimize-img>
       </div>
     </div>

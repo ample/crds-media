@@ -83,3 +83,10 @@
 .border-left-blue {
   border-left: 2px solid $cr-cyan;
 }
+
+@media only screen and (max-width: $screen-sm-min) {
+  .mobile-center-block {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
