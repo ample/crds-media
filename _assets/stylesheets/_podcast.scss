@@ -32,14 +32,6 @@
     }
   }
 }
- // 🛠 Replace with variables when crds-styles is added
-.podcast-section-header {
-  font-family: "acumin-pro-extra-condensed", sans-serif;
-  font-size: 2rem;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
 
 // 2. Podcast series styles
 .media-podcast-show {
@@ -62,17 +54,6 @@
 
     & a, a:visited, a:hover, a:focus, a:active{
       color: $cr-white;
-    }
-
-    // 🛠 Replace with variables when crds-styles is added
-    & .podcast-section-header {
-      font-size: 2.75rem;
-      line-height: 2.5rem;
-
-      @media screen and (min-width: $screen-sm) {
-        font-size: 4rem;
-        line-height: 3.625rem;
-      }
     }
 
     & .podcast-background {
@@ -304,17 +285,6 @@
 
       a {
         color: $cr-white;
-      }
-    }
-
-    // 🛠 Replace with variables when crds-styles is added
-    .podcast-section-header {
-      font-size: 2.5rem;
-      margin-top: -1rem;
-      margin-right: 1.25rem;
-
-      @media screen and (min-width: $screen-xs) {
-        font-size: 3rem;
       }
     }
   }
