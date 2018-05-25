@@ -19,7 +19,7 @@
   background-color: $cr-gray;
 }
 
-.white-faded {
+.white-faded, .jumbotron .white-faded a {
   color: rgba($cr-white, 0.8); // #FFFFFF
 }
 
