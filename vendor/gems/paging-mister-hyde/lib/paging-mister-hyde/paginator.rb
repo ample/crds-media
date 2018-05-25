@@ -36,23 +36,25 @@ module PagingMisterHyde
     def paginate(type, collection)
       total_pages = collection.count
 
-      # For each collection of docs...
-      collection[1..collection.count].each_with_index do |docs, i|
+      if docs = collection[1..collection.count]
+        # For each collection of docs...
+        docs.each_with_index do |docs, i|
 
-        # Set some things
-        page_num = (i + 2)
-        base = @page.instance_variable_get('@base')
-        dir = @page.instance_variable_get('@dir')
-        path = File.basename(@page.instance_variable_get('@path'))
-        path_sans_ext = File.basename(@page.instance_variable_get('@path'), '.*')
+          # Set some things
+          page_num = (i + 2)
+          base = @page.instance_variable_get('@base')
+          dir = @page.instance_variable_get('@dir')
+          path = File.basename(@page.instance_variable_get('@path'))
+          path_sans_ext = File.basename(@page.instance_variable_get('@path'), '.*')
 
-        # Create a new page, set its URL to a paginable path
-        page = Jekyll::Page.new(@site, base, dir, path)
-        page.instance_variable_set('@url', "/#{path_sans_ext}/page/#{page_num}/index.html")
-        decorate_page(page, type, page_num, total_pages, docs)
+          # Create a new page, set its URL to a paginable path
+          page = Jekyll::Page.new(@site, base, dir, path)
+          page.instance_variable_set('@url', "/#{path_sans_ext}/page/#{page_num}/index.html")
+          decorate_page(page, type, page_num, total_pages, docs)
 
-        # Shovel the page
-        @site.pages << page
+          # Shovel the page
+          @site.pages << page
+        end
       end
     end
 
