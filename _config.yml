@@ -43,7 +43,7 @@ collections:
     permalink: /:collection/:slug
   episodes:
     output: true
-    permalink: /:collection/:slug
+    permalink: /podcasts/:podcast_slug/:slug
   albums:
     output: true
     permalink: /:collection/:slug
@@ -118,6 +118,7 @@ contentful:
           season_number: season_number
           date: published_at
           podcast: podcast/title
+          podcast_slug: podcast/slug
           image: podcast/image/url
           slug: slug
           topic: category/title
