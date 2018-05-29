@@ -33,34 +33,13 @@ paginate:
       </div>
     </div>
 
-    <div class="card-deck">
-      <div class="cards-2x">
-        <div class="row">
-          {% assign featured = page.songs.offset | slice: 1, 2 %}
-          {% for song in featured %}
-            <div class="card">
-              <a href="{{ song.url }}">
-                <img src="{{ song.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_card }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>
-              </a>
-              <div class="card-block hard">
-                <a href="{{ song.url }}">
-                  <h5 class="text-gray-dark font-family-base-mid">{{ song.title }}</h5>
-                </a>
-              </div>
-            </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-  {% endif %}
-
-  <div class="card-deck">
-    <div class="cards-4x cards-2x-sm" data-page="songs">
-      <div class="row" data-page-number="{{ page.songs.page }}">
-        {% for song in page.songs.docs %}
+    <div class="cards-2x">
+      <div class="row">
+        {% assign featured = page.songs.offset | slice: 1, 2 %}
+        {% for song in featured %}
           <div class="card">
             <a href="{{ song.url }}">
-              <img src="{{ song.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_card }}" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
+              <img src="{{ song.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_card }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>
             </a>
             <div class="card-block hard">
               <a href="{{ song.url }}">
@@ -70,12 +49,29 @@ paginate:
           </div>
         {% endfor %}
       </div>
-      <div class="loading hide">
-        {% include _preloader.html %}
-      </div>
     </div>
-    {% include _pagination.html collection="songs" link_root="music" remote=true %}
+  {% endif %}
+
+  <div class="cards-4x cards-2x-sm" data-page="songs">
+    <div class="row" data-page-number="{{ page.songs.page }}">
+      {% for song in page.songs.docs %}
+        <div class="card">
+          <a href="{{ song.url }}">
+            <img src="{{ song.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_card }}" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
+          </a>
+          <div class="card-block hard">
+            <a href="{{ song.url }}">
+              <h5 class="text-gray-dark font-family-base-mid">{{ song.title }}</h5>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="loading hide">
+      {% include _preloader.html %}
+    </div>
   </div>
+  {% include _pagination.html collection="songs" link_root="music" remote=true %}
 </div>
 
 
