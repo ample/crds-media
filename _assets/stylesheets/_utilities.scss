@@ -12,6 +12,10 @@
   .cards-2x-sm .card {
     float: left;
     max-width: 50%;
+
+    &:nth-child(odd) {
+      clear: left;
+    }
   }
 }
 
