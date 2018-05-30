@@ -1,6 +1,4 @@
-require 'rspec'
-require 'pry'
-require 'jekyll-placeholders'
+require 'spec_helper'
 
 describe Jekyll::Placeholders::Generator do
 
@@ -8,7 +6,6 @@ describe Jekyll::Placeholders::Generator do
     @base = FileUtils.pwd
     @site = JekyllHelper.scaffold(@base)
     @generator = Jekyll::Placeholders::Generator.new
-
   end
 
   it 'should generate URLs with dynamic placeholders' do
