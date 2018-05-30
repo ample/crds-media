@@ -18,6 +18,12 @@ GIT
       jekyll
 
 PATH
+  remote: vendor/gems/jekyll-placeholders
+  specs:
+    jekyll-placeholders (0.0.1)
+      jekyll
+
+PATH
   remote: vendor/gems/jekyll-crds
   specs:
     jekyll-crds (0.0.1)
@@ -212,6 +218,7 @@ DEPENDENCIES
   jekyll-contentful (~> 0.0.4)!
   jekyll-crds (~> 0.0.1)!
   jekyll-feed (~> 0.6)
+  jekyll-placeholders (~> 0.0.1)!
   jekyll-redirect-from
   launchy
   paging-mister-hyde (~> 0.0.1)!
