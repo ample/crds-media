@@ -96,13 +96,12 @@ layout: default
                 <p class="episode-description">{{ episode.content | strip_html | truncatewords: 35 }}</p>
               {% endfor %}
             </div>
-            {% endfor %}
 
-            {% if groups.size == 0 %}
+          {% else %}
 
-              <p class="font-family-base soft-ends push-bottom">Sorry we don't have any episodes here yet. Please check back soon!</p>
+            <p class="font-family-base soft-ends push-bottom">Sorry we don't have any episodes here yet. Please check back soon!</p>
 
-            {% endif %}
+          {% endfor %}
         </div>
       </div>
     </div>
