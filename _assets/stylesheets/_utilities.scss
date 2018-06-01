@@ -35,6 +35,20 @@
   font-weight: 500;
 }
 
+//Copied from crds-styles in order to override .jumbotron p sizing
+.font-size-base p {
+  font-size: $font-size-base!important; // 16px
+
+  @media screen and (min-width: $screen-xs) {
+    font-size: $font-size-large!important; // 19px
+  }
+}
+
+
+a.hover-text-gray-lighter:hover * {
+  color: $cr-gray-lighter;
+}
+
 // Bootstrap 4
 .d-flex {
   display: flex;

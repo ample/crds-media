@@ -9,8 +9,13 @@
     <img src="{{ video.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" {{ sizes }} data-optimize-img>
   </a>
   <div class="card-block hard">
+    {% if include.theme == "dark" %}
+    <a class="hover-text-gray-lighter" href="{{ video.url }}">
+      <h5 class="card-title text-gray-light">{{ video.title }}</h5>
+    {% else %}
     <a href="{{ video.url }}">
       <h5 class="card-title">{{ video.title }}</h5>
+    {% endif %}  
     </a>
   </div>
 </div>

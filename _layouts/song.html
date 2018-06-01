@@ -4,6 +4,12 @@ layout: default
 {% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
 {% assign this_album = site.albums | where:"title", page.album_title | first %}
 
+{% assign videos = "" | split: "" %}
+{% for related_video in page.related_videos %}
+  {% assign video = site.videos | where: "title", related_video["raw"]["fields"]["title"] | first %}
+  {% assign videos = videos | push: video %}
+{% endfor %}
+
 <div class="jumbotron jumbotron-xl" style="background-image: url('{{ page.bg_image | imgix: site.imgix }}'); background-size: cover;" data-optimize-img>
   <div class="bg-overlay"></div>
   <div class="container jumbotron-content">
@@ -25,8 +31,25 @@ layout: default
         {% include _external-music-links.html %}
       </div>
     </div>
+    {% if videos.size > 0 %}
+    <div class="row text-left">
+      <div class="col-sm-10 col-sm-offset-1">
+          <h3 class="text-lowercase font-size-large font-family-base-light white-faded ">watch</h3>
+          <div data-card-deck class="card-deck">
+            <div class="cards-4x">
+              <div class="row">
+                {% for video in videos %}
+                  {% include _video-card.html image_size="4x" theme="dark" %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    {% endif %}
   </div>
 </div>
+
 <div class="container soft-7-bottom">
   <div class="row push-bottom soft-bottom">
     <div class="col-sm-8 col-sm-offset-2">
