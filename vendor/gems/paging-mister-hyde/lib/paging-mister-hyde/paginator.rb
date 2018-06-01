@@ -69,8 +69,14 @@ module PagingMisterHyde
       def paginated_collection(type)
         collection = sorted_collection(type)
         per = @cfg.dig(type, 'per')
+        limit = @cfg.dig(type, 'limit')
         offset = @cfg.dig(type, 'offset') || 0
-        collection.drop(offset).each_slice(per).to_a
+        pages = collection.drop(offset).each_slice(per).to_a
+        if limit.nil?
+          pages
+        else
+          pages.take(limit)
+        end
       end
 
       def sorted_collection(type)

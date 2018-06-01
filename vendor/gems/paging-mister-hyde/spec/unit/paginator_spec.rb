@@ -7,6 +7,29 @@ describe PagingMisterHyde::Paginator do
     @site = JekyllHelper.scaffold(@base)
   end
 
+  context 'with a limit' do
+
+    before do
+      @page = Jekyll::Page.new(@site, @base, "", "articles.html")
+      @page.data['paginate'] = {
+        "articles" => {
+          "limit" => 2,
+          "per" => 1
+        }
+      }
+      @paginator = PagingMisterHyde::Paginator.new(@site, @page)
+    end
+
+    it 'should only generate n pages' do
+      pages = @site.pages.collect{|page| page if page.name == 'articles.html' }
+      expect(pages.count).to eq(1)
+    end
+
+    it 'should reflect the correct number of total pages' do
+      expect( @page.data.dig('articles', 'total_pages')).to eq(2)
+    end
+  end
+
   context 'with an offset' do
 
     before do

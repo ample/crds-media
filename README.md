@@ -155,6 +155,22 @@ paginate:
 ---
 ```
 
+#### Limiting Number of Pages Created
+
+You can limit the first `n` pages from your paginated collection by defining a `limit` number. This is helpful if you'd like to show the first `n` pages without generating pages for the entire collection such as on the homepage. On the homepage we want the simplicity of the paginate gem, but we don't want to create additional pages for each content type nor show pagination for articles, podcasts, songs, videos, etc.
+
+For example, if you only want to show the first 8 most recent items of articles, and not show additional pages:
+
+```liquid
+---
+...
+paginate:
+  articles:
+    per: 8
+    limit: 1
+---
+```
+
 Troubleshooting
 ----------
 
