@@ -43,6 +43,18 @@ layout: default
             <a href="#lyrics" aria-controls="lyrics" role="tab" data-toggle="tab">Lyrics</a>
           </li>
         {% endif %}
+
+        {% if page.chords %}
+          <li role="presentation">
+            <a href="#chords" aria-controls="chords" role="tab" data-toggle="tab">Chord Charts</a>
+          </li>
+        {% endif %}
+
+        {% if page.stems %}
+          <li role="presentation">
+            <a href="#stems" aria-controls="stems" role="tab" data-toggle="tab">Stems</a>
+          </li>
+        {% endif %}
       </ul>
 
       <div class="tab-content">
@@ -53,6 +65,18 @@ layout: default
         {% if page.lyrics %}
           <div role="tabpanel" class="tab-pane soft-bottom" id="lyrics">
             <p>{{ page.lyrics | strip_html | markdownify }}</p>
+          </div>
+        {% endif %}
+
+        {% if page.chords %}
+          <div role="tabpanel" class="tab-pane soft-bottom" id="chords">
+            <p>{{ page.chords | strip_html | markdownify }}</p>
+          </div>
+        {% endif %}
+
+        {% if page.stems %}
+          <div role="tabpanel" class="tab-pane soft-bottom" id="stems">
+            <p>{{ page.stems | strip_html | markdownify }}</p>
           </div>
         {% endif %}
       </div>
@@ -110,17 +134,11 @@ layout: default
             <a href="/albums/{{ page.album_slug }}">
               {{ page.album_title }}
             </a>
-            {% for author_name in podcast.authors %}
-              {% assign author = site.authors | where:"name", author_name | first %}
-              {% if author %}
-                <a href="{{ author.url }}">{{ author.name | titleize }}</a> {% if forloop.last == false %} and {% endif %}
-              {% endif %}
-            {% endfor %}
             <div>
             {% for author in this_album.author %}
               {% assign this_author = site.authors | where:"name", author | first %}
               {% if this_author %}
-                <span class="font-size-small text-gray-light">{{ this_author.name }}</span> {% if forloop.last == false %}, {% endif%}
+                <span class="font-size-small text-gray-light">{{ this_author.name }}</span>{% if forloop.last == false %}, {% endif%}
               {% endif %}
             {% endfor %}
             </div>

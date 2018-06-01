@@ -136,7 +136,6 @@ contentful:
       frontmatter:
         entry_mappings:
           title: title
-          subtitle: subtitle
           date: published_at
           authors: author/full_name
           image: image/url
@@ -155,9 +154,10 @@ contentful:
       frontmatter:
         entry_mappings:
           title: title
-          subtitle: subtitle
           details: details
           lyrics: lyrics
+          chords: chords
+          stems: stems
           topic: category/title
           topic_slug: category/slug
           tags: tags
