@@ -13,13 +13,12 @@ paginate:
 <div class="container">
   <p class="breadcrumb flush-bottom hard"><a href="/">Media</a> /</p>
   <h2 class="section-header landing-header flush-top push-bottom">Videos</h2>
+
   <div class="row">
-    <div class="col-md-2 text-left">
-      <ul class="hard">
-       <li class="list-unstyled soft-half-left border-left-blue"><p class="font-size-smaller">Recent</p></li>
-      </ul>
-    </div>
-    
+    <aside class="col-md-2">
+      {% include _sidebar-navigation.html %}
+    </aside>
+
     <div class="col-md-10">
       <div class="card-deck">
         {% if page.videos.page == 1 %}
@@ -31,7 +30,7 @@ paginate:
           </div>
         </div>
         {% endif %}
-        
+
         <div class="cards-4x cards-2x-sm" data-page="videos">
           <div class="row" data-page-number="{{ page.videos.page }}">
             {% for video in unfeatured %}
