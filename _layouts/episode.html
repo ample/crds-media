@@ -85,14 +85,14 @@ layout: default
 
     <div class="row push-bottom">
       <div class="col-sm-8 col-sm-offset-2">
-        <p class="flush-bottom">Hosted by
-          {% for author_name in podcast.authors %}
-            {% assign author = site.authors | where:"name", author_name | first %}
-            {% if author %}
-              <a href="{{ author.url }}">{{ author.name | titleize }}</a> {% if forloop.last == false %} and {% endif %}
-            {% endif %}
-          {% endfor %}
-        </p>
+        {% for author_name in podcast.authors %}
+          {% assign author = site.authors | where:"name", author_name | first %}
+          {% if author %}
+            {% if forloop.first %}<p class="flush-bottom">Hosted by {% endif %}
+                <a href="{{ author.url }}">{{ author.name | titleize }}</a> {% if forloop.last == false %} and {% endif %}
+            {% if forloop.last %}</p>{% endif %}
+          {% endif %}
+        {% endfor %}
 
         <p>{{ page.date | date: date_format }} {% if page.audio_duration != nil %}<span class="divider push-quarter-sides">•</span> {{ page.audio_duration }} mins{% endif %}</p>
 
