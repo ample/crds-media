@@ -1,15 +1,15 @@
 {% if page.spotify_url.size > 1 or page.apple_music_url.size > 1 or page.youtube_url.size > 1 or page.google_play_url.size > 1 %}
   <div>
     <h3 class="text-lowercase font-size-large font-family-base-light white-faded ">Stream or Buy</h3>
-    <ul class="list-inline icons narrow">
+    <ul class="list-inline">
       {% if page.spotify_url.size > 1 %}
-        <li><a href="{{ page.spotify_url }}"><img src="//dz6ito7tas43n.cloudfront.net/images/spotify.svg" alt="spotify"></a></li>
+        <li><a href="{{ page.spotify_url }}"><img src="//dz6ito7tas43n.cloudfront.net/images/spotify.svg" alt="spotify" class="push-quarter-top height-2"></a></li>
       {% endif %}
       {% if page.apple_music_url.size > 1 %}
-        <li><a href="{{ page.apple_music_url }}"><img src="//dz6ito7tas43n.cloudfront.net/images/if_itunes_A_104832.svg" alt="itunes"></a></li>
+        <li><a href="{{ page.apple_music_url }}"><img src="//dz6ito7tas43n.cloudfront.net/images/if_itunes_A_104832.svg" alt="itunes" class="height-2"></a></li>
       {% endif %}
       {% if page.youtube_url.size > 1 %}
-        <li><a href="{{ page.youtube_url }}"><img src="//dz6ito7tas43n.cloudfront.net/images/yt_logo_mono_light.svg" alt="youtube"></a></li>
+        <li><a href="{{ page.youtube_url }}"><img src="//dz6ito7tas43n.cloudfront.net/images/yt_logo_mono_light.svg" alt="youtube" class="height-2"></a></li>
       {% endif %}
       {% if page.google_play_url.size > 1 %}
         <li><a href="{{ page.google_play_url }}"><img src="//dz6ito7tas43n.cloudfront.net/images/googleplay-02.svg" alt="google play" class="push-quarter-top"></a></li>
