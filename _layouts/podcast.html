@@ -40,14 +40,14 @@ layout: default
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
         <p>{{ page.content | strip_html }}</p>
-        <p class="push-ends">Hosted by
-            {% for author_name in page.authors %}
-            {% assign author = site.authors | where:"name", author_name | first %}
-            {% if author %}
-              <a href="{{ author.url }}">{{ author.name | titleize }}</a> {% if forloop.last == false %} and {% endif %}
-            {% endif %}
-          {% endfor%}
-        </p>
+        {% for author_name in page.authors %}
+        {% assign author = site.authors | where:"name", author_name | first %}
+        {% if author %}
+          {% if forloop.first %}<p class="push-ends">Hosted by {% endif %}
+          <a href="{{ author.url }}">{{ author.name | titleize }}</a> {% if forloop.last == false %} and {% endif %}
+          {% if forloop.last %}</p>{% endif %}
+        {% endif %}
+        {% endfor%}
       </div>
     </div>
     <div class="row">
@@ -99,13 +99,12 @@ layout: default
                 <p class="episode-description">{{ episode.content | strip_html | truncatewords: 35 }}</p>
               {% endfor %}
             </div>
-            {% endfor %}
 
-            {% if groups.size == 0 %}
+          {% else %}
 
-              <p class="font-family-base soft-ends push-bottom">Sorry we don't have any episodes here yet. Please check back soon!</p>
+            <p class="font-family-base soft-ends push-bottom">Sorry we don't have any episodes here yet. Please check back soon!</p>
 
-            {% endif %}
+          {% endfor %}
         </div>
       </div>
     </div>
