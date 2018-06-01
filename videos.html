@@ -3,10 +3,12 @@ layout: default
 title: Videos
 paginate:
   videos:
+    offset: 2
     per: 8
+    sort: date desc
 ---
-{% assign featured = site.videos | slice: 0, 2 %}
-{% assign unfeatured = site.videos | slice: 2, site.videos.size %}
+{% assign featured = page.videos.offset %}
+{% assign unfeatured = page.videos.docs %}
 
 <div class="container">
   <p class="breadcrumb flush-bottom hard"><a href="/">Media</a> /</p>
@@ -17,8 +19,10 @@ paginate:
        <li class="list-unstyled soft-half-left border-left-blue"><p class="font-size-smaller">Recent</p></li>
       </ul>
     </div>
+    
     <div class="col-md-10">
       <div class="card-deck">
+        {% if page.videos.page == 1 %}
         <div class="cards-2x">
           <div class="row">
           {% for video in featured %}
@@ -26,16 +30,22 @@ paginate:
           {% endfor %}
           </div>
         </div>
+        {% endif %}
         
-        <div class="cards-4x cards-2x-sm">
-          <div class="row">
+        <div class="cards-4x cards-2x-sm" data-page="videos">
+          <div class="row" data-page-number="{{ page.videos.page }}">
             {% for video in unfeatured %}
               {% include _video-card.html image_size="4x" %}
             {% endfor %}
           </div>
         </div>
       </div>
+      <div class="loading hide">
+        {% include _preloader.html %}
+      </div>
+      <div class="push-bottom">
+        {% include _pagination.html collection="videos" link_root="videos" remote=true %}
+      </div>
     </div>
   </div>
-  {% include _pagination.html collection="videos" %}
 </div>

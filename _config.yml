@@ -185,7 +185,7 @@ contentful:
         entry_mappings:
           title: title
           subtitle: subtitle
-          author: author
+          author: author/full_name
           date: published_at
           image: image/url
           source_url: source_url
