@@ -23,9 +23,12 @@ layout: default
               <hr class="hero">
               <p class="subtitle white-faded">{{ page.subtitle }}</p>
               <p class="push-top">
-                <a href="{{ page.apple_podcasts_url }}">
-                <img src="//dz6ito7tas43n.cloudfront.net/images/apple-podcasts.svg" alt="Apple Podcast button">
-              </a></p>
+                {% if page.apple_podcasts_url.size > 1 %}
+                  <a href="{{ page.apple_podcasts_url }}">
+                    <img src="//dz6ito7tas43n.cloudfront.net/images/apple-podcasts.svg" alt="Apple Podcast button">
+                  </a>
+                {% endif %}
+              </p>
             </div>
 
           </div>
