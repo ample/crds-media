@@ -10,7 +10,7 @@
   max-width: 750px;
 
   .landing-header {
-    font-size: 2.75rem;
+    font-size: $font-size-h1;
     line-height: 2.75rem;
 
     @media screen and (min-width: $screen-xs) {
@@ -45,15 +45,10 @@
   }
 
   & .podcast-hero  {
-    color: $cr-white;
     height: 575px;
 
     @media screen and (min-width: $screen-sm) {
       height: 350px;
-    }
-
-    & a, a:visited, a:hover, a:focus, a:active{
-      color: $cr-white;
     }
 
     & .podcast-background {
@@ -135,22 +130,9 @@
     margin-left: 0;
   }
 
-  .breadcrumb {
-    background-color: transparent;
-    position: relative;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    margin-bottom: 0;
-    padding-top: 1.25rem;
-
-    @media screen and (min-width: $screen-sm) {
-      padding: 0;
-    }
-  }
-
   .subtitle {
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
 
     @media screen and (min-width: $screen-sm) {
       font-size: $font-size-large;
@@ -175,7 +157,7 @@
 
       &.episode-description {
         font-size: $font-size-small;
-        line-height: 1.25rem; //20px
+        line-height: $line-height-small; //20px
       }
     }
 

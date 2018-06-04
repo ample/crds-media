@@ -12,7 +12,7 @@
 }
 
 .jumbotron {
-  .font-size-base p {
+  .font-size-base p, .font-size-base {
     font-size: $font-size-base; // 16px
 
     @media screen and (min-width: $screen-xs) {
