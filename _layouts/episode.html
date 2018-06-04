@@ -64,18 +64,18 @@ layout: default
           <!-- Tab panes -->
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane soft-bottom active" id="description">
-              <p>{{ page.content | strip_html | markdownify }}</p>
+              {{ page.content }}
             </div>
 
             {% if page.show_notes %}
             <div role="tabpanel" class="tab-pane soft-bottom" id="show-notes">
-              <p>{{ page.show_notes | strip_html | markdownify }}</p>
+              {{ page.show_notes }}
             </div>
             {% endif %}
 
             {% if page.transcription %}
             <div role="tabpanel" class="tab-pane soft-bottom" id="transcription">
-              <p>{{ page.transcription | strip_html | markdownify }}</p>
+              {{ page.transcription }}
             </div>
             {% endif %}
           </div>

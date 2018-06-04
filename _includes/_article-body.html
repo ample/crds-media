@@ -19,7 +19,7 @@
       {% if page.preview %}
         <div data-body></div>
       {% else %}
-        {{ page.content | markdownify }}
+        {{ page.content }}
       {% endif %}
       {% include _author-bio.html %}
     </div>

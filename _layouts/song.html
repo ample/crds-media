@@ -82,24 +82,24 @@ layout: default
 
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane soft-bottom active" id="details">
-          <p>{{ page.details | strip_html | markdownify }}</p>
+          {{ page.details }}
         </div>
 
         {% if page.lyrics %}
           <div role="tabpanel" class="tab-pane soft-bottom" id="lyrics">
-            <p>{{ page.lyrics | strip_html | markdownify }}</p>
+            {{ page.lyrics }}
           </div>
         {% endif %}
 
         {% if page.chords %}
           <div role="tabpanel" class="tab-pane soft-bottom" id="chords">
-            <p>{{ page.chords | strip_html | markdownify }}</p>
+            {{ page.chords }}
           </div>
         {% endif %}
 
         {% if page.stems %}
           <div role="tabpanel" class="tab-pane soft-bottom" id="stems">
-            <p>{{ page.stems | strip_html | markdownify }}</p>
+            {{ page.stems }}
           </div>
         {% endif %}
       </div>
