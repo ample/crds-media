@@ -21,7 +21,7 @@ title: Videos
         <div class="cards-4x cards-2x-sm">
           <div class="row">
             {% assign videos = site.videos | sort: 'view_count' | reverse %}
-            {% for video in videos %}
+            {% for video in videos limit: 16 %}
               {% include _video-card.html image_size="4x" %}
             {% endfor %}
           </div>
