@@ -22,7 +22,7 @@ layout: default
 
         <h1 class="font-family-condensed-extra text-uppercase flush-top push-bottom">{{ page.title }}</h1>
 
-        <div class="font-size-base white-faded">{{ page.content }}</div>
+        <div class="font-size-base white-faded markdown">{{ page.content }}</div>
       </div>
       <div class="col-md-4 push-bottom mobile-center-block">
         <img src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}" sizes="{{ site.image_sizes.music_thumb }}" data-optimize-img>
@@ -82,7 +82,7 @@ layout: default
         {% endif %}
       </ul>
 
-      <div class="tab-content">
+      <div class="tab-content markdown">
         <div role="tabpanel" class="tab-pane soft-bottom active" id="details">
           {{ page.details }}
         </div>

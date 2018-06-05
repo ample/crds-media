@@ -25,9 +25,9 @@ paginate:
         {% if page.videos.page == 1 %}
         <div class="cards-2x">
           <div class="row">
-          {% for video in page.videos.offset %}
-            {% include _video-card.html image_size="2x" %}
-          {% endfor %}
+            {% for video in page.videos.offset %}
+              {% include _video-card.html image_size="2x" %}
+            {% endfor %}
           </div>
         </div>
         {% endif %}
