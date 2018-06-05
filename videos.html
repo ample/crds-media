@@ -28,7 +28,7 @@ paginate:
         <div class="cards-2x">
           <div class="row">
           {% for video in featured %}
-            {% include _video-card.html image_size="2x" %}
+            {% include _video-card.html imgix_size="2x" %}
           {% endfor %}
           </div>
         </div>
@@ -37,7 +37,7 @@ paginate:
         <div class="cards-4x cards-2x-sm" data-page="videos">
           <div class="row" data-page-number="{{ page.videos.page }}">
             {% for video in unfeatured %}
-              {% include _video-card.html image_size="4x" %}
+              {% include _video-card.html %}
             {% endfor %}
           </div>
         </div>
