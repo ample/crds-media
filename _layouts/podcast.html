@@ -42,7 +42,7 @@ layout: default
   <div class="container content">
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
-        {{ page.content }}
+        <div class="markdown">{{ page.content }}</div>
         {% for author_name in page.authors %}
         {% assign author = site.authors | where:"name", author_name | first %}
         {% if author %}
