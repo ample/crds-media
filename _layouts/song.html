@@ -15,11 +15,13 @@ layout: default
   <div class="container jumbotron-content">
     <div class="row d-flex flex-column-reverse flex-md-row">
       <div class="col-md-6 col-md-offset-1 text-left">
-        <span class="breadcrumb font-family-base white-faded hard flush-bottom">
-          <a href="/">Media</a> /
-          <a href="/music">Music</a> /
-        </span>
-        <h1 class="section-header flush-top">{{ page.title }}</h1>
+        <ol class="breadcrumb hard-sides hard-bottom flush-bottom">
+          <li><a href="/">Media</a></li>
+          <li><a href="/music">Music</a></li>
+        </ol>
+
+        <h1 class="font-family-condensed-extra text-uppercase flush-top push-bottom">{{ page.title }}</h1>
+
         <div class="font-size-base white-faded">{{ page.content }}</div>
       </div>
       <div class="col-md-4 push-bottom mobile-center-block">

@@ -14,8 +14,11 @@ paginate:
 ---
 
 <div class="container push-bottom">
-  <p class="breadcrumb flush-bottom hard"><a href="/">Media</a> /</p>
-  <h2 class="section-header landing-header flush-top push-bottom">Music</h2>
+  <ol class="breadcrumb hard-sides hard-bottom push-top flush-bottom">
+    <li><a href="/">Media</a></li>
+  </ol>
+
+  <h1 class="font-family-condensed-extra text-uppercase flush-top push-bottom">Music</h1>
 
   {% if page.songs.page == 1 %}
     {% assign hero = page.songs.offset | first %}
