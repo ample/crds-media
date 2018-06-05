@@ -262,17 +262,6 @@
     .mobile-wrapper {
       display: flex;
     }
-
-    .episode-breadcrumbs {
-      color: rgba($cr-white, .6);
-      margin-bottom: 0;
-      padding-bottom: 1rem;
-      position: relative;
-
-      a {
-        color: $cr-white;
-      }
-    }
   }
 
   .embedded-audio-player {
