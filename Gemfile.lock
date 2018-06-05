@@ -18,16 +18,16 @@ GIT
       jekyll
 
 PATH
-  remote: vendor/gems/jekyll-placeholders
-  specs:
-    jekyll-placeholders (0.0.1)
-      jekyll
-
-PATH
   remote: vendor/gems/jekyll-crds
   specs:
     jekyll-crds (0.0.1)
       httparty
+      jekyll
+
+PATH
+  remote: vendor/gems/jekyll-placeholders
+  specs:
+    jekyll-placeholders (0.0.1)
       jekyll
 
 PATH
