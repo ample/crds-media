@@ -134,21 +134,23 @@ layout: default
       </div>
     </div>
 
-    {% include _podcast-subscribe.html content_type=podcast %}
+    <div class="push-bottom">
+      {% include _podcast-subscribe.html content_type=podcast %}
+    </div>
 
-    <!-- Explore More Content-->
-    {% if site.podcasts.size > 1 %}
-      <div class="push-bottom row">
-        <div class="col-sm-8 col-sm-offset-2">
+    <div class="soft-7-bottom">
+      {% if site.podcasts.size > 1 %}
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">
 
-          <div class="push-bottom">
-            <h2 class="component-header flush-top">More content to explore</h2>
-          </div>
+            <div class="push-bottom">
+              <h2 class="component-header flush-top">More content to explore</h2>
+            </div>
 
-          <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
-            <div class="feature-cards">
+            <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
+              <div class="feature-cards">
 
-              {% assign limited = site.podcasts | sort: 'date' | reverse | slice: 0, 4 | exclude: podcast.title %}
+                {% assign limited = site.episodes | sort: 'date' | reverse | slice: 0, 4 %}
               {% for podcast in limited limit: 3 %}
                 {% include _podcast-card.html %}
               {% endfor %}
@@ -159,6 +161,7 @@ layout: default
         </div>
       </div>
     {% endif %}
+    </div>
 
   </div>
 </div>
