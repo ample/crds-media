@@ -129,11 +129,11 @@ layout: default
       </div>
     </div>
 
-    {% include _podcast-subscribe.html content_type=podcast %}
+    {% include _subscribe-buttons.html content_type=podcast %}
 
-    <!-- Explore More Content-->
+    <div class="soft-7-bottom">
     {% if site.podcasts.size > 1 %}
-      <div class="push-bottom row">
+      <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
 
           <div class="push-bottom">
@@ -154,6 +154,7 @@ layout: default
         </div>
       </div>
     {% endif %}
+    </div>
 
   </div>
 </div>

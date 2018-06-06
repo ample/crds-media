@@ -158,7 +158,7 @@ layout: default
               {{ page.album_title }}
             </a>
             <div>
-            {% for author in this_album.author %}
+            {% for author in this_album.authors %}
               {% assign this_author = site.authors | where:"name", author | first %}
               {% if this_author %}
                 <span class="font-size-small text-gray-light">{{ this_author.name }}</span>{% if forloop.last == false %}, {% endif%}

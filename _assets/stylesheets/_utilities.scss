@@ -84,19 +84,6 @@ a.hover-text-gray-lighter:hover * {
   }
 }
 
-// custom
-.flex-130 {
-  flex: 0 0 130px;
-}
-
-.flex-shrink {
-  flex-shrink: 1;
-}
-
-.border-left-blue {
-  border-left: 2px solid $cr-cyan;
-}
-
 @media only screen and (max-width: $screen-sm-min) {
   .mobile-center-block {
     margin-left: auto;

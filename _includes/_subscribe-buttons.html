@@ -1,0 +1,36 @@
+{% if include.video or include.content_type.apple_podcasts_url.size > 1 or include.content_type.google_play_url.size > 1 or include.content_type.stitcher_url.size > 1 %}
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h2 class="component-header flush-top">Subscribe</h2>
+      <ul class="list-inline">
+        {% if include.youtube %}
+          <li class="soft-half-bottom">
+            <script src="https://apis.google.com/js/platform.js"></script>
+            <div class="g-ytsubscribe" data-channel="crdschurch" data-layout="default" data-count="default"></div>
+          </li>
+        {% endif %}
+        {% if include.content_type.apple_podcasts_url.size > 1 %}
+          <li class="soft-half-bottom">
+            <a href="{{ include.content_type.apple_podcasts_url }}">
+              <img src="//dz6ito7tas43n.cloudfront.net/images/apple-podcasts.svg" alt="Apple Podcast button" class="height-2 vertical-align-bottom">
+            </a>
+          </li>
+        {% endif %}
+        {% if include.content_type.google_play_url.size > 1 %}
+          <li class="soft-half-bottom">
+            <a href="{{ include.content_type.google_play_url }}">
+              <img src="//dz6ito7tas43n.cloudfront.net/images/google-play-badge1.svg" alt="Google Play button" class="height-2 vertical-align-bottom">
+            </a>
+          </li>
+        {% endif %}
+        {% if include.content_type.stitcher_url.size > 1 %}
+          <li class="soft-half-bottom">
+            <a href="{{ include.content_type.stitcher_url }}">
+              <img src="//crds-cms-uploads.imgix.net/content/images/listen-on-stitcher.jpg?w=118&h=32" alt="Stitcher button" class="vertical-align-bottom">
+            </a>
+          </li>
+        {% endif %}
+        </ul>
+    </div>
+  </div>
+{% endif %}
