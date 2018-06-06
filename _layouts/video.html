@@ -2,23 +2,31 @@
 layout: default
 ---
 {% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
+{% if page.source_url contains 'watch' %}
+  {% assign video_id = page.source_url | split: 'https://www.youtube.com/watch?v=' %}
+{% elsif page.source_url contains 'embed' %}
+  {% assign video_id = page.source_url | split: 'https://www.youtube.com/embed/' %}
+{% elsif page.source_url contains 'youtu.be' %}
+  {% assign video_id = page.source_url | split: 'https://youtu.be/' %}
+{% endif %}
 
 <div class="container">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
-      <div class="row">
-        <div class="col-xs-9">
-          <p class="episode-breadcrumbs hard-sides hard-bottom">
-            <a href="/">Media</a> /
-            <a href="/videos">Videos</a> /</p>
-        </div>
-        <div class="col-xs-3">
-          <p class="text-right font-size-smaller">
-            <a href="#" class="text-gray-light">Listen to audio</a>
-          </p>
+
+      {% if video_id %}
+      <div class="row push-top soft-top">
+        <div class="embed-responsive embed-responsive-16by9 mobile-flush push-half-sides">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video_id }}" frameborder="0" allow="autoplay; encrypted-media"
+            allowfullscreen></iframe>
         </div>
       </div>
-      <h1 class="flush-top">{{ page.title }}</h1>
+      {% endif %}
+
+      <p class="episode-breadcrumbs push-top hard-sides flush-bottom">
+        <a href="/">Media</a> /
+        <a href="/videos">Videos</a> /</p>
+      <h1 class="font-family-condensed-extra text-uppercase flush-top push-bottom">{{ page.title }}</h1>
       <!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active">
@@ -34,90 +42,88 @@ layout: default
 
       <!-- Tab panes -->
       <div class="tab-content">
-        <div role="tabpanel" class="tab-pane soft-bottom active" id="description">
-          {{ page.content }}
+        <div role="tabpanel" class="tab-pane soft-bottom active markdown" id="description">
+          {{ page.content | markdownify }}
         </div>
 
         {% if page.transcription %}
-        <div role="tabpanel" class="tab-pane soft-bottom" id="transcription">
-          {{ page.transcription }}
+        <div role="tabpanel" class="tab-pane soft-bottom markdown" id="transcription">
+          {{ page.transcription | markdownify }}
         </div>
         {% endif %}
       </div>
     </div>
   </div>
 
-      <!-- copied from episode start -->
-      <div class="row push-bottom">
-        <div class="col-sm-8 col-sm-offset-2">
-          {% for author_name in page.authors %}
-          {% assign author = site.authors | where:"name", author_name | first %}
-          {% if author %}
-            {% if forloop.first %}<p class="flush-bottom">Featuring {% endif %}
-            <a href="{{ author.url }}">{{ author.name | titleize }}</a> {% if forloop.last == false %} and {% endif %}
-            {% if forloop.last %}</p>{% endif %}
-          {% endif %}
-          {% endfor%}
-
-          <p>{{ page.date | date: date_format }} {% if page.video_duration != nil %}
-            <span class="divider push-quarter-sides">•</span> {{ page.video_duration }} {% endif %}</p>
-
-            <div class="soft-half-top push-top">
-              {% include _social-share.html %}
-            </div>
-
-            {% assign topic = site.topics | where: "title", page.topic | first %} {% if page.topic %}
-            <p class="flush-bottom soft-top">
-              <strong>Topic</strong>
-            </p>
-            <ul class="list-inline">
-              <li>
-                <a href="{{ topic.url }}">{{ topic.title }}</a>
-              </li>
-            </ul>
-            {% endif %}
-
-            {% if page.tags.size > 0 %}
-            <p class="flush-bottom soft-half-top">
-              <strong>Tags</strong>
-            </p>
-            <ul class="list-inline">
-              {% for tag in page.tags %}
-              <li>
-                <a href="{{ site.search_domain }}/search?q=tags: '{{ tag }}'" title="Search {{ tag }}">{{ tag }}</a>
-              </li>
-              {% endfor %}
-            </ul>
-            {% endif %}
-          </div>
-        </div>
-
-        {% include _subscribe-buttons.html content_type=page youtube=true %}
-
-        <div class="soft-7-bottom">
-        {% if site.videos.size > 1 %}
-          <div class="push-bottom row">
-            <div class="col-sm-8 col-sm-offset-2">
-
-              <div class="push-bottom">
-                <h2 class="component-header flush-top">Recent Videos</h2>
-              </div>
-
-              <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
-                <div class="feature-cards">
-
-                  {% assign limited = site.videos | sort: 'date' | reverse | slice: 0, 4 | exclude: video.title %}
-                  {% for video in limited limit: 9 %}
-                    {% include _video-card.html %}
-                  {% endfor %}
-
-                </div>
-              </div>
-
-            </div>
-          </div>
+  <!-- copied from episode start -->
+  <div class="row push-bottom">
+    <div class="col-sm-8 col-sm-offset-2">
+      {% for author_name in page.authors %}
+        {% assign author = site.authors | where:"name", author_name | first %}
+        {% if author %}
+          {% if forloop.first %}<p class="flush-bottom">Featuring {% endif %}
+            <a href="{{ author.url }}">{{ author.name | titleize }}</a> {% if forloop.last == false %} and {% endif %} {% if forloop.last %}</p>{% endif%}
         {% endif %}
+      {% endfor%}
+
+      <p>{{ page.date | date: date_format }} {% if page.video_duration != nil %}
+        <span class="divider push-quarter-sides">•</span> {{ page.video_duration }} {% endif %}</p>
+
+      <div class="soft-half-top push-top">
+        {% include _social-share.html %}
+      </div>
+
+      {% assign topic = site.topics | where: "title", page.topic | first %}
+      {% if page.topic %}
+        <p class="flush-bottom soft-top">
+          <strong>Topic</strong>
+        </p>
+        <ul class="list-inline">
+          <li>
+            <a href="{{ topic.url }}">{{ topic.title }}</a>
+          </li>
+        </ul>
+      {% endif %}
+      {% if page.tags.size > 0 %}
+        <p class="flush-bottom soft-half-top">
+          <strong>Tags</strong>
+        </p>
+        <ul class="list-inline">
+          {% for tag in page.tags %}
+          <li>
+            <a href="{{ site.search_domain }}/search?q=tags: '{{ tag }}'" title="Search {{ tag }}">{{ tag }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="soft-top">
+    {% include _subscribe-buttons.html content_type=page youtube=true %}
+  </div>
+
+  <div class="soft-7-bottom">
+    {% if site.videos.size > 1 %}
+    <div class="push-top soft-top row">
+      <div class="col-sm-8 col-sm-offset-2">
+
+        <div class="push-bottom">
+          <h2 class="component-header flush-top">Recent Videos</h2>
         </div>
 
+        <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
+          <div class="feature-cards">
+            {% assign limited = site.videos | sort: 'date' | reverse | slice: 0, 10 | exclude: page.title %}
+            {% for video in limited limit: 9 %}
+              {% include _video-card.html %}
+            {% endfor %}
+          </div>
+        </div>
+
+      </div>
+    </div>
+    {% endif %}
+  </div>
 
 </div>
