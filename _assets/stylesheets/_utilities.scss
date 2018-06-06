@@ -31,25 +31,12 @@
   }
 }
 
-//Copied from crds-styles in order to override .jumbotron p sizing
-.font-size-base p {
-  font-size: $font-size-base!important; // 16px
-
-  @media screen and (min-width: $screen-xs) {
-    font-size: $font-size-large!important; // 19px
-  }
-}
-
-
 a.hover-text-gray-lighter:hover * {
   color: $cr-gray-lighter;
 }
 
-@media only screen and (max-width: $screen-sm-min) {
-  .mobile-center-block {
-    margin-left: auto;
-    margin-right: auto;
-  }
+.vertical-align-sub {
+  vertical-align: sub;
 }
 
 // Bootstrap 4
