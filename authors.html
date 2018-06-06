@@ -28,6 +28,7 @@ paginate:
             <h5 class="card-subtitle">{% include _count.html collection=site.articles key="author" subject=author.name label="article" %}</h5>
             <h5 class="card-subtitle">{% include _count.html collection=site.podcasts key="authors" subject=author.name label="podcast" %}</h5>
             <h5 class="card-subtitle">{% include _count.html collection=site.albums key="authors" subject=author.name label="album" %}</h5>
+            <h5 class="card-subtitle">{% include _count.html collection=site.videos key="authors" subject=author.name label="video" %}</h5>
           </div>
         </div>
       {% endfor %}
