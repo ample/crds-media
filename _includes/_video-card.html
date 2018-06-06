@@ -1,12 +1,10 @@
-{% if include.image_size == "4x" %}
-  {% assign sizes = 'sizes="{{ site.image_sizes.cards_4x }}"' %}
-{% else if include.image_size == "2x" %}
-  {% assign sizes = 'sizes="{{ site.image_sizes.cards_2x }}"' %}
-{% endif %}
-
 <div class="card">
   <a href="{{ video.url }}">
-    <img src="{{ video.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" {{ sizes }} data-optimize-img>
+    {% if include.imgix_size == "2x" %}
+    <img src="{{ video.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>
+    {% else %}
+    <img src="{{ video.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
+    {% endif %}
   </a>
   <div class="card-block hard">
     {% if include.theme == "dark" %}

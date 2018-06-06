@@ -11,8 +11,11 @@ paginate:
 {% assign unfeatured = page.videos.docs %}
 
 <div class="container">
-  <p class="breadcrumb flush-bottom hard"><a href="/">Media</a> /</p>
-  <h2 class="section-header landing-header flush-top push-bottom">Videos</h2>
+  <ol class="breadcrumb hard-sides hard-bottom push-top flush-bottom">
+    <li><a href="/">Media</a></li>
+  </ol>
+
+  <h1 class="font-family-condensed-extra text-uppercase flush-top push-bottom">Videos</h1>
 
   <div class="row">
     <aside class="col-md-2">
@@ -25,7 +28,7 @@ paginate:
         <div class="cards-2x">
           <div class="row">
           {% for video in featured %}
-            {% include _video-card.html image_size="2x" %}
+            {% include _video-card.html imgix_size="2x" %}
           {% endfor %}
           </div>
         </div>
@@ -34,7 +37,7 @@ paginate:
         <div class="cards-4x cards-2x-sm" data-page="videos">
           <div class="row" data-page-number="{{ page.videos.page }}">
             {% for video in unfeatured %}
-              {% include _video-card.html image_size="4x" %}
+              {% include _video-card.html %}
             {% endfor %}
           </div>
         </div>

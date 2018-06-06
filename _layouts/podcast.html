@@ -3,7 +3,7 @@ layout: default
 ---
 {% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
 <section class="media-podcast-show">
-  <section class="podcast-hero jumbotron hard-top">
+  <section class="podcast-hero jumbotron hard-top text-white">
     <div class="podcast-background">
       <img src="{{ page.background | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}" sizes="{{ site.image_sizes.full_width }}" data-optimize-img>
     </div>
@@ -15,11 +15,14 @@ layout: default
             <div class="">
               <img class="feature-img" src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.podcast_thumb }}" data-optimize-img>
             </div>
-            <div class="text-left header-text text-white">
-              <p class="breadcrumb font-size-base white-faded hard mobile-soft-top">
-                <a href="/">Media</a> /
-                <a href="/podcasts">Podcasts</a> /</p>
-              <h1 class="component-header flush-top">{{ page.title }}</h1>
+            <div class="text-left mobile-soft-sides">
+              <ol class="breadcrumb hard-sides hard-bottom push-top flush-bottom text-white">
+                <li><a href="/">Media</a></li>
+                <li><a href="/podcasts">Podcasts</a></li>
+              </ol>
+
+              <h1 class="font-family-condensed-extra font-size-h1 text-uppercase flush-top push-bottom">{{ page.title }}</h1>
+
               <hr class="hero">
               <p class="subtitle white-faded">{{ page.subtitle }}</p>
               <p class="push-top">
@@ -39,7 +42,7 @@ layout: default
   <div class="container content">
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
-        {{ page.content }}
+        <div class="markdown">{{ page.content }}</div>
         {% for author_name in page.authors %}
         {% assign author = site.authors | where:"name", author_name | first %}
         {% if author %}

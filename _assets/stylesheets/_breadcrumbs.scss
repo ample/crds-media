@@ -1,0 +1,40 @@
+.breadcrumb {
+  background-color: transparent;
+  position: relative;
+
+  &.text-white {
+    a {
+      color: $cr-white;
+
+      &:hover,
+      &:focus {
+        color: darken($cr-white, 10);
+      }
+    }
+
+    >li:after {
+      color: $cr-white;
+    }
+  }
+
+  a {
+    padding: .5rem 0;
+  }
+
+  >li {
+    &:after {
+      color: $breadcrumb-active-color;
+      content: $breadcrumb-separator;
+      padding: 0 5px;
+    }
+
+    // Overrides Bootstrap breadcrumb style
+    +li {
+      // Breadcrumb separator should come after breadcrumb, not before
+      &:before {
+        content: " ";
+        padding: 0;
+      }
+    }
+  }
+}

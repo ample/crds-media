@@ -24,9 +24,14 @@ layout: default
             <img src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" alt="{{ podcast.title }}" sizes="{{ site.image_sizes.episode_thumb }}" data-optimize-img>
           </div>
 
-          <div class="episode-text">
-            <p class="episode-breadcrumbs"><a href="/">Media</a> / <a href="/podcasts">Podcasts</a> / <a href="{{ podcast.url }}">{{ podcast.title }}</a> /</p>
-            <p class="component-header">{{ page.title }}</p>
+          <div>
+            <ol class="breadcrumb hard-sides hard-bottom push-top flush-bottom text-white">
+              <li><a href="/">Media</a></li>
+              <li><a href="/podcasts">Podcasts</a></li>
+              <li><a href="{{ podcast.url }}">{{ podcast.title }}</a></li>
+            </ol>
+
+            <h1 class="font-family-condensed-extra font-size-h4 text-uppercase text-white">{{ page.title }}</h1>
           </div>
 
           <!-- Layout for img on mobile -->
@@ -62,7 +67,7 @@ layout: default
           </ul>
 
           <!-- Tab panes -->
-          <div class="tab-content">
+          <div class="tab-content markdown">
             <div role="tabpanel" class="tab-pane soft-bottom active" id="description">
               {{ page.content }}
             </div>
