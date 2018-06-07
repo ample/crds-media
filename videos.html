@@ -7,8 +7,6 @@ paginate:
     per: 8
     sort: date desc
 ---
-{% assign featured = page.videos.offset %}
-{% assign unfeatured = page.videos.docs %}
 
 <div class="container">
   <ol class="breadcrumb hard-sides hard-bottom push-top flush-bottom">
@@ -19,25 +17,25 @@ paginate:
 
   <div class="row">
     <aside class="col-md-2">
-      {% include _sidebar-navigation.html %}
+      {% include _video_nav.html %}
     </aside>
 
     <div class="col-md-10">
       <div class="card-deck">
         {% if page.videos.page == 1 %}
-        <div class="cards-2x">
-          <div class="row">
-          {% for video in featured %}
-            {% include _video-card.html imgix_size="2x" %}
-          {% endfor %}
+          <div class="cards-2x">
+            <div class="row">
+            {% for video in page.videos.offset %}
+              {% include _video-card.html image_size="2x" %}
+            {% endfor %}
+            </div>
           </div>
-        </div>
         {% endif %}
 
         <div class="cards-4x cards-2x-sm" data-page="videos">
           <div class="row" data-page-number="{{ page.videos.page }}">
-            {% for video in unfeatured %}
-              {% include _video-card.html %}
+            {% for video in page.videos.docs %}
+              {% include _video-card.html image_size="4x" %}
             {% endfor %}
           </div>
         </div>

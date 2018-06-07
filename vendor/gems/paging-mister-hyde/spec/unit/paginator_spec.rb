@@ -4,7 +4,7 @@ describe PagingMisterHyde::Paginator do
 
   before do
     @base = FileUtils.pwd
-    @site = JekyllHelper.scaffold(@base)
+    @site = JekyllHelper.scaffold(collections: %w(articles podcasts))
   end
 
   context 'with a limit' do
@@ -31,7 +31,6 @@ describe PagingMisterHyde::Paginator do
   end
 
   context 'with an offset' do
-
     before do
       @total_docs = @site.collections['articles'].docs.count
       @page = Jekyll::Page.new(@site, @base, "", "articles.html")
@@ -48,7 +47,6 @@ describe PagingMisterHyde::Paginator do
       expect(@page.data.dig('articles', 'offset').count).to eq(5)
       expect(@page.data.dig('articles', 'docs').count).to eq(@total_docs - 5)
     end
-
   end
 
   context 'Articles' do
@@ -62,6 +60,10 @@ describe PagingMisterHyde::Paginator do
     it 'should paginate' do
       data = @page.data['articles']
       expect(data['docs']).to be_a(Array)
+    end
+
+    it 'should be configured to write the page(s) in the appropriate location(s)' do
+      expect(@site.pages.collect(&:url)).to include("/articles/page/2/index.html")
     end
 
     it 'should sort articles in reverse chronological order' do
@@ -101,7 +103,6 @@ describe PagingMisterHyde::Paginator do
   end
 
   context 'Podcasts' do
-
     before do
       @filename = 'podcasts.html'
       @page = Jekyll::Page.new(@site, @base, '', @filename)
@@ -114,7 +115,6 @@ describe PagingMisterHyde::Paginator do
       exp_titles = @site.collections['podcasts'].sort_by { |d| d.data['title'] }.collect { |d| d.data['title'] }
       expect(titles).to eq(exp_titles)
     end
-
   end
 
   private

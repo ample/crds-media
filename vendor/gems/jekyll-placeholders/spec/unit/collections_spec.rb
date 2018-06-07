@@ -4,7 +4,7 @@ describe Jekyll::Placeholders::Collections do
 
   before do
     @base = FileUtils.pwd
-    @site = JekyllHelper.scaffold(@base)
+    @site = JekyllHelper.scaffold
     @collections = Jekyll::Placeholders::Collections.new(@site)
   end
 

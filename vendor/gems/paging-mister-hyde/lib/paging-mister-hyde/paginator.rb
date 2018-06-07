@@ -45,11 +45,11 @@ module PagingMisterHyde
           base = @page.instance_variable_get('@base')
           dir = @page.instance_variable_get('@dir')
           path = File.basename(@page.instance_variable_get('@path'))
-          path_sans_ext = File.basename(@page.instance_variable_get('@path'), '.*')
+          path_sans_ext = @page.url.chomp('/index.html').chomp('/')
 
           # Create a new page, set its URL to a paginable path
           page = Jekyll::Page.new(@site, base, dir, path)
-          page.instance_variable_set('@url', "/#{path_sans_ext}/page/#{page_num}/index.html")
+          page.instance_variable_set('@url', "#{path_sans_ext}/page/#{page_num}/index.html")
           decorate_page(page, type, page_num, total_pages, docs)
 
           # Shovel the page
@@ -62,12 +62,14 @@ module PagingMisterHyde
 
       def offset_collection(type)
         if n = @cfg.dig(type, 'offset')
-          @page.data[type] = { "offset" => sorted_collection(type).take(n).to_a }
+          @page.data[type] = { "offset" => paginated_collection(type).flatten.take(n).to_a }
         end
       end
 
       def paginated_collection(type)
-        collection = sorted_collection(type)
+        collection = @site.collections[type].docs
+        collection = filter_collection(type, collection)
+        collection = sort_collection(type, collection)
         per = @cfg.dig(type, 'per')
         limit = @cfg.dig(type, 'limit')
         offset = @cfg.dig(type, 'offset') || 0
@@ -79,12 +81,22 @@ module PagingMisterHyde
         end
       end
 
-      def sorted_collection(type)
-        collection = @site.collections[type].docs
+      def sort_collection(type, collection)
         if @cfg.dig(type, 'sort')
           sort_by, sort_in = @cfg.dig(type, 'sort') ? @cfg.dig(type, 'sort').split(' ') : nil
-          collection.sort_by! { |d| d.data[sort_by] } if sort_by
-          collection.reverse! if sort_in == 'desc'
+          collection = collection.sort_by { |d| d.data[sort_by] } if sort_by
+          collection = collection.reverse if sort_in == 'desc'
+        end
+        collection
+      end
+
+      def filter_collection(type, collection)
+        return collection unless cfg.dig(type, 'where')
+        cfg.dig(type, 'where').each do |attr, value|
+          value = page.data[value[1..-1]] if value.start_with?(':')
+          collection = collection.select do |obj|
+            obj.data[attr].is_a?(Array) ? obj.data[attr].include?(value) : obj.data[attr] == value
+          end
         end
         collection
       end

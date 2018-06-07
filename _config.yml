@@ -192,6 +192,7 @@ contentful:
           image: image/url
           source_url: source_url
           slug: slug
+          tags: tags
         other:
           layout: video
           draft: false

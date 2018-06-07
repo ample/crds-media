@@ -127,9 +127,73 @@ You can implement an async 'load more' interaction automatically by ensuring you
 {% include _pagination.html collection="songs" remote=true %}
 ```
 
+#### Filtering Collections
+
+By adding a series of `where` arguments, you can obtain a filtered collection (i.e. a _subset_ of the Jekyll collection).
+
+This works by using the `where` option within your pagination config and providing a series of key-value pairs where the key is the name of the attribute within the collection objects and the value is what that attribute must equal (or _contain_, more on that below).
+
+For example, if you'd like to only show articles where the title of the article is "My Title" you could do this:
+
+```liquid
+---
+...
+paginate:
+  articles:
+    per: 8
+    where:
+      title: "My Title"
+---
+```
+
+You can add more that one filter argument, but the paginator will treat these as AND conditions, meaning both conditions must be true for the document to be presented in the collection.
+
+```liquid
+---
+...
+paginate:
+  articles:
+    per: 8
+    where:
+      title: "My Title"
+      subtitle: "My Subtitle"
+---
+```
+
+Filtering also supports dynamic values. Inspired by [ruby symbols](https://ruby-doc.org/core-2.2.0/Symbol.html), any value with a leading colon will look for that value in the data object of **the page** that is rendering the collection. For example:
+
+```liquid
+---
+...
+title: "Hello World"
+paginate:
+  articles:
+    per: 8
+    where:
+      subtitle: :title
+---
+```
+
+In this example, the only articles that would be returned in the collection would be those where their subtitle matched the title of the page rendering the collection (i.e. "Hello World").
+
+Finally, filtering supports array fields and looks for only a single match. The paginator does this automatically. Let's say your articles have tags via a `tags` field. And the current tag is the title of the page rendering the collection. You could do something like this:
+
+```liquid
+---
+...
+paginate:
+  articles:
+    per: 8
+    where:
+      tags: :title
+---
+```
+
+In this case, only those articles containing at least one tag matching the title of the page rendering the collection would be returned.
+
 #### Sorting Collections
 
-Pagination takes the collection as presented by Jekyll. You can optionally add a `sort` option to choose a data parameter to use to sort the collection. The first string is the method by which you'd like to sort and the second is the sorting direction (`asc`/`desc`). The direction is optional.
+In the absence of filtering, pagination takes the collection as presented by Jekyll. You can optionally add a `sort` option to choose a data parameter to use to sort the collection. The first string is the method by which you'd like to sort and the second is the sorting direction (`asc`/`desc`). The direction is optional.
 
 For example, if you wanted to sort articles in reverse chronological order, that might look something like this:
 
@@ -170,6 +234,36 @@ paginate:
     limit: 1
 ---
 ```
+
+Testing
+----------
+
+This project uses [RSpec](http://rspec.info/) as its test runner. You can run the test suite with RSpec's command-line utility:
+
+    $ bundle exec rspec
+
+At the moment, all specs reside in the individual gems created in the `vendor` directory. To run these specs, pass the directory to the end of the line:
+
+    $ bundle exec rspec vendor
+
+### Scaffolding A Site
+
+The scaffolding functionality can be found in `spec/support/jekyll_helpers.rb`. It can be invoked in your specs like so:
+
+```rb
+@site = JekyllHelpers.scaffold(options)
+```
+
+There are several options you can use to manipulate the site returned to you for use in your spec:
+
+| Name | Default | Description |
+| ---- | ---- | ---- |
+| `base_path` | crds-media root directory | The main directory from which other options are derived. (Other options can still be overridden individually.) |
+| `collections_dir` | `"#{base_path}/collections"` | Directory in which to look for collection docs. (This is how you can create fixtures without getting in the way of the project.) |
+| `collections` | `%w(articles)` | An array of collections to read. Only add the ones you need as each collection increases build time. |
+| `config_file` | `"#{base_path}/_config.yml"` | The config file to read from for the main site's config. |
+| `destination_path` | `"#{base_path}/_site"` | Directory in which to output the built site (although the site doesn't actually get written.) |
+| `source_path` | `base_path` | The source for the content from which to build. |
 
 Troubleshooting
 ----------
