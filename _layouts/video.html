@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-{% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
 {% if page.source_url contains 'watch' %}
   {% assign video_id = page.source_url | split: 'https://www.youtube.com/watch?v=' %}
 {% elsif page.source_url contains 'embed' %}
@@ -65,8 +64,7 @@ layout: default
             <a href="{{ author.url }}">{{ author.name | titleize }}</a> {% if forloop.last == false %} and {% endif %} {% if forloop.last %}</p>{% endif%}
         {% endif %}
       {% endfor%}
-
-      <p>{{ page.date | date: date_format }} {% if page.video_duration != nil %}
+      <p>{{ page.date | format_date }} {% if page.video_duration != nil %}
         <span class="divider push-quarter-sides">•</span> {{ page.video_duration }} {% endif %}</p>
 
       <div class="soft-half-top push-top">
