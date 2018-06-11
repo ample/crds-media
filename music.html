@@ -40,16 +40,7 @@ paginate:
       <div class="row">
         {% assign featured = page.songs.offset | slice: 1, 2 %}
         {% for song in featured %}
-          <div class="card">
-            <a href="{{ song.url }}">
-              <img src="{{ song.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_card }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>
-            </a>
-            <div class="card-block hard">
-              <a href="{{ song.url }}">
-                <h5 class="text-gray-dark font-family-base-mid">{{ song.title }}</h5>
-              </a>
-            </div>
-          </div>
+         {% include _song-card.html imgix_size="2x" %}
         {% endfor %}
       </div>
     </div>
@@ -58,16 +49,7 @@ paginate:
   <div class="cards-4x cards-2x-sm" data-page="songs">
     <div class="row" data-page-number="{{ page.songs.page }}">
       {% for song in page.songs.docs %}
-        <div class="card">
-          <a href="{{ song.url }}">
-            <img src="{{ song.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_card }}" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
-          </a>
-          <div class="card-block hard">
-            <a href="{{ song.url }}">
-              <h5 class="text-gray-dark font-family-base-mid">{{ song.title }}</h5>
-            </a>
-          </div>
-        </div>
+        {% include _song-card.html %}
       {% endfor %}
     </div>
     <div class="loading hide">

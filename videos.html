@@ -17,19 +17,19 @@ paginate:
 
   <div class="row">
     <aside class="col-md-2">
-      {% include _video-nav.html %}
+      {% include _video_nav.html %}
     </aside>
 
     <div class="col-md-10">
       <div class="card-deck">
         {% if page.videos.page == 1 %}
-        <div class="cards-2x">
-          <div class="row">
+          <div class="cards-2x">
+            <div class="row">
             {% for video in page.videos.offset %}
               {% include _video-card.html image_size="2x" %}
             {% endfor %}
+            </div>
           </div>
-        </div>
         {% endif %}
 
         <div class="cards-4x cards-2x-sm" data-page="videos">

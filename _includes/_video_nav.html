@@ -10,17 +10,13 @@
     </button>
     <ul class="dropdown-menu" aria-labelledby="videoNavigation">
       <li>
-         <a class="{% if page_url == '/videos/' %}active{% endif %}" href="/videos">Recent</a>
+        <a class="{% if page_url == '/videos/' %}active{% endif %}" href="/videos">Recent</a>
       </li>
-      <li>
-         <a class="{% if page_url == '/videos/tags/most-watched/' %}active{% endif %}" href="/videos/tags/most-watched">Most Watched</a>
-      </li>
-      <li><a href="#">Trailers</a></li>
-      <li><a href="#">Personal stories</a></li>
-      <li><a href="#">Humor</a></li>
-      <li><a href="#">Events</a></li>
-      <li><a href="#">Ministries</a></li>
-      <li><a href="#">Clips</a></li>
+      {% for tag in site.video_tags %}
+        <li>
+          <a class="{% if page_url == tag.url %}active{% endif %}" href="{{ tag.url }}">{{ tag.title }}</a>
+        </li>
+      {% endfor %}
     </ul>
   </div>
 </div>

@@ -1,3 +1,3 @@
 require 'rspec'
-require 'jekyll-placeholders'
+require 'video-tags'
 require_relative '../../../../spec/support/jekyll_helper'

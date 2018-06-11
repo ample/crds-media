@@ -36,6 +36,12 @@ PATH
     paging-mister-hyde (0.0.1)
       jekyll
 
+PATH
+  remote: vendor/gems/video-tags
+  specs:
+    video-tags (0.0.1)
+      jekyll
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -226,6 +232,7 @@ DEPENDENCIES
   pry-nav
   rspec
   tzinfo-data
+  video-tags (~> 0.0.1)!
 
 BUNDLED WITH
    1.16.1

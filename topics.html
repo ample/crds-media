@@ -27,6 +27,7 @@ permalink: /topics/index.html
             <h5 class="card-subtitle">{% include _count.html collection=site.articles key="topic" subject=topic.title label="article" %}</h5>
             <h5 class="card-subtitle">{% include _count.html collection=site.episodes key="topic" subject=topic.title label="podcast" %}</h5>
             <h5 class="card-subtitle">{% include _count.html collection=site.songs key="topic" subject=topic.title label="song" %}</h5>
+            <h5 class="card-subtitle">{% include _count.html collection=site.videos key="topic" subject=topic.title label="video" %}</h5>
           </div>
         </div>
       {% endfor %}
