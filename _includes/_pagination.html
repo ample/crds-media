@@ -3,6 +3,8 @@
 
   {% if include.link_root %}
     {% assign root = include.link_root %}
+  {% elsif link_root %}
+    {% assign root = link_root %}
   {% else %}
     {% assign root = include.collection %}
   {% endif %}

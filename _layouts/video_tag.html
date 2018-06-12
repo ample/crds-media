@@ -1,0 +1,34 @@
+---
+paginate:
+  videos:
+    per: 8
+    where:
+      tags: :title
+---
+
+<div class="container">
+  <p class="breadcrumb flush-bottom hard">
+    <a href="/">Media</a> /
+    <a href="/videos">Videos</a> /
+  </p>
+  <h2 class="section-header landing-header flush-top push-bottom">{{ page.title }}</h2>
+  <div class="row">
+    <div class="col-md-2 text-left">
+      {% include _video_nav.html %}
+    </div>
+    <div class="col-md-10">
+      <div class="cards-4x cards-2x-sm" data-page="videos">
+        <div class="row" data-page-number="{{ page.videos.page }}">
+          {% for video in page.videos.docs %}
+            {% include _video-card.html image_size="4x" %}
+          {% endfor %}
+        </div>
+        <div class="loading hide">
+          {% include _preloader.html %}
+        </div>
+      </div>
+      {% assign link_root = "videos/tags/" | append: page.slug %}
+      {% include _pagination.html collection="videos" remote=true %}
+    </div>
+  </div>
+</div>

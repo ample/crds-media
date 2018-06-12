@@ -2,6 +2,14 @@
   color: $cr-gray-lighter;
 }
 
+.bg-gray {
+  background-color: $cr-gray;
+}
+
+.white-faded, .jumbotron .white-faded a {
+  color: rgba($cr-white, 0.8); // #FFFFFF
+}
+
 .text-xs-left {
   @media only screen and (max-width: $screen-sm) {
     text-align: left;
@@ -15,24 +23,12 @@
 @media (max-width: $screen-md) {
   .cards-2x-sm .card {
     float: left;
-    max-width: 50%;
+    width: 50%;
 
     &:nth-child(odd) {
       clear: left;
     }
   }
-}
-
-.bg-gray {
-  background-color: $cr-gray;
-}
-
-.white-faded, .jumbotron .white-faded a {
-  color: rgba($cr-white, 0.8); // #FFFFFF
-}
-
-.font-family-base-mid {
-  font-weight: 500;
 }
 
 //Copied from crds-styles in order to override .jumbotron p sizing
@@ -47,6 +43,13 @@
 
 a.hover-text-gray-lighter:hover * {
   color: $cr-gray-lighter;
+}
+
+@media only screen and (max-width: $screen-sm-min) {
+  .mobile-center-block {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 // Bootstrap 4
@@ -81,25 +84,5 @@ a.hover-text-gray-lighter:hover * {
 .flex-md-row {
   @media (min-width: $screen-md) {
     flex-direction: row;
-  }
-}
-
-// custom
-.flex-130 {
-  flex: 0 0 130px;
-}
-
-.flex-shrink {
-  flex-shrink: 1;
-}
-
-.border-left-blue {
-  border-left: 2px solid $cr-cyan;
-}
-
-@media only screen and (max-width: $screen-sm-min) {
-  .mobile-center-block {
-    margin-left: auto;
-    margin-right: auto;
   }
 }

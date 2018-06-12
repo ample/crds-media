@@ -4,7 +4,7 @@ describe Jekyll::Placeholders::Generator do
 
   before do
     @base = FileUtils.pwd
-    @site = JekyllHelper.scaffold(@base)
+    @site = JekyllHelper.scaffold(collections: %w(articles podcasts))
     @generator = Jekyll::Placeholders::Generator.new
   end
 

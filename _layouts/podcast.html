@@ -3,37 +3,31 @@ layout: default
 ---
 {% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
 <section class="media-podcast-show">
-  <section class="podcast-hero jumbotron hard-top text-white">
-    <div class="podcast-background">
-      <img src="{{ page.background | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}" sizes="{{ site.image_sizes.full_width }}" data-optimize-img>
-    </div>
+  <section class="podcast-hero jumbotron hard-top text-white" style="background-image: url('{{ page.background | imgix: site.imgix }}');" data-optimize-bg-img>
     <div class="header-content">
       <div class="container">
-        <div class="row">
+        <div class="mobile-wrapper">
+          <div class="podcast-header-artwork">
+            <img class="feature-img" src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.podcast_thumb }}" data-optimize-img>
+          </div>
+          <div class="podcast-header-text">
+            <ol class="breadcrumb hard flush-bottom text-white">
+              <li><a href="/">Media</a></li>
+              <li><a href="/podcasts">Podcasts</a></li>
+            </ol>
 
-          <div class="mobile-wrapper">
-            <div class="">
-              <img class="feature-img" src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.podcast_thumb }}" data-optimize-img>
-            </div>
-            <div class="text-left mobile-soft-sides">
-              <ol class="breadcrumb hard-sides hard-bottom push-top flush-bottom text-white">
-                <li><a href="/">Media</a></li>
-                <li><a href="/podcasts">Podcasts</a></li>
-              </ol>
+            <h1 class="font-family-condensed-extra font-size-h1 text-uppercase flush-top push-bottom">{{ page.title }}</h1>
 
-              <h1 class="font-family-condensed-extra font-size-h1 text-uppercase flush-top push-bottom">{{ page.title }}</h1>
+            <hr class="hero">
+            <p class="subtitle white-faded">{{ page.subtitle }}</p>
 
-              <hr class="hero">
-              <p class="subtitle white-faded">{{ page.subtitle }}</p>
-              <p class="push-top">
-                {% if page.apple_podcasts_url.size > 1 %}
-                  <a href="{{ page.apple_podcasts_url }}">
-                    <img src="//dz6ito7tas43n.cloudfront.net/images/apple-podcasts.svg" alt="Apple Podcast button">
-                  </a>
-                {% endif %}
-              </p>
-            </div>
-
+            {% if page.apple_podcasts_url.size > 1 %}
+            <p class="push-top">
+              <a href="{{ page.apple_podcasts_url }}">
+                <img src="//dz6ito7tas43n.cloudfront.net/images/apple-podcasts.svg" alt="Apple Podcast button">
+              </a>
+            </p>
+            {% endif %}
           </div>
         </div>
       </div>

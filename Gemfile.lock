@@ -18,12 +18,6 @@ GIT
       jekyll
 
 PATH
-  remote: vendor/gems/jekyll-placeholders
-  specs:
-    jekyll-placeholders (0.0.1)
-      jekyll
-
-PATH
   remote: vendor/gems/jekyll-crds
   specs:
     jekyll-crds (0.0.1)
@@ -31,9 +25,21 @@ PATH
       jekyll
 
 PATH
+  remote: vendor/gems/jekyll-placeholders
+  specs:
+    jekyll-placeholders (0.0.1)
+      jekyll
+
+PATH
   remote: vendor/gems/paging-mister-hyde
   specs:
     paging-mister-hyde (0.0.1)
+      jekyll
+
+PATH
+  remote: vendor/gems/video-tags
+  specs:
+    video-tags (0.0.1)
       jekyll
 
 GEM
@@ -226,6 +232,7 @@ DEPENDENCIES
   pry-nav
   rspec
   tzinfo-data
+  video-tags (~> 0.0.1)!
 
 BUNDLED WITH
    1.16.1
