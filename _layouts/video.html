@@ -1,13 +1,7 @@
 ---
 layout: default
 ---
-{% if page.source_url contains 'watch' %}
-  {% assign video_id = page.source_url | split: 'https://www.youtube.com/watch?v=' %}
-{% elsif page.source_url contains 'embed' %}
-  {% assign video_id = page.source_url | split: 'https://www.youtube.com/embed/' %}
-{% elsif page.source_url contains 'youtu.be' %}
-  {% assign video_id = page.source_url | split: 'https://youtu.be/' %}
-{% endif %}
+{% assign video_id = page.source_url | youtube_id %}
 
 <div class="container">
   <div class="row">
