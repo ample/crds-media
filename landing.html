@@ -1,0 +1,102 @@
+---
+layout: default
+
+paginate:
+  articles:
+    per: 8
+    limit: 1
+    sort: date desc
+  podcasts:
+    per: 4
+    limit: 1
+  songs:
+    per: 8
+    limit: 1
+    sort: date desc
+  videos:
+    per: 8
+    limit: 1
+    sort: date desc
+
+---
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="jumbotron" style="background-image: url('//crds-cms-uploads.imgix.net/content/images/streaming-anywhere-hero-off.jpg?w=800&h=425&fit=crop&crop=entropy&ixlib=js-1.0.6');">
+        <p class="small-heading text-uppercase">I am a small intro heading</p>
+        <h1 class="title">the main heading</h1>
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8">
+      <!-- Articles -->
+      {% if page.articles.docs.size > 0 %}
+        <div class="push-bottom">
+          <h2 class="collection-header">featured media</h2>
+          <div data-card-deck class="card-deck">
+            <div class="cards-1x">
+              {% for post in page.articles.docs %}
+                {% include _article-card.html content_type=article %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div> <!--/col-sm-8-->
+    <div class="col-sm-4">
+      <!-- Articles -->
+      {% if page.videos.docs.size > 0 %}
+        <div class="push-bottom">
+          <h2 class="collection-header">series</h2>
+          <div data-card-deck class="card-deck">
+            <div class="cards-1x">
+              {% for video in page.videos.docs %}
+                {% include _video-card.html %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+asdasd
+      <!-- Podcasts -->
+      {% if page.podcasts.docs.size > 0 %}
+        <div class="push-bottom">
+          <h2 class="collection-header">podcasts</h2>
+          <div data-card-deck class="card-deck">
+            <div class="cards-1x">
+              {% for podcast in page.podcasts.docs %}
+                {% include _media-object.html %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+      <div class="push-bottom">
+        <h2 class="collection-header">by media type</h2>
+        <div class="card-deck">
+          <ul class="list-unstyled font-size-large">
+            <li>
+              <a href="/series">Series</a>
+            </li>
+            <li>
+              <a href="/music">Music</a>
+            </li>
+            <li>
+              <a href="/podcasts">Podcasts</a>
+            </li>
+            <li>
+              <a href="/articles">Articles</a>
+            </li>
+            <li>
+              <a href="/videos">Videos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div> <!--/col-sm-4-->
+  </div> <!--/row-->
+</div>
