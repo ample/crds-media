@@ -35,6 +35,18 @@ a.hover-text-gray-lighter:hover * {
   color: $cr-gray-lighter;
 }
 
+.relative {
+  position: relative !important;
+}
+
+.absolute {
+  position: absolute !important;
+}
+
+.font-size-smallest {
+  font-size: 10px;
+}
+
 // Bootstrap 4
 .d-flex {
   display: flex;
