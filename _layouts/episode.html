@@ -2,7 +2,6 @@
 layout: default
 ---
 {% assign podcast = site.podcasts | where:"title", page.podcast | first %}
-{% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
 
 <div class="media-podcast-episode">
 
@@ -99,7 +98,7 @@ layout: default
           {% endif %}
         {% endfor %}
 
-        <p>{{ page.date | date: date_format }} {% if page.audio_duration != nil %}<span class="divider push-quarter-sides">•</span> {{ page.audio_duration }} mins{% endif %}</p>
+        <p>{{ page.date | format_date }} {% if page.audio_duration != nil %}<span class="divider push-quarter-sides">•</span> {{ page.audio_duration }} mins{% endif %}</p>
 
         <div class="soft-half-top push-top">
             {% include _social-share.html %}
@@ -134,11 +133,11 @@ layout: default
       </div>
     </div>
 
-    {% include _podcast-subscribe.html content_type=podcast %}
+    {% include _subscribe-buttons.html content_type=podcast %}
 
-    <!-- Explore More Content-->
+    <div class="soft-7-bottom">
     {% if site.podcasts.size > 1 %}
-      <div class="push-bottom row">
+      <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
 
           <div class="push-bottom">
@@ -159,6 +158,7 @@ layout: default
         </div>
       </div>
     {% endif %}
+    </div>
 
   </div>
 </div>

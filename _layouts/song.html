@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-{% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
 {% assign this_album = site.albums | where:"title", page.album_title | first %}
 
 {% assign videos = "" | split: "" %}
@@ -107,7 +106,7 @@ layout: default
       </div>
 
       <div class="soft-half-top push-top">
-        <p>{{ page.date | date: date_format }} {% if page.audio_duration != nil %}<span class="divider push-quarter-sides">•</span> {{ page.audio_duration }} mins {% endif %}</p>
+        <p>{{ page.date | format_date }} {% if page.audio_duration != nil %}<span class="divider push-quarter-sides">•</span> {{ page.audio_duration }} mins {% endif %}</p>
       </div>
 
       <div class="push-top">
@@ -160,7 +159,7 @@ layout: default
               {{ page.album_title }}
             </a>
             <div>
-            {% for author in this_album.author %}
+            {% for author in this_album.authors %}
               {% assign this_author = site.authors | where:"name", author | first %}
               {% if this_author %}
                 <span class="font-size-small text-gray-light">{{ this_author.name }}</span>{% if forloop.last == false %}, {% endif%}

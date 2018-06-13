@@ -1,5 +1,121 @@
 ---
 layout: default
 ---
+{% assign video_id = page.source_url | youtube_id %}
 
-This is a video page
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+
+      {% if video_id %}
+      <div class="row push-top soft-top">
+        <div class="embed-responsive embed-responsive-16by9 mobile-flush push-half-sides">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video_id }}" frameborder="0" allow="autoplay; encrypted-media"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+      {% endif %}
+
+      <p class="episode-breadcrumbs push-top hard-sides flush-bottom">
+        <a href="/">Media</a> /
+        <a href="/videos">Videos</a> /</p>
+      <h1 class="font-family-condensed-extra text-uppercase flush-top push-bottom">{{ page.title }}</h1>
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+          <a href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a>
+        </li>
+
+        {% if page.transcription %}
+        <li role="presentation">
+          <a href="#transcription" aria-controls="transcription" role="tab" data-toggle="tab">Transcription</a>
+        </li>
+        {% endif %}
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane soft-bottom active markdown" id="description">
+          {{ page.content | markdownify }}
+        </div>
+
+        {% if page.transcription %}
+        <div role="tabpanel" class="tab-pane soft-bottom markdown" id="transcription">
+          {{ page.transcription | markdownify }}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- copied from episode start -->
+  <div class="row push-bottom">
+    <div class="col-sm-8 col-sm-offset-2">
+      {% for author_name in page.authors %}
+        {% assign author = site.authors | where:"name", author_name | first %}
+        {% if author %}
+          {% if forloop.first %}<p class="flush-bottom">Featuring {% endif %}
+            <a href="{{ author.url }}">{{ author.name | titleize }}</a> {% if forloop.last == false %} and {% endif %} {% if forloop.last %}</p>{% endif%}
+        {% endif %}
+      {% endfor%}
+      <p>{{ page.date | format_date }} {% if page.video_duration != nil %}
+        <span class="divider push-quarter-sides">•</span> {{ page.video_duration }} {% endif %}</p>
+
+      <div class="soft-half-top push-top">
+        {% include _social-share.html %}
+      </div>
+
+      {% assign topic = site.topics | where: "title", page.topic | first %}
+      {% if page.topic %}
+        <p class="flush-bottom soft-top">
+          <strong>Topic</strong>
+        </p>
+        <ul class="list-inline">
+          <li>
+            <a href="{{ topic.url }}">{{ topic.title }}</a>
+          </li>
+        </ul>
+      {% endif %}
+      {% if page.tags.size > 0 %}
+        <p class="flush-bottom soft-half-top">
+          <strong>Tags</strong>
+        </p>
+        <ul class="list-inline">
+          {% for tag in page.tags %}
+          <li>
+            <a href="{{ site.search_domain }}/search?q=tags: '{{ tag }}'" title="Search {{ tag }}">{{ tag }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="soft-top">
+    {% include _subscribe-buttons.html content_type=page youtube=true %}
+  </div>
+
+  <div class="soft-7-bottom">
+    {% if site.videos.size > 1 %}
+    <div class="push-top soft-top row">
+      <div class="col-sm-8 col-sm-offset-2">
+
+        <div class="push-bottom">
+          <h2 class="component-header flush-top">Recent Videos</h2>
+        </div>
+
+        <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
+          <div class="feature-cards">
+            {% assign limited = site.videos | sort: 'date' | reverse | slice: 0, 10 | exclude: page.title %}
+            {% for video in limited limit: 9 %}
+              {% include _video-card.html %}
+            {% endfor %}
+          </div>
+        </div>
+
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+</div>

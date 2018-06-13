@@ -12,7 +12,7 @@
     <p class="card-text soft-quarter-top">
       <a href="{{ author.url }}">{{ author.name | titleize }}</a> |
       <span class="card-date">
-        {{ post.date | date: date_format }}
+        {{ post.date | format_date }}
       </span>
     </p>
     <h5 class="metadata push-quarter-ends">
