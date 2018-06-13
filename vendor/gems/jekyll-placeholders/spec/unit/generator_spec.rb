@@ -3,8 +3,11 @@ require 'spec_helper'
 describe Jekyll::Placeholders::Generator do
 
   before do
-    @base = FileUtils.pwd
-    @site = JekyllHelper.scaffold(collections: %w(articles podcasts))
+    @site = JekyllHelper.scaffold(
+      base_path: File.expand_path('../../../../../spec/source', __dir__),
+      collections_dir: File.expand_path('../../../../../spec/source/collections', __dir__),
+      collections: %w(podcasts episodes)
+    )
     @generator = Jekyll::Placeholders::Generator.new
   end
 

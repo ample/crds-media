@@ -3,8 +3,12 @@ require 'spec_helper'
 describe PagingMisterHyde::Paginator do
 
   before do
-    @base = FileUtils.pwd
-    @site = JekyllHelper.scaffold(collections: %w(articles podcasts))
+    @base = File.expand_path('../../../../../spec/source', __dir__)
+    @site = JekyllHelper.scaffold(
+      base_path: @base,
+      collections_dir: File.join(@base, 'collections'),
+      collections: %w(articles podcasts)
+    )
   end
 
   context 'with a limit' do
