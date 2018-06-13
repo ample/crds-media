@@ -137,10 +137,9 @@ contentful:
         entry_mappings:
           title: title
           date: published_at
-          authors: author/full_name
           image: image/url
           bg_image: bg_image/url
-          author: author/full_name
+          authors: author/full_name
           spotify_url: spotify_url
           apple_music_url: apple_music_url
           google_play_url: google_play_url
@@ -185,12 +184,17 @@ contentful:
         entry_mappings:
           title: title
           subtitle: subtitle
-          topic: category/title
-          topic_slug: category/slug
           authors: author/full_name
+          video_duration: video_duration
           date: published_at
           image: image/url
           source_url: source_url
+          topic: category/title
+          topic_slug: category/slug
+          tags: tags
+          transcription: transcription
+          apple_podcasts_url: apple_podcasts_url
+          google_play_url: google_play_url
           slug: slug
           tags: tags
         other:

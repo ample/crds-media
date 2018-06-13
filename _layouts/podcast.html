@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-{% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
 <section class="media-podcast-show">
   <section class="podcast-hero jumbotron hard-top text-white" style="background-image: url('{{ page.background | imgix: site.imgix }}');" data-optimize-bg-img>
     <div class="header-content">
@@ -84,7 +83,7 @@ layout: default
                   <h3 class="list-title text-capitalize">Episode {{ episode.episode_number }}: {{ episode.title }}</h3>
                 </a>
 
-                <p class="metadata">{{ episode.date | date: date_format }}
+                <p class="metadata">{{ episode.date | format_date }}
                   {% if episode.date != nil and episode.audio_duration != nil %}
                   <span class="divider">•</span>
                   {% endif %}
@@ -106,7 +105,9 @@ layout: default
       </div>
     </div>
 
-      {% include _podcast-subscribe.html content_type=page %}
+    <div class="soft-7-bottom">
+    {% include _subscribe-buttons.html content_type=page %}
+    </div>
 
   </div>
 </section>

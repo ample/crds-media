@@ -9,8 +9,7 @@
       <div>
         <a href="{{ author.url }}" data-author-name>{{ page.author | titleize }}</a> |
         <span class="article_date" data-post-date>
-          {% assign date_format = site.crds-media.date_format | default: "%b %-d, %Y" %}
-          {{ page.date | date: date_format }}
+          {{ page.date | format_date }}
         </span>
       </div>
     </div>
