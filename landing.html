@@ -17,25 +17,22 @@ paginate:
     per: 8
     limit: 1
     sort: date desc
-
 ---
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="jumbotron" style="background-image: url('//crds-cms-uploads.imgix.net/content/images/streaming-anywhere-hero-off.jpg?w=800&h=425&fit=crop&crop=entropy&ixlib=js-1.0.6');">
-        <p class="small-heading text-uppercase">I am a small intro heading</p>
-        <h1 class="title">the main heading</h1>
-      </div>
+{% for jumbocard in page.articles.docs limit: 1 %}
+  {% include _jumbocard.html size="xl" %}
+{% endfor %}
 
-    </div>
-  </div>
-</div>
 <div class="container">
   <div class="row">
     <div class="col-md-8">
       <div class="push-bottom">
         <h2 class="collection-header push-bottom">featured media</h2>
+        {% for jumbocard in page.articles.docs limit: 3 %}
+          <div class="push-bottom">
+            {% include _jumbocard.html %}
+          </div>
+        {% endfor %}
       </div>
 
       <!-- Articles -->

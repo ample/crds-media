@@ -40,7 +40,7 @@
     .jumbocard-title {
       font-size: 64px;
       
-      @media min-width {
+      @media (min-width: $screen-sm) {
         font-size: 110px;
       }
     }
