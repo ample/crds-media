@@ -7,4 +7,14 @@
       height: auto;
     }
   }
+
+  &.featured {
+    .media-img-wrapper {
+      min-width: 100%;
+    }
+
+    .media-body {
+      margin: 0;
+    }
+  }
 }

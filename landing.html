@@ -20,7 +20,7 @@ paginate:
 
 ---
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-sm-12">
       <div class="jumbotron" style="background-image: url('//crds-cms-uploads.imgix.net/content/images/streaming-anywhere-hero-off.jpg?w=800&h=425&fit=crop&crop=entropy&ixlib=js-1.0.6');">
@@ -30,8 +30,10 @@ paginate:
 
     </div>
   </div>
+</div>
+<div class="container">
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-md-8">
       <!-- Articles -->
       {% if page.articles.docs.size > 0 %}
         <div class="push-bottom">
@@ -45,22 +47,38 @@ paginate:
           </div>
         </div>
       {% endif %}
-    </div> <!--/col-sm-8-->
-    <div class="col-sm-4">
-      <!-- Articles -->
-      {% if page.videos.docs.size > 0 %}
-        <div class="push-bottom">
-          <h2 class="collection-header">series</h2>
-          <div data-card-deck class="card-deck">
-            <div class="cards-1x">
-              {% for video in page.videos.docs %}
-                {% include _video-card.html %}
-              {% endfor %}
-            </div>
+    </div> <!--/col-md-8-->
+    <div class="col-md-4">
+      <!-- Series -->
+      <div class="push-bottom">
+        <h2 class="collection-header">series</h2>
+
+        {% include _media-object-featured.html title='value' link='#' image='//crds-cms-uploads.imgix.net/media/messages/stills/crossroads-spirit-realm.jpg' %}
+
+        <div class="series">
+          <div class="series-body">
+
+            <h4 class="component-header flush-bottom">
+              <a href="#">Spirit Realm</a>
+            </h4>
+
+            <p class="soft-quarter-top font-size-smaller flush-bottom">{{ "There’s more to this life than what we see, hear, or touch. The stories we hear of strange and unexplainable things—they’re not lies or make believe. The real world we live in is so much bigger, more beautiful, more terrifying, and spectacular than humanity has ever imagined. Come spend four weeks discovering how the spiritual and physical realms collide." | strip_html | truncatewords: 30 }}</p>
+            <p class="font-size-smaller text-gray-light">12 videos</p> <!-- // TODO - Update from static content -->
           </div>
         </div>
+      </div>
+
+      <!-- Podcasts -->
+      {% if page.podcasts.docs.size > 0 %}
+      <div data-card-deck class="card-deck">
+        <div class="cards-1x">
+          {% for podcast in page.podcasts.docs %}
+            {% include _media-object.html featured="true" %}
+          {% endfor %}
+        </div>
+      </div>
       {% endif %}
-asdasd
+
       <!-- Podcasts -->
       {% if page.podcasts.docs.size > 0 %}
         <div class="push-bottom">
@@ -68,7 +86,7 @@ asdasd
           <div data-card-deck class="card-deck">
             <div class="cards-1x">
               {% for podcast in page.podcasts.docs %}
-                {% include _media-object.html %}
+                {% include _media-object.html featured="false" %}
               {% endfor %}
             </div>
           </div>
@@ -97,6 +115,6 @@ asdasd
           </ul>
         </div>
       </div>
-    </div> <!--/col-sm-4-->
+    </div> <!--/col-md-4-->
   </div> <!--/row-->
 </div>
