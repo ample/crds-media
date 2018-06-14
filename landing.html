@@ -3,11 +3,11 @@ layout: default
 
 paginate:
   articles:
-    per: 8
+    per: 6
     limit: 1
     sort: date desc
   podcasts:
-    per: 4
+    per: 3
     limit: 1
   songs:
     per: 8
@@ -20,7 +20,7 @@ paginate:
 
 ---
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-sm-12">
       <div class="jumbotron" style="background-image: url('//crds-cms-uploads.imgix.net/content/images/streaming-anywhere-hero-off.jpg?w=800&h=425&fit=crop&crop=entropy&ixlib=js-1.0.6');">
@@ -30,45 +30,63 @@ paginate:
 
     </div>
   </div>
+</div>
+<div class="container">
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-md-8">
+      <div class="push-bottom">
+        <h2 class="collection-header push-bottom">featured media</h2>
+      </div>
+
       <!-- Articles -->
       {% if page.articles.docs.size > 0 %}
         <div class="push-bottom">
-          <h2 class="collection-header">featured media</h2>
+          <h2 class="collection-header push-bottom">most recent</h2>
           <div data-card-deck class="card-deck">
-            <div class="cards-1x">
-              {% for post in page.articles.docs %}
-                {% include _article-card.html content_type=article %}
-              {% endfor %}
+            <div class="cards-2x">
+              <div class="row">
+                {% for post in page.articles.docs %}
+                  {% include _media-card.html content_type=article %}
+                {% endfor %}
+              </div>
             </div>
           </div>
         </div>
       {% endif %}
-    </div> <!--/col-sm-8-->
-    <div class="col-sm-4">
-      <!-- Articles -->
-      {% if page.videos.docs.size > 0 %}
-        <div class="push-bottom">
-          <h2 class="collection-header">series</h2>
-          <div data-card-deck class="card-deck">
-            <div class="cards-1x">
-              {% for video in page.videos.docs %}
-                {% include _video-card.html %}
-              {% endfor %}
-            </div>
-          </div>
+    </div> <!--/col-md-8-->
+    <div class="col-md-4">
+      <!-- Series -->
+      <div class="push-bottom">
+        <h2 class="collection-header push-bottom">series</h2>
+
+        {% include _media-object-featured.html title='Spirit Realm' link='#' count="12 episodes" image='//crds-cms-uploads.imgix.net/media/messages/stills/crossroads-spirit-realm.jpg' content='There’s more to this life than what we see, hear, or touch. The stories we hear of strange and unexplainable things—they’re not lies or make believe. The real world we live in is so much bigger, more beautiful, more terrifying, and spectacular than humanity has ever imagined. Come spend four weeks discovering how the spiritual and physical realms collide.' %}
+
+      </div>
+
+      {% if page.podcasts.docs.size > 0 %}
+      <div data-card-deck class="card-deck">
+        <div class="cards-1x">
+          {% for media in page.podcasts.docs %}
+            {% include _media-object.html count="6 episodes" %}
+          {% endfor %}
         </div>
+      </div>
       {% endif %}
-asdasd
+
       <!-- Podcasts -->
+
+
       {% if page.podcasts.docs.size > 0 %}
         <div class="push-bottom">
-          <h2 class="collection-header">podcasts</h2>
+          <h2 class="collection-header push-bottom">podcasts</h2>
+
+          {% include _media-object-featured.html title='IKR?' link='/podcasts/ikr/' count="29 episodes" image='https://crds-media.imgix.net/2wQvAhYczyWaIgimcma2yO/06735d3fefb9b877b3246de95235367d/crossroads-podcast-ikr.jpg' content='Being a woman… it’s complicated. Right? The expectations. The relationships. All the freaking beauty products. It can be overwhelming to try to go it alone. IKR? - I know, right? - is a podcast for women, by women. It’s a place to be known. To be challenged. To be understood. Because no one wants to go it alone. Hosts Alli and Latasha pull back the veil on what’s going on in the minds of women to prove that we’re all in this together and there’s a God who wants in on it too.' %}
+
+
           <div data-card-deck class="card-deck">
             <div class="cards-1x">
-              {% for podcast in page.podcasts.docs %}
-                {% include _media-object.html %}
+              {% for media in page.podcasts.docs %}
+                {% include _media-object.html count="7 episodes" %}
               {% endfor %}
             </div>
           </div>
@@ -76,7 +94,7 @@ asdasd
       {% endif %}
 
       <div class="push-bottom">
-        <h2 class="collection-header">by media type</h2>
+        <h2 class="collection-header push-bottom">by media type</h2>
         <div class="card-deck">
           <ul class="list-unstyled font-size-large">
             <li>
@@ -97,6 +115,6 @@ asdasd
           </ul>
         </div>
       </div>
-    </div> <!--/col-sm-4-->
+    </div> <!--/col-md-4-->
   </div> <!--/row-->
 </div>

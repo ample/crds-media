@@ -1,0 +1,18 @@
+<!-- Tate: Use variables to toggle .featured in _media-object.html instead? -->
+<div class='media featured flush-top hard-top'>
+
+  <div class="media-img-wrapper flush-top">
+    <a href="{{ include.url }}">
+      <img src="{{ include.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}" data-optimize-img />
+    </a>
+  </div>
+
+  <div class="media-body">
+    <h4 class="component-header flush-bottom">
+      <a href="{{ include.link }}">{{ include.title }}</a>
+    </h4>
+    <p class="soft-quarter-top font-size-smaller flush-bottom">{{ include.content | strip_html | truncatewords: 30 }}</p>
+    <p class="font-size-smaller text-gray-light">{{ include.count }}</p>
+  </div>
+
+</div>
