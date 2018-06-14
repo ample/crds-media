@@ -1,0 +1,25 @@
+.jumbocard {
+  position: relative;
+  height: 0;
+  padding-top: 177.78%; // 9x16
+  
+  @media (min-width: $screen-sm) {
+    padding-top: 56.25%; // 16x9
+  }
+
+  & .jumbocard-content {
+    position: absolute;
+    bottom: 0;
+    padding: 15px;
+    
+    @media (min-width: $screen-sm) {
+      padding: 30px;
+    }
+  }
+}
+
+.jumbocard-xl .jumbocard-content {
+  @media (min-width: $screen-sm) {
+    padding: 60px;
+  }
+}

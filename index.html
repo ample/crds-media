@@ -22,15 +22,11 @@ paginate:
 
 ---
 
-<div class="jumbotron bg-blue">
-  <div class="container">
-    <h1 class="section-header text-white">{{ page.heading }}</h1>
-    <p class="cd_subheading">{{ page.subheading }}</p>
-  </div>
-</div>
-
+{% for jumbocard in site.articles limit: 1 %}
+  {% include _jumbocard.html size="xl" %}
+{% endfor %}
+    
 <div class="container">
-
   <!-- Articles -->
   {% if page.articles.docs.size > 0 %}
     <div class="push-bottom">
