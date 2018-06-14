@@ -8,13 +8,33 @@
     }
   }
 
+  .component-header {
+    font-size: 26px;
+  }
+
   &.featured {
+    flex-direction: column;
+    display: flex;
+
     .media-img-wrapper {
       min-width: 100%;
+      width: 100%;
+      flex-direction: column;
+      display: block;
+      order: 1;
     }
 
     .media-body {
       margin: 0;
+      width: 100%;
+      display: block;
+      flex-direction: column;
+      overflow: visible;
+      order: 2;
+    }
+
+    .component-header {
+      font-size: 2rem;
     }
   }
 }
