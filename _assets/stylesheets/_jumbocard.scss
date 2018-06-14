@@ -19,7 +19,7 @@
     }
 
     .jumbocard-title {
-      font-size: 64px; // h1
+      font-size: 40px;
     
       @media (min-width: $screen-xs) {
         font-size: 72px;
@@ -29,11 +29,18 @@
 }
 
 .jumbocard-xl {
+  @media (max-width: $screen-xs) {
+    padding-top: calc(100vh - 62px); // full height minus header height
+  }
+
   .jumbocard-content {
     @media (min-width: $screen-sm) {
       padding: 60px;
-
-      .jumbocard-title {
+    }
+    .jumbocard-title {
+      font-size: 64px;
+      
+      @media min-width {
         font-size: 110px;
       }
     }

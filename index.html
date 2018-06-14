@@ -37,66 +37,9 @@ paginate:
       <div data-card-deck class="card-deck">
         <div class="cards-4x">
           <div class="row">
-          {% for post in page.articles.docs %}
-            {% include _article-card.html content_type=article %}
+          {% for jumbocard in page.articles.docs %}
+            {% include _jumbocard.html %}
           {% endfor %}
-          </div>
-        </div>
-      </div>
-    </div>
-  {% endif %}
-
-  <!-- Podcasts -->
-  {% if page.podcasts.docs.size > 0 %}
-    <div class="push-bottom">
-      <div class="border-bottom push-bottom">
-        <a href="/podcasts" class="pull-right push-half-top">See All</a>
-        <h2 class="push-half-bottom">Podcasts</h2>
-      </div>
-      <div data-card-deck class="card-deck">
-        <div class="cards-4x">
-          <div class="row">
-            {% for podcast in page.podcasts.docs %}
-              {% include _podcast-card.html %}
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-    </div>
-  {% endif %}
-
-  <!-- Songs -->
-  {% if page.songs.docs.size > 0 %}
-    <div class="push-bottom">
-      <div class="border-bottom push-bottom">
-        <a href="/music" class="pull-right push-half-top">See All</a>
-        <h2 class="push-half-bottom">Songs</h2>
-      </div>
-      <div data-card-deck class="card-deck">
-        <div class="cards-4x">
-          <div class="row">
-            {% for song in page.songs.docs %}
-              {% include _song-card.html %}
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-    </div>
-  {% endif %}
-
-  <!-- Videos -->
-  {% if page.videos.docs.size > 0 %}
-    <div class="push-bottom">
-      <div class="border-bottom push-bottom">
-        <a href="/videos" class="pull-right push-half-top">See All</a>
-        <h2 class="push-half-bottom">Videos</h2>
-      </div>
-      <div data-card-deck class="card-deck">
-        <div class="cards-4x">
-          <div class="row">
-            {% for video in page.videos.docs %}
-              {% include _video-card.html %}
-            {% endfor %}
           </div>
         </div>
       </div>
