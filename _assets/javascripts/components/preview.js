@@ -36,10 +36,8 @@ function setTags(arr) {
 }
 
 function setHeroImage(src) {
-  heroContainer.removeAttribute('src');
-  heroContainer.setAttribute('ix-src', src.replace(IMGIX_SRC, IMGIX_DOMAIN));
-  heroContainer.classList.add('img-responsive');
-  imgix.init();
+  var imgUrl = `${src}?auto=format,compress&w=100&fit=crop`;
+  replaceImg(imgUrl, heroContainer);
 }
 
 function setAuthorInfo(name, slug, bio, img) {
@@ -54,13 +52,18 @@ function setAuthorInfo(name, slug, bio, img) {
   authorBio.innerText = bio;
 
   getAsset(img).then(function(res) {
-    authorImg.removeAttribute('src');
-    authorImg.setAttribute('ix-src', res.fields.file.url.replace(IMGIX_SRC, IMGIX_DOMAIN));
-    authorImg.classList.add('img-responsive');
-    imgix.init({
-      force: true
-    })
+    var imgUrl = `${res.fields.file.url}?auto=format,compress&w=80&h=80&fit=crop`;
+    replaceImg(imgUrl, authorImg);
   });
+}
+
+function replaceImg(src, el) {
+  el.removeAttribute('src');
+  el.setAttribute('ix-src', src.replace(IMGIX_SRC, IMGIX_DOMAIN));
+  el.classList.add('img-responsive');
+  imgix.init({
+    force: true
+  })
 }
 
 function setText(obj) {
