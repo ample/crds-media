@@ -43,14 +43,6 @@ a.hover-text-gray-lighter:hover * {
   position: absolute !important;
 }
 
-.font-size-giant {
-  font-size: 72px; // h1
-
-  @media (min-width: $screen-xs) {
-    font-size: 110px;
-  }
-}
-
 .font-size-smallest {
   font-size: 10px;
 }

@@ -1,8 +1,8 @@
 .jumbocard {
   position: relative;
   height: 0;
-  padding-top: 177.78%; // 9x16
-  
+  padding-top: 75%; // 4x3
+
   @media (min-width: $screen-sm) {
     padding-top: 56.25%; // 16x9
   }
@@ -10,16 +10,32 @@
   & .jumbocard-content {
     position: absolute;
     bottom: 0;
+    width: 100%;
     padding: 15px;
-    
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.7));
+
     @media (min-width: $screen-sm) {
       padding: 30px;
+    }
+
+    .jumbocard-title {
+      font-size: 64px; // h1
+    
+      @media (min-width: $screen-xs) {
+        font-size: 72px;
+      }
     }
   }
 }
 
-.jumbocard-xl .jumbocard-content {
-  @media (min-width: $screen-sm) {
-    padding: 60px;
+.jumbocard-xl {
+  .jumbocard-content {
+    @media (min-width: $screen-sm) {
+      padding: 60px;
+
+      .jumbocard-title {
+        font-size: 110px;
+      }
+    }
   }
 }
