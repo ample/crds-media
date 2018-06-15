@@ -1,16 +1,14 @@
 <div class='media hard-top'>
   <div class="media-body">
-
     <h4 class="component-header flush-ends">
-      <a href="{{ podcast.url }}">{{ media.title }}</a>
+      <a href="{{ media.url }}">{{ media.title }}</a>
     </h4>
-
     <p class="soft-quarter-top font-size-smaller flush-bottom">{{ media.content | strip_html | truncatewords: 15 }}</p>
     <p class="font-size-smaller text-gray-light">{{ include.count }}</p>
   </div>
   <div class="media-img-wrapper">
-    <a href="{{ podcast.url }}">
-      <img src="{{ media.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
+    <a href="{{ media.url }}">
+      <img src="{{ media.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.podcast_thumb }}" data-optimize-img />
     </a>
   </div>
 </div>

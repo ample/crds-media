@@ -1,4 +1,12 @@
+.text-gray {
+  color: $cr-gray;
+}
+
 .text-gray-lighter {
+  color: $cr-gray-lighter;
+}
+
+a.hover-text-gray-lighter:hover * {
   color: $cr-gray-lighter;
 }
 
@@ -16,6 +24,10 @@
   }
 }
 
+.font-size-smallest {
+  font-size: 10px;
+}
+
 .height-2 {
   height: 2rem;
 }
@@ -31,20 +43,12 @@
   }
 }
 
-a.hover-text-gray-lighter:hover * {
-  color: $cr-gray-lighter;
-}
-
 .relative {
   position: relative !important;
 }
 
 .absolute {
   position: absolute !important;
-}
-
-.font-size-smallest {
-  font-size: 10px;
 }
 
 // Bootstrap 4
