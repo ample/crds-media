@@ -53,6 +53,9 @@ class JekyllHelper
         "destination" => options[:destination_path],
         "source" => options[:source_path]
       }
+      # Option to override config values directly rather than reading an entire
+      # file.
+      config_overrides.merge!((@options[:config_overrides] || {}).deep_stringify_keys)
       # Merge the overrides into the site's config
       site_config.merge!(config_overrides)
       # Merge the site's config into Jekyll's default config and return the

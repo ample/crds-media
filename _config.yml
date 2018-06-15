@@ -59,7 +59,6 @@ merged_collections:
     merge:
       - articles
       - episodes
-      - podcasts
       - songs
       - videos
     sort: date desc

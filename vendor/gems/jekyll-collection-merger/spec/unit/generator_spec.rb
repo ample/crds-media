@@ -1,23 +1,35 @@
-require 'spec_helper'
+require_relative '../spec_helper'
 
 describe Jekyll::CollectionMerger::Generator do
 
-  # before do
-  #   @site = JekyllHelper.scaffold(
-  #     base_path: File.expand_path('../../../../../spec/source', __dir__),
-  #     collections_dir: File.expand_path('../../../../../spec/source/collections', __dir__),
-  #     collections: %w(podcasts episodes)
-  #   )
-  #   @generator = Jekyll::Placeholders::Generator.new
-  # end
+  let(:overrides) {
+    {
+      merged_collections: {
+        recent_media: { merge: ['articles', 'episodes'], sort: 'date desc' }
+      }
+    }
+  }
 
-  # it 'should generate URLs with dynamic placeholders' do
-  #   @site.config['collections']['podcasts']['permalink'] = '/podcasts/:test_slug/:slug'
-  #   @site.collections['podcasts'].first.data['test_slug'] = 'testing'
-  #   @generator.generate(@site)
+  before do
+    @site = JekyllHelper.scaffold(
+      collections_dir: File.expand_path('../support/collections', __dir__),
+      collections: %w(articles episodes authors),
+      config_overrides: overrides
+    )
+    @generator = Jekyll::CollectionMerger::Generator.new
+  end
 
-  #   entry = @site.collections['podcasts'].first
-  #   expect(entry.url).to eq("/podcasts/testing/#{entry.data.dig('slug')}")
-  # end
+  it 'should create an array available on the site\'s config' do
+    expect(@site.config['recent_media'].class).to eq(NilClass)
+    @generator.generate(@site)
+    expect(@site.config['recent_media'].class).to eq(Array)
+  end
+
+  it 'should include articles and episodes, but not authors' do
+    @generator.generate(@site)
+    expect(@site.config['recent_media']).to include(@site.collections['articles'].docs.first)
+    expect(@site.config['recent_media']).to include(@site.collections['episodes'].docs.first)
+    expect(@site.config['recent_media']).to_not include(@site.collections['authors'].docs.first)
+  end
 
 end
