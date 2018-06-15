@@ -84,6 +84,7 @@
       padding: 1rem 0;
 
       @media screen and (min-width: $screen-sm) {
+        min-height: 18.75rem; // prevents layout issues with text if no description  
         padding-top: 3.75rem;
       }
     }
