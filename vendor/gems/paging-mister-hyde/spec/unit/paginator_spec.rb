@@ -48,8 +48,11 @@ describe PagingMisterHyde::Paginator do
     end
 
     it 'should exclude the offset items from front of the pagination array' do
-      expect(@page.data.dig('articles', 'offset').count).to eq(5)
-      expect(@page.data.dig('articles', 'docs').count).to eq(@total_docs - 5)
+      offset = @page.data.dig('articles', 'offset')
+      docs = @page.data.dig('articles', 'docs')
+      expect(offset.count).to eq(5)
+      expect(docs.count).to eq(@total_docs - 5)
+      expect(offset.collect { |x| x.data['title'] }).to_not match_array(docs.collect { |x| x.data['title'] })
     end
   end
 
