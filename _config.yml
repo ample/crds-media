@@ -54,6 +54,16 @@ collections:
     output: true
     permalink: /:collection/:slug
 
+merged_collections:
+  recent_media:
+    merge:
+      - articles
+      - episodes
+      - podcasts
+      - songs
+      - videos
+    sort: date desc
+
 contentful:
   content_types:
     articles:
