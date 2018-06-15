@@ -229,19 +229,21 @@ contentful:
       frontmatter:
         entry_mappings:
           title: title
-          slug: slug
+          authors: author/full_name
           image: image/url
+          source_url: source_url
           series: series/title
           series_slug: series/slug
-          start_date: starts_at
-          end_date: ends_at
+          program: program/url
+          video_duration: video_duration
           topic: category/title
           topic_slug: category/slug
           tags: tags
           transcription: transcription
-          youtube_url: youtube_url
           apple_podcasts_url: apple_podcasts_url
           google_play_url: google_play_url
+          date: published_at
+          slug: slug
         other:
           layout: message
           draft: false
