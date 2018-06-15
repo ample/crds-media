@@ -19,14 +19,6 @@ paginate:
 
 ---
 
-<div class="container">
-  {% for obj in site.recent_media limit: 8 %}
-    <h1><a href="{{ obj.url }}">{{ obj.title }}</a></h1>
-    <h2>{{ obj.date }}</h2>
-    <hr>
-  {% endfor %}
-</div>
-
 <div class="jumbotron bg-blue">
   <div class="container">
     <h1 class="section-header text-white">{{ page.heading }}</h1>

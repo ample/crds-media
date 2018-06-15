@@ -235,6 +235,33 @@ paginate:
 ---
 ```
 
+### Merging Collections
+
+Existing collections can be combined together using the (local) jekyll-collection-merger gem. Do this by adding a `merged_collections` option to your `_config.yml` file.
+
+Each merged collection gets a name, a list of collections to merge, and a directive for sorting. If sorting is missing, the collection is returned as-is.
+
+The resulting collection is available on the site's config object and can be used in liquid templates directly on the site object.
+
+Take the following configuration:
+
+```yml
+merged_collections:
+  recent_media:
+    merge:
+      - articles
+      - videos
+    sort: date desc
+```
+
+This combines articles and videos collections then sorts them by date in descending order. It then presents the combined collections of docs on the site object when working with templates:
+
+```liquid
+{% for obj in site.recent_media limit: 8 %}
+  {{ obj.title }}
+{% endfor %}
+```
+
 Testing
 ----------
 
