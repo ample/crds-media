@@ -1,16 +1,13 @@
 ---
 layout: default
 heading: Life, faith, and other stuff.
-subheading: Read, share, listen. Talk to someone about them. Do something with them. 
+subheading: Read, share, listen. Talk to someone about them. Do something with them.
 
 paginate:
   articles:
     per: 8
     limit: 1
     sort: date desc
-  podcasts:
-    per: 4
-    limit: 1
   songs:
     per: 8
     limit: 1
@@ -51,7 +48,7 @@ paginate:
   {% endif %}
 
   <!-- Podcasts -->
-  {% if page.podcasts.docs.size > 0 %}
+  {% if site.podcasts.size > 0 %}
     <div class="push-bottom">
       <div class="border-bottom push-bottom">
         <a href="/podcasts" class="pull-right push-half-top">See All</a>
@@ -60,9 +57,7 @@ paginate:
       <div data-card-deck class="card-deck">
         <div class="cards-4x">
           <div class="row">
-            {% for podcast in page.podcasts.docs %}
-              {% include _podcast-card.html %}
-            {% endfor %}
+            {% include _podcasts.html limit=4 %}
           </div>
         </div>
       </div>
