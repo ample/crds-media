@@ -18,6 +18,13 @@ GIT
       jekyll
 
 PATH
+  remote: vendor/gems/jekyll-collection-merger
+  specs:
+    jekyll-collection-merger (0.0.1)
+      activesupport
+      jekyll
+
+PATH
   remote: vendor/gems/jekyll-crds
   specs:
     jekyll-crds (0.0.1)
@@ -221,6 +228,7 @@ DEPENDENCIES
   hashie
   jekyll (~> 3.7.2)
   jekyll-assets
+  jekyll-collection-merger (~> 0.0.1)!
   jekyll-contentful (~> 0.0.4)!
   jekyll-crds (~> 0.0.1)!
   jekyll-feed (~> 0.6)
