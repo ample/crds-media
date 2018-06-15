@@ -1,6 +1,8 @@
 {% if include.video or include.content_type.apple_podcasts_url.size > 1 or include.content_type.google_play_url.size > 1 or include.content_type.stitcher_url.size > 1 %}
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
+  {% if include.row != false %}
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+  {% endif %}
       <h2 class="component-header flush-top">Subscribe</h2>
       <ul class="list-inline">
         {% if include.youtube %}
@@ -30,7 +32,9 @@
             </a>
           </li>
         {% endif %}
-        </ul>
+      </ul>
+  {% if include.row != false %}
     </div>
   </div>
+  {% endif %}
 {% endif %}

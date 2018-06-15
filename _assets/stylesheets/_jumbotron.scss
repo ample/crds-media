@@ -7,16 +7,25 @@
   background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
 }
 
-.jumbotron:not(.bg-blue) {
-  background-color: transparent;
-}
-
 .jumbotron {
+  &:not(.bg-blue) {
+    background-color: transparent;
+  }
+
   .font-size-base p, .font-size-base {
     font-size: $font-size-base; // 16px
 
     @media screen and (min-width: $screen-xs) {
       font-size: $font-size-large; // 19px
+    }
+  }
+
+  &.jumbotron-xl {
+    &.push-14-top {
+      padding-top: 14rem;
+    }
+    &.push-2-bottom {
+      padding-bottom: 2rem;
     }
   }
 }

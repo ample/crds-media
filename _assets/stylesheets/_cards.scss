@@ -14,3 +14,68 @@
 .card-deck--expanded-layout .card {
   padding: 0 .5rem 0 0;
 }
+
+// 🛠 Remove once we refactor cards
+.card-deck {
+  .card-img-top {
+    object-fit: cover;
+    width: 100%;
+    max-height: 200px;
+    min-height: 200px;
+
+    @media only screen and (min-width: $screen-md + 1) {
+      max-height: 150px;
+      min-height: 150px;
+    }
+  }
+}
+
+.card img {
+  width: 100%;
+}
+
+// Fix for fading placeholder images in
+.card-title--overlap {
+  position: relative;
+  z-index: 1;
+}
+
+.cards-4x .card {
+  @media screen and (min-width: $screen-md) {
+    @include make-sm-column(3);
+    &:nth-child(4n+1) {
+      clear: left;
+    }
+  }
+}
+
+//🛠 Remove after updating crds-styles
+.cards-3x .card {
+  @media screen and (max-width: $screen-sm - 1) {
+    @include make-sm-column(12);
+  }
+  @media screen and (min-width: $screen-sm) and (max-width: $screen-md - 1) {
+    @include make-sm-column(6);
+    &:nth-child(odd) {
+      clear: left;
+    }
+  }
+  @media screen and (min-width: $screen-md) {
+    @include make-sm-column(4);
+    &:nth-child(3n+1) {
+      clear: left;
+    }
+  }
+}
+
+//🛠 Remove after updating crds-styles
+//Makes cards 2x for xs and sm screens
+.cards-2x-xs .card {
+  @media (max-width: $screen-sm) {
+    float: left;
+    width: 50%;
+    &:nth-child(odd) {
+      clear: left;
+    }
+  }
+}

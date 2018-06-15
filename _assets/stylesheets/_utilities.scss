@@ -20,15 +20,14 @@
   height: 2rem;
 }
 
-@media (max-width: $screen-md) {
-  .cards-2x-sm .card {
-    float: left;
-    width: 50%;
 
-    &:nth-child(odd) {
-      clear: left;
-    }
-  }
+
+.soft-7-bottom {
+  padding-bottom: 7rem;
+}
+
+.img-size-5 {
+  min-width: 5rem;
 }
 
 a.hover-text-gray-lighter:hover * {
