@@ -2,27 +2,59 @@ require 'spec_helper'
 
 describe Jekyll::CollectionMerger::Merger do
 
-  # before do
-  #   @base = FileUtils.pwd
-  #   @site = JekyllHelper.scaffold
-  #   @collections = Jekyll::Placeholders::Collections.new(@site)
-  # end
+  before do
+    @site = JekyllHelper.scaffold(
+      collections_dir: File.expand_path('../support/collections', __dir__),
+      collections: %w(articles episodes authors)
+    )
+  end
 
-  # it 'should parse string and return any symbols' do
-  #   expect(@collections.send(:get_symbols, '/some/:string/with/:symbols')).to eq(['string', 'symbols'])
-  # end
+  def init_merger(options = {})
+    @merger ||= begin
+      options.symbolize_keys
+      @merger = Jekyll::CollectionMerger::Merger.new(
+        site: @site,
+        name: 'recent_media',
+        config: {
+          'merge' => options[:merge] || ['articles', 'episodes'],
+          'sort' => options[:sort] || 'date desc'
+        }
+      )
+    end
+  end
 
-  # it 'should return permalink template for a collection' do
-  #   path = '/ever/thus/to/deadbeats'
-  #   @site.config['collections']['podcasts']['permalink'] = path
-  #   expect(@collections.send(:get_template, 'podcasts')).to eq(path)
-  # end
+  it 'requires site, name, and config options' do
+    # Missing config
+    expect {
+      Jekyll::CollectionMerger::Merger.new(site: @site, name: 'recent_media')
+    }.to raise_error(ArgumentError)
+    # Missing name
+    expect {
+      Jekyll::CollectionMerger::Merger.new(site: @site, config: { 'merge' => ['articles'] })
+    }.to raise_error(ArgumentError)
+    # Missing site
+    expect {
+      Jekyll::CollectionMerger::Merger.new(name: 'recent_media', config: { 'merge' => ['articles'] })
+    }.to raise_error(ArgumentError)
+    # Blank site
+    expect {
+      Jekyll::CollectionMerger::Merger.new(site: {}, name: 'recent_media', config: { 'merge' => ['articles'] })
+    }.to raise_error(ArgumentError)
+  end
 
-  # it 'should return all placeholders' do
-  #   pending
-  #   # tpl = @collections.send(:get_template, 'podcasts')
-  #   # tokens = @collections.send(:get_symbols, tpl)
-  #   raise
-  # end
+  it 'can sort in descending order' do
+    init_merger(sort: 'date desc')
+    expect(@site.config['recent_media'].first.data['date']).to eq(Time.parse('2018-05-12T00:00-04:00'))
+  end
+
+  it 'sorts in ascending order by default' do
+    init_merger(sort: 'date')
+    expect(@site.config['recent_media'].first.data['date']).to eq(Time.parse('2018-04-27T00:00-04:00'))
+  end
+
+  it 'can sort by non-date attributes' do
+    init_merger(sort: 'title')
+    expect(@site.config['recent_media'].first.data['title']).to eq('Article #1')
+  end
 
 end

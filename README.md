@@ -262,6 +262,7 @@ There are several options you can use to manipulate the site returned to you for
 | `collections_dir` | `"#{base_path}/collections"` | Directory in which to look for collection docs. (This is how you can create fixtures without getting in the way of the project.) |
 | `collections` | `%w(articles)` | An array of collections to read. Only add the ones you need as each collection increases build time. |
 | `config_file` | `"#{base_path}/_config.yml"` | The config file to read from for the main site's config. |
+| `config_overrides` | `nil` | A hash to override specific config values, rather than point to a new file. |
 | `destination_path` | `"#{base_path}/_site"` | Directory in which to output the built site (although the site doesn't actually get written.) |
 | `source_path` | `base_path` | The source for the content from which to build. |
 
