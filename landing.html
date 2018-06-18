@@ -53,11 +53,13 @@ paginate:
       <div class="push-bottom">
         <h2 class="collection-header push-bottom text-gray-light">series</h2>
         {% include _media-object-featured.html title='Spirit Realm' link='#' count="12 episodes" image='//crds-cms-uploads.imgix.net/media/messages/stills/crossroads-spirit-realm.jpg' content='There’s more to this life than what we see, hear, or touch. The stories we hear of strange and unexplainable things—they’re not lies or make believe. The real world we live in is so much bigger, more beautiful, more terrifying, and spectacular than humanity has ever imagined. Come spend four weeks discovering how the spiritual and physical realms collide.' %}
+        <hr>
       </div>
 
       {% if page.podcasts.docs.size > 0 %}
         {% for media in page.podcasts.docs %}
-          {% include _media-object.html count="6 episodes" %}
+          {% include _media-object.html count="6 episodes" media_type="video" %}
+          <hr>
         {% endfor %}
       {% endif %}
 
@@ -66,7 +68,7 @@ paginate:
           <h2 class="collection-header push-bottom text-gray-light">podcasts</h2>
           {% include _media-object-featured.html title='IKR?' link='/podcasts/ikr/' count="29 episodes" image='https://crds-media.imgix.net/2wQvAhYczyWaIgimcma2yO/06735d3fefb9b877b3246de95235367d/crossroads-podcast-ikr.jpg' content='Being a woman… it’s complicated. Right? The expectations. The relationships. All the freaking beauty products. It can be overwhelming to try to go it alone. IKR? - I know, right? - is a podcast for women, by women. It’s a place to be known. To be challenged. To be understood. Because no one wants to go it alone. Hosts Alli and Latasha pull back the veil on what’s going on in the minds of women to prove that we’re all in this together and there’s a God who wants in on it too.' %}
           {% for media in page.podcasts.docs %}
-            {% include _media-object.html count="7 episodes" %}
+            {% include _media-object.html count="7 episodes" media_type="podcast" %}
           {% endfor %}
         </div>
       {% endif %}
