@@ -202,6 +202,7 @@ contentful:
           apple_podcasts_url: apple_podcasts_url
           google_play_url: google_play_url
           slug: slug
+          view_count: view_count
           tags: tags
         other:
           layout: video
@@ -214,12 +215,13 @@ contentful:
           title: title
           slug: slug
           image: image/url
-          bg_image: background_image/url
+          bg_image: bg_image/url
           start_date: starts_at
           end_date: ends_at
           youtube_url: youtube_url
           apple_podcasts_url: apple_podcasts_url
           google_play_url: google_play_url
+          year: "{{ starts_at | date: '%Y' }}"
         other:
           layout: series
           draft: false

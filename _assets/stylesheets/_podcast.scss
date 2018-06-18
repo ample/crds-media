@@ -55,6 +55,13 @@
       }
     }
 
+    @media screen and (max-width: $screen-sm) and (orientation: landscape) {
+      .podcast-header-artwork {
+        height: 200px;
+        width: 200px;
+      }
+    }
+
     @media screen and (min-width: $screen-sm) {
       .podcast-header-text {
         left: 330px;
@@ -74,6 +81,12 @@
     color: $cr-white;
     padding-bottom: 0;
     width: 100%;
+
+    @media screen and (min-width: $screen-sm) {
+      &, .header-content {
+        min-height: 350px;
+      }
+    }
 
     a, a:visited, a:hover, a:focus, a:active {
       color: $cr-white;
