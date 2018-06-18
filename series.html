@@ -45,7 +45,7 @@ paginate:
     {% if past_series.year != series_year %}
 
       {% assign series_year = past_series.year %}
-      <h4 class="font-family-condensed-extra font-size-h2">{{ series_year }}</h4>
+      <h4 class="font-family-condensed-extra font-size-h3 text-uppercase">{{ series_year }} Series</h4>
 
       <!-- Past series: Current year -->
       {% assign current_year = site.time | date: "%Y" %}
