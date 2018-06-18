@@ -51,6 +51,9 @@ module Jekyll
             )
             # Inject the page into the site's pages.
             site.pages << page
+
+            # Run the paginator.
+            ::PagingMisterHyde::Paginator.new(site, page)
           end
         end
 
