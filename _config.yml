@@ -199,6 +199,7 @@ contentful:
           apple_podcasts_url: apple_podcasts_url
           google_play_url: google_play_url
           slug: slug
+          view_count: view_count
           tags: tags
         other:
           layout: video
