@@ -247,7 +247,7 @@ contentful:
           date: published_at
           slug: slug
         other:
-          layout: message
+          layout: video
           draft: false
 
 defaults:
@@ -281,6 +281,11 @@ defaults:
     values:
       layout: episode
   - scope:
+      path: "/videos"
+      type: videos
+    values:
+      layout: video
+  - scope:
       path: "/series"
       type: series
     values:
@@ -289,7 +294,7 @@ defaults:
       path: "/messages"
       type: messages
     values:
-      layout: message
+      layout: video
 
 assets:
   source_maps: true # false on JEKYLL_ENV=production
