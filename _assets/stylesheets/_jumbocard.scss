@@ -7,6 +7,22 @@
     padding-top: 56.25%; // 16x9
   }
 
+  & .jumbocard-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    &:hover .jumbocard-content .text-white {
+      color: $cr-white; // 🛠  Due to DDK a:hover > h2
+    }
+
+    &:hover .jumbocard-content .text-gray-light {
+      color: $cr-gray-light; // 🛠  Due to DDK a:hover > h2
+    }
+  }
+
   & .jumbocard-content {
     position: absolute;
     bottom: 0;
