@@ -37,13 +37,11 @@ paginate:
       {% if page.articles.docs.size > 0 %}
         <div class="push-bottom">
           <h2 class="collection-header text-gray-light push-bottom">most recent</h2>
-          <div data-card-deck class="card-deck">
-            <div class="cards-2x">
-              <div class="row">
+          <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
+            <div class="feature-cards card-deck--expanded-layout">
               {% for card in page.articles.docs %}
-                {% include _media-card.html content_type=article %}
+                {% include _media-card.html carousel=true %}
               {% endfor %}
-              </div>
             </div>
           </div>
         </div>
@@ -59,7 +57,9 @@ paginate:
       {% if page.podcasts.docs.size > 0 %}
         {% for media in page.podcasts.docs %}
           {% include _media-object.html count="6 episodes" media_type="video" %}
-          <hr>
+          {% unless forloop.last %}
+            <hr>
+          {% endunless %}
         {% endfor %}
       {% endif %}
 
@@ -67,8 +67,12 @@ paginate:
         <div class="push-bottom">
           <h2 class="collection-header push-bottom text-gray-light">podcasts</h2>
           {% include _media-object-featured.html title='IKR?' link='/podcasts/ikr/' count="29 episodes" image='https://crds-media.imgix.net/2wQvAhYczyWaIgimcma2yO/06735d3fefb9b877b3246de95235367d/crossroads-podcast-ikr.jpg' content='Being a woman… it’s complicated. Right? The expectations. The relationships. All the freaking beauty products. It can be overwhelming to try to go it alone. IKR? - I know, right? - is a podcast for women, by women. It’s a place to be known. To be challenged. To be understood. Because no one wants to go it alone. Hosts Alli and Latasha pull back the veil on what’s going on in the minds of women to prove that we’re all in this together and there’s a God who wants in on it too.' %}
+          <hr>
           {% for media in page.podcasts.docs %}
             {% include _media-object.html count="7 episodes" media_type="podcast" %}
+            {% unless forloop.last %}
+              <hr>
+            {% endunless %}
           {% endfor %}
         </div>
       {% endif %}
