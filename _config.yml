@@ -53,6 +53,9 @@ collections:
   videos:
     output: true
     permalink: /:collection/:slug
+  series:
+    output: true
+    permalink: /:collection/:slug
 
 contentful:
   content_types:
@@ -200,6 +203,24 @@ contentful:
         other:
           layout: video
           draft: false
+    series:
+      id: series
+      body: description
+      frontmatter:
+        entry_mappings:
+          title: title
+          slug: slug
+          image: image/url
+          bg_image: bg_image/url
+          start_date: starts_at
+          end_date: ends_at
+          youtube_url: youtube_url
+          apple_podcasts_url: apple_podcasts_url
+          google_play_url: google_play_url
+          year: "{{ starts_at | date: '%Y' }}"
+        other:
+          layout: series
+          draft: false
 
 defaults:
   - scope:
@@ -231,6 +252,11 @@ defaults:
       type: episodes
     values:
       layout: episode
+  - scope:
+      path: "/series"
+      type: series
+    values:
+      layout: series
 
 assets:
   source_maps: true # false on JEKYLL_ENV=production
