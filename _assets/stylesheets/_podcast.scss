@@ -75,6 +75,12 @@
     padding-bottom: 0;
     width: 100%;
 
+    @media screen and (min-width: $screen-sm) {
+      &, .header-content {
+        min-height: 350px;
+      }
+    }
+
     a, a:visited, a:hover, a:focus, a:active {
       color: $cr-white;
     }
