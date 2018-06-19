@@ -51,6 +51,10 @@
     padding-top: calc(100vh - 62px); // full height minus header height
   }
 
+  @media (min-width: $screen-md) {
+    padding-top: 40rem; // 640px
+  }
+
   .jumbocard-content {
     @media (min-width: $screen-sm) {
       padding: 60px;
