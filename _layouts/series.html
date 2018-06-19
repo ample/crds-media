@@ -52,17 +52,7 @@ layout: default
           <div class="cards-3x">
             <div class="row">
               {% for message in messages %}
-                <div class="card">
-                  <a href="{{ message.url }}">
-                    <img src="{{ message.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>
-                  </a>
-                  <div class="card-block hard">
-                    <a href="{{ message.url }}">
-                      <h5 class="card-title flush-bottom" >{{ message.title }}</h5>
-                    </a>
-                    <p class="font-family-base font-size-smaller text-gray-light">{{ message.series }}</p>
-                  </div>
-                </div>
+                {% include _message-card.html %}
               {% endfor %}
             </div>
           </div>
