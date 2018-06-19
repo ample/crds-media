@@ -26,7 +26,7 @@ describe Jekyll::VideoTags::PageBuilder do
   end
 
   it 'runs the paginator' do
-    exp_doc_titles = [['Powerhouse Trailer'], ['Powerhouse Trailer'], ['What\'s Crossroads?', 'Powerhouse Trailer'], ['Redemption Song Live']]
+    exp_doc_titles = [["Powerhouse Trailer"], ["Powerhouse Trailer"], ["Powerhouse Trailer", "What's Crossroads?"], ["Redemption Song Live"]]
     page_doc_titles = @site.pages.collect { |d| d.data['videos']['docs'].collect(&:title) }
     expect(page_doc_titles).to match_array(exp_doc_titles)
   end
