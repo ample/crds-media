@@ -3,5 +3,13 @@
   @media (min-width: $screen-sm) {
     max-width: 50%;
     padding: 0 15px;
-  }  
+  }
+
+  &:nth-child(odd) {
+    padding-left: 0;
+  }
+  
+  &:nth-child(even) {
+    padding-right: 0;
+  }
 }
