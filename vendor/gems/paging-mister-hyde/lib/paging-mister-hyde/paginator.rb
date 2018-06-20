@@ -62,14 +62,13 @@ module PagingMisterHyde
 
       def offset_collection(type)
         if n = @cfg.dig(type, 'offset')
-          @page.data[type] = { "offset" => paginated_collection(type).flatten.take(n).to_a }
+          collection = filtered_and_sorted_collection(type)
+          @page.data[type] = { "offset" => collection.take(n).to_a }
         end
       end
 
       def paginated_collection(type)
-        collection = @site.collections[type].docs
-        collection = filter_collection(type, collection)
-        collection = sort_collection(type, collection)
+        collection = filtered_and_sorted_collection(type)
         per = @cfg.dig(type, 'per') || @site.collections[type].docs.length
         limit = @cfg.dig(type, 'limit')
         offset = @cfg.dig(type, 'offset') || 0
@@ -79,6 +78,12 @@ module PagingMisterHyde
         else
           pages.take(limit)
         end
+      end
+
+      def filtered_and_sorted_collection(type)
+        collection = @site.collections[type].docs
+        collection = filter_collection(type, collection)
+        sort_collection(type, collection)
       end
 
       def sort_collection(type, collection)

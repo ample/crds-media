@@ -274,6 +274,7 @@ imgix_params:
   placeholder_sixteen_nine: "auto=format,compress&w=16&h=9&fit=crop"
 
 image_sizes:
+  media_object: "(min-width: 768px) 140px, (min-width: 0px) 100px"
   cards_6x: "(min-width: 992px) 165px, (min-width: 0px) 50vw"
   cards_4x: "(min-width: 992px) 212.5px, (min-width: 768px) 345px, (min-width: 0px) 100vw"
   cards_3x: "(min-width: 992px) 390px, (min-width: 0px) 100vw"
@@ -286,5 +287,6 @@ image_sizes:
   avatar: "80px"
   full_width: "100vw"
   half_width: "50vw"
+  one_hundred: "100%"
 
 typekit_url: https://use.typekit.net/ccb3vpa.css

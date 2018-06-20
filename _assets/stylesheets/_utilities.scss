@@ -1,4 +1,12 @@
+.text-gray {
+  color: $cr-gray;
+}
+
 .text-gray-lighter {
+  color: $cr-gray-lighter;
+}
+
+a.hover-text-gray-lighter:hover * {
   color: $cr-gray-lighter;
 }
 
@@ -16,6 +24,15 @@
   }
 }
 
+.font-size-smallest {
+  font-size: 10px;
+}
+
+.font-family-base-mid {
+  font-family: "acumin-pro",helvetica,arial,sans-serif;
+  font-weight: 500;
+}
+
 .height-2 {
   height: 2rem;
 }
@@ -31,8 +48,12 @@
   }
 }
 
-a.hover-text-gray-lighter:hover * {
-  color: $cr-gray-lighter;
+.relative {
+  position: relative !important;
+}
+
+.absolute {
+  position: absolute !important;
 }
 
 // Bootstrap 4
@@ -68,4 +89,8 @@ a.hover-text-gray-lighter:hover * {
   @media (min-width: $screen-md) {
     flex-direction: row;
   }
+}
+
+.w-100 {
+  width: 100%!important;
 }

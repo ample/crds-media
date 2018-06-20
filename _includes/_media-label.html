@@ -1,0 +1,12 @@
+<div class="media-label bg-charcoal text-white">
+  <span class="font-size-smallest">{{ include.duration }}</span>
+  <svg class="icon" viewBox="0 0 256 256">
+    {% if include.media_type == "article" %}
+      <use xlink:href="/assets/svgs/icons.svg#media-article"></use>
+    {% elsif include.media_type == "video" %}
+      <use xlink:href="/assets/svgs/icons.svg#media-video"></use>
+    {% elsif include.media_type == "podcast" %}
+      <use xlink:href="/assets/svgs/icons.svg#media-podcast"></use>
+    {% endif %}
+  </svg>
+</div>
