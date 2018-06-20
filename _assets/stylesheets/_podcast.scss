@@ -55,6 +55,13 @@
       }
     }
 
+    @media screen and (max-width: $screen-sm) and (orientation: landscape) {
+      .podcast-header-artwork {
+        height: 200px;
+        width: 200px;
+      }
+    }
+
     @media screen and (min-width: $screen-sm) {
       .podcast-header-text {
         left: 330px;
