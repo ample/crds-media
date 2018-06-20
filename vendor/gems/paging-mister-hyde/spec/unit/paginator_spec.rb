@@ -36,11 +36,13 @@ describe PagingMisterHyde::Paginator do
 
   context 'with an offset' do
     before do
+      @n = Random.rand(10)
       @total_docs = @site.collections['articles'].docs.count
       @page = Jekyll::Page.new(@site, @base, "", "articles.html")
       @page.data['paginate'] = {
         "articles" => {
-          "offset" => 5,
+          "offset" => @n,
+          "sort" => "date desc",
           "per" => @total_docs
         }
       }
@@ -50,9 +52,15 @@ describe PagingMisterHyde::Paginator do
     it 'should exclude the offset items from front of the pagination array' do
       offset = @page.data.dig('articles', 'offset')
       docs = @page.data.dig('articles', 'docs')
-      expect(offset.count).to eq(5)
-      expect(docs.count).to eq(@total_docs - 5)
-      expect(offset.collect { |x| x.data['title'] }).to_not match_array(docs.collect { |x| x.data['title'] })
+      expect(offset.count).to eq(@n)
+      expect(docs.count).to eq(@total_docs - @n)
+
+      offset_titles = offset.collect { |x| x.data['title'] }
+      all_titles = docs.collect { |x| x.data['title'] }
+
+      offset_titles.each do |title|
+        expect(all_titles).to_not include(title)
+      end
     end
   end
 
