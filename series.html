@@ -18,7 +18,7 @@ paginate:
   {% for featured in page.series.offset %}
   <div class="row soft-bottom current-series">
     <div class="col-xs-12 col-md-7">
-      <img src="{{ featured.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ featured.title }}" sizes="{{ site.image_sizes.full_width }}" data-optimize-img>
+      <img style="width: 100%;" src="{{ featured.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine}}" alt="{{ featured.title }}" sizes="{{ site.image_sizes.full_width }}" data-optimize-img>
     </div>
 
     <div class="col-xs-12 col-md-5">
@@ -45,7 +45,7 @@ paginate:
     {% if past_series.year != series_year %}
 
       {% assign series_year = past_series.year %}
-      <h4 class="font-family-condensed-extra font-size-h2">{{ series_year }}</h4>
+      <h4 class="font-family-condensed-extra font-size-h3 text-uppercase">{{ series_year }} Series</h4>
 
       <!-- Past series: Current year -->
       {% assign current_year = site.time | date: "%Y" %}
@@ -58,7 +58,7 @@ paginate:
 
           <div class="col-xs-12 col-md-4">
             <a href="{{ item.url }}" title="{{ item.title }}">
-              <img class="push-bottom" src="{{ item.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ item.title }}" data-optimize-img>
+              <img class="push-bottom" style="width: 100%;" src="{{ item.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ item.title }}" sizes="{{ site.image_sizes.cards_3x }}" data-optimize-img>
             </a>
           </div>
 
@@ -75,7 +75,7 @@ paginate:
 
           <div class="col-xs-6 col-md-2">
             <a href="{{ item.url }}" title="{{ item.title }}">
-              <img class="push-bottom" src="{{ item.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ item.title }}" data-optimize-img>
+              <img class="push-bottom" style="width: 100%;" src="{{ item.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ item.title }}" sizes="{{ site.image_sizes.cards_6x }}" data-optimize-img>
             </a>
           </div>
 
