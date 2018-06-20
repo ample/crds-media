@@ -1,0 +1,92 @@
+---
+layout: default
+title: Series
+paginate:
+  series:
+    offset: 1
+    sort: start_date desc
+---
+
+<div class="container">
+  <ol class="breadcrumb hard-sides hard-bottom push-top flush-bottom">
+    <li><a href="/">Media</a></li>
+  </ol>
+
+  <h3 class="font-family-condensed-extra font-size-h1 text-uppercase flush-top push-bottom">Series</h3>
+
+  <!-- Begin current Series -->
+  {% for featured in page.series.offset %}
+  <div class="row soft-bottom current-series">
+    <div class="col-xs-12 col-md-7">
+      <img src="{{ featured.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ featured.title }}" sizes="{{ site.image_sizes.full_width }}" data-optimize-img>
+    </div>
+
+    <div class="col-xs-12 col-md-5">
+      <label class="label label-primary font-family-accent text-capitalize soft-half-sides soft-quarter-ends">Current Series</label>
+
+      <h1 class="font-family-condensed-extra text-uppercase flush-bottom">{{ featured.title }}</h1>
+
+      <date class="metadata">{{ featured.start_date | date: "%m.%d.%Y" }} &mdash; {{ featured.end_date | date: "%m.%d.%Y" }}</date>
+
+      <div class="push-half-top push-bottom font-size-base">
+        {{ featured.content }}
+      </div>
+
+      <a class="btn btn-outline btn-gray-light" role="button">View the series</a>
+    </div>
+  </div>
+  {% endfor %}
+  <!-- End current series -->
+
+  <!-- Begin previous series -->
+  {% assign series_year = '' %}
+  {% for past_series in page.series.docs %}
+
+    {% if past_series.year != series_year %}
+
+      {% assign series_year = past_series.year %}
+      <h4 class="font-family-condensed-extra font-size-h2">{{ series_year }}</h4>
+
+      <!-- Past series: Current year -->
+      {% assign current_year = site.time | date: "%Y" %}
+      {% if past_series.year == current_year %}
+
+      <div class="row">
+        {% assign items = page.series.docs %}
+        {% for item in items %}
+          {% if item.year == series_year %}
+
+          <div class="col-xs-12 col-md-4">
+            <a href="{{ item.url }}" title="{{ item.title }}">
+              <img class="push-bottom" src="{{ item.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ item.title }}" data-optimize-img>
+            </a>
+          </div>
+
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      {% else %}
+
+      <div class="row">
+        {% assign items = page.series.docs %}
+        {% for item in items %}
+          {% if item.year == series_year %}
+
+          <div class="col-xs-6 col-md-2">
+            <a href="{{ item.url }}" title="{{ item.title }}">
+              <img class="push-bottom" src="{{ item.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ item.title }}" data-optimize-img>
+            </a>
+          </div>
+
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      {% endif %}
+
+    {% endif %}
+
+  {% endfor %}
+  <!-- End previous series -->
+</div>
