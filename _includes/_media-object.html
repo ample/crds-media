@@ -1,18 +1,20 @@
-<div class='media hard-top'>
+<div class="media">
   <div class="media-body">
-    <h4 class="component-header flush-ends">
+    <h5 class="font-family-condensed-extra text-uppercase flush-ends">
       <a href="{{ media.url }}">{{ media.title }}</a>
-    </h4>
+    </h5>
     <p class="soft-quarter-top font-size-smaller flush-bottom">{{ media.content | strip_html | truncatewords: 15 }}</p>
-    <p class="font-size-smaller text-gray-light">{{ include.count }}</p>
+     {% if include.media_type == "podcast" %}
+      <p class="font-size-smaller text-gray-light">{% include _count.html key="podcast" subject=media.title collection=site.episodes label="episode" %}</p>
+    {% else %}
+      <p class="font-size-smaller text-gray-light">{% include _count.html key="series" subject=media.title collection=site.messages label="message" %}</p>
+    {% endif %}
   </div>
-  <div class="media-img-wrapper">
-    <a href="{{ media.url }}">
-      {% if include.media_type == "podcast" or include.media_type == "episode" or include.media_type == "song" or include.media_type == "album" %}
-        <img src="{{ media.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.podcast_thumb }}" data-optimize-img />
-      {% else %}
-        <img src="{{ media.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img />
-      {% endif %}
-    </a>
-  </div>
+  <a href="{{ media.url }}" class="soft-quarter-left">
+    {% if include.media_type == "podcast" or include.media_type == "episode" or include.media_type == "song" or include.media_type == "album" %}
+      <img src="{{ media.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.media_object }}" data-optimize-img />
+    {% else %}
+      <img src="{{ media.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.media_object }}" data-optimize-img />
+    {% endif %}
+  </a>
 </div>
