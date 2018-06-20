@@ -2,12 +2,12 @@
 layout: default
 ---
 <div class="media-series-detail">
-  <div class="jumbotron jumbotron-xl push-14-top push-2-bottom" style="background-image: url('{{ page.bg_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
+  <div class="jumbotron jumbotron-xl soft-14-top soft-2-bottom mobile-soft-top" style="background-image: url('{{ page.bg_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
     <div class="jumbotron-content">
       <div class="container">
         <div class="row">
           <div class="col-sm-5 col-sm-push-7">
-            <img class="feature-img" src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.podcast_thumb }}" data-optimize-img>
+            <img class="feature-img img-full-width" src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.podcast_thumb }}" data-optimize-img>
           </div>
 
           <div class="col-sm-6 col-sm-offset-1 col-sm-pull-5 text-left">

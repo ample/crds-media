@@ -21,10 +21,14 @@
   }
 
   &.jumbotron-xl {
-    &.push-14-top {
+    &.soft-14-top {
       padding-top: 14rem;
+
+      @media screen and (max-width: $screen-sm) {
+        padding-top: 3rem;
+      }
     }
-    &.push-2-bottom {
+    &.soft-2-bottom {
       padding-bottom: 2rem;
     }
   }
