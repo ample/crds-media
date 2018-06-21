@@ -37,15 +37,12 @@ a.hover-text-gray-lighter:hover * {
   height: 2rem;
 }
 
-@media (max-width: $screen-md) {
-  .cards-2x-sm .card {
-    float: left;
-    width: 50%;
+.soft-7-bottom {
+  padding-bottom: 7rem;
+}
 
-    &:nth-child(odd) {
-      clear: left;
-    }
-  }
+.img-size-5 {
+  min-width: 5rem;
 }
 
 .relative {
