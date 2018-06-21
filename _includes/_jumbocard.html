@@ -4,7 +4,7 @@
   <div class="jumbocard" style="background-image: url('{{ jumbocard.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}'); background-size: cover;" data-optimize-bg-img>
 {% endif %}
   <a class="jumbocard-link" href="{{ jumbocard.url }}">
-    {% include _media-label.html media_type="article" duration="12 min read" %}
+    {% include _media-label.html source=jumbocard %}
     <div class="jumbocard-content text-left">
       <span class="font-size-smaller text-uppercase text-gray-lighter">{{ jumbocard.topic }}</span>
       <h2 class="jumbocard-title font-family-condensed-extra text-uppercase text-white flush">{{ jumbocard.title }}</h2>

@@ -60,6 +60,13 @@ collections:
     output: true
     permalink: /series/:series_slug/:slug
 
+merged_collections:
+  recent_media:
+    merge:
+      - articles
+      - videos
+    sort: date desc
+
 contentful:
   content_types:
     articles:
@@ -191,7 +198,7 @@ contentful:
           title: title
           subtitle: subtitle
           authors: author/full_name
-          video_duration: video_duration
+          duration: video_duration
           date: published_at
           image: image/url
           source_url: source_url

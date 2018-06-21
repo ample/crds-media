@@ -235,6 +235,33 @@ paginate:
 ---
 ```
 
+### Merging Collections
+
+Existing collections can be combined together using the (local) jekyll-collection-merger gem. Do this by adding a `merged_collections` option to your `_config.yml` file.
+
+Each merged collection gets a name, a list of collections to merge, and a directive for sorting. If sorting is missing, the collection is returned as-is.
+
+The resulting collection is available on the site's config object and can be used in liquid templates directly on the site object.
+
+Take the following configuration:
+
+```yml
+merged_collections:
+  recent_media:
+    merge:
+      - articles
+      - videos
+    sort: date desc
+```
+
+This combines articles and videos collections then sorts them by date in descending order. It then presents the combined collections of docs on the site object when working with templates:
+
+```liquid
+{% for obj in site.recent_media limit: 8 %}
+  {{ obj.title }}
+{% endfor %}
+```
+
 Testing
 ----------
 
@@ -262,6 +289,7 @@ There are several options you can use to manipulate the site returned to you for
 | `collections_dir` | `"#{base_path}/collections"` | Directory in which to look for collection docs. (This is how you can create fixtures without getting in the way of the project.) |
 | `collections` | `%w(articles)` | An array of collections to read. Only add the ones you need as each collection increases build time. |
 | `config_file` | `"#{base_path}/_config.yml"` | The config file to read from for the main site's config. |
+| `config_overrides` | `nil` | A hash to override specific config values, rather than point to a new file. |
 | `destination_path` | `"#{base_path}/_site"` | Directory in which to output the built site (although the site doesn't actually get written.) |
 | `source_path` | `base_path` | The source for the content from which to build. |
 
