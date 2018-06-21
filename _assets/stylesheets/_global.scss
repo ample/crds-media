@@ -26,10 +26,6 @@
   }
 }
 
-.card:nth-child(4n+1) {
-  clear: left;
-}
-
 .card img {
   width: 100%;
 }
@@ -56,6 +52,10 @@ h3 {
   font-weight: 500;
   text-transform: uppercase;
   text-transform: uppercase;
+}
+
+.collection-header {
+  border-top-width: 2px;
 }
 
 .alert {
