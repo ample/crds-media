@@ -147,7 +147,7 @@ layout: default
             <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
               <div class="feature-cards">
 
-                {% assign limited = site.episodes | sort: 'date' | reverse | slice: 0, 4 %}
+                {% assign limited = site.episodes | sort: 'date' | slice: 0, 4 | exclude: page.title %}
               {% for podcast in limited limit: 3 %}
                 {% include _podcast-card.html %}
               {% endfor %}

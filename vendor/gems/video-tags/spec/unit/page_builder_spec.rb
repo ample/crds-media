@@ -21,13 +21,14 @@ describe Jekyll::VideoTags::PageBuilder do
   end
 
   it 'creates a page for each tag' do
-    exp_page_data = [
-      {"paginate"=>{"videos"=>{"per"=>8, "where"=>{"tags"=>":title"}}}, "layout"=>"default", "slug"=>"another-collection", "title"=>"Another Collection"},
-      {"paginate"=>{"videos"=>{"per"=>8, "where"=>{"tags"=>":title"}}}, "layout"=>"default", "slug"=>"awesomeness", "title"=>"Awesomeness"},
-      {"paginate"=>{"videos"=>{"per"=>8, "where"=>{"tags"=>":title"}}}, "layout"=>"default", "slug"=>"collection-1", "title"=>"Collection #1"},
-      {"paginate"=>{"videos"=>{"per"=>8, "where"=>{"tags"=>":title"}}}, "layout"=>"default", "slug"=>"culture", "title"=>"culture"}
-    ]
-    expect(@site.pages.collect { |p| p.data }).to match_array(exp_page_data)
+    exp_page_data = ['Another Collection', 'Awesomeness', 'Collection #1', 'culture']
+    expect(@site.pages.collect { |p| p.data['title'] }).to match_array(exp_page_data)
+  end
+
+  it 'runs the paginator' do
+    exp_doc_titles = [["Powerhouse Trailer"], ["Powerhouse Trailer"], ["Powerhouse Trailer", "What's Crossroads?"], ["Redemption Song Live"]]
+    page_doc_titles = @site.pages.collect { |d| d.data['videos']['docs'].collect(&:title) }
+    expect(page_doc_titles).to match_array(exp_doc_titles)
   end
 
 end

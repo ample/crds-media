@@ -9,45 +9,47 @@ layout: default
   {% assign videos = videos | push: video %}
 {% endfor %}
 
-<div class="jumbotron jumbotron-xl" style="background-image: url('{{ page.bg_image | imgix: site.imgix }}'); background-size: cover;" data-optimize-img>
-  <div class="bg-overlay"></div>
-  <div class="container jumbotron-content">
-    <div class="row d-flex flex-column-reverse flex-md-row">
-      <div class="col-md-6 col-md-offset-1 text-left">
-        <ol class="breadcrumb hard-sides hard-bottom flush-bottom">
-          <li><a href="/">Media</a></li>
-          <li><a href="/music">Music</a></li>
-        </ol>
+<div class="song-detail-tpl">
+  <div class="jumbotron jumbotron-xl" style="background-image: url('{{ page.bg_image | imgix: site.imgix }}'); background-size: cover;" data-optimize-img>
+    <div class="bg-overlay"></div>
+    <div class="container jumbotron-content">
+      <div class="row d-flex flex-column-reverse flex-md-row">
+        <div class="col-md-6 col-md-offset-1 text-left">
+          <ol class="breadcrumb hard-sides hard-bottom flush-bottom">
+            <li><a href="/">Media</a></li>
+            <li><a href="/music">Music</a></li>
+          </ol>
 
-        <h1 class="font-family-condensed-extra text-uppercase flush-top push-bottom">{{ page.title }}</h1>
+          <h1 class="font-family-condensed-extra font-size-h1 text-uppercase flush-top push-bottom">{{ page.title }}</h1>
 
-        <div class="font-size-base white-faded markdown">{{ page.content }}</div>
+          <div class="font-size-base markdown">{{ page.content }}</div>
+        </div>
+        <div class="col-md-4 push-bottom">
+          <img class="media-artwork push-top mobile-flush-top" src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.song_artwork }}" data-optimize-img>
+        </div>
       </div>
-      <div class="col-md-4 push-bottom mobile-center-block">
-        <img src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}" sizes="{{ site.image_sizes.music_thumb }}" data-optimize-img>
+      <div class="row text-left push-bottom">
+        <div class="col-md-6 col-md-offset-1">
+          {% include _external-music-links.html %}
+        </div>
       </div>
-    </div>
-    <div class="row text-left push-bottom">
-      <div class="col-md-6 col-md-offset-1">
-        {% include _external-music-links.html %}
-      </div>
-    </div>
-    {% if videos.size > 0 %}
-    <div class="row text-left">
-      <div class="col-sm-10 col-sm-offset-1">
-          <h3 class="text-lowercase font-size-large font-family-base-light white-faded ">watch</h3>
-          <div data-card-deck class="card-deck">
-            <div class="cards-4x">
-              <div class="row">
-                {% for video in videos %}
-                  {% include _video-card.html image_size="4x" theme="dark" %}
-                {% endfor %}
+      {% if videos.size > 0 %}
+      <div class="row text-left">
+        <div class="col-sm-10 col-sm-offset-1">
+            <h3 class="text-lowercase font-size-large font-family-base-light">watch</h3>
+            <div data-card-deck class="card-deck">
+              <div class="cards-4x">
+                <div class="row">
+                  {% for video in videos %}
+                    {% include _video-card.html image_size="4x" theme="dark" %}
+                  {% endfor %}
+                </div>
               </div>
             </div>
-          </div>
+        </div>
       </div>
+      {% endif %}
     </div>
-    {% endif %}
   </div>
 </div>
 

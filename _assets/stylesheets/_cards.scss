@@ -1,16 +1,15 @@
-@media (min-width: $screen-sm) {
-  .feature-cards {
-    display: flex;
-    flex-direction:row;
-    &.card-deck--expanded-layout .card,
-    .card {
-      max-width: none;
-      flex: 0 1 31%;
-      margin-right: 2%;
-    }
+.card-deck--expanded-layout .card-2x {
+  flex: 1 0 auto;
+  @media (min-width: $screen-sm) {
+    max-width: 50%;
+    padding: 0 15px;
   }
-}
 
-.card-deck--expanded-layout .card {
-  padding: 0 .5rem 0 0;
+  &:nth-child(odd) {
+    padding-left: 0;
+  }
+  
+  &:nth-child(even) {
+    padding-right: 0;
+  }
 }

@@ -2,6 +2,7 @@
 layout: default
 ---
 {% assign video_id = page.source_url | youtube_id %}
+{% assign series = site.series | where:"title", page.series | first %}
 
 <div class="container">
   <div class="row">
@@ -16,9 +17,15 @@ layout: default
       </div>
       {% endif %}
 
-      <p class="breadcrumb push-top hard-sides flush-bottom hard-sides">
-        <a href="/">Media</a> /
-        <a href="/videos">Videos</a> /</p>
+      <ol class="breadcrumb push-top hard-sides flush-bottom hard-sides">
+        <li><a href="/">Media</a></li>
+        {% if series %}
+        <li><a href="/series">Series</a></li>
+        <li><a href="{{ series.url }}">{{ series.title }}</a></li>
+        {% else %}
+        <li><a href="/videos">Videos</a></li>
+        {% endif %}
+      </ol>
       <h1 class="font-family-condensed-extra text-uppercase flush-top push-bottom">{{ page.title }}</h1>
       <!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
@@ -48,7 +55,6 @@ layout: default
     </div>
   </div>
 
-  <!-- copied from episode start -->
   <div class="row push-bottom">
     <div class="col-sm-8 col-sm-offset-2">
       {% for author_name in page.authors %}
@@ -95,27 +101,64 @@ layout: default
     {% include _subscribe-buttons.html content_type=page youtube=true %}
   </div>
 
-  <div class="soft-7-bottom">
-    {% if site.videos.size > 1 %}
+  {% assign messages = site.messages | where: "series", page.series | reverse | exclude: page.title %}
+
+  {% if site.videos.size > 1 or messages.size > 1 %}
     <div class="push-top soft-top row">
       <div class="col-sm-8 col-sm-offset-2">
 
-        <div class="push-bottom">
-          <h2 class="component-header flush-top">Recent Videos</h2>
-        </div>
+        <section class="{% if series == nil %} soft-7-bottom {% else %} push-bottom {% endif %}">
+          <h2 class="component-header flush-top">
+            {% if series %}In this Series
+            {% else %}Recent Videos{% endif %}
+          </h2>
 
-        <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
-          <div class="feature-cards">
-            {% assign limited = site.videos | sort: 'date' | reverse | slice: 0, 10 | exclude: page.title %}
-            {% for video in limited limit: 9 %}
-              {% include _video-card.html %}
-            {% endfor %}
+          {% if messages.size > 1 %}
+          <div class="cards-3x cards-2x-xs">
+            <div class="row">
+              {% for message in messages %}
+                {% include _message-card.html %}
+              {% endfor %}
+            </div>
           </div>
-        </div>
+          {% elsif message.size < 0 and series %}
+          <p class="font-family-base soft-ends push-bottom">Related messages will be here soon!</p>
+
+          {% else %}
+
+          <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
+            <div class="feature-cards">
+              {% assign limited = site.videos | sort: 'date' | reverse | exclude: page.title %}
+              {% for video in limited %}
+                {% include _video-card.html %}
+              {% endfor %}
+            </div>
+          </div>
+
+          {% endif %}
+        </section>
+
+        {% if series %}
+
+          {% assign limited = site.series | sort: 'date' | reverse | slice: 0, 7 | exclude: page.series %}
+          <section class="soft-7-bottom">
+            <h2 class="component-header flush-top">Recent Series</h2>
+            <div class="cards-2x">
+              <div class="row">
+                {% for item in limited limit: 6  %}
+                <div class="card">
+                  {% include _series-card.html %}
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </section>
+
+        {% endif %}
 
       </div>
     </div>
-    {% endif %}
-  </div>
+
+  {% endif %}
 
 </div>

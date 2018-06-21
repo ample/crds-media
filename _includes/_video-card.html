@@ -1,9 +1,9 @@
 <div class="card">
   <a href="{{ video.url }}">
     {% if include.imgix_size == "2x" %}
-    <img src="{{ video.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>
+    <img src="{{ video.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_2x }}" alt="{{ video.title }}" data-optimize-img>
     {% else %}
-    <img src="{{ video.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
+    <img src="{{ video.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_4x }}" alt="{{ video.title }}" data-optimize-img>
     {% endif %}
   </a>
   <div class="card-block hard">
@@ -13,7 +13,7 @@
     {% else %}
     <a href="{{ video.url }}">
       <h5 class="card-title">{{ video.title }}</h5>
-    {% endif %}  
+    {% endif %}
     </a>
   </div>
 </div>

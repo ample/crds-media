@@ -3,7 +3,8 @@
     <div data-card-deck class="card-deck">
       <div class="cards-4x">
         <div class="row">
-        {% for post in site.articles | limit:4 %}
+        {% assign recent_articles = site.articles | sort: 'date' | reverse | slice: 0, 5 | exclude: page.title %}
+        {% for post in recent_articles limit:4 %}
           {% if page.index != post.index %}
             {% include _article-card.html content_type=article %}
           {% else %}
