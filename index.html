@@ -8,7 +8,7 @@ paginate:
   series:
     per: 4
     limit: 1
-    sort: date desc
+    sort: start_date desc
 ---
 {% assign recent_featured = site.recent_media | slice: 1, 3 %}
 {% assign recent_unfeatured = site.recent_media | slice: 4, 8 %}
