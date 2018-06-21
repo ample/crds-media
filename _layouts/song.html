@@ -22,7 +22,7 @@ layout: default
 
           <h1 class="font-family-condensed-extra font-size-h1 text-uppercase flush-top push-bottom">{{ page.title }}</h1>
 
-          <div class="font-size-base markdown">{{ page.content }}</div>
+          <div class="font-size-base white-faded markdown">{{ page.content }}</div>
         </div>
         <div class="col-md-4 push-bottom">
           <img class="media-artwork push-top mobile-flush-top" src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.song_artwork }}" data-optimize-img>

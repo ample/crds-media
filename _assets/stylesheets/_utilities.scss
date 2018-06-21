@@ -14,13 +14,13 @@ a.hover-text-gray-lighter:hover * {
   background-color: $cr-gray;
 }
 
-.white-faded, .jumbotron .white-faded a {
-  color: rgba($cr-white, 0.8); // #FFFFFF
-}
-
-.text-xs-left {
-  @media only screen and (max-width: $screen-sm) {
-    text-align: left;
+.white-faded {
+  &, a {
+    &, .jumbotron & {
+      @media screen and (min-width: $screen-sm) {
+        color: rgba($cr-white, 0.8);
+      }
+    }
   }
 }
 
