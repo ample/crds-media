@@ -26,10 +26,6 @@
   }
 }
 
-.card:nth-child(4n+1) {
-  clear: left;
-}
-
 .card img {
   width: 100%;
 }
@@ -59,7 +55,7 @@ h3 {
 }
 
 .collection-header {
-  border-top-width: 2px; 
+  border-top-width: 2px;
 }
 
 .alert {

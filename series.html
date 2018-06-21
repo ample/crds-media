@@ -57,9 +57,7 @@ paginate:
           {% if item.year == series_year %}
 
           <div class="col-xs-12 col-md-4">
-            <a href="{{ item.url }}" title="{{ item.title }}">
-              <img class="push-bottom" style="width: 100%;" src="{{ item.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ item.title }}" sizes="{{ site.image_sizes.cards_3x }}" data-optimize-img>
-            </a>
+            {% include _series-card.html %}
           </div>
 
           {% endif %}
@@ -74,9 +72,7 @@ paginate:
           {% if item.year == series_year %}
 
           <div class="col-xs-6 col-md-2">
-            <a href="{{ item.url }}" title="{{ item.title }}">
-              <img class="push-bottom" style="width: 100%;" src="{{ item.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ item.title }}" sizes="{{ site.image_sizes.cards_6x }}" data-optimize-img>
-            </a>
+            {% include _series-card.html %}
           </div>
 
           {% endif %}

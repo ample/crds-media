@@ -56,6 +56,9 @@ collections:
   series:
     output: true
     permalink: /:collection/:slug
+  messages:
+    output: true
+    permalink: /series/:series_slug/:slug
 
 contentful:
   content_types:
@@ -222,6 +225,30 @@ contentful:
         other:
           layout: series
           draft: false
+    messages:
+      id: message
+      body: description
+      frontmatter:
+        entry_mappings:
+          title: title
+          authors: author/full_name
+          image: image/url
+          source_url: source_link
+          series: series/title
+          series_slug: series/slug
+          program: program/url
+          video_duration: video_duration
+          topic: category/title
+          topic_slug: category/slug
+          tags: tags
+          transcription: transcription
+          apple_podcasts_url: apple_podcasts_url
+          google_play_url: google_play_url
+          date: published_at
+          slug: slug
+        other:
+          layout: video
+          draft: false
 
 defaults:
   - scope:
@@ -254,10 +281,20 @@ defaults:
     values:
       layout: episode
   - scope:
+      path: "/videos"
+      type: videos
+    values:
+      layout: video
+  - scope:
       path: "/series"
       type: series
     values:
       layout: series
+  - scope:
+      path: "/messages"
+      type: messages
+    values:
+      layout: video
 
 assets:
   source_maps: true # false on JEKYLL_ENV=production

@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/crdschurch/crds-styles.git
-  revision: 9287fb1c0f7f82965d4942f3d1b19fd3394cde90
+  revision: eb36b94382cabc00690bdff500e620fe26123620
   branch: development
   specs:
     crds-styles (3.0.0)
@@ -52,7 +52,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    autoprefixer-rails (8.6.2)
+    autoprefixer-rails (8.6.3)
       execjs
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
@@ -75,7 +75,7 @@ GEM
     extras (0.3.0)
       forwardable-extended (~> 2.5)
     fastimage (2.1.3)
-    ffi (1.9.23)
+    ffi (1.9.25)
     formatador (0.2.5)
     forwardable-extended (2.6.0)
     guard (2.14.2)
