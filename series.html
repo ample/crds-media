@@ -19,7 +19,7 @@ paginate:
   <div class="row soft-bottom current-series">
     <div class="col-xs-12 col-md-7">
       <a href="{{ featured.url }}" title="{{ featured.title }}">
-        <img style="width: 100%;" src="{{ featured.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine}}" alt="{{ featured.title }}" sizes="{{ site.image_sizes.full_width }}" data-optimize-img>
+        <img class="img-full-width" src="{{ featured.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine}}" alt="{{ featured.title }}" sizes="{{ site.image_sizes.full_width }}" data-optimize-img>
       </a>
     </div>
 
