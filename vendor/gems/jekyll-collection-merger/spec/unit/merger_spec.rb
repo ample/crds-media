@@ -57,4 +57,10 @@ describe Jekyll::CollectionMerger::Merger do
     expect(@site.config['recent_media'].first.data['title']).to eq('Article #1')
   end
 
+  it 'injects the (singularized) content type into the doc\'s data' do
+    init_merger
+    content_types = @site.config['recent_media'].collect { |d| d.data['content_type'] }.uniq
+    expect(content_types).to match_array(%w(article episode))
+  end
+
 end
