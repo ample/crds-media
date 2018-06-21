@@ -21,6 +21,10 @@ module Jekyll
           site.config[name] << site.collections[collection_name].docs
         end
         site.config[name].flatten!
+        site.config[name].each do |doc|
+          content_type = doc.collection.label.underscore.singularize
+          doc.data.merge!('content_type' => content_type)
+        end
       end
 
       def sort_docs
