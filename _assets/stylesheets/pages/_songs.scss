@@ -1,0 +1,19 @@
+.song-detail-tpl {
+  .jumbotron {
+    padding-top: 1rem;
+    padding-bottom: 3.75rem;
+
+    @media screen and (min-width: $screen-md) {
+      padding-top: 7.5rem;
+    }
+  }
+
+  .bg-overlay {
+    background: linear-gradient(to bottom, transparent, rgba(23,23,23,1) 50%, rgba(23,23,23,1) 100%);
+  }
+
+  .media-artwork {
+    box-shadow: 0 0 .5rem 0 rgba($cr-black, 15);
+    width: 100%;
+  }
+}

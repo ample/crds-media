@@ -233,7 +233,7 @@ contentful:
           title: title
           authors: author/full_name
           image: image/url
-          source_url: source_url
+          source_url: source_link
           series: series/title
           series_slug: series/slug
           program: program/url
@@ -321,6 +321,7 @@ image_sizes:
   podcast_thumb: "(min-width: 768px) 330px, (min-width: 480px) 200px, (min-width: 0px) 100vw"
   episode_thumb: "(min-width: 768px) 120px, (min-width: 0px) 80px"
   album_thumb: "96px"
+  song_artwork: "(min-width: 992px) 360px, (min-width: 0px) 100vw"
   avatar: "80px"
   full_width: "100vw"
   half_width: "50vw"
