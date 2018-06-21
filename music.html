@@ -46,7 +46,7 @@ paginate:
     </div>
   {% endif %}
 
-  <div class="cards-4x cards-2x-sm" data-page="songs">
+  <div class="cards-4x cards-2x-xs" data-page="songs">
     <div class="row" data-page-number="{{ page.songs.page }}">
       {% for song in page.songs.docs %}
         {% include _song-card.html %}

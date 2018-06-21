@@ -1,5 +1,78 @@
 ---
 layout: default
 ---
+{% if page.bg_image == nil %}
+  {% assign overflow-hidden = "overflow-hidden" %}
+{% endif %}
 
-i am a series
+<div class="media-series-detail">
+  <div class="jumbotron jumbotron-xl soft-14-top soft-2-bottom mobile-soft-top {{ overflow-hidden }}" style="background-image: url('{{ page.bg_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
+    {% if page.bg_image == nil %}
+    <div class="blur" style="background-image: url('{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img></div>
+    <div class="bg-overlay-85"></div>
+    {% endif %}
+    <div class="jumbotron-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-5 col-sm-push-7">
+            <img class="feature-img img-full-width" src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.podcast_thumb }}" data-optimize-img>
+          </div>
+
+          <div class="col-sm-6 col-sm-offset-1 col-sm-pull-5 text-left">
+
+            <ol class="breadcrumb hard flush-bottom text-white">
+              <li><a href="/">Media</a></li>
+              <li><a href="/series">Series</a></li>
+            </ol>
+
+            <h1 class="font-family-condensed-extra text-uppercase flush-top push-bottom">
+              {{ page.title }}
+            </h1>
+            <hr class="hero">
+
+            <div class="font-size-base markdown">{{ page.content }}</div>
+
+            <ul class="list-inline soft-half-top">
+              <li>
+                <script src="https://apis.google.com/js/platform.js"></script>
+                <div class="g-ytsubscribe" data-channel="crdschurch" data-layout="default" data-count="default"></div>
+              </li>
+              <li class="sub white-faded">
+                {% include _social-share.html %}
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+        {% assign messages = site.messages | where: "series", page.title | reverse %}
+
+        {% if messages.size > 1 %}
+        <section class="push-bottom">
+          <h2 class="component-header flush-top">In This Series</h2>
+
+          <div class="cards-3x">
+            <div class="row">
+              {% for message in messages %}
+                {% include _message-card.html %}
+              {% endfor %}
+            </div>
+          </div>
+        </section>
+        {% endif %}
+
+      </div>
+
+      <div class="col-sm-10 col-sm-offset-1 soft-7-bottom">
+        {% include _subscribe-buttons.html content_type=page youtube=true row=false %}
+      </div>
+
+    </div>
+  </div>
+</div>

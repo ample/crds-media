@@ -18,7 +18,7 @@ paginate:
       {% include _video-nav.html %}
     </div>
     <div class="col-md-10">
-      <div class="cards-4x cards-2x-sm" data-page="videos">
+      <div class="cards-4x cards-2x-xs" data-page="videos">
         <div class="row" data-page-number="{{ page.videos.page }}">
           {% for video in page.videos.docs %}
             {% include _video-card.html image_size="4x" %}
