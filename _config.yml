@@ -233,7 +233,7 @@ contentful:
           title: title
           authors: author/full_name
           image: image/url
-          source_url: source_link
+          source_url: source_url
           series: series/title
           series_slug: series/slug
           program: program/url
