@@ -1,7 +1,4 @@
 .label {
-  border-radius: 0;
-  text-transform: unset;
-
   .current-series & {
     @media screen and (max-width: $screen-md) {
       position: absolute;

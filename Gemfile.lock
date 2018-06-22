@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/crdschurch/crds-styles.git
-  revision: eb36b94382cabc00690bdff500e620fe26123620
+  revision: 79304f6d4e7dba8111b294420c2e8ef69b2ed6bb
   branch: development
   specs:
     crds-styles (3.0.0)
