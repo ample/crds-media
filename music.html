@@ -23,11 +23,11 @@ paginate:
   {% if page.songs.page == 1 %}
     {% assign hero = page.songs.offset | first %}
     {% if hero.bg_image %}
-      {% assign bg-img = hero.bg_image %}
+      {% assign bg_img = hero.bg_image %}
     {% else %}
-      {% assign bg-img = hero.image %}
+      {% assign bg_img = hero.image %}
     {% endif %}
-    <div class="jumbotron jumbotron-xl" style="background-image: url('{{ bg-img | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
+    <div class="jumbotron jumbotron-xl" style="background-image: url('{{ bg_img | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
       <div class="bg-overlay"></div>
       <div class="jumbotron-content">
         <h4 class="font-size-small text-uppercase text-gray-lighter">
