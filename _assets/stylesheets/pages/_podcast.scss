@@ -97,7 +97,7 @@
       padding: 1rem 0;
 
       @media screen and (min-width: $screen-sm) {
-        min-height: 18.75rem; // prevents layout issues with text if no description  
+        min-height: 18.75rem; // prevents layout issues with text if no description
         padding-top: 3.75rem;
       }
     }
@@ -159,92 +159,65 @@
 
 // 3. Podcast episode styles
 .media-podcast-episode {
-  position: relative;
-
-  .episode-header-background {
-    .podcast-background-image {
-      position: relative;
-      width: 100%;
-      height: 185px;
-      overflow: hidden;
-
-      @media screen and (min-width: $screen-sm) {
-        height: 125px;
-      }
-
-      img {
-        min-height: 185px;
-        width: 100%;
-
-        @media screen and (min-width: $screen-sm) {
-          min-height: 125px;
-        }
-      }
-    }
+  .breadcrumb {
+    margin-bottom: .5rem;
   }
 
   .episode-header {
-    color: $cr-white;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    min-height: 185px;
-    max-height: 185px;
-    background-color: rgba($cr-black, 0.2);
+    margin: 2rem 0;
+  }
 
-    @media screen and (min-width: $screen-sm) {
-      min-height: 125px;
-      max-height: 125px;
-    }
+  .episode-header-content {
+    padding-right: .5rem;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: flex-end;
 
-    .episode-thumbnail-image__desktop img,
-    .episode-thumbnail-image__mobile img {
-      box-shadow: 0 0 8px 0 rgba(0,0,0, .15);
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .episode-artwork {
+      box-shadow: 0 0 .5rem 0 rgba($cr-black, .15);
+      flex: 0 0 80px;
+      margin-left: 2rem;
 
-    .episode-thumbnail-image__desktop {
-      display: none;
-      position: absolute;
-      margin-top: 2rem;
-      margin-right: 1rem;
-      width: 7.5rem;
-      height: 7.5rem;
-
-      @media screen and (min-width: $screen-sm) {
-        display: block;
-        margin-left: -9rem;
+      > img {
+        width: 100%;
       }
     }
 
-    .episode-thumbnail-image__mobile {
-      flex: 0 0 5rem;
-      margin-top: 2rem;
-      margin-right: 1rem;
-      margin-left: 1rem;
-      width: 5rem;
-      height: 5rem;
 
-      @media screen and (min-width: $screen-sm) {
-        display: none;
+    > h1 {
+      padding-right: .5rem;
+    }
+  }
+
+  @media screen and (min-width: $screen-sm) {
+    .episode-header {
+      .breadcrumb {
+        margin-bottom: 0;
+        padding-left: 140px;
       }
     }
 
-    .episode-text {
-      margin-top: 2rem;
-      margin-left: 1rem;
-    }
+    .episode-header-content {
+      flex-direction: row;
+      justify-content: unset;
 
-    .mobile-wrapper {
-      display: flex;
+      .episode-artwork {
+        flex-basis: 120px;
+        margin-left: 0;
+        position: absolute;
+        top: 2.25rem;
+        width: 120px;
+      }
+
+      > h1 {
+        padding-right: 0;
+        padding-left: 140px;
+      }
     }
   }
 
   .embedded-audio-player {
     margin: 1rem 0 3rem;
   }
-
 }

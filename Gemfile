@@ -25,7 +25,7 @@ group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.6"
   gem 'jekyll-redirect-from'
   gem 'jekyll-assets'
-  gem 'crds-styles', git: 'https://github.com/crdschurch/crds-styles.git', branch: 'development'
+  gem 'crds-styles', "~> 3.0.1", git: 'https://github.com/crdschurch/crds-styles.git'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

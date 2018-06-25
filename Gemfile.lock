@@ -1,9 +1,8 @@
 GIT
   remote: https://github.com/crdschurch/crds-styles.git
-  revision: 79304f6d4e7dba8111b294420c2e8ef69b2ed6bb
-  branch: development
+  revision: 24d5ec37f69f97057d980f26e5a281bf693a1151
   specs:
-    crds-styles (3.0.0)
+    crds-styles (3.0.1)
       bootstrap-sass (~> 3.3)
       sass (~> 3.2)
 
@@ -223,7 +222,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-  crds-styles!
+  crds-styles (~> 3.0.1)!
   guard-rspec
   hashie
   jekyll (~> 3.7.2)
