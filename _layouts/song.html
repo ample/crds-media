@@ -9,13 +9,19 @@ layout: default
   {% assign videos = videos | push: video %}
 {% endfor %}
 
+{% if page.bg_image %}
+  {% assign bg_img = page.bg_image %}
+{% else %}
+  {% assign bg_img = page.image %}
+{% endif %}
+
 <div class="song-detail-tpl">
-  <div class="jumbotron jumbotron-xl" style="background-image: url('{{ page.bg_image | imgix: site.imgix }}'); background-size: cover;" data-optimize-img>
+  <div class="jumbotron jumbotron-xl" style="background-image: url('{{ bg_img | imgix: site.imgix }}'); background-size: cover;" data-optimize-bg-img>
     <div class="bg-overlay"></div>
     <div class="container jumbotron-content">
       <div class="row d-flex flex-column-reverse flex-md-row">
         <div class="col-md-6 col-md-offset-1 text-left">
-          <ol class="breadcrumb hard-sides hard-bottom flush-bottom">
+          <ol class="breadcrumb hard-sides hard-bottom flush-bottom text-white">
             <li><a href="/">Media</a></li>
             <li><a href="/music">Music</a></li>
           </ol>
@@ -35,17 +41,15 @@ layout: default
       </div>
       {% if videos.size > 0 %}
       <div class="row text-left">
-        <div class="col-sm-10 col-sm-offset-1">
-            <h3 class="text-lowercase font-size-large font-family-base-light">watch</h3>
-            <div data-card-deck class="card-deck">
-              <div class="cards-4x">
-                <div class="row">
-                  {% for video in videos %}
-                    {% include _video-card.html image_size="4x" theme="dark" %}
-                  {% endfor %}
-                </div>
-              </div>
+        <div class="col-md-10 col-md-offset-1">
+          <h3 class="text-lowercase font-size-large font-family-base-light text-white">watch</h3>
+          <div class="cards-4x cards-2x-xs">
+            <div class="row">
+              {% for video in videos %}
+                {% include _video-card.html image_size="4x" theme="dark" %}
+              {% endfor %}
             </div>
+          </div>
         </div>
       </div>
       {% endif %}
