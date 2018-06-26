@@ -64,6 +64,19 @@ describe PagingMisterHyde::Paginator do
     end
   end
 
+  context 'with an empty collection' do
+    before do
+      @page = Jekyll::Page.new(@site, @base, "", "articles.html")
+      @page.data['paginate'] = { "songs" => { "per" => 10 } }
+      @paginator = PagingMisterHyde::Paginator.new(@site, @page)
+    end
+
+    it 'returns an empty array for pages' do
+      # binding.pry
+      expect(@page.data.dig('songs', 'docs')).to eq([])
+    end
+  end
+
   context 'Articles' do
     before do
       @filename = "articles.html"
