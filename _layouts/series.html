@@ -56,7 +56,8 @@ layout: default
   <div class="container">
     <div class="row">
       <div class="col-sm-10 col-sm-offset-1">
-        {% assign messages = site.messages | where: "series", page.title | reverse %}
+
+        {% assign messages = page.associations['videos'] %}
 
         {% if messages.size > 1 %}
         <section class="push-bottom">
@@ -71,7 +72,6 @@ layout: default
           </div>
         </section>
         {% endif %}
-
       </div>
 
       <div class="col-sm-10 col-sm-offset-1 soft-7-bottom">
