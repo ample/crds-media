@@ -217,6 +217,10 @@ contentful:
     series:
       id: series
       body: description
+      associations:
+        videos:
+          - videos
+          - messages
       frontmatter:
         entry_mappings:
           title: title
@@ -229,6 +233,7 @@ contentful:
           apple_podcasts_url: apple_podcasts_url
           google_play_url: google_play_url
           year: "{{ starts_at | date: '%Y' }}"
+          videos: videos/id
         other:
           layout: series
           draft: false
@@ -241,8 +246,6 @@ contentful:
           authors: author/full_name
           image: image/url
           source_url: source_url
-          series: series/title
-          series_slug: series/slug
           program: program/url
           video_duration: video_duration
           topic: category/title
