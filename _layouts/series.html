@@ -1,23 +1,14 @@
 ---
 layout: default
 ---
-{% if page.bg_image %}
-  {% assign jumbotron_image = page.bg_image %}
-{% elsif page.image %}
-  {% assign jumbotron_image = page.image %}
-  {% assign blur = true %}
-{% else %}
-  {% assign jumbotron_bg_color = true %}
-{% endif %}
-
-
 {% if page.bg_image == nil %}
   {% assign overflow-hidden = "overflow-hidden" %}
 {% endif %}
 
 <div class="media-series-detail">
-    <div class="{% if jumbotron_bg_color %}bg-blue{% endif %} {% if blur %}blur{% endif %} jumbotron jumbotron-xl soft-14-top soft-2-bottom mobile-soft-top {{ overflow-hidden }}" style="{% if jumbotron_image %}background-image: url('{{ jumbotron_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}'){% endif %}" data-optimize-bg-img>
-    {% if blur %}
+  <div class="jumbotron jumbotron-xl soft-14-top soft-2-bottom mobile-soft-top {{ overflow-hidden }}" style="background-image: url('{{ page.bg_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
+    {% if page.bg_image == nil %}
+      <div class="blur" style="background-image: url('{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img></div>
       <div class="bg-overlay-85"></div>
     {% endif %}
 
