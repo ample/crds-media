@@ -219,8 +219,8 @@ contentful:
       body: description
       associations:
         videos:
-          videos: id
-          messages: id
+          - videos
+          - messages
       frontmatter:
         entry_mappings:
           title: title
