@@ -1,19 +1,49 @@
+{% assign topic = site.topics | where: "title", video.topic | first %}
+
 <div class="card">
-  <a href="{{ video.url }}">
-    {% if include.imgix_size == "2x" %}
-    <img src="{{ video.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_2x }}" alt="{{ video.title }}" data-optimize-img>
+  <a class="relative" href="{{ video.url }}">
+    {% if include.imgix_size == "1x" %}
+      <img src="{{ video.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.card_1x }}" alt="{{ video.title }}" data-optimize-img>
+    {% elsif include.imgix_size == "2x" %}
+      <img src="{{ video.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_2x }}" alt="{{ video.title }}" data-optimize-img>
     {% else %}
-    <img src="{{ video.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_4x }}" alt="{{ video.title }}" data-optimize-img>
+      <img src="{{ video.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_4x }}" alt="{{ video.title }}" data-optimize-img>
     {% endif %}
+    {% include _media-label.html source=video %}
   </a>
   <div class="card-block hard">
     {% if include.theme == "dark" %}
-    <a class="hover-text-gray-lighter" href="{{ video.url }}">
-      <h5 class="card-title text-gray-light">{{ video.title }}</h5>
+      <a class="hover-text-gray-lighter" href="{{ video.url }}">
+        <h5 class="card-title font-size-smaller text-white">{{ video.title }}</h5>
+        <div class="font-size-smaller">
+          {% if video.topic != nil %}
+            <a class="text-gray-light" href="{{ topic.url }}">{{ video.topic }} &#xB7;</a>
+          {% endif %}
+          {% for person in video.authors %}
+            {% assign video_author = site.authors | where: "name", person | first %}
+            <a class="text-gray-light" href="{{ video_author.url }}">{{ person }}</a>
+            {% unless forloop.last %}
+            <span class="text-gray-light">&amp;</span>
+            {% endunless %}
+          {% endfor %}
+        </div>
+      </a>
     {% else %}
-    <a href="{{ video.url }}">
-      <h5 class="card-title">{{ video.title }}</h5>
+      <a href="{{ video.url }}">
+        <h5 class="card-title font-size-smaller">{{ video.title }}</h5>
+        <div class="font-size-smaller">
+          {% if video.topic != nil %}
+            <a href="{{ topic.url }}">{{ video.topic }} &#xB7;</a>
+          {% endif %}
+          {% for person in video.authors %}
+            {% assign video_author = site.authors | where: "name", person | first %}
+            <a href="{{ video_author.url }}">{{ person }}</a>
+            {% unless forloop.last %}
+            <span>&amp;</span>
+            {% endunless %}
+          {% endfor %}
+        </div>
+      </a>
     {% endif %}
-    </a>
   </div>
 </div>
