@@ -1,0 +1,13 @@
+.source-links  {
+  @media (max-width: $screen-sm) {
+    & { 
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    } 
+
+    .source-link {
+      width: 50%;
+    }
+  }
+}
