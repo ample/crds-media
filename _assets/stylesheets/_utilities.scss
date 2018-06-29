@@ -1,9 +1,13 @@
 .text-gray {
-  color: $cr-gray;
+  color: $cr-gray !important;
+}
+
+.text-gray-light {
+  color: $cr-gray-light !important;
 }
 
 .text-gray-lighter {
-  color: $cr-gray-lighter;
+  color: $cr-gray-lighter !important;
 }
 
 a.hover-text-gray-lighter:hover * {
@@ -11,7 +15,19 @@ a.hover-text-gray-lighter:hover * {
 }
 
 .bg-gray {
-  background-color: $cr-gray;
+  background-color: $cr-gray !important;
+}
+
+.bg-gray-dark {
+  background-color: $cr-gray-dark !important;
+}
+
+.bg-black-50 {
+  background-color: rgba(0,0,0,.5);
+}
+
+.border-white-15 {
+  border: 1px solid rgba(255,255,255,.15);
 }
 
 .white-faded {
@@ -26,6 +42,14 @@ a.hover-text-gray-lighter:hover * {
 
 .font-size-smallest {
   font-size: 10px;
+}
+
+.font-size-giant {
+  font-size: 48px;
+  @media (min-width: $screen-sm) {
+    font-size: 90px;
+    line-height: .89;
+  }
 }
 
 .font-family-base-mid {
@@ -55,7 +79,7 @@ a.hover-text-gray-lighter:hover * {
 
 // Bootstrap 4
 .d-flex {
-  display: flex;
+  display: flex !important;
 }
 
 .flex-column {
