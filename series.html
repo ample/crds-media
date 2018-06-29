@@ -16,27 +16,31 @@ paginate:
 
   <!-- Begin current Series -->
   {% for featured in page.series.offset %}
-  <div class="row soft-bottom current-series">
-    <div class="col-xs-12 col-md-7">
-      <a href="{{ featured.url }}" title="{{ featured.title }}">
-        <img class="img-full-width" src="{{ featured.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine}}" alt="{{ featured.title }}" sizes="{{ site.image_sizes.full_width }}" data-optimize-img>
-      </a>
-    </div>
-
-    <div class="col-xs-12 col-md-5">
-      <label class="label label-primary text-capitalize no-border-radius font-family-accent text-capitalize soft-half-sides soft-quarter-ends">Current Series</label>
-
-      <h1 class="font-family-condensed-extra text-uppercase flush-bottom">{{ featured.title }}</h1>
-
-      <date class="metadata">{{ featured.start_date | date: "%m.%d.%Y" }} &mdash; {{ featured.end_date | date: "%m.%d.%Y" }}</date>
-
-      <div class="push-half-top push-bottom font-size-base">
-        {{ featured.content }}
+    <div class="row soft-bottom current-series">
+      <div class="col-xs-12 col-md-7">
+        <a href="{{ featured.url }}" title="{{ featured.title }}">
+          {% if featured.image %}
+            <img class="img-full-width" src="{{ featured.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine}}" alt="{{ featured.title }}" sizes="{{ site.image_sizes.full_width }}" data-optimize-img>
+          {% else %}
+            <img class="img-full-width" src="{{ site.default_image }}?{{ site.imgix_params.placeholder_sixteen_nine}}" alt="{{ featured.title }}" sizes="{{ site.image_sizes.full_width }}" data-optimize-img>
+          {% endif %}
+        </a>
       </div>
 
-      <a href="{{ featured.url }}" title="{{ featured.title }}" class="btn btn-outline btn-gray-light" role="button">View the series</a>
+      <div class="col-xs-12 col-md-5">
+        <label class="label label-primary text-capitalize no-border-radius font-family-accent text-capitalize soft-half-sides soft-quarter-ends">Current Series</label>
+
+        <h1 class="font-family-condensed-extra text-uppercase flush-bottom">{{ featured.title }}</h1>
+
+        <date class="metadata">{{ featured.start_date | date: "%m.%d.%Y" }} &mdash; {{ featured.end_date | date: "%m.%d.%Y" }}</date>
+
+        <div class="push-half-top push-bottom font-size-base">
+          {{ featured.content }}
+        </div>
+
+        <a href="{{ featured.url }}" title="{{ featured.title }}" class="btn btn-outline btn-gray-light" role="button">View the series</a>
+      </div>
     </div>
-  </div>
   {% endfor %}
   <!-- End current series -->
 
