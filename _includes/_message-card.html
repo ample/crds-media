@@ -9,10 +9,9 @@
     <img src="{{ image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_2x }}" alt="{{ message.title }}" data-optimize-img>
   </a>
   <div class="card-block hard">
-    <a href="{{ message.url }}">
-      <h5 class="card-title flush-bottom" >{{ message.title }}</h5>
-      <h5 class="card-title flush-bottom" >{{ page.title }}</h5>
-    </a>
-    <p class="font-family-base font-size-smaller text-gray-light">{{ message.series }}</p>
+    <h3 class="font-size-small font-family-condensed push-half-top push-quarter-bottom">
+      <a href="{{ message.url }}">{{ message.title }}</a>
+    </h3>
+    <p class="font-family-base font-size-smaller text-gray-light">{{ page.title }}</p>
   </div>
 </div>
