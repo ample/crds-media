@@ -43,3 +43,19 @@
   position: relative;
   z-index: 1;
 }
+
+.card {
+  > a {
+    color: $cr-gray-dark;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    .card-block {
+      .card-title:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
