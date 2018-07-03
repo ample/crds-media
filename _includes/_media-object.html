@@ -12,9 +12,15 @@
   </div>
   <a href="{{ media.url }}" class="soft-quarter-left">
     {% if include.media_type == "podcast" or include.media_type == "episode" or include.media_type == "song" or include.media_type == "album" %}
-      <img src="{{ media.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.media_object }}" data-optimize-img />
+      {% if media.image %}
+        <img class="media-img" src="{{ media.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.media_object }}" data-optimize-img />
+      {% else %}
+        <img class="media-img" src="{{ site.default_image }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.media_object }}" data-optimize-img />
+      {% endif %}
+    {% elsif media.image %}
+      <img class="media-img" src="{{ media.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.media_object }}" data-optimize-img />
     {% else %}
-      <img src="{{ media.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.media_object }}" data-optimize-img />
+      <img class="media-img" src="{{ site.default_image }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.media_object }}" data-optimize-img />
     {% endif %}
   </a>
 </div>
