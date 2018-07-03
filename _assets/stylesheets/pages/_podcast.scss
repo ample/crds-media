@@ -227,4 +227,10 @@
   .embedded-audio-player {
     margin: 1rem 0 3rem;
   }
+
+  @media (min-width: 768px) {
+    .feature-cards .card {
+      max-width: 33%;
+    }
+  }
 }
