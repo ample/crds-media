@@ -240,6 +240,11 @@ contentful:
     messages:
       id: message
       body: description
+      links:
+        series_slug:
+          content_type: series
+          field: videos
+          value: slug
       frontmatter:
         entry_mappings:
           title: title
