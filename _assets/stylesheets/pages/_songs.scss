@@ -6,6 +6,10 @@
     @media screen and (min-width: $screen-md) {
       padding-top: 25rem;
     }
+
+    .card .block {
+      display: block;
+    }
   }
 
   .bg-overlay {
