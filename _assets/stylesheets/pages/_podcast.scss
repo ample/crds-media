@@ -229,8 +229,13 @@
   }
 
   @media (min-width: $screen-sm) {
-    .feature-cards .card {
-      max-width: 33%;
+    .feature-cards {
+      margin-left: -.5rem;
+      margin-right: -.5rem;
+      
+      .card {
+        max-width: calc(100%/3);
+      }  
     }
   }
 }
