@@ -128,7 +128,7 @@ layout: default
           <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
             <div class="feature-cards">
               {% assign limited = site.videos | sort: 'date' | reverse | exclude: page.title %}
-              {% for video in limited %}
+              {% for video in limited limit: 8 %}
                 {% include _video-card.html %}
               {% endfor %}
             </div>
