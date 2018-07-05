@@ -228,7 +228,7 @@
     margin: 1rem 0 3rem;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: $screen-sm) {
     .feature-cards .card {
       max-width: 33%;
     }
