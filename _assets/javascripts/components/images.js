@@ -102,6 +102,8 @@ CRDS.BgImageOptimizer = function(bgEl) {
 CRDS.BgImageOptimizer.prototype.constructor = CRDS.BgImageOptimizer;
 
 CRDS.BgImageOptimizer.prototype.renderTmpImg = function() {
+  this.bgEl.parent().css('position', 'relative');
+
   // First, create a clone of the element with the background image and remove
   // its content. Then place it behind the primary element.
   this.tmpPlacholderBgEl = this.bgEl.clone();
