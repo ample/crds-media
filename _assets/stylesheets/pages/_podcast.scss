@@ -185,6 +185,7 @@
       box-shadow: 0 0 .5rem 0 rgba($cr-black, .15);
       flex: 0 0 80px;
       margin-left: 2rem;
+      z-index: 10;
 
       > img {
         width: 100%;
