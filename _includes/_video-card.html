@@ -1,7 +1,7 @@
 {% assign topic = site.topics | where: "title", video.topic | first %}
 
 <div class="card">
-  <a class="relative" href="{{ video.url }}">
+  <a class="relative block" href="{{ video.url }}">
     {% if include.imgix_size == "1x" %}
       <img src="{{ video.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.card_1x }}" alt="{{ video.title }}" data-optimize-img>
     {% elsif include.imgix_size == "2x" %}
@@ -15,6 +15,10 @@
     {% if include.theme == "dark" %}
       <a class="hover-text-gray-lighter" href="{{ video.url }}">
         <h5 class="card-title font-size-smaller text-white">{{ video.title }}</h5>
+    {% else %}
+      <a href="{{ video.url }}">
+        <h5 class="card-title font-size-smaller push-quarter-bottom">{{ video.title }}</h5>
+    {% endif %}
         <div class="font-size-smaller">
           {% if video.topic != nil %}
             <a class="text-gray-light" href="{{ topic.url }}">{{ video.topic }} &#xB7;</a>
@@ -28,22 +32,5 @@
           {% endfor %}
         </div>
       </a>
-    {% else %}
-      <a href="{{ video.url }}">
-        <h5 class="card-title font-size-smaller">{{ video.title }}</h5>
-        <div class="font-size-smaller">
-          {% if video.topic != nil %}
-            <a href="{{ topic.url }}">{{ video.topic }} &#xB7;</a>
-          {% endif %}
-          {% for person in video.authors %}
-            {% assign video_author = site.authors | where: "name", person | first %}
-            <a href="{{ video_author.url }}">{{ person }}</a>
-            {% unless forloop.last %}
-            <span>&amp;</span>
-            {% endunless %}
-          {% endfor %}
-        </div>
-      </a>
-    {% endif %}
   </div>
 </div>
