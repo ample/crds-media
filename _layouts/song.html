@@ -41,9 +41,9 @@ layout: default
           <!-- Featured Video -->
           {% for video in videos limit: 1 %}
             {% if video.source_url %}
-              <div class="card relative">
+              <div class="card relative push-bottom">
                 {% assign video_id = video.source_url | youtube_id %}
-                <div class="row push-top soft-top">
+                <div class="push-top">
                   {% include _yt-embed.html %}
                 </div>
                 <div class="pull-right">
@@ -68,9 +68,9 @@ layout: default
               {% include _video-card.html imgix_size="1x" theme="dark" %}
             {% endif %}
           {% endfor %}
-
+          
           <!-- Other Related Videos -->
-          <div class="cards-4x cards-2x-xs">
+          <div class="cards-4x">
             <div class="row">
               {% assign other_videos = videos | slice: 1, videos.size %}
               {% for video in other_videos %}
@@ -78,6 +78,7 @@ layout: default
               {% endfor %}
             </div>
           </div>
+          
         </div>
       </div>
       {% endif %}
@@ -181,9 +182,9 @@ layout: default
         </p>
         <div class="media flush-top">
           <div class="d-flex flex-row-reverse">
-            <div class="media-object img-size-6">
+            <div class="media-object">
               <a href="/albums/{{ page.album_slug }}">
-                <img src="{{ page.album_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}" sizes="{{ site.image_sizes.album_thumb }}" data-optimize-img />
+                <img class="img-size-6" src="{{ page.album_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}" sizes="{{ site.image_sizes.album_thumb }}" data-optimize-img />
               </a>
             </div>
           </div>
@@ -216,10 +217,19 @@ layout: default
           <h2 class="component-header flush-top">Recent Songs</h3>
           <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
             <div class="feature-cards">
-
+              
               {% assign recent = site.songs | sort: 'date' | reverse %}
               {% for song in recent limit: 9 %}
-                {% include _song-card.html %}
+                <div class="card card-3x">
+                  <a href="{{ song.url }}">
+                    <img src="{{ song.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>                    
+                  </a>
+                  <div class="card-block hard">
+                    <a href="{{ song.url }}">
+                      <h5 class="card-title font-size-small">{{ song.title }}</h5>
+                    </a>
+                  </div>
+                </div>
               {% endfor %}
 
             </div>
