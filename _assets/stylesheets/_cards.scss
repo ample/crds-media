@@ -80,3 +80,11 @@
     }
   }
 }
+
+.cards-2x-sm {
+  @media (max-width: $screen-sm) {
+    .card {
+      max-width: 50%;
+    }
+  }
+}
