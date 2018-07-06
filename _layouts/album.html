@@ -10,7 +10,9 @@ layout: default
         <div class="row">
           <div class="col-sm-8 col-sm-offset-2 text-left md-text-center">
             <!-- album image -->
-            <img class="center-block" src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.music_thumb }}" data-optimize-img>
+            <div class="album-artwork">
+              <img class="img-full-width" src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.song_artwork }}" data-optimize-img>
+            </div>
 
             <!-- breadcrumb navigation -->
             <ol class="breadcrumb hard-sides hard-bottom push-top flush-bottom">
