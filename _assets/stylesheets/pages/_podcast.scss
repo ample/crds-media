@@ -2,9 +2,6 @@
 // 2. Podcast series styles
 // 3. Podcast episode styles
 
-
-
-
 // 1. Master podcast styles
 .media-podcast {
   max-width: 750px;
@@ -35,6 +32,11 @@
 
 // 2. Podcast series styles
 .media-podcast-show {
+
+  .feature-img {
+    width: 100%;
+  }
+
   .mobile-wrapper {
     .podcast-header-text {
       padding-top: 2rem;
@@ -42,8 +44,10 @@
     }
 
     @media screen and (min-width: $screen-xs) {
+
       .podcast-header-artwork {
         position: absolute;
+        width: 12.5rem; // 200px
       }
 
       .podcast-header-text {
@@ -73,6 +77,11 @@
     @media screen and (min-width: $screen-md) {
       .podcast-header-text {
         padding-left: 2.75rem;
+      }
+
+      .podcast-header-artwork {
+        width: 20.625rem; // 330px
+        height: 20.625rem; // 330px
       }
     }
   }
@@ -155,8 +164,6 @@
 }
 
 
-
-
 // 3. Podcast episode styles
 .media-podcast-episode {
   .breadcrumb {
@@ -178,6 +185,7 @@
       box-shadow: 0 0 .5rem 0 rgba($cr-black, .15);
       flex: 0 0 80px;
       margin-left: 2rem;
+      z-index: 10;
 
       > img {
         width: 100%;
@@ -219,5 +227,16 @@
 
   .embedded-audio-player {
     margin: 1rem 0 3rem;
+  }
+
+  @media (min-width: $screen-sm) {
+    .feature-cards {
+      margin-left: -.5rem;
+      margin-right: -.5rem;
+      
+      .card {
+        max-width: calc(100%/3);
+      }  
+    }
   }
 }

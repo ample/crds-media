@@ -17,15 +17,24 @@ layout: default
       </div>
       {% endif %}
 
+      <!-- Start breadcrumbs -->
+      {% assign url_array = page.url | split: '/' | shift | pop %}
+      {% capture url_string %} {{ page.url | replace: '/', " " }}{% endcapture %}
+      {% assign url="" %}
       <ol class="breadcrumb push-top hard-sides flush-bottom hard-sides">
         <li><a href="/">Media</a></li>
-        {% if series %}
-        <li><a href="/series">Series</a></li>
-        <li><a href="{{ series.url }}">{{ series.title }}</a></li>
-        {% else %}
-        <li><a href="/videos">Videos</a></li>
-        {% endif %}
+
+        {% for breadcrumb in url_array %}
+        {% capture first_word %}{{ url_string | truncatewords: 1, "" }}{% endcapture %}
+        {% capture url %}{{ url }}/{{ first_word }}{% endcapture %}
+
+        <li><a href="{{ url }}">{{ breadcrumb | replace: '-', ' ' | capitalize }}</a></li>
+
+        {% capture url_string %}{{ url_string | remove_first: first_word }}{% endcapture %}
+        {% endfor %}
       </ol>
+      <!-- End breadcrumbs -->
+
       <h1 class="font-family-condensed-extra text-uppercase flush-top push-bottom">{{ page.title }}</h1>
       <!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
@@ -129,7 +138,7 @@ layout: default
           <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
             <div class="feature-cards">
               {% assign limited = site.videos | sort: 'date' | reverse | exclude: page.title %}
-              {% for video in limited %}
+              {% for video in limited limit: 8 %}
                 {% include _video-card.html %}
               {% endfor %}
             </div>
