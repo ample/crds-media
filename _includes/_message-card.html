@@ -7,11 +7,12 @@
 <div class="card">
   <a href="{{ message.url }}" title="{{ message.title }}">
     <img src="{{ image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_2x }}" alt="{{ message.title }}" data-optimize-img>
-    <div class="card-block hard">
-      <h3 class="card-title font-size-small font-family-condensed push-half-top push-quarter-bottom">
-        {{ message.title }}
-      </h3>
-      <p class="font-family-base font-size-smaller text-gray-light">{{ page.title }}</p>
-    </div>
   </a>
+  <div class="card-block hard">
+    <a href="{{ message.url }}">
+      <h5 class="card-title flush-bottom" >{{ message.title }}</h5>
+      <h5 class="card-title flush-bottom" >{{ page.title }}</h5>
+    </a>
+    <p class="font-family-base font-size-smaller text-gray-light">{{ message.series }}</p>
+  </div>
 </div>
