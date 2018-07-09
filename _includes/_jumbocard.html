@@ -1,7 +1,7 @@
 {% if include.size == "xl" %}
-  <div class="jumbocard jumbocard-xl" style="background-image: url('{{ jumbocard.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}'); background-size: cover; background-position: center center;" data-optimize-bg-img>
+  <div class="jumbocard jumbocard-xl" style="background-image: url('{{ jumbocard.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}');" data-optimize-bg-img>
 {% else %}
-  <div class="jumbocard" style="background-image: url('{{ jumbocard.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}'); background-size: cover;" data-optimize-bg-img>
+  <div class="jumbocard" style="background-image: url('{{ jumbocard.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}');" data-optimize-bg-img>
 {% endif %}
   <a class="jumbocard-link" href="{{ jumbocard.url }}">
     {% include _media-label.html source=jumbocard %}
