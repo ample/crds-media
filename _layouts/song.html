@@ -43,13 +43,13 @@ layout: default
             {% if video.source_url %}
               <div class="card relative push-bottom">
                 {% assign video_id = video.source_url | youtube_id %}
-                <div class="push-top">
+                <div class="push-ends">
                   {% include _yt-embed.html %}
                 </div>
                 <div class="pull-right">
                   {% include _yt-subscribe-btn.html url="https://www.youtube.com/user/crdschurch" %}
                 </div>
-                <h5 class="card-title font-size-smaller text-white push-quarter-bottom">{{ video.title }}</h5>
+                <h6 class="card-title text-white push-quarter-bottom">{{ video.title }}</h6>
                 <div class="font-size-smaller">
                   {% if video.topic != nil %}
                     <a class="text-gray-light" href="{{ topic.url }}">{{ video.topic }} &#xB7;</a> 
