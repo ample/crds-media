@@ -81,11 +81,13 @@
   }
 }
 
-.cards-2x-sm {
+.cards-2x-sm .card {
   @media (max-width: $screen-sm) {
-    .card {
-      float: left;
-      width: 50%;
+    float: left;
+    width: 50%;
+
+    &:nth-child(odd) {
+      clear: left;
     }
   }
 }
