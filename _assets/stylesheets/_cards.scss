@@ -17,6 +17,27 @@
       padding-right: 0;
     }
   }
+  
+  .card.card-3x {
+    flex: 1 0 auto;
+
+    @media (min-width: $screen-sm) {
+      flex-basis: calc(100%/3);
+      max-width: calc(100%/3);
+      padding-left: 15px;
+      padding-right: 15px;
+
+      // every 4th item starting at 1
+      &:nth-child(3n+1) {
+        margin-left: -15px;
+      }
+
+      // every 3rd item
+      &:nth-child(3n) {
+        margin-right: -15px;
+      }
+    }
+  }
 }
 
 // 🛠 Remove once we refactor cards
@@ -56,6 +77,17 @@
       .card-title:hover {
         text-decoration: underline;
       }
+    }
+  }
+}
+
+.cards-2x-sm .card {
+  @media (max-width: $screen-sm) {
+    float: left;
+    width: 50%;
+
+    &:nth-child(odd) {
+      clear: left;
     }
   }
 }
