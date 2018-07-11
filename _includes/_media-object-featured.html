@@ -13,14 +13,14 @@
   <a href="{{ featured.url }}" class="push-half-bottom">
     {% if include.media_type == "podcast" or include.media_type == "episode" or include.media_type == "song" or include.media_type == "album" %}
       {% if featured.image %}
-        <img src="{{ featured.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.one_hundred }}" data-optimize-img />
+        <img class="media-img" src="{{ featured.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.one_hundred }}" data-optimize-img />
       {% else %}
-        <img src="{{ site.default_image }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.one_hundred }}" data-optimize-img />
+        <img class="media-img" src="{{ site.default_image }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.one_hundred }}" data-optimize-img />
       {% endif %}
     {% elsif featured.image %}
-      <img src="{{ featured.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.one_hundred }}" data-optimize-img />
+      <img class="media-img" src="{{ featured.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.one_hundred }}" data-optimize-img />
     {% else %}
-      <img src="{{ site.default_image }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.one_hundred }}" data-optimize-img />
+      <img class="media-img" src="{{ site.default_image }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.one_hundred }}" data-optimize-img />
     {% endif %}
   </a>
 </div>
