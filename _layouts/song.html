@@ -19,37 +19,66 @@ layout: default
   <div class="jumbotron jumbotron-xl" style="background-image: url('{{ bg_img | imgix: site.imgix }}'); background-size: cover;" data-optimize-bg-img>
     <div class="bg-overlay"></div>
     <div class="container jumbotron-content">
-      <div class="row d-flex flex-column-reverse flex-md-row">
-        <div class="col-md-6 col-md-offset-1 text-left">
+      <div class="row d-flex flex-column flex-md-row">
+        <div class="col-md-7 col-md-offset-1 text-left push-bottom">
           <ol class="breadcrumb hard-sides hard-bottom flush-bottom text-white">
             <li><a href="/">Media</a></li>
             <li><a href="/music">Music</a></li>
           </ol>
 
-          <h1 class="font-family-condensed-extra font-size-h1 text-uppercase flush-top push-bottom">{{ page.title }}</h1>
+          <h2 class="font-family-condensed-extra font-size-giant text-uppercase text-white flush-top push-bottom">{{ page.title }}</h2>
 
           <div class="font-size-base white-faded markdown">{{ page.content }}</div>
         </div>
-        <div class="col-md-4 push-bottom">
-          <img class="media-artwork push-top mobile-flush-top" src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.song_artwork }}" data-optimize-img>
-        </div>
-      </div>
-      <div class="row text-left push-bottom">
-        <div class="col-md-6 col-md-offset-1">
+        <div class="col-md-3 push-bottom">
           {% include _external-music-links.html %}
         </div>
       </div>
       {% if videos.size > 0 %}
       <div class="row text-left">
         <div class="col-md-10 col-md-offset-1">
-          <h3 class="text-lowercase font-size-large font-family-base-light text-white">watch</h3>
-          <div class="cards-4x cards-2x-xs">
+
+          <!-- Featured Video -->
+          {% for video in videos limit: 1 %}
+            {% if video.source_url %}
+              <div class="card relative push-bottom">
+                {% assign video_id = video.source_url | youtube_id %}
+                <div class="push-ends">
+                  {% include _yt-embed.html %}
+                </div>
+                <div class="pull-right">
+                  {% include _yt-subscribe-btn.html url="https://www.youtube.com/user/crdschurch" %}
+                </div>
+                <h6 class="card-title text-white push-quarter-bottom">{{ video.title }}</h6>
+                <div class="font-size-smaller">
+                  {% if video.topic != nil %}
+                    <a class="text-gray-light" href="{{ topic.url }}">{{ video.topic }} &#xB7;</a> 
+                  {% endif %}
+
+                  {% for person in video.authors %}
+                    {% assign video_author = site.authors | where: "name", person | first %}
+                    <a class="text-gray-light" href="{{ video_author.url }}">{{ person }}</a>
+                    {% unless forloop.last %}
+                    <span class="text-gray-light">&amp;</span>
+                    {% endunless %}
+                  {% endfor %}
+                </div>
+              </div>
+            {% else %}
+              {% include _video-card.html imgix_size="1x" theme="dark" %}
+            {% endif %}
+          {% endfor %}
+          
+          <!-- Other Related Videos -->
+          <div class="cards-4x cards-2x-sm">
             <div class="row">
-              {% for video in videos %}
-                {% include _video-card.html image_size="4x" theme="dark" %}
+              {% assign other_videos = videos | slice: 1, videos.size %}
+              {% for video in other_videos %}
+                {% include _video-card.html imgix_size="4x" theme="dark" %}
               {% endfor %}
             </div>
           </div>
+          
         </div>
       </div>
       {% endif %}
@@ -153,9 +182,9 @@ layout: default
         </p>
         <div class="media flush-top">
           <div class="d-flex flex-row-reverse">
-            <div class="media-object img-size-6">
+            <div class="media-object">
               <a href="/albums/{{ page.album_slug }}">
-                <img src="{{ page.album_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}" sizes="{{ site.image_sizes.album_thumb }}" data-optimize-img />
+                <img class="img-size-6" src="{{ page.album_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}" sizes="{{ site.image_sizes.album_thumb }}" data-optimize-img />
               </a>
             </div>
           </div>
@@ -188,10 +217,19 @@ layout: default
           <h2 class="component-header flush-top">Recent Songs</h3>
           <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
             <div class="feature-cards">
-
+              
               {% assign recent = site.songs | sort: 'date' | reverse %}
               {% for song in recent limit: 9 %}
-                {% include _song-card.html %}
+                <div class="card card-3x">
+                  <a href="{{ song.url }}">
+                    <img src="{{ song.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>                    
+                  </a>
+                  <div class="card-block hard">
+                    <a href="{{ song.url }}">
+                      <h5 class="card-title font-size-small">{{ song.title }}</h5>
+                    </a>
+                  </div>
+                </div>
               {% endfor %}
 
             </div>

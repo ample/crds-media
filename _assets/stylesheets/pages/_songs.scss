@@ -1,10 +1,14 @@
 .song-detail-tpl {
   .jumbotron {
-    padding-top: 1rem;
+    padding-top: 10rem;
     padding-bottom: 3.75rem;
 
     @media screen and (min-width: $screen-md) {
-      padding-top: 7.5rem;
+      padding-top: 15rem;
+    }
+
+    .card .block {
+      display: block;
     }
   }
 

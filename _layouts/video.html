@@ -10,9 +10,8 @@ layout: default
 
       {% if video_id %}
       <div class="row push-top soft-top">
-        <div class="embed-responsive embed-responsive-16by9 mobile-flush push-half-sides">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video_id }}" frameborder="0" allow="autoplay; encrypted-media"
-            allowfullscreen></iframe>
+        <div class="mobile-flush push-half-sides">
+          {% include _yt-embed.html %}
         </div>
       </div>
       {% endif %}
