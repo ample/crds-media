@@ -17,7 +17,7 @@ module Jekyll
         def init_tags
           begin
             # Gather an array of tag names from the video collection docs.
-            @tag_names = site.collections['videos'].docs.collect { |d| d.data['title'] }
+            @tag_names = site.collections['videos'].docs.collect { |d| d.data['tags'] }.flatten.uniq.sort
 
             # Inject video_tags into the site's config so they can be iterated
             # upon. Specifically, this enables us to build the video nav without
