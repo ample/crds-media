@@ -52,7 +52,7 @@ layout: default
                 <h6 class="card-title text-white push-quarter-bottom">{{ video.title }}</h6>
                 <div class="font-size-smaller">
                   {% if video.topic != nil %}
-                    <a class="text-gray-light" href="{{ topic.url }}">{{ video.topic }} &#xB7;</a> 
+                    <a class="text-gray-light" href="{{ topic.url }}">{{ video.topic }} &#xB7;</a>
                   {% endif %}
 
                   {% for person in video.authors %}
@@ -68,7 +68,7 @@ layout: default
               {% include _video-card.html imgix_size="1x" theme="dark" %}
             {% endif %}
           {% endfor %}
-          
+
           <!-- Other Related Videos -->
           <div class="cards-4x cards-2x-sm">
             <div class="row">
@@ -78,7 +78,7 @@ layout: default
               {% endfor %}
             </div>
           </div>
-          
+
         </div>
       </div>
       {% endif %}
@@ -89,8 +89,10 @@ layout: default
 <div class="container soft-7-bottom">
   <div class="row push-bottom soft-bottom">
     <div class="col-sm-8 col-sm-offset-2">
+      {% if page.details or page.lyrics or page.chords %}
       <h3 class="component-header">About This Song</h3>
       <ul class="nav nav-tabs" role="tablist">
+      {% end if %}
         {% if page.details %}
           <li role="presentation" class="active">
             <a href="#details" aria-controls="details" role="tab" data-toggle="tab">Details</a>
@@ -114,7 +116,9 @@ layout: default
             <a href="#stems" aria-controls="stems" role="tab" data-toggle="tab">Stems</a>
           </li>
         {% endif %}
+      {% if page.details or page.lyrics or page.chords %}
       </ul>
+
 
       <div class="tab-content markdown">
         <div role="tabpanel" class="tab-pane soft-bottom active" id="details">
@@ -139,6 +143,7 @@ layout: default
           </div>
         {% endif %}
       </div>
+      {% endif %}
 
       <div class="soft-half-top push-top">
         <p>{{ page.date | format_date }} {% if page.audio_duration != nil %}<span class="divider push-quarter-sides">•</span> {{ page.audio_duration }} mins {% endif %}</p>
@@ -217,12 +222,12 @@ layout: default
           <h2 class="component-header flush-top">Recent Songs</h3>
           <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
             <div class="feature-cards">
-              
+
               {% assign recent = site.songs | sort: 'date' | reverse %}
               {% for song in recent limit: 9 %}
                 <div class="card card-3x">
                   <a href="{{ song.url }}">
-                    <img src="{{ song.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>                    
+                    <img src="{{ song.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>
                   </a>
                   <div class="card-block hard">
                     <a href="{{ song.url }}">
