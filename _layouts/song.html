@@ -120,26 +120,26 @@ layout: default
       </ul>
 
 
-      <div class="tab-content markdown">
+      <div class="tab-content">
         <div role="tabpanel" class="tab-pane soft-bottom active" id="details">
-          {{ page.details }}
+          {{ page.details | markdownify }}
         </div>
 
         {% if page.lyrics %}
           <div role="tabpanel" class="tab-pane soft-bottom" id="lyrics">
-            {{ page.lyrics }}
+            {{ page.lyrics | markdownify }}
           </div>
         {% endif %}
 
         {% if page.chords %}
           <div role="tabpanel" class="tab-pane soft-bottom" id="chords">
-            {{ page.chords }}
+            {{ page.chords | markdownify }}
           </div>
         {% endif %}
 
         {% if page.stems %}
           <div role="tabpanel" class="tab-pane soft-bottom" id="stems">
-            {{ page.stems }}
+            {{ page.stems | markdownify }}
           </div>
         {% endif %}
       </div>
