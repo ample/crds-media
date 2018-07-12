@@ -35,9 +35,13 @@ layout: default
       <!-- End breadcrumbs -->
 
       <h1 class="font-family-condensed-extra text-uppercase flush-top push-bottom">{{ page.title }}</h1>
-      {% if page.content or page.transcription %}
+
+      {% if page.transcription or page.content != blank %}
       <!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
+      {% endif %}
+
+        {% if page.content != blank %}
         <li role="presentation" class="active">
           <a href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a>
         </li>
@@ -49,14 +53,16 @@ layout: default
         </li>
         {% endif %}
 
-      {% if page.content or page.transcription %}
+      {% if page.transcription or page.content != blank %}
       </ul>
 
       <!-- Tab panes -->
       <div class="tab-content">
-        <div role="tabpanel" class="tab-pane soft-bottom active markdown" id="description">
+        {% if page.content != blank %}
+        <div role="tabpanel" class="tab-pane soft-bottom active" id="description">
           {{ page.content | markdownify }}
         </div>
+        {% endif %}
 
         {% if page.transcription %}
         <div role="tabpanel" class="tab-pane soft-bottom markdown" id="transcription">
