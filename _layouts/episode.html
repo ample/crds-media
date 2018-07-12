@@ -35,12 +35,16 @@ layout: default
           {{ page.audio_embed_code }}
         </div>
         <h2 class="component-header mobile-push-half-top">This episode</h2>
-        {% if page.content or page.show_notes or page.transcription %}
+
+        {% if page.show_notes or page.transcription or page.content != blank %}
         <div>
           <!-- Nav tabs -->
           <ul class="nav nav-tabs" role="tablist">
-          {% endif %}
+        {% endif %}
+
+            {% if page.content != blank %}
             <li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a></li>
+            {% endif %}
 
             {% if page.show_notes %}
             <li role="presentation"><a href="#show-notes" aria-controls="show-notes" role="tab" data-toggle="tab">Show notes</a></li>
@@ -49,14 +53,17 @@ layout: default
             {% if page.transcription %}
             <li role="presentation"><a href="#transcription" aria-controls="transcription" role="tab" data-toggle="tab">Transcription</a></li>
             {% endif %}
-          {% if page.content or page.show_notes or page.transcription %}
+
+        {% if page.show_notes or page.transcription or page.content != blank %}
           </ul>
 
           <!-- Tab panes -->
           <div class="tab-content markdown">
+            {% if page.content != blank %}
             <div role="tabpanel" class="tab-pane soft-bottom active" id="description">
               {{ page.content }}
             </div>
+            {% endif %}
 
             {% if page.show_notes %}
             <div role="tabpanel" class="tab-pane soft-bottom" id="show-notes">
