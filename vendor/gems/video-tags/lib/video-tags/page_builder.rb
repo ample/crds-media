@@ -14,8 +14,8 @@ module Jekyll
 
       private
 
-      def init_tags
-        begin
+        def init_tags
+          begin
             # Gather an array of tag names from the video collection docs.
             @tag_names = site.collections['videos'].docs.collect { |d| d.data['tags'] }.flatten.uniq.sort
 
