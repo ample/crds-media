@@ -17,7 +17,7 @@
       padding-right: 0;
     }
   }
-  
+
   .card.card-3x {
     flex: 1 0 auto;
 
@@ -89,5 +89,70 @@
     &:nth-child(odd) {
       clear: left;
     }
+  }
+}
+
+
+
+
+// Styles for default media cards
+// DRY up
+.media-card {
+  display: block;
+  position: relative;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  .media-card-image {
+    height: auto;
+
+    &::after {
+      display: block;
+      position: relative;
+      content: '';
+      height: 90px;
+      margin-top: -90px;
+      width: 100%;
+      background-image: linear-gradient(to bottom, rgba(23, 23, 23, 0), $cr-gray-darker);
+    }
+
+    img {
+      // height: 75%;
+    }
+  }
+
+  .media-card-content {
+    background-color: $cr-gray-darker;
+    padding: 15px 15px 20px;
+  }
+
+  .media-card-category {
+    font-family: $base-font-face;
+    font-size: $font-size-smaller;
+    font-weight: 600;
+    line-height: 1.6;
+    color: rgba($cr-white, .8);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .media-card-title {
+    font-family: $condensed-extra-font-face;
+    font-size: $font-size-h2;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 1;
+    color: $cr-white;
+    margin-top: 0;
+  }
+
+  .media-card-author {
+    font-family: $base-font-face;
+    font-size: $font-size-small;
+    font-weight: 300;
+    line-height: 1.5;
+    color: $cr-gray-light;
   }
 }
