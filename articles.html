@@ -15,10 +15,10 @@ paginate:
 
   <div data-page="articles">
     <div class="row" data-page-number="{{ page.articles.page }}">
-      {% for post in page.articles.docs %}
-        <div class="col-sm-6">
-          {% include _article-card.html collection="posts" %}
-        </div>
+      {% for item in site.articles %}
+      <div class="col-sm-6 push-bottom">
+        {% include _default-media-card.html collection="articles" %}
+      </div>
       {% endfor %}
     </div>
 
@@ -27,7 +27,7 @@ paginate:
     </div>
   </div>
 
-  <div class="push-bottom">
+  <div class="push-ends">
     {% include _pagination.html collection="articles" remote=true %}
   </div>
 </div>
