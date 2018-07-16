@@ -51,16 +51,15 @@
 
     h1 {
       color: $cr-white;
-      font-size: 64px;
+      font-family: $condensed-extra-font-face;
+      font-size: 4rem;
       font-weight: 600;
       line-height: .9;
-      font-family: $condensed-extra-font-face;
     }
 
     p {
       color: $cr-gray-light;
       font-size: 13px;
-      line-height: 1.5;
 
       > a {
         color: inherit;
@@ -74,17 +73,15 @@
   }
 
   main {
-    font-size: 19px;
+    font-size: 1.1875rem;
     line-height: 1.6;
-    color: $cr-gray-dark;
 
     h1, h2, h3 {
-      color: $cr-gray-dark;
-      font-size: 24px;
+      font-family: $base-font-face;
+      font-size: 1.5rem;
+      font-weight: 600;
       line-height: 1.2;
       margin-top: 60px;
-      font-family: $base-font-face;
-      font-weight: 600;
     }
 
     p {
@@ -93,10 +90,9 @@
   }
 
   footer {
+    font-size: 1rem;
     margin-top: 30px;
     margin-bottom: 120px;
-    font-size: 16px;
-    line-height: 1.5;
 
     .custom_images svg {
       height: 21px;
