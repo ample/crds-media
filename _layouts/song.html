@@ -91,59 +91,9 @@ layout: default
     <div class="col-sm-8 col-sm-offset-2">
       {% if page.details or page.lyrics or page.chords %}
       <h3 class="component-header">About This Song</h3>
-      <ul class="nav nav-tabs" role="tablist">
       {% endif %}
-        {% if page.details %}
-          <li role="presentation" class="active">
-            <a href="#details" aria-controls="details" role="tab" data-toggle="tab">Details</a>
-          </li>
-        {% endif %}
 
-        {% if page.lyrics %}
-          <li role="presentation">
-            <a href="#lyrics" aria-controls="lyrics" role="tab" data-toggle="tab">Lyrics</a>
-          </li>
-        {% endif %}
-
-        {% if page.chords %}
-          <li role="presentation">
-            <a href="#chords" aria-controls="chords" role="tab" data-toggle="tab">Chord Charts</a>
-          </li>
-        {% endif %}
-
-        {% if page.stems %}
-          <li role="presentation">
-            <a href="#stems" aria-controls="stems" role="tab" data-toggle="tab">Stems</a>
-          </li>
-        {% endif %}
-      {% if page.details or page.lyrics or page.chords %}
-      </ul>
-
-
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane soft-bottom active" id="details">
-          {{ page.details | markdownify }}
-        </div>
-
-        {% if page.lyrics %}
-          <div role="tabpanel" class="tab-pane soft-bottom" id="lyrics">
-            {{ page.lyrics | markdownify }}
-          </div>
-        {% endif %}
-
-        {% if page.chords %}
-          <div role="tabpanel" class="tab-pane soft-bottom" id="chords">
-            {{ page.chords | markdownify }}
-          </div>
-        {% endif %}
-
-        {% if page.stems %}
-          <div role="tabpanel" class="tab-pane soft-bottom" id="stems">
-            {{ page.stems | markdownify }}
-          </div>
-        {% endif %}
-      </div>
-      {% endif %}
+      {% include _tabs.html %}
 
       <div class="soft-half-top push-top">
         <p>{{ page.date | format_date }} {% if page.audio_duration != nil %}<span class="divider push-quarter-sides">•</span> {{ page.audio_duration }} mins {% endif %}</p>

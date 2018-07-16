@@ -36,41 +36,8 @@ layout: default
 
       <h1 class="font-family-condensed-extra text-uppercase flush-top push-bottom">{{ page.title }}</h1>
 
-      {% if page.transcription or page.content != blank %}
-      <!-- Nav tabs -->
-      <ul class="nav nav-tabs" role="tablist">
-      {% endif %}
+      {% include _tabs.html %}
 
-        {% if page.content != blank %}
-        <li role="presentation" class="active">
-          <a href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a>
-        </li>
-        {% endif %}
-
-        {% if page.transcription %}
-        <li role="presentation">
-          <a href="#transcription" aria-controls="transcription" role="tab" data-toggle="tab">Transcription</a>
-        </li>
-        {% endif %}
-
-      {% if page.transcription or page.content != blank %}
-      </ul>
-
-      <!-- Tab panes -->
-      <div class="tab-content">
-        {% if page.content != blank %}
-        <div role="tabpanel" class="tab-pane soft-bottom active" id="description">
-          {{ page.content | markdownify }}
-        </div>
-        {% endif %}
-
-        {% if page.transcription %}
-        <div role="tabpanel" class="tab-pane soft-bottom" id="transcription">
-          {{ page.transcription | markdownify }}
-        </div>
-        {% endif %}
-      </div>
-      {% endif %}
     </div>
   </div>
 
