@@ -5,20 +5,17 @@ layout: default
 {% assign author = site.authors | where:"name", page.author | first %}
 
 <article class="article-tpl">
-  <header>
-    <!-- background image? -->
-    <!-- do I include the gradient? -->
-    <img data-hero-image class="article-hero" src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}" sizes="{{ site.image_sizes.full_width }}" data-optimize-img>
+  <header style="background-image: url('{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img data-hero-image>
 
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
-          <ol class="breadcrumb">
+          <ol class="breadcrumb text-white hard-left flush-bottom">
             <li><a href="/">Media</a></li>
             <li><a href="/articles">Articles</a></li>
           </ol>
-          <h1 data-title>{{ page.title | escape }}</h1>
-          <p>{% include _read-time.html content_type=page %}</p>
+          <h1 class="flush-top" data-title>{{ page.title | escape | upcase }}</h1>
+          <p class="flush-bottom soft-half-top"><a href="/topics/{{ page.topic | replace: '-', ' ' | downcase }}">{{ page.topic | upcase }}</a>&nbsp;&nbsp;|&nbsp;&nbsp;{% include _read-time.html content_type=page %}</p>
         </div>
       </div>
     </div>
