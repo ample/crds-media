@@ -33,42 +33,48 @@ layout: default
       {% endif %}
 
       <footer class="col-md-8 col-md-offset-2">
-        <p>Written by <a href="{{ author.url }}" data-author-name>{{ page.author | titleize }}</a></p>
+        <p class="flush-bottom">Written by <a href="{{ author.url }}" data-author-name>{{ page.author | titleize }}</a></p>
         <date data-post-date>{{ page.date | format_date }}</date>
 
-        {% include _social-share.html %}
+        <div class="soft-top">
+          {% include _social-share.html %}
+        </div>
 
         <!-- Topic -->
         {% assign topic = site.topics | where: "title", page.topic | first %}
         {% if page.topic %}
-        <p class="flush-bottom soft-top">
-          <strong>Topic</strong>
-        </p>
-        <ul class="list-inline">
-          <li>
-            <a href="{{ topic.url }}">{{ topic.title }}</a>
-          </li>
-        </ul>
+        <div class="keywords">
+          <p class="flush-bottom soft-top">
+            <strong>Topic</strong>
+          </p>
+          <ul class="list-inline">
+            <li>
+              <a href="{{ topic.url }}">{{ topic.title }}</a>
+            </li>
+          </ul>
+        </div>
         {% endif %}
 
         <!-- Tags -->
         {% if page.tags.size > 0 %}
-        <p class="flush-bottom soft-half-top">
-          <strong>Tags</strong>
-        </p>
-        <ul class="list-inline" data-tags>
-          {% for tag in page.tags %}
-          <li>
-            <a href="{{ site.search_domain }}/search?q=tags: '{{ tag }}'" title="Search {{ tag }}">{{ tag }}</a>
-          </li>
-          {% endfor %}
-        </ul>
+        <div class="keywords">
+          <p class="flush-bottom soft-half-top">
+            <strong>Tags</strong>
+          </p>
+          <ul class="list-inline" data-tags>
+            {% for tag in page.tags %}
+            <li>
+              <a href="{{ site.search_domain }}/search?q=tags: '{{ tag }}'" title="Search {{ tag }}">{{ tag | downcase }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
         {% endif %}
 
-        <section>
-          <h3>Recent articles</h3>
+        <section class="soft-top">
+          <h3 class="soft-half-top flush-bottom">recent articles</h3>
 
-          <div>
+          <div class="soft-top">
             <!-- may need to pull in old card styles to complete this -->
             <!-- carousel on mobile -->
             <!-- 3x cards on desktop -->
