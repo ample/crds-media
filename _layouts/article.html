@@ -69,36 +69,22 @@ layout: default
         {% endif %}
 
         <section class="soft-top">
-          <h3 class="soft-half-top flush-bottom">recent articles</h3>
+          <h3 class="collection-header">recent articles</h3>
 
-          <div class="soft-top">
-            <!-- may need to pull in old card styles to complete this -->
-            <!-- carousel on mobile -->
-            <!-- 3x cards on desktop -->
-            <!-- "Read more" link in bottom left-hand corner of cards
-              What's the behavior here, i.e., link to /articles or pagination effect?
-              Do we have examples of pagination + carousel?
-            -->
-
-            <div data-card-deck class="card-deck">
-              <div class="cards-3x">
-                <div class="row">
-                {% assign recent_articles = site.articles | sort: 'date' | reverse | slice: 0, 4 | exclude: page.title %}
-                {% for post in recent_articles limit:3 %}
-                  {% if page.index != post.index %}
-                    {% include _article-card.html content_type=article %}
-                  {% else %}
-                  {% assign fifth = site.articles[5] %}
-                    {% include _article-card.html %}
-                  {% endif %}
+          <div class="soft-half-top">
+            <div class="card-deck carousel" data-crds-carousel="mobile-scroll" data-card-deck>
+              <div class="feature-cards">
+                {% assign limited = site.articles | sort: 'date' | reverse | slice: 0, 4 | exclude: page.title %}
+                {% for post in limited limit: 3 %}
+                  {% include _article-card.html %}
                 {% endfor %}
-                </div>
               </div>
             </div>
+
+            <p><a href="/articles">Read more</a></p>
           </div>
         </section>
       </footer>
     </div>
   </div>
-
 </article>

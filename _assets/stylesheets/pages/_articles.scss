@@ -94,6 +94,7 @@
 
   footer {
     margin-top: 30px;
+    margin-bottom: 120px;
     font-size: 16px;
     line-height: 1.5;
 
@@ -106,13 +107,6 @@
         font-size: 14px;
       }
     }
-
-    > section > h3 {
-      border-top: 2px solid lighten($cr-gray-light, 25);
-      color: $cr-gray-light;
-      font-size: 22px;
-      line-height: 1;
-    }
   }
 
   @media screen and (min-width: $screen-sm) {
@@ -122,6 +116,19 @@
 
       h1 {
         font-size: 90px;
+      }
+    }
+
+    footer {
+      .card-deck--expanded-layout {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: .5rem;
+
+        .card {
+          max-width: 100%;
+          padding: 0;
+        }
       }
     }
   }
