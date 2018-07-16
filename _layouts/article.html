@@ -75,7 +75,7 @@ layout: default
             <div class="card-deck carousel" data-crds-carousel="mobile-scroll" data-card-deck>
               <div class="feature-cards feature-cards-3x">
                 {% assign limited = site.articles | sort: 'date' | reverse | slice: 0, 4 | exclude: page.title %}
-                {% for item in limited limit: 3 %}
+                {% for post in limited limit: 3 %}
                   {% include _article-card.html %}
                 {% endfor %}
               </div>

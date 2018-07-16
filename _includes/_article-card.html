@@ -1,14 +1,14 @@
-{% assign author = site.authors | where: "name", item.author | first %}
-{% assign topic = site.topics | where: "title", item.topic | first %}
+{% assign author = site.authors | where: "name", post.author | first %}
+{% assign topic = site.topics | where: "title", post.topic | first %}
 
 <div class="card">
-  <a class="relative" href="{{ item.url }}">
-    {% include _media-label.html source=item %}
-    <img src="{{ item.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ item.image.title }}" sizes="{{ site.image_sizes.cards_3x }}" data-optimize-img>
+  <a class="relative" href="{{ post.url }}">
+    {% include _media-label.html source=post %}
+    <img src="{{ post.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ post.image.title }}" sizes="{{ site.image_sizes.cards_3x }}" data-optimize-img>
   </a>
   <p class="topic push-quarter-top flush-bottom"><a href="{{ topic.url }}">{{ topic.title | upcase }}</a></p>
-  <a class="push-quarter-top" href="{{ item.url }}">
-    <h2 class="title flush-ends">{{ item.title | upcase }}</h2>
+  <a class="push-quarter-top" href="{{ post.url }}">
+    <h2 class="title flush-ends">{{ post.title | upcase }}</h2>
   </a>
   <p class="author flush-bottom push-quarter-top"><a href="{{ author.url }}">{{ author.name | titleize }}</a></p>
 </div>
