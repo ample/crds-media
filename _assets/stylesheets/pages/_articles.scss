@@ -40,3 +40,34 @@
     }
   }
 }
+
+.article-tpl {
+  header {
+
+  }
+
+  main {
+    font-size: 19px;
+    line-height: 1.6;
+    color: $cr-gray-dark;
+
+    h1, h2, h3 {
+      color: $cr-gray-dark;
+      font-size: 24px;
+      line-height: 1.2;
+      margin-top: 60px;
+      font-family: $base-font-face;
+      font-weight: 600;
+    }
+
+    p {
+      margin-bottom: 2rem;
+    }
+  }
+
+  footer {
+    margin-top: 30px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}

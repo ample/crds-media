@@ -3,6 +3,99 @@ layout: default
 ---
 
 {% assign author = site.authors | where:"name", page.author | first %}
-{% include _article-header.html %}
-{% include _article-body.html %}
-{% include _recent-articles.html %}
+
+<article class="article-tpl">
+  <header>
+    <!-- background image? -->
+    <!-- do I include the gradient? -->
+    <img data-hero-image class="article-hero" src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}" sizes="{{ site.image_sizes.full_width }}" data-optimize-img>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <ol class="breadcrumb">
+            <li><a href="/">Media</a></li>
+            <li><a href="/articles">Articles</a></li>
+          </ol>
+          <h1 data-title>{{ page.title | escape }}</h1>
+          <p>{% include _read-time.html content_type=page %}</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      {% if page.preview %}
+      <main class="col-md-8 col-md-offset-2" data-body></main>
+      {% else %}
+      <main class="col-md-8 col-md-offset-2">{{ page.content }}</main>
+      {% endif %}
+
+      <footer class="col-md-8 col-md-offset-2">
+        <p>Written by <a href="{{ author.url }}" data-author-name>{{ page.author | titleize }}</a></p>
+        <date data-post-date>{{ page.date | format_date }}</date>
+
+        {% include _social-share.html %}
+
+        <!-- Topic -->
+        {% assign topic = site.topics | where: "title", page.topic | first %}
+        {% if page.topic %}
+        <p class="flush-bottom soft-top">
+          <strong>Topic</strong>
+        </p>
+        <ul class="list-inline">
+          <li>
+            <a href="{{ topic.url }}">{{ topic.title }}</a>
+          </li>
+        </ul>
+        {% endif %}
+
+        <!-- Tags -->
+        {% if page.tags.size > 0 %}
+        <p class="flush-bottom soft-half-top">
+          <strong>Tags</strong>
+        </p>
+        <ul class="list-inline" data-tags>
+          {% for tag in page.tags %}
+          <li>
+            <a href="{{ site.search_domain }}/search?q=tags: '{{ tag }}'" title="Search {{ tag }}">{{ tag }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+
+        <section>
+          <h3>Recent articles</h3>
+
+          <div>
+            <!-- may need to pull in old card styles to complete this -->
+            <!-- carousel on mobile -->
+            <!-- 3x cards on desktop -->
+            <!-- "Read more" link in bottom left-hand corner of cards
+              What's the behavior here, i.e., link to /articles or pagination effect?
+              Do we have examples of pagination + carousel?
+            -->
+
+            <div data-card-deck class="card-deck">
+              <div class="cards-3x">
+                <div class="row">
+                {% assign recent_articles = site.articles | sort: 'date' | reverse | slice: 0, 4 | exclude: page.title %}
+                {% for post in recent_articles limit:3 %}
+                  {% if page.index != post.index %}
+                    {% include _article-card.html content_type=article %}
+                  {% else %}
+                  {% assign fifth = site.articles[5] %}
+                    {% include _article-card.html %}
+                  {% endif %}
+                {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </footer>
+    </div>
+  </div>
+
+</article>
