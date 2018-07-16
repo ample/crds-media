@@ -14,7 +14,7 @@ layout: default
             <li><a href="/">Media</a></li>
             <li><a href="/articles">Articles</a></li>
           </ol>
-          <h1 class="flush-top" data-title>{{ page.title | escape | upcase }}</h1>
+          <h1 class="text-white flush-top" data-title>{{ page.title | escape | upcase }}</h1>
           <p class="flush-bottom soft-half-top"><a href="/topics/{{ page.topic | replace: '-', ' ' | downcase }}">{{ page.topic | upcase }}</a>&nbsp;&nbsp;|&nbsp;&nbsp;{% include _read-time.html content_type=page %}</p>
         </div>
       </div>
@@ -73,9 +73,9 @@ layout: default
 
           <div class="soft-half-top">
             <div class="card-deck carousel" data-crds-carousel="mobile-scroll" data-card-deck>
-              <div class="feature-cards">
+              <div class="feature-cards feature-cards-3x">
                 {% assign limited = site.articles | sort: 'date' | reverse | slice: 0, 4 | exclude: page.title %}
-                {% for post in limited limit: 3 %}
+                {% for item in limited limit: 3 %}
                   {% include _article-card.html %}
                 {% endfor %}
               </div>

@@ -1,23 +1,14 @@
-{% assign author = site.authors | where: "name", post.author | first %}
-{% assign topic = site.topics | where: "title", post.topic | first %}
+{% assign author = site.authors | where: "name", item.author | first %}
+{% assign topic = site.topics | where: "title", item.topic | first %}
 
 <div class="card">
-  <a href="{{ post.url }}">
-    <img src="{{ post.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_card }}" alt="{{ post.image.title }}" class="card-img-top" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
+  <a class="relative" href="{{ item.url }}">
+    {% include _media-label.html source=item %}
+    <img src="{{ item.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ item.image.title }}" sizes="{{ site.image_sizes.cards_3x }}" data-optimize-img>
   </a>
-  <div class="card-block">
-    <a href="{{ post.url }}">
-      <h4 class="card-title card-title--overlap text-uppercase">{{ post.title }}</h4>
-    </a>
-    <p class="card-text soft-quarter-top">
-      <a href="{{ author.url }}">{{ author.name | titleize }}</a> |
-      <span class="card-date">
-        {{ post.date | format_date }}
-      </span>
-    </p>
-    <h5 class="metadata push-quarter-ends">
-      <a href="{{ topic.url }}">{{ topic.title }}</a> -
-      {% include _read-time.html content_type=post %}
-    </h5>
-  </div>
+  <p class="topic push-quarter-top flush-bottom"><a href="{{ topic.url }}">{{ topic.title | upcase }}</a></p>
+  <a class="push-quarter-top" href="{{ item.url }}">
+    <h2 class="title flush-ends">{{ item.title | upcase }}</h2>
+  </a>
+  <p class="author flush-bottom push-quarter-top"><a href="{{ author.url }}">{{ author.name | titleize }}</a></p>
 </div>

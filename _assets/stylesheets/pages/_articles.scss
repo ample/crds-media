@@ -104,7 +104,38 @@
 
     .keywords {
       li {
-        font-size: 14px;
+        font-size: .875rem;
+      }
+    }
+
+    // styles for article-card.html
+    .card {
+      a {
+        color: inherit;
+
+        &:hover {
+          color: inherit;
+          text-decoration: none;
+        }
+      }
+
+      .topic {
+        color: $cr-gray;
+        font-size: .75rem;
+        font-weight: 600;
+        line-height: 1.6;
+      }
+
+      .title {
+        font-family: $condensed-extra-font-face;
+        font-size: 2.375rem;
+        font-weight: 600;
+        line-height: .9;
+      }
+
+      .author {
+        color: $cr-gray-light;
+        font-size: .8125rem;
       }
     }
   }
@@ -115,20 +146,7 @@
       padding: 390px 0 44px;
 
       h1 {
-        font-size: 90px;
-      }
-    }
-
-    footer {
-      .card-deck--expanded-layout {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-column-gap: .5rem;
-
-        .card {
-          max-width: 100%;
-          padding: 0;
-        }
+        font-size: 5.625rem;
       }
     }
   }
