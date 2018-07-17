@@ -85,33 +85,34 @@
     }
   }
 
-  // styles for article-card.html
-  a {
-    color: inherit;
-
-    &:hover {
+  &.article-card {
+    a {
       color: inherit;
-      text-decoration: none;
+
+      &:hover {
+        color: inherit;
+        text-decoration: none;
+      }
     }
-  }
 
-  .topic {
-    color: $cr-gray;
-    font-size: .75rem;
-    font-weight: 600;
-    line-height: 1.6;
-  }
+    .topic {
+      color: $cr-gray;
+      font-size: .75rem;
+      font-weight: 600;
+      line-height: 1.6;
+    }
 
-  .title {
-    font-family: $condensed-extra-font-face;
-    font-size: 2.375rem;
-    font-weight: 600;
-    line-height: .9;
-  }
+    .title {
+      font-family: $condensed-extra-font-face;
+      font-size: 2.375rem;
+      font-weight: 600;
+      line-height: .9;
+    }
 
-  .author {
-    color: $cr-gray-light;
-    font-size: .8125rem;
+    .author {
+      color: $cr-gray-light;
+      font-size: .8125rem;
+    }
   }
 }
 
