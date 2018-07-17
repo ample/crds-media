@@ -23,13 +23,13 @@ layout: default
           {% capture url_string %} {{ page.url | replace: '/', " " }}{% endcapture %}
           {% assign url="" %}
           <ol class="breadcrumb push-top hard flush-bottom">
-            <li><a class="text-cyan" href="/">Media</a></li>
+            <li><a href="/">Media</a></li>
 
             {% for breadcrumb in url_array %}
             {% capture first_word %}{{ url_string | truncatewords: 1, "" }}{% endcapture %}
             {% capture url %}{{ url }}/{{ first_word }}{% endcapture %}
 
-            <li><a class="text-cyan" href="{{ url }}">{{ breadcrumb | replace: '-', ' ' | capitalize }}</a></li>
+            <li><a href="{{ url }}">{{ breadcrumb | replace: '-', ' ' | capitalize }}</a></li>
 
             {% capture url_string %}{{ url_string | remove_first: first_word }}{% endcapture %}
             {% endfor %}
@@ -43,8 +43,8 @@ layout: default
             <a class="block text-gray-light font-size-smaller" href="{{ page.audio_source_url }}" target="_blank">Listen to audio</a>
           {% endif %}
 
-          {% if page.program %}
-            <a class="block text-gray-light font-size-smaller" href="{{ page.program }}" target="_blank">View program</a>
+          {% if page.program_url %}
+            <a class="block text-gray-light font-size-smaller" href="{{ page.program_url }}" target="_blank">View program</a>
           {% endif %}
         </div>
       </div>
