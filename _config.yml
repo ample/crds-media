@@ -81,7 +81,7 @@ contentful:
           topic: category/title
           date: published_at
           slug: slug
-          tags: tags
+          tags: tags/title
         other:
           layout: article
           draft: false
@@ -135,7 +135,7 @@ contentful:
           image: podcast/image/url
           slug: slug
           topic: category/title
-          tags: tags
+          tags: tags/title
           show_notes: show_notes
           transcription: transcription
           audio_duration: audio_duration
@@ -172,7 +172,7 @@ contentful:
           stems: stems
           topic: category/title
           topic_slug: category/slug
-          tags: tags
+          tags: tags/title
           author: author/full_name
           audio_duration: audio_duration
           album_title: album/title
@@ -204,13 +204,12 @@ contentful:
           source_url: source_url
           topic: category/title
           topic_slug: category/slug
-          tags: tags
+          tags: tags/title
           transcription: transcription
           apple_podcasts_url: apple_podcasts_url
           google_play_url: google_play_url
           slug: slug
           view_count: view_count
-          tags: tags
         other:
           layout: video
           draft: false
@@ -256,7 +255,7 @@ contentful:
           video_duration: video_duration
           topic: category/title
           topic_slug: category/slug
-          tags: tags
+          tags: tags/title
           transcription: transcription
           apple_podcasts_url: apple_podcasts_url
           google_play_url: google_play_url
