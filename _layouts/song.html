@@ -93,7 +93,10 @@ layout: default
       <h3 class="component-header">About This Song</h3>
       {% endif %}
 
-      {% include _tabs.html %}
+      {% assign tabs = 'details lyrics chords' | split: ' ' %}
+      {% if page.details or page.lyrics or page.chords %}
+        {% include _tabs.html tabs=tabs %}
+      {% endif %}
 
       <div class="soft-half-top push-top">
         <p>{{ page.date | format_date }} {% if page.audio_duration != nil %}<span class="divider push-quarter-sides">•</span> {{ page.audio_duration }} mins {% endif %}</p>

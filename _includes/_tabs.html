@@ -1,148 +1,17 @@
-<!-- episodes -->
-{% if include.source.content_type == "episode" %}
-{% if page.show_notes or page.transcription or page.content != blank %}
 <div>
-  <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
-{% endif %}
-
-    {% if page.content != blank %}
-    <li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a></li>
+  {% for tab in include.tabs %}
+    {% if page[tab] != blank %}
+    <li role="presentation"><a href="#{{tab}}" aria-controls="{{tab}}" role="tab" data-toggle="tab">{{ tab | capitalize | replace: "_", " " }}</a></li>
     {% endif %}
-
-    {% if page.show_notes %}
-    <li role="presentation"><a href="#show-notes" aria-controls="show-notes" role="tab" data-toggle="tab">Show notes</a></li>
-    {% endif %}
-
-    {% if page.transcription %}
-    <li role="presentation"><a href="#transcription" aria-controls="transcription" role="tab" data-toggle="tab">Transcription</a></li>
-    {% endif %}
-
-{% if page.show_notes or page.transcription or page.content != blank %}
+  {% endfor %}
   </ul>
 
-  <!-- Tab panes -->
   <div class="tab-content">
-    {% if page.content != blank %}
-    <div role="tabpanel" class="tab-pane soft-bottom active" id="description">
-      {{ page.content }}
+  {% for tab in include.tabs %}
+    <div role="tabpanel" class="tab-pane soft-bottom" id="{{tab}}">
+      {{ page[tab] | markdownify }}
     </div>
-    {% endif %}
-
-    {% if page.show_notes %}
-    <div role="tabpanel" class="tab-pane soft-bottom" id="show-notes">
-      {{ page.show_notes }}
-    </div>
-    {% endif %}
-
-    {% if page.transcription %}
-    <div role="tabpanel" class="tab-pane soft-bottom" id="transcription">
-      {{ page.transcription }}
-    </div>
-    {% endif %}
+  {% endfor %}
   </div>
 </div>
-{% endif %}
-{% endif %}
-
-
-
-
-{% if include.source.content_type == "song" %}
-{% if page.details or page.lyrics or page.chords %}
-
-      <ul class="nav nav-tabs" role="tablist">
-      {% endif %}
-        {% if page.details %}
-          <li role="presentation" class="active">
-            <a href="#details" aria-controls="details" role="tab" data-toggle="tab">Details</a>
-          </li>
-        {% endif %}
-
-        {% if page.lyrics %}
-          <li role="presentation">
-            <a href="#lyrics" aria-controls="lyrics" role="tab" data-toggle="tab">Lyrics</a>
-          </li>
-        {% endif %}
-
-        {% if page.chords %}
-          <li role="presentation">
-            <a href="#chords" aria-controls="chords" role="tab" data-toggle="tab">Chord Charts</a>
-          </li>
-        {% endif %}
-
-        {% if page.stems %}
-          <li role="presentation">
-            <a href="#stems" aria-controls="stems" role="tab" data-toggle="tab">Stems</a>
-          </li>
-        {% endif %}
-      {% if page.details or page.lyrics or page.chords %}
-      </ul>
-
-
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane soft-bottom active" id="details">
-          {{ page.details | markdownify }}
-        </div>
-
-        {% if page.lyrics %}
-          <div role="tabpanel" class="tab-pane soft-bottom" id="lyrics">
-            {{ page.lyrics | markdownify }}
-          </div>
-        {% endif %}
-
-        {% if page.chords %}
-          <div role="tabpanel" class="tab-pane soft-bottom" id="chords">
-            {{ page.chords | markdownify }}
-          </div>
-        {% endif %}
-
-        {% if page.stems %}
-          <div role="tabpanel" class="tab-pane soft-bottom" id="stems">
-            {{ page.stems | markdownify }}
-          </div>
-        {% endif %}
-      </div>
-      {% endif %}
-{% endif %}
-
-
-
-
-{% if include.source.content_type == "video" %}
-{% if page.transcription or page.content != blank %}
-      <!-- Nav tabs -->
-      <ul class="nav nav-tabs" role="tablist">
-      {% endif %}
-
-        {% if page.content != blank %}
-        <li role="presentation" class="active">
-          <a href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a>
-        </li>
-        {% endif %}
-
-        {% if page.transcription %}
-        <li role="presentation">
-          <a href="#transcription" aria-controls="transcription" role="tab" data-toggle="tab">Transcription</a>
-        </li>
-        {% endif %}
-
-      {% if page.transcription or page.content != blank %}
-      </ul>
-
-      <!-- Tab panes -->
-      <div class="tab-content">
-        {% if page.content != blank %}
-        <div role="tabpanel" class="tab-pane soft-bottom active" id="description">
-          {{ page.content | markdownify }}
-        </div>
-        {% endif %}
-
-        {% if page.transcription %}
-        <div role="tabpanel" class="tab-pane soft-bottom" id="transcription">
-          {{ page.transcription | markdownify }}
-        </div>
-        {% endif %}
-      </div>
-      {% endif %}
-{% endif %}

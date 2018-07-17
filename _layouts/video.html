@@ -36,7 +36,10 @@ layout: default
 
       <h1 class="font-family-condensed-extra text-uppercase flush-top push-bottom">{{ page.title }}</h1>
 
-      {% include _tabs.html %}
+      {% assign tabs = 'content transcription' | split: ' ' %}
+      {% if page.transcription or page.content != blank %}
+        {% include _tabs.html tabs=tabs %}
+      {% endif %}
 
     </div>
   </div>

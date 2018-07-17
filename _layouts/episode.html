@@ -37,7 +37,10 @@ layout: default
 
         <h2 class="component-header mobile-push-half-top">This episode</h2>
 
-        {% include _tabs.html %}
+        {% assign tabs = 'content show_notes transcription' | split: ' ' %}
+        {% if page.show_notes or page.transcription or page.content != blank %}
+          {% include _tabs.html tabs=tabs %}
+        {% endif %}
 
       </div>
     </div>
