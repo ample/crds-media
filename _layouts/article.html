@@ -69,7 +69,10 @@ layout: default
         {% endif %}
 
         <section class="soft-top">
-          <h3 class="collection-header">recent articles</h3>
+          <header class="more-media-header">
+            <h3>recent articles</h3>
+            <a class="font-size-small" href="/articles">See all articles</a>
+          </header>
 
           <div class="soft-half-top">
             <div class="card-deck carousel" data-crds-carousel="mobile-scroll" data-card-deck>
@@ -80,8 +83,6 @@ layout: default
                 {% endfor %}
               </div>
             </div>
-
-            <p><a href="/articles">Read more</a></p>
           </div>
         </section>
       </footer>
