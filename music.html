@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Music
+permalink: /new-music/
 worship_training_headline: Be Part of This
 worship_training_copy: Worship Training helps you grow musical or technical
                         giftings so you can serve the community.
@@ -8,62 +9,48 @@ worship_training_cta: Learn More
 worship_training_img: //crds-cms-uploads.imgix.net/content/images/crossroads-worship-training-music.jpg
 paginate:
   songs:
-    offset: 3
+    offset: 4
     per: 8
     sort: date desc
 ---
 
-<div class="container push-bottom">
-  <ol class="breadcrumb hard-sides hard-bottom push-top flush-bottom">
-    <li><a href="/">Media</a></li>
-  </ol>
+  <div class="push-bottom">
+    {% if page.songs.page == 1 %}
+      {% assign featured = page.songs.offset %}
+      {% for jumbocard in featured %}
+        <div class="jumbocard jumbocard-music jumbocard-xl" style="background-image: url('{{ jumbocard.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}');" data-optimize-bg-img>
+          <a class="jumbocard-link" href="{{ jumbocard.url }}"></a>
+          <div class="jumbocard-content text-left push-right">
+            <p class="font-size-smaller text-uppercase text-gray-lighter push-half-bottom">{{ jumbocard.featured_label }}</p>
+            <h2 class="jumbocard-title font-family-condensed-extra text-uppercase text-white flush">{{ jumbocard.title }}</h2>
+            <p class="text-white font-size-base push-half-top">{{ jumbocard.featured_text }}</p>
+            <a href="{{ jumbocard.url }}" class="btn btn-white btn-outline">{{ jumbocard.call_to_action }}</a>
+          </div>
+        </div>
 
-  <h1 class="font-family-condensed-extra text-uppercase flush-top push-bottom">Music</h1>
-
-  {% if page.songs.page == 1 %}
-    {% assign hero = page.songs.offset | first %}
-    {% if hero.bg_image %}
-      {% assign bg_img = hero.bg_image %}
-    {% else %}
-      {% assign bg_img = hero.image %}
+      {% endfor %}
+      {% if hero.bg_image %}
+        {% assign bg_img = hero.bg_image %}
+      {% else %}
+        {% assign bg_img = hero.image %}
+      {% endif %}
     {% endif %}
-    <div class="jumbotron jumbotron-xl" style="background-image: url('{{ bg_img | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
-      <div class="bg-overlay"></div>
-      <div class="jumbotron-content">
-        <h4 class="font-size-small text-uppercase text-gray-lighter">
-          Newest Song
-        </h4>
-        <h1 class="section-header flush-top push-quarter-bottom">{{ hero.title }}</h1>
-        <h6 class="font-size-base text-gray-lighter">
-          {{ hero.content }}
-        </h6>
-        <a class="btn btn-lg btn-white btn-outline" href="{{ hero.url }}">Rock Out</a>
-      </div>
-    </div>
+  </div>
 
-    <div class="cards-2x">
-      <div class="row">
-        {% assign featured = page.songs.offset | slice: 1, 2 %}
-        {% for song in featured %}
-         {% include _song-card.html imgix_size="2x" %}
+  <div class="container push-bottom">
+    <div class="cards-4x cards-2x-xs" data-page="songs">
+      <div class="row" data-page-number="{{ page.songs.page }}">
+        {% for song in page.songs.docs %}
+          {% include _song-card.html %}
         {% endfor %}
       </div>
+      <div class="loading hide">
+        {% include _preloader.html %}
+      </div>
     </div>
-  {% endif %}
-
-  <div class="cards-4x cards-2x-xs" data-page="songs">
-    <div class="row" data-page-number="{{ page.songs.page }}">
-      {% for song in page.songs.docs %}
-        {% include _song-card.html %}
-      {% endfor %}
-    </div>
-    <div class="loading hide">
-      {% include _preloader.html %}
-    </div>
+    {% include _pagination.html collection="songs" link_root="music" remote=true %}
   </div>
-  {% include _pagination.html collection="songs" link_root="music" remote=true %}
 </div>
-
 
 <div class="container-fluid bg-gray soft">
   <div class="container push-top">
