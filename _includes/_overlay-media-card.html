@@ -1,0 +1,13 @@
+<a href="{{ item.url }}" class="media-card overlay-media-card">
+  <div class="media-card-image">
+    <img src="{{ item.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.card_2x }}" alt="{{ item.image.title }}" data-optimize-img>
+  </div>
+
+  <div class="media-card-content">
+    <p class="media-card-category">{{ item.topic }}</p>
+    <h2 class="media-card-title">{{ item.title }}</h2>
+    <p class="media-card-author">{{ item.author }}</p>
+
+    {% include _media-label.html source=item %}
+  </div>
+</a>
