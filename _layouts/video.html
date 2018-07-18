@@ -3,51 +3,59 @@ layout: default
 ---
 {% assign video_id = page.source_url | youtube_id %}
 {% assign series = site.series | where:"title", page.series | first %}
+<div class="bg-charcoal">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+
+        {% if video_id %}
+        <div class="row push-top soft-top">
+          <div class="mobile-flush push-half-sides">
+            {% include _yt-embed.html %}
+          </div>
+        </div>
+        {% endif %}
+
+        <!-- Start breadcrumbs -->
+        {% assign url_array = page.url | split: '/' | shift | pop %}
+        {% capture url_string %} {{ page.url | replace: '/', " " }}{% endcapture %}
+        {% assign url="" %}
+        <ol class="breadcrumb push-top hard-sides flush-bottom hard-sides">
+          <li><a href="/">Media</a></li>
+
+          {% for breadcrumb in url_array %}
+          {% capture first_word %}{{ url_string | truncatewords: 1, "" }}{% endcapture %}
+          {% capture url %}{{ url }}/{{ first_word }}{% endcapture %}
+
+          <li><a href="{{ url }}">{{ breadcrumb | replace: '-', ' ' | capitalize }}</a></li>
+
+          {% capture url_string %}{{ url_string | remove_first: first_word }}{% endcapture %}
+          {% endfor %}
+        </ol>
+        <!-- End breadcrumbs -->
+
+        <h1 class="font-family-condensed-extra text-uppercase flush-top push-bottom text-white">{{ page.title }}</h1>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active">
+            <a href="#description" aria-controls="description" role="tab" data-toggle="tab" class="text-gray-light">Description</a>
+          </li>
+
+          {% if page.transcription %}
+          <li role="presentation">
+            <a href="#transcription" aria-controls="transcription" role="tab" data-toggle="tab" class="text-gray-light">Transcription</a>
+          </li>
+          {% endif %}
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="container">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-
-      {% if video_id %}
-      <div class="row push-top soft-top">
-        <div class="mobile-flush push-half-sides">
-          {% include _yt-embed.html %}
-        </div>
-      </div>
-      {% endif %}
-
-      <!-- Start breadcrumbs -->
-      {% assign url_array = page.url | split: '/' | shift | pop %}
-      {% capture url_string %} {{ page.url | replace: '/', " " }}{% endcapture %}
-      {% assign url="" %}
-      <ol class="breadcrumb push-top hard-sides flush-bottom hard-sides">
-        <li><a href="/">Media</a></li>
-
-        {% for breadcrumb in url_array %}
-        {% capture first_word %}{{ url_string | truncatewords: 1, "" }}{% endcapture %}
-        {% capture url %}{{ url }}/{{ first_word }}{% endcapture %}
-
-        <li><a href="{{ url }}">{{ breadcrumb | replace: '-', ' ' | capitalize }}</a></li>
-
-        {% capture url_string %}{{ url_string | remove_first: first_word }}{% endcapture %}
-        {% endfor %}
-      </ol>
-      <!-- End breadcrumbs -->
-
-      <h1 class="font-family-condensed-extra text-uppercase flush-top push-bottom">{{ page.title }}</h1>
-      <!-- Nav tabs -->
-      <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active">
-          <a href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a>
-        </li>
-
-        {% if page.transcription %}
-        <li role="presentation">
-          <a href="#transcription" aria-controls="transcription" role="tab" data-toggle="tab">Transcription</a>
-        </li>
-        {% endif %}
-      </ul>
-
+  <div class="row push-bottom">
+    <div class="col-sm-5 col-sm-offset-2">
       <!-- Tab panes -->
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane soft-bottom active markdown" id="description">
@@ -60,11 +68,7 @@ layout: default
         </div>
         {% endif %}
       </div>
-    </div>
-  </div>
 
-  <div class="row push-bottom">
-    <div class="col-sm-8 col-sm-offset-2">
       {% for author_name in page.authors %}
         {% assign author = site.authors | where:"name", author_name | first %}
         {% if author %}
@@ -103,11 +107,11 @@ layout: default
         </ul>
       {% endif %}
     </div>
+    <div class="col-sm-3 text-right soft-top">
+      {% include _subscribe-buttons.html content_type=page youtube=true row=false subscribe=false %}
+    </div>
   </div>
 
-  <div class="soft-top">
-    {% include _subscribe-buttons.html content_type=page youtube=true %}
-  </div>
 
   {% assign messages = site.messages | where: "series", page.series | reverse | exclude: page.title %}
 

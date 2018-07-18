@@ -233,10 +233,16 @@
     .feature-cards {
       margin-left: -.5rem;
       margin-right: -.5rem;
-      
+
       .card {
         max-width: calc(100%/3);
-      }  
+      }
     }
   }
+}
+
+//🛠 Remove when replace Stitcher png with svg
+.btn-logo img {
+  width: 32px;
+  height: 35px;
 }

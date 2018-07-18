@@ -57,6 +57,16 @@ a.hover-text-gray-lighter:hover * {
   font-weight: 500;
 }
 
+.btn-text {
+  width: 148px;
+}
+
+@media (max-width: $screen-sm) {
+  .mobile-btn-group-block .btn {
+    width: 100%;
+  }
+}
+
 .height-2 {
   height: 2rem;
 }
