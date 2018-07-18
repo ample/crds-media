@@ -72,7 +72,6 @@ describe PagingMisterHyde::Paginator do
     end
 
     it 'returns an empty array for pages' do
-      # binding.pry
       expect(@page.data.dig('songs', 'docs')).to eq([])
     end
   end
