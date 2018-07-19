@@ -58,21 +58,17 @@ a.hover-text-gray-lighter:hover * {
 }
 
 .btn-text {
-  width: 148px;
+  min-width: 148px;
 }
 
-@media (max-width: $screen-sm) {
-  .mobile-btn-group-block .btn {
-    width: 100%;
+.btn-block {
+  > .btn-text {
+    min-width: unset;
   }
 }
 
 .height-2 {
   height: 2rem;
-}
-
-.flush {
-  margin: 0 !important;
 }
 
 .middle {

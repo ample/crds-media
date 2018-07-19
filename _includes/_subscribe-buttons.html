@@ -7,11 +7,11 @@
         <h2 class="component-header flush-top">Subscribe</h2>
         {% endif %}
 
-        <div aria-label="Subscribe Social Media Buttons" class="btn-group mobile-btn-group-block btn-group-wide" role="group">
+        <div aria-label="Subscribe Social Media Buttons" role="group">
 
         {% if include.youtube %}
         <a href="//www.youtube.com/user/crdschurch" role="button">
-          <button class="btn btn-cyan soft-quarter-ends">
+          <button class="btn btn-cyan soft-quarter-ends  btn-block-mobile {{ include.css }}">
             <div class="pull-left text-left btn-text">
               <span class="font-size-small push-quarter-bottom">YouTube</span><br>
               <span class="font-size-smallest white-faded text-uppercase">Subscribe</span>
@@ -26,7 +26,7 @@
         {% endif %}
         {% if include.content_type.apple_podcasts_url.size > 1 %}
         <a href="{{ include.content_type.apple_podcasts_url }}" role="button">
-          <button class="btn btn-cyan soft-quarter-ends">
+          <button class="btn btn-cyan soft-quarter-ends btn-block-mobile {{ include.css }}">
             <div class="pull-left text-left btn-text">
               <span class="font-size-small push-quarter-bottom">Apple Podcasts</span><br>
               <span class="font-size-smallest white-faded text-uppercase">Subscribe</span>
@@ -49,7 +49,7 @@
         {% endif %}
         {% if include.content_type.google_play_url.size > 1 %}
           <a href="{{ include.content_type.google_play_url }}">
-            <button class="btn btn-cyan soft-quarter-ends">
+            <button class="btn btn-cyan soft-quarter-ends  btn-block-mobile {{ include.css }}">
               <div class="pull-left text-left btn-text">
                 <span class="font-size-small push-quarter-bottom">Google Play</span><br>
                 <span class="font-size-smallest white-faded text-uppercase">Subscribe</span>
@@ -66,7 +66,7 @@
         {% endif %}
         {% if include.content_type.stitcher_url.size > 1 %}
           <a href="{{ include.content_type.stitcher_url }}">
-            <button class="btn btn-cyan soft-quarter-ends">
+            <button class="btn btn-cyan soft-quarter-ends  btn-block-mobile {{ include.css }}">
               <div class="pull-left text-left btn-text">
                 <span class="font-size-small push-quarter-bottom">Stitcher</span><br>
                 <span class="font-size-smallest text-uppercase">Subscribe</span>
@@ -79,7 +79,7 @@
       {% endif %}
 
           <a href="//www.crossroads.net/connect">
-            <button class="btn btn-cyan btn-outline soft-quarter-ends">
+            <button class="btn btn-cyan btn-outline soft-quarter-ends  btn-block-mobile {{ include.css }}">
               <div class="pull-left text-left btn-text">
                 <span class="font-size-small push-quarter-bottom">Crossroads</span><br>
                 <span class="font-size-smallest text-uppercase">Get Connected</span>
