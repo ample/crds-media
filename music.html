@@ -6,6 +6,7 @@ worship_training_copy: Worship Training helps you grow musical or technical
                         giftings so you can serve the community.
 worship_training_cta: Learn More
 worship_training_img: //crds-cms-uploads.imgix.net/content/images/crossroads-worship-training-music.jpg
+default_cta: Check It Out
 paginate:
   songs:
     offset: 4
@@ -13,17 +14,25 @@ paginate:
     sort: date desc
 ---
 
+<div class="music-tpl">
   <div class="push-bottom">
     {% if page.songs.page == 1 %}
       {% assign featured = page.songs.offset %}
       {% for jumbocard in featured %}
-        <div class="jumbocard jumbocard-music jumbocard-xl" style="background-image: url('{{ jumbocard.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}');" data-optimize-bg-img>
+        <div class="jumbocard jumbocard-xl" style="background-image: url('{{ jumbocard.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}');" data-optimize-bg-img>
+          {% if forloop.index == 1 %}
+          <ol class="breadcrumb hard flush-bottom text-white">
+            <li><a href="/">Media</a></li>
+          </ol>
+          {% endif %}
           <a class="jumbocard-link" href="{{ jumbocard.url }}"></a>
           <div class="jumbocard-content text-left push-right">
             <p class="font-size-smaller text-uppercase text-gray-lighter push-half-bottom">{{ jumbocard.featured_label }}</p>
             <h2 class="jumbocard-title font-family-condensed-extra text-uppercase text-white flush">{{ jumbocard.title }}</h2>
             <p class="text-white font-size-base push-half-top">{{ jumbocard.featured_text }}</p>
-            <a href="{{ jumbocard.url }}" class="btn btn-white btn-outline">{{ jumbocard.call_to_action }}</a>
+            <a href="{{ jumbocard.url }}" class="btn btn-white btn-outline">
+              {% if jumbocard.call_to_action %} {{ jumbocard.call_to_action }} {% else %} {{ page.default_cta }} {% endif %}
+            </a>
           </div>
         </div>
 
@@ -49,26 +58,26 @@ paginate:
     </div>
     {% include _pagination.html collection="songs" link_root="music" remote=true %}
   </div>
-</div>
 
-<div class="container-fluid bg-gray soft">
-  <div class="container push-top">
-    <div class="jumbotron col-md-6" style="background-image: url('{{ page.worship_training_img | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
-      <h2 class="section-header push-top push-quarter-bottom text-white">{{ page.worship_training_headline }}</h2>
-      <span class="font-size-base font-family-base-light text-gray-lighter push-bottom block">{{ page.worship_training_copy }}</span>
-      <a class="btn btn-white btn-lg btn-outline font-family-base-light" href="https://www.crossroads.net/worshiptraining">{{ page.worship_training_cta }}</a>
-    </div>
-    <div class="jumbotron bg-charcoal col-md-6">
-      <div class="d-flex flex-column align-items-center justify-content-center">
-        <svg class="icon icon-2 text-white" viewbox="0 0 256 256">
-          <use xlink:href="/assets/svgs/icons.svg#instagram-2"></use>
-        </svg>
-        <svg class="text-white push-top" viewbox="0 0 256 80" width="60%">
-          <use xlink:href="/assets/svgs/icons.svg#crds-music"></use>
-        </svg>
+  <div class="container-fluid bg-gray soft">
+    <div class="container push-top">
+      <div class="jumbotron col-md-6" style="background-image: url('{{ page.worship_training_img | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
+        <h2 class="section-header push-top push-quarter-bottom text-white">{{ page.worship_training_headline }}</h2>
+        <span class="font-size-base font-family-base-light text-gray-lighter push-bottom block">{{ page.worship_training_copy }}</span>
+        <a class="btn btn-white btn-lg btn-outline font-family-base-light" href="https://www.crossroads.net/worshiptraining">{{ page.worship_training_cta }}</a>
       </div>
-      <h2 class="section-header flush-top push-quarter-bottom hidden">Crossroads Music</h2>
-      <a class="btn btn-white btn-lg btn-outline font-family-base-light" href="https://www.instagram.com/crdsmusic/">Follow us on Instagram</a>
+      <div class="jumbotron bg-charcoal col-md-6">
+        <div class="d-flex flex-column align-items-center justify-content-center">
+          <svg class="icon icon-2 text-white" viewbox="0 0 256 256">
+            <use xlink:href="/assets/svgs/icons.svg#instagram-2"></use>
+          </svg>
+          <svg class="text-white push-top" viewbox="0 0 256 80" width="60%">
+            <use xlink:href="/assets/svgs/icons.svg#crds-music"></use>
+          </svg>
+        </div>
+        <h2 class="section-header flush-top push-quarter-bottom hidden">Crossroads Music</h2>
+        <a class="btn btn-white btn-lg btn-outline font-family-base-light" href="https://www.instagram.com/crdsmusic/">Follow us on Instagram</a>
+      </div>
     </div>
   </div>
 </div>
