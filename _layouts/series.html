@@ -38,11 +38,22 @@ layout: default
             <div class="font-size-base">{{ page.content }}</div>
 
             <ul class="list-inline soft-half-top">
-              <li>
-                <script src="https://apis.google.com/js/platform.js"></script>
-                <div class="g-ytsubscribe" data-channel="crdschurch" data-layout="default" data-count="default"></div>
+              <li class="middle">
+                <a href="//www.youtube.com/user/crdschurch" role="button">
+                  <button class="btn btn-cyan soft-quarter-ends flush">
+                    <div class="pull-left text-left btn-text">
+                      <span class="font-size-small push-quarter-bottom">YouTube</span><br>
+                      <span class="font-size-smallest white-faded text-uppercase">Subscribe</span>
+                    </div>
+                    <div class="pull-right">
+                      <svg class="icon" viewBox="0 0 256 256">
+                        <use xlink:href="/assets/svgs/icons.svg#youtube"></use>
+                      </svg>
+                    </div>
+                  </button>
+                </a>
               </li>
-              <li class="sub white-faded">
+              <li class=" middle white-faded">
                 {% include _social-share.html %}
               </li>
             </ul>
