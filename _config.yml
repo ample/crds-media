@@ -250,7 +250,8 @@ contentful:
           authors: author/full_name
           image: image/url
           source_url: source_url
-          program: program/url
+          audio_source_url: audio_source_url
+          program_url: program/url
           video_duration: video_duration
           topic: category/title
           topic_slug: category/slug
