@@ -78,6 +78,7 @@ contentful:
           title: title
           image: image/url
           author: author/full_name
+          lead: lead_text
           topic: category/title
           date: published_at
           slug: slug
