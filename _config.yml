@@ -186,6 +186,9 @@ contentful:
           google_play_url: google_play_url
           youtube_url: youtube_url
           related_videos: related_videos
+          call_to_action: call_to_action
+          featured_label: featured_label
+          featured_text: featured_text
           slug: slug
         other:
           layout: song
