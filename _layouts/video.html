@@ -112,8 +112,12 @@ layout: default
     </div>
   </div>
 
-
-  {% assign messages = site.messages | where: "series", page.series | reverse | exclude: page.title %}
+  {% if page.series_slug %}
+    {% assign series = site.series | where: 'slug', page.series_slug %}
+    {% for messages in series %}
+      {% assign videos = messages.associations['videos'] | exclude: page.title %}
+    {% endfor %}
+  {% endif %}
 
   {% if site.videos.size > 1 or messages.size > 1 %}
     <div class="push-top soft-top row">
@@ -121,26 +125,31 @@ layout: default
 
         <section class="{% if series == nil %} soft-7-bottom {% else %} push-bottom {% endif %}">
           <h2 class="component-header flush-top">
-            {% if series %}In this Series
-            {% else %}Recent Videos{% endif %}
+            {% if page.series_slug %}In this Series
+            {% elsif page.topic %}Related Videos{% else %}Recent Videos{% endif %}
           </h2>
 
-          {% if messages.size > 1 %}
+          {% if page.series_slug %}
           <div class="cards-3x cards-2x-xs">
             <div class="row">
-              {% for message in messages %}
-                {% include _message-card.html %}
+              {% for message in videos %}
+                {% include _message-card.html series=false %}
               {% endfor %}
             </div>
           </div>
-          {% elsif message.size < 0 and series %}
+          {% elsif videos.size < 1 %}
           <p class="font-family-base soft-ends push-bottom">Related messages will be here soon!</p>
 
           {% else %}
 
           <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
             <div class="feature-cards">
-              {% assign limited = site.videos | sort: 'date' | reverse | exclude: page.title %}
+              {% if page.topic %}
+                {% assign limited = site.videos | where: 'topic', page.topic | sort: 'date' | reverse | exclude: page.title %}
+              {% else %}
+                {% assign limited = site.videos | sort: 'date' | reverse | exclude: page.title %}
+              {% endif %}
+
               {% for video in limited limit: 8 %}
                 {% include _video-card.html %}
               {% endfor %}
@@ -150,7 +159,7 @@ layout: default
           {% endif %}
         </section>
 
-        {% if series %}
+        {% if page.series_slug %}
 
           {% assign limited = site.series | sort: 'date' | reverse | slice: 0, 7 | exclude: page.series %}
           <section class="soft-7-bottom">
