@@ -147,31 +147,34 @@ layout: default
           </h2>
 
           {% if page.series_slug %}
-          <div class="cards-3x cards-2x-xs">
-            <div class="row">
-              {% for message in videos %}
-                {% include _message-card.html series=false %}
-              {% endfor %}
+            <div class="cards-3x cards-2x-xs">
+              <div class="row">
+                {% for message in videos %}
+                  {% include _message-card.html series=false %}
+                {% endfor %}
+              </div>
             </div>
-          </div>
           {% elsif videos.size < 1 %}
-          <p class="font-family-base soft-ends push-bottom">Related messages will be here soon!</p>
+            <p class="font-family-base soft-ends push-bottom">Related messages will be here soon!</p>
 
           {% else %}
 
-          <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
-            <div class="feature-cards">
-              {% if page.topic %}
-                {% assign limited = site.videos | where: 'topic', page.topic | sort: 'date' | reverse | exclude: page.title %}
-              {% else %}
-                {% assign limited = site.videos | sort: 'date' | reverse | exclude: page.title %}
-              {% endif %}
+            <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
+              <div class="feature-cards">
+                {% if page.topic %}
+                  {% assign limited = site.videos | where: 'topic', page.topic | sort: 'date' | reverse | exclude: page.title %}
+                  {% if limited.size < 1 %}
+                    {% assign limited = site.videos | sort: 'date' | reverse | slice: 0, 9 | exclude: page.title %}
+                  {% endif %}
+                {% else %}
+                  {% assign limited = site.videos | sort: 'date' | reverse | slice: 0, 9 |exclude: page.title %}
+                {% endif %}
 
-              {% for video in limited limit: 8 %}
-                {% include _video-card.html %}
-              {% endfor %}
+                {% for video in limited limit: 8 %}
+                  {% include _video-card.html %}
+                {% endfor %}
+              </div>
             </div>
-          </div>
 
           {% endif %}
         </section>
