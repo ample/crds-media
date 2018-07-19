@@ -62,7 +62,7 @@ a.hover-text-gray-lighter:hover * {
 }
 
 .btn-block {
-  > .btn-text {
+  .btn-text {
     min-width: unset;
   }
 }
@@ -102,6 +102,10 @@ a.hover-text-gray-lighter:hover * {
 
 .justify-content-center {
   justify-content: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
 }
 
 .align-items-center {
