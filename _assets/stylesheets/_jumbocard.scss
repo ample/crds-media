@@ -76,13 +76,25 @@
   }
 }
 
-.jumbocard-music {
+.music-tpl .jumbocard {
   @media (min-width: $screen-sm) {
     padding-top: 40rem; // 640px
   }
 
   @media (min-width: $screen-md) {
     padding-top: 56.25rem; // 900px
+  }
+
+  .breadcrumb {
+    position: absolute;
+    top: 60px;
+    left: 15px;
+    z-index: 1;
+
+    @media (min-width: $screen-sm) {
+      left: 60px;
+    }
+
   }
 
   .jumbocard-content {
