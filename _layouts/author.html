@@ -6,7 +6,7 @@ layout: default
 <div class="container">
   {% include _author-bio.html %}
 
-  {% assign articles = site.articles | where:"author", author.name %}
+  {% assign articles = site.articles | where:"author", author.name | reverse %}
   {% if articles.size > 0  %}
     <div class="push-ends">
       <h2 class="page-header font-size-h2 flush-top">Articles</h2>
@@ -23,7 +23,7 @@ layout: default
   {% endif %}
 
   <!-- Podcasts -->
-  {% assign podcasts = site.podcasts | where:"authors", page.title %}
+  {% assign podcasts = site.podcasts | where:"authors", page.title | reverse %}
 
   {% if podcasts.size > 0 %}
     <div class="push-ends">
@@ -41,7 +41,7 @@ layout: default
   {% endif %}
 
   <!-- Albums -->
-  {% assign albums = site.albums | where:"authors", page.title %}
+  {% assign albums = site.albums | where:"authors", page.title | reverse %}
 
   {% if albums.size > 0 %}
     <div class="push-ends">
@@ -59,7 +59,7 @@ layout: default
   {% endif %}
 
   <!-- Videos -->
-  {% assign videos = site.videos | where:"authors", page.title %}
+  {% assign videos = site.videos | where:"authors", page.title | reverse %}
 
   {% if videos.size > 0 %}
     <div class="push-ends">
