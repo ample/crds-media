@@ -47,9 +47,9 @@ paginate:
 
   <div class="container push-bottom">
     <div class="cards-4x cards-2x-xs" data-page="songs">
-      <div class="row" data-page-number="{{ page.songs.page }}">
-        {% for song in page.songs.docs %}
-          {% include _song-card.html %}
+      <div class="row push-top" data-page-number="{{ page.songs.page }}">
+        {% for card in page.songs.docs %}
+          {% include _media-card.html %}
         {% endfor %}
       </div>
       <div class="loading hide">
