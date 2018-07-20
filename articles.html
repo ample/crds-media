@@ -17,7 +17,7 @@ paginate:
     <div class="row" data-page-number="{{ page.articles.page }}">
       {% for item in page.articles.docs %}
       <div class="col-sm-6 push-bottom">
-        {% include _overlay-media-card.html collection="articles" %}
+        {% include _overlay-card.html collection="articles" %}
       </div>
       {% endfor %}
     </div>

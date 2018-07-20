@@ -95,7 +95,7 @@
 
 
 
-.overlay-media-card {
+.overlay-card {
   display: block;
   position: relative;
 
@@ -103,7 +103,7 @@
     text-decoration: none;
   }
 
-  .media-card-image {
+  .overlay-card-image {
     height: auto;
 
     &::after {
@@ -121,40 +121,36 @@
     }
   }
 
-  .media-card-content {
+  .overlay-card-content {
     background-color: $cr-gray-darker;
     padding: 15px 15px 20px;
   }
 
-  .media-card-category {
+  .overlay-card-category {
     color: rgba($cr-white, .8);
     font-size: $font-size-smaller;
-    font-weight: 600;
     line-height: 1.6;
     margin-bottom: 4px;
     text-transform: uppercase;
   }
 
-  .media-card-title {
+  .overlay-card-title {
     color: $cr-white;
     font-family: $condensed-extra-font-face;
-    font-size: $font-size-h2;
-    font-weight: 600;
+    font-size: 8vw;
     line-height: .9;
     margin-top: 0;
     text-transform: uppercase;
-
-    font-size: 8vw;
   }
 
-  .media-card-author {
+  .overlay-card-author {
     color: $cr-gray-light;
     font-size: $font-size-small;
     margin-bottom: 0;
   }
 
   @media screen and (min-width: $screen-sm) {
-    .media-card-content {
+    .overlay-card-content {
       background: transparent;
       position: absolute;
       right: 0;
@@ -162,19 +158,19 @@
       left: 0;
     }
 
-    .media-card-title {
+    .overlay-card-title {
       font-size: 4vw;
     }
   }
 
   @media screen and (min-width: $screen-md) {
-    .media-card-content {
+    .overlay-card-content {
       padding: 30px;
     }
   }
 
   @media screen and (min-width: $screen-lg) {
-    .media-card-title {
+    .overlay-card-title {
       font-size: 4.5rem;
       line-height: .8;
     }
