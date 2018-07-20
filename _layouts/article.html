@@ -15,7 +15,7 @@ layout: default
             <li><a href="/articles">Articles</a></li>
           </ol>
           <h1 class="text-white flush-top" data-title>{{ page.title | escape | upcase }}</h1>
-          <p class="flush-bottom soft-half-top"><a href="/topics/{{ page.topic | replace: '-', ' ' | downcase }}">{{ page.topic | upcase }}</a>&nbsp;&nbsp;|&nbsp;&nbsp;{% include _read-time.html content_type=page %}</p>
+          <p class="flush-bottom soft-half-top">{% if page.topic %}<a href="/topics/{{ page.topic | replace: '-', ' ' | downcase }}">{{ page.topic | upcase | append: '  |  ' }}</a>{% endif %}{% include _read-time.html content_type=page %}</p>
         </div>
       </div>
     </div>
