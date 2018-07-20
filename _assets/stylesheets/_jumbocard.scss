@@ -39,6 +39,10 @@
       padding: 30px;
     }
 
+    &.gradient-bg {
+      background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.7));
+    }
+
     .jumbocard-title {
       font-size: 40px;
       line-height: .75;

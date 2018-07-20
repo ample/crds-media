@@ -17,16 +17,23 @@ paginate:
 <div class="music-tpl">
   <div class="push-bottom">
     {% if page.songs.page == 1 %}
+      {% assign has_gradient_bg = false %}
       {% assign featured = page.songs.offset %}
       {% for jumbocard in featured %}
-        <div class="jumbocard jumbocard-xl" style="background-image: url('{{ jumbocard.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}');" data-optimize-bg-img>
+        {% if jumbocard.bg_image %}
+          {% assign bg_img = jumbocard.bg_image %}
+        {% else %}
+          {% assign bg_img = jumbocard.image %}
+          {% assign has_gradient_bg = true %}
+        {% endif %}
+        <div class="jumbocard jumbocard-xl" style="background-image: url('{{ bg_img | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}');" data-optimize-bg-img>
           {% if forloop.index == 1 %}
-          <ol class="breadcrumb hard flush-bottom text-white">
-            <li><a href="/">Media</a></li>
-          </ol>
+            <ol class="breadcrumb hard flush-bottom text-white">
+              <li><a href="/">Media</a></li>
+            </ol>
           {% endif %}
           <a class="jumbocard-link" href="{{ jumbocard.url }}"></a>
-          <div class="jumbocard-content text-left push-right">
+          <div class="jumbocard-content {% if has_gradient_bg == true %} gradient-bg {% endif %} text-left push-right">
             <p class="font-size-smaller text-uppercase text-gray-lighter push-half-bottom">{{ jumbocard.featured_label }}</p>
             <h2 class="jumbocard-title font-family-condensed-extra text-uppercase text-white flush">{{ jumbocard.title }}</h2>
             <p class="text-white font-size-base push-half-top">{{ jumbocard.featured_text }}</p>
@@ -35,13 +42,7 @@ paginate:
             </a>
           </div>
         </div>
-
       {% endfor %}
-      {% if hero.bg_image %}
-        {% assign bg_img = hero.bg_image %}
-      {% else %}
-        {% assign bg_img = hero.image %}
-      {% endif %}
     {% endif %}
   </div>
 
