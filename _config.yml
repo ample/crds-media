@@ -188,7 +188,7 @@ contentful:
           related_videos: related_videos
           call_to_action: call_to_action
           featured_label: featured_label
-          featured_text: featured_text
+          featured_subtitle: featured_subtitle
           slug: slug
         other:
           layout: song
