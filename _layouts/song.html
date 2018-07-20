@@ -52,7 +52,7 @@ layout: default
                 <h6 class="card-title text-white push-quarter-bottom">{{ video.title }}</h6>
                 <div class="font-size-smaller">
                   {% if video.topic != nil %}
-                    <a class="text-gray-light" href="{{ topic.url }}">{{ video.topic }} &#xB7;</a> 
+                    <a class="text-gray-light" href="{{ topic.url }}">{{ video.topic }} &#xB7;</a>
                   {% endif %}
 
                   {% for person in video.authors %}
@@ -68,7 +68,7 @@ layout: default
               {% include _video-card.html imgix_size="1x" theme="dark" %}
             {% endif %}
           {% endfor %}
-          
+
           <!-- Other Related Videos -->
           <div class="cards-4x cards-2x-sm">
             <div class="row">
@@ -78,7 +78,7 @@ layout: default
               {% endfor %}
             </div>
           </div>
-          
+
         </div>
       </div>
       {% endif %}
@@ -217,12 +217,12 @@ layout: default
           <h2 class="component-header flush-top">Recent Songs</h3>
           <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
             <div class="feature-cards">
-              
+
               {% assign recent = site.songs | sort: 'date' | reverse %}
               {% for song in recent limit: 9 %}
                 <div class="card card-3x">
                   <a href="{{ song.url }}">
-                    <img src="{{ song.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>                    
+                    <img src="{{ song.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_3x_centered_carousel }}" data-optimize-img>
                   </a>
                   <div class="card-block hard">
                     <a href="{{ song.url }}">
