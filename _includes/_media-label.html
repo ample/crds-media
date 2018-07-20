@@ -11,7 +11,7 @@
   <svg class="icon" viewBox="0 0 256 256">
     {% if include.source.content_type == "article" %}
       <use xlink:href="/assets/svgs/icons.svg#media-article"></use>
-    {% elsif include.source.content_type == "video" or include.source.content_type == "song" %}
+    {% elsif include.source.content_type == "video" or include.source.content_type == "song" or include.content_type == "song" %}
       <use xlink:href="/assets/svgs/icons.svg#media-video"></use>
     {% elsif include.source.content_type == "podcast" or include.source.content_type == "episode" %}
       <use xlink:href="/assets/svgs/icons.svg#media-podcast"></use>

@@ -50,7 +50,7 @@ paginate:
     <div class="cards-4x cards-2x-xs" data-page="songs">
       <div class="row push-top" data-page-number="{{ page.songs.page }}">
         {% for card in page.songs.docs %}
-          {% include _media-card.html %}
+          {% include _media-card.html content_type="song" %}
         {% endfor %}
       </div>
       <div class="loading hide">

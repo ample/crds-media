@@ -9,6 +9,8 @@
   <a class="relative" href="{{ card.url }}">
     {% if card.content_type != nil %}
       {% include _media-label.html source=card %}
+    {% else %}
+      {% include _media-label.html source=card content_type=include.content_type %}
     {% endif %}
     <img src="{{ card.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>
   </a>
