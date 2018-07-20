@@ -154,14 +154,6 @@
   }
 
   @media screen and (min-width: $screen-sm) {
-    .media-card-image {
-      &::after {
-        background-image: none;
-        height: 0;
-        margin-top: 0;
-      }
-    }
-
     .media-card-content {
       background: transparent;
       position: absolute;
