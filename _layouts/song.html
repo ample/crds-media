@@ -89,56 +89,14 @@ layout: default
 <div class="container soft-7-bottom">
   <div class="row push-bottom soft-bottom">
     <div class="col-sm-8 col-sm-offset-2">
+      {% if page.details or page.lyrics or page.chords %}
       <h3 class="component-header">About This Song</h3>
-      <ul class="nav nav-tabs" role="tablist">
-        {% if page.details %}
-          <li role="presentation" class="active">
-            <a href="#details" aria-controls="details" role="tab" data-toggle="tab">Details</a>
-          </li>
-        {% endif %}
+      {% endif %}
 
-        {% if page.lyrics %}
-          <li role="presentation">
-            <a href="#lyrics" aria-controls="lyrics" role="tab" data-toggle="tab">Lyrics</a>
-          </li>
-        {% endif %}
-
-        {% if page.chords %}
-          <li role="presentation">
-            <a href="#chords" aria-controls="chords" role="tab" data-toggle="tab">Chord Charts</a>
-          </li>
-        {% endif %}
-
-        {% if page.stems %}
-          <li role="presentation">
-            <a href="#stems" aria-controls="stems" role="tab" data-toggle="tab">Stems</a>
-          </li>
-        {% endif %}
-      </ul>
-
-      <div class="tab-content markdown">
-        <div role="tabpanel" class="tab-pane soft-bottom active" id="details">
-          {{ page.details }}
-        </div>
-
-        {% if page.lyrics %}
-          <div role="tabpanel" class="tab-pane soft-bottom" id="lyrics">
-            {{ page.lyrics }}
-          </div>
-        {% endif %}
-
-        {% if page.chords %}
-          <div role="tabpanel" class="tab-pane soft-bottom" id="chords">
-            {{ page.chords }}
-          </div>
-        {% endif %}
-
-        {% if page.stems %}
-          <div role="tabpanel" class="tab-pane soft-bottom" id="stems">
-            {{ page.stems }}
-          </div>
-        {% endif %}
-      </div>
+      {% assign tabs = 'details lyrics chords' | split: ' ' %}
+      {% if page.details or page.lyrics or page.chords %}
+        {% include _tabs.html tabs=tabs %}
+      {% endif %}
 
       <div class="soft-half-top push-top">
         <p>{{ page.date | format_date }} {% if page.audio_duration != nil %}<span class="divider push-quarter-sides">•</span> {{ page.audio_duration }} mins {% endif %}</p>
