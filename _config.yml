@@ -137,6 +137,7 @@ contentful:
           slug: slug
           topic: category/title
           tags: tags/title
+          description: description
           show_notes: show_notes
           transcription: transcription
           audio_duration: audio_duration
@@ -209,6 +210,7 @@ contentful:
           topic: category/title
           topic_slug: category/slug
           tags: tags/title
+          description: description
           transcription: transcription
           apple_podcasts_url: apple_podcasts_url
           google_play_url: google_play_url
@@ -260,6 +262,7 @@ contentful:
           topic: category/title
           topic_slug: category/slug
           tags: tags/title
+          description: description
           transcription: transcription
           apple_podcasts_url: apple_podcasts_url
           google_play_url: google_play_url
