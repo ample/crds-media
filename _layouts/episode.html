@@ -34,40 +34,14 @@ layout: default
         <div class="embedded-audio-player">
           {{ page.audio_embed_code }}
         </div>
+
         <h2 class="component-header mobile-push-half-top">This episode</h2>
-        <div>
-          <!-- Nav tabs -->
-          <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a></li>
 
-            {% if page.show_notes %}
-            <li role="presentation"><a href="#show-notes" aria-controls="show-notes" role="tab" data-toggle="tab">Show notes</a></li>
-            {% endif %}
+        {% assign tabs = 'content show_notes transcription' | split: ' ' %}
+        {% if page.show_notes or page.transcription or page.content != blank %}
+          {% include _tabs.html tabs=tabs %}
+        {% endif %}
 
-            {% if page.transcription %}
-            <li role="presentation"><a href="#transcription" aria-controls="transcription" role="tab" data-toggle="tab">Transcription</a></li>
-            {% endif %}
-          </ul>
-
-          <!-- Tab panes -->
-          <div class="tab-content markdown">
-            <div role="tabpanel" class="tab-pane soft-bottom active" id="description">
-              {{ page.content }}
-            </div>
-
-            {% if page.show_notes %}
-            <div role="tabpanel" class="tab-pane soft-bottom" id="show-notes">
-              {{ page.show_notes }}
-            </div>
-            {% endif %}
-
-            {% if page.transcription %}
-            <div role="tabpanel" class="tab-pane soft-bottom" id="transcription">
-              {{ page.transcription }}
-            </div>
-            {% endif %}
-          </div>
-        </div>
       </div>
     </div>
 

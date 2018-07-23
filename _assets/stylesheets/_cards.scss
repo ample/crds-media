@@ -109,3 +109,88 @@
     }
   }
 }
+
+
+
+
+.overlay-card {
+  display: block;
+  position: relative;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  .overlay-card-image {
+    height: auto;
+
+    &::after {
+      background-image: linear-gradient(to bottom, rgba(23, 23, 23, 0), $cr-gray-darker);
+      content: '';
+      display: block;
+      height: 90px;
+      margin-top: -90px;
+      position: relative;
+      width: 100%;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .overlay-card-content {
+    background-color: $cr-gray-darker;
+    padding: 15px 15px 20px;
+  }
+
+  .overlay-card-category {
+    color: rgba($cr-white, .8);
+    font-size: $font-size-smaller;
+    line-height: 1.6;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+
+  .overlay-card-title {
+    color: $cr-white;
+    font-family: $condensed-extra-font-face;
+    font-size: 8vw;
+    line-height: .9;
+    margin-top: 0;
+    text-transform: uppercase;
+  }
+
+  .overlay-card-author {
+    color: $cr-gray-light;
+    font-size: $font-size-small;
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: $screen-sm) {
+    .overlay-card-content {
+      background: transparent;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    .overlay-card-title {
+      font-size: 4vw;
+    }
+  }
+
+  @media screen and (min-width: $screen-md) {
+    .overlay-card-content {
+      padding: 30px;
+    }
+  }
+
+  @media screen and (min-width: $screen-lg) {
+    .overlay-card-title {
+      font-size: 4.5rem;
+      line-height: .8;
+    }
+  }
+}

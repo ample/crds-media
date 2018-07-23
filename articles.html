@@ -2,29 +2,32 @@
 layout: default
 paginate:
   articles:
-    per: 8
+    per: 10
     sort: date desc
-title: Articles
-heading: Articles about life, faith, and other stuff.
-subheading: Read them. Share them. Talk to someone about them. Do something with them.
 ---
 
-<div class="jumbotron bg-blue">
-  <div class="container">
-    <h1 class="section-header text-white">{{ page.heading }}</h1>
-    <p class="col-sm-6 col-sm-offset-3 white-faded">{{ page.subheading }}</p>
-  </div>
-</div>
-
 <div class="container">
-  <div data-card-deck class="card-deck">
-    <div class="cards-4x">
-      <div class="row">
-      {% for post in page.articles.docs %}
-        {% include _article-card.html %}
-      {% endfor %}
+  <ol class="breadcrumb hard-sides hard-bottom push-top flush-bottom">
+    <li><a href="/">Media</a></li>
+  </ol>
+
+  <h1 class="font-family-condensed-extra text-uppercase flush-top push-bottom">Articles</h1>
+
+  <div data-page="articles">
+    <div class="row" data-page-number="{{ page.articles.page }}">
+      {% for item in page.articles.docs %}
+      <div class="col-sm-6 push-bottom">
+        {% include _overlay-card.html collection="articles" %}
       </div>
+      {% endfor %}
+    </div>
+
+    <div class="loading hide">
+      {% include _preloader.html %}
     </div>
   </div>
-  {% include _pagination.html collection="articles" %}
+
+  <div class="push-ends">
+    {% include _pagination.html collection="articles" remote=true label="articles" %}
+  </div>
 </div>
