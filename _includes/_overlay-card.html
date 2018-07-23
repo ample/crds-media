@@ -1,6 +1,10 @@
 <a href="{{ item.url }}" class="overlay-card">
   <div class="overlay-card-image">
-    <img src="{{ item.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.card_2x }}" alt="{{ item.image.title }}" data-optimize-img>
+    {% if item.image %}
+      <img src="{{ item.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.card_2x }}" alt="{{ item.image.title }}" data-optimize-img>
+    {% else %}
+      <img src="{{ site.default_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.card_2x }}" alt="{{ item.image.title }}" data-optimize-img>
+    {% endif %}
   </div>
 
   <div class="overlay-card-content">
