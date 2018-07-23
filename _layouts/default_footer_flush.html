@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  {% include _head.html %}
+  <body{% if page.path == 'preview.html' %} class="preview"{% endif %}>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFS4MJ"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    {% include header.html %}
+    {{ content }}
+    {% include footer.html %}
+    {% if page.preloader %}{% include _preloader.html %}{% endif %}
+
+    <script async type="text/javascript" src="{% asset {{page.js_manifest}} @path %}"></script>
+  </body>
+</html>
