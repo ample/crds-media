@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: default_footer_120
 
 paginate:
   podcasts:
@@ -29,10 +29,10 @@ paginate:
         {% endfor %}
       </div>
       {% if recent_unfeatured.size > 0 %}
-        <div class="push-bottom">
+        <div>
           <h2 class="collection-header text-gray-light push-bottom">most recent</h2>
           <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
-            <div class="feature-cards card-deck--expanded-layout">
+            <div class="feature-cards">
               {% for card in recent_unfeatured %}
                 {% include _media-card.html carousel=true %}
               {% endfor %}
