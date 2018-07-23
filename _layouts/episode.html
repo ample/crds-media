@@ -50,19 +50,19 @@ layout: default
           </ul>
 
           <!-- Tab panes -->
-          <div class="tab-content markdown">
-            <div role="tabpanel" class="tab-pane soft-bottom active" id="description">
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane push-top soft-bottom active" id="description">
               {{ page.content }}
             </div>
 
             {% if page.show_notes %}
-            <div role="tabpanel" class="tab-pane soft-bottom" id="show-notes">
+            <div role="tabpanel" class="tab-pane push-top soft-bottom" id="show-notes">
               {{ page.show_notes }}
             </div>
             {% endif %}
 
             {% if page.transcription %}
-            <div role="tabpanel" class="tab-pane soft-bottom" id="transcription">
+            <div role="tabpanel" class="tab-pane push-top soft-bottom" id="transcription">
               {{ page.transcription }}
             </div>
             {% endif %}
@@ -119,7 +119,6 @@ layout: default
 
     {% include _subscribe-buttons.html content_type=podcast %}
 
-    <div class="soft-7-bottom">
     {% if site.podcasts.size > 1 %}
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
@@ -142,7 +141,6 @@ layout: default
         </div>
       </div>
     {% endif %}
-    </div>
 
   </div>
 </div>
