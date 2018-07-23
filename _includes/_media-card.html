@@ -12,7 +12,11 @@
     {% else %}
       {% include _media-label.html source=card content_type=include.content_type %}
     {% endif %}
-    <img src="{{ card.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>
+    {% if card.image %}
+      <img src="{{ card.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>
+    {% else %}
+      <img src="{{ site.default_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>
+    {% endif %}
   </a>
   <div class="card-block hard soft-quarter-top">
     <a class="text-gray font-size-smaller font-family-base-mid text-uppercase" href="{{ topic.url }}">{{ topic.title }}</a>

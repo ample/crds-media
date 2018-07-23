@@ -4,7 +4,11 @@
 <div class="card">
   <a class="relative" href="{{ post.url }}">
     {% include _media-label.html source=post %}
-    <img src="{{ post.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ post.image.title }}" sizes="{{ site.image_sizes.cards_3x }}" data-optimize-img>
+    {% if post.image %}
+      <img src="{{ post.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ post.image.title }}" sizes="{{ site.image_sizes.cards_3x }}" data-optimize-img>
+    {% else %}
+      <img src="{{ site.default_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ post.image.title }}" sizes="{{ site.image_sizes.cards_3x }}" data-optimize-img>
+    {% endif %}
   </a>
   <p class="text-gray font-size-smaller push-quarter-top flush-bottom"><a href="{{ topic.url }}">{{ topic.title | upcase }}</a></p>
   <a href="{{ post.url }}">
