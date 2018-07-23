@@ -2,22 +2,13 @@
 {% assign topic = site.topics | where: "title", post.topic | first %}
 
 <div class="card">
-  <a href="{{ post.url }}">
-    <img src="{{ post.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_card }}" alt="{{ post.image.title }}" class="card-img-top" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
+  <a class="relative" href="{{ post.url }}">
+    {% include _media-label.html source=post %}
+    <img src="{{ post.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ post.image.title }}" sizes="{{ site.image_sizes.cards_3x }}" data-optimize-img>
   </a>
-  <div class="card-block">
-    <a href="{{ post.url }}">
-      <h4 class="card-title card-title--overlap text-uppercase">{{ post.title }}</h4>
-    </a>
-    <p class="card-text soft-quarter-top">
-      <a href="{{ author.url }}">{{ author.name | titleize }}</a> |
-      <span class="card-date">
-        {{ post.date | format_date }}
-      </span>
-    </p>
-    <h5 class="metadata push-quarter-ends">
-      <a href="{{ topic.url }}">{{ topic.title }}</a> -
-      {% include _read-time.html content_type=post %}
-    </h5>
-  </div>
+  <p class="text-gray font-size-smaller push-quarter-top flush-bottom"><a href="{{ topic.url }}">{{ topic.title | upcase }}</a></p>
+  <a href="{{ post.url }}">
+    <h2 class="font-family-condensed-extra font-size-h3 flush-ends">{{ post.title | upcase }}</h2>
+  </a>
+  <p class="text-gray-light font-size-small flush-bottom push-quarter-top"><a href="{{ author.url }}">{{ author.name | titleize }}</a></p>
 </div>

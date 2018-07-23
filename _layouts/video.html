@@ -52,41 +52,17 @@ layout: default
             </div>
           </div>
         </div>
-
-        <div class="col-sm-8 col-sm-offset-2">
-          <!-- Nav tabs -->
-          <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active">
-              <a href="#description" aria-controls="description" role="tab" data-toggle="tab" class="text-gray-light">Description</a>
-            </li>
-
-            {% if page.transcription %}
-            <li role="presentation">
-              <a href="#transcription" aria-controls="transcription" role="tab" data-toggle="tab" class="text-gray-light">Transcription</a>
-            </li>
-            {% endif %}
-          </ul>
-
-        </div>
       </div>
     </div>
   </div>
 
   <div class="container">
-    <div class="row push-bottom">
+    <div class="row push-ends">
       <div class="col-sm-4 col-md-5 col-sm-offset-2">
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane soft-bottom push-top active" id="description">
-            {{ page.content | markdownify }}
-          </div>
-
-          {% if page.transcription %}
-          <div role="tabpanel" class="tab-pane soft-bottom push-top" id="transcription">
-            {{ page.transcription | markdownify }}
-          </div>
-          {% endif %}
-        </div>
+        {% assign tabs = 'content transcription' | split: ' ' %}
+        {% if page.transcription or page.content != blank %}
+          {% include _tabs.html tabs=tabs %}
+        {% endif %}
 
         {% for author_name in page.authors %}
         {% assign author = site.authors | where:"name", author_name | first %}
@@ -126,7 +102,7 @@ layout: default
           </ul>
           {% endif %}
       </div>
-      <div class="col-sm-4 col-md-3 soft-top">
+      <div class="col-sm-4 col-md-3 soft-half-top">
         {% include _subscribe-buttons.html content_type=page youtube=true row=false subscribe=false %}
       </div>
     </div>

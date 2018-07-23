@@ -13,7 +13,6 @@ describe 'podcasts' do
   it 'should be sorted by most recent episode' do
     @filename = 'podcasts.html'
     @page = Jekyll::Page.new(@site, @base, '', @filename)
-    binding.pry
   end
 end
 
