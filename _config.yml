@@ -174,7 +174,7 @@ contentful:
           topic_slug: category/slug
           tags: tags/title
           author: author/full_name
-          audio_duration: audio_duration
+          duration: audio_duration
           album_title: album/title
           album_image: album/image/url
           album_slug: album/slug
@@ -186,6 +186,9 @@ contentful:
           google_play_url: google_play_url
           youtube_url: youtube_url
           related_videos: related_videos
+          call_to_action: call_to_action
+          featured_label: featured_label
+          featured_subtitle: featured_subtitle
           slug: slug
         other:
           layout: song
