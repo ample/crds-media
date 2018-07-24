@@ -59,8 +59,8 @@ layout: default
   <div class="container">
     <div class="row push-ends">
       <div class="col-sm-4 col-md-5 col-sm-offset-2">
-        {% assign tabs = 'content transcription' | split: ' ' %}
-        {% if page.transcription or page.content != blank %}
+        {% assign tabs = 'description transcription' | split: ' ' %}
+        {% if page.transcription or page.description %}
           {% include _tabs.html tabs=tabs %}
         {% endif %}
 
