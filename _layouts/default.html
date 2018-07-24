@@ -40,13 +40,12 @@
     <meta name="twitter:site" content="@crdschurch">
 
     <script>
-    var CRDS = {
-      media: {
-        cms: '{{ site.shared_header.cms }}',
-        app: '{{ site.shared_header.app }}',
-        img: '{{ site.shared_header.img }}',
-        prefix: '{{ site.shared_header.prefix }}'
-      }
+    window.CRDS = window['CRDS'] || {};
+    CRDS['media'] = {
+      cms: '{{ site.shared_header.cms }}',
+      app: '{{ site.shared_header.app }}',
+      img: '{{ site.shared_header.img }}',
+      prefix: '{{ site.shared_header.prefix }}'
     };
 
     var JEKYLL_ENV = '{{ site.jekyll_env }}';
