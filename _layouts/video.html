@@ -140,15 +140,15 @@ layout: default
           <div class="cards-3x cards-2x-xs">
             <div class="row">
             {% if page.topic %}
-              {% assign limited = site.videos | where: 'topic', page.topic | sort: 'date' | reverse | exclude: page.title %}
+              {% assign limited = site.videos | where: 'topic', page.topic | reverse | exclude: page.title %}
               {% if limited.size < 1 %}
-                {% assign limited = site.videos | sort: 'date' | reverse | slice: 0, 9 | exclude: page.title %}
+                {% assign limited = site.videos | reverse | slice: 0, 9 | exclude: page.title %}
               {% endif %}
             {% else %}
-              {% assign limited = site.videos | sort: 'date' | reverse | slice: 0, 9 | exclude: page.title %}
+              {% assign limited = site.videos | reverse | slice: 0, 9 | exclude: page.title %}
             {% endif %}
 
-            {% for video in limited limit: 8 %}
+            {% for video in limited limit: 9 %}
               {% include _video-card.html %}
             {% endfor %}
             </div>
