@@ -6,7 +6,6 @@
 {% endif %}
 
 <div class="card">
-    <p>{{ video.date | date: '%B %d, %Y' }}</p>
   <a class="relative block" href="{{ video.url }}">
     {% if include.imgix_size == "1x" %}
       <img src="{{ image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.card_1x }}" alt="{{ video.title }}" data-optimize-img>

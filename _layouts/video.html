@@ -140,12 +140,12 @@ layout: default
           <div class="cards-3x cards-2x-xs">
             <div class="row">
             {% if page.topic %}
-              {% assign limited = site.videos | where: 'topic', page.topic | reverse | exclude: page.title %}
+              {% assign limited = site.videos | where: 'topic', page.topic | reverse | exclude: page.title | slice: 0, 9 %}
               {% if limited.size < 1 %}
-                {% assign limited = site.videos | reverse | slice: 0, 9 | exclude: page.title %}
+                {% assign limited = site.videos | reverse | exclude: page.title | slice: 0, 9 %}
               {% endif %}
             {% else %}
-              {% assign limited = site.videos | reverse | slice: 0, 9 | exclude: page.title %}
+              {% assign limited = site.videos | reverse | exclude: page.title | slice: 0, 9 %}
             {% endif %}
 
             {% for video in limited limit: 9 %}
