@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
   {% include _head.html %}
-  <body{% if page.path == 'preview.html' %} class="preview"{% endif %}>
+  <body>
     {% include _gtm.html %}
 
     {% include header.html %}
-    <div style="margin-bottom: 120px;">
-      {{ content }}
-    </div>
+    {{ content }}
     {% include footer.html %}
     {% if page.preloader %}{% include _preloader.html %}{% endif %}
 

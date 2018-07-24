@@ -118,7 +118,7 @@ layout: default
     <div class="push-top soft-top row">
       <div class="col-sm-8 col-sm-offset-2">
 
-        <section class="{% if series == nil %} soft-7-bottom {% else %} push-bottom {% endif %}">
+        <section>
           <h2 class="component-header flush-top">
             {% if page.series_slug %}In this Series
             {% elsif page.topic %}Related Videos{% else %}Recent Videos{% endif %}
@@ -160,7 +160,7 @@ layout: default
         {% if page.series_slug %}
 
         {% assign limited = site.series | sort: 'date' | reverse | slice: 0, 7 | exclude: page.series %}
-        <section class="soft-7-bottom">
+        <section>
           <h2 class="component-header flush-top">Recent Series</h2>
           <div class="cards-2x">
             <div class="row">
