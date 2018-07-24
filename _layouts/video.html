@@ -70,7 +70,7 @@ layout: default
         {% if forloop.first %}<p class="flush-bottom">Featuring {% endif %}
           <a href="{{ author.url }}">{{ author.name | titleize }}</a> {% if forloop.last == false %} and {% endif %} {% if forloop.last %}</p>{% endif%}
           {% endif %}
-          {% endfor%}
+          {% endfor%}https://www.youtube.com/watch?v=8VkZ8YLO5CE
           <p>{{ page.date | format_date }} {% if page.video_duration != nil %}
             <span class="divider push-quarter-sides">•</span> {{ page.video_duration }} {% endif %}</p>
 
@@ -137,23 +137,22 @@ layout: default
 
           {% else %}
 
-          <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
-            <div class="feature-cards">
-              {% if page.topic %}
+          <div class="cards-3x cards-2x-xs">
+            <div class="row">
+            {% if page.topic %}
               {% assign limited = site.videos | where: 'topic', page.topic | sort: 'date' | reverse | exclude: page.title %}
               {% if limited.size < 1 %}
+                {% assign limited = site.videos | sort: 'date' | reverse | slice: 0, 9 | exclude: page.title %}
+              {% endif %}
+            {% else %}
               {% assign limited = site.videos | sort: 'date' | reverse | slice: 0, 9 | exclude: page.title %}
-              {% endif %}
-              {% else %}
-              {% assign limited = site.videos | sort: 'date' | reverse | slice: 0, 9 |exclude: page.title %}
-              {% endif %}
+            {% endif %}
 
-              {% for video in limited limit: 8 %}
+            {% for video in limited limit: 8 %}
               {% include _video-card.html %}
-              {% endfor %}
+            {% endfor %}
             </div>
           </div>
-
           {% endif %}
         </section>
 
