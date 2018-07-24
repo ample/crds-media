@@ -17,11 +17,18 @@
   }
 
 
-  & .card {
-    margin-bottom: 3.75rem;
+  .card {
+    margin-top: 3.75rem;
 
-    @media screen and (min-width: $screen-xs) {
-      margin-bottom: 3.875rem;
+    &:first-child {
+      margin-top: 0;
+    }
+
+    @media screen and (min-width: $screen-sm) {
+      // First and second child
+      &:nth-child(-n+2) {
+        margin-top: 0;
+      }
     }
 
     & img:not(.tmp-img-placeholder) {

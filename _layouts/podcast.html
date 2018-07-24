@@ -48,10 +48,10 @@ layout: default
       </div>
     </div>
   </section>
-  <div class="container content soft-7-bottom">
+  <div class="container content">
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
-        <div class="markdown">{{ page.content }}</div>
+        <div>{{ page.content }}</div>
         {% for author_name in page.authors %}
         {% assign author = site.authors | where:"name", author_name | first %}
         {% if author %}
@@ -95,20 +95,24 @@ layout: default
 
               {% assign episodes = group.items | sort: "episode_number" | reverse %}
               {% for episode in episodes %}
-                <a href="{{ episode.url }}">
-                  <h3 class="list-title text-capitalize">Episode {{ episode.episode_number }}: {{ episode.title }}</h3>
-                </a>
+                <div class="push-top">
+                  <a href="{{ episode.url }}">
+                    <h3 class="list-title text-capitalize push-quarter-bottom">Episode {{ episode.episode_number }}: {{ episode.title }}</h3>
+                  </a>
 
-                <p class="metadata">{{ episode.date | format_date }}
-                  {% if episode.date != nil and episode.audio_duration != nil %}
-                  <span class="divider">•</span>
-                  {% endif %}
-                  {% if episode.audio_duration %}
-                    {{ episode.audio_duration }} mins
-                  {% endif %}
-                </p>
+                  <p class="metadata push-quarter-bottom">{{ episode.date | format_date }}
+                    {% if episode.date != nil and episode.audio_duration != nil %}
+                    <span class="divider">•</span>
+                    {% endif %}
+                    {% if episode.audio_duration %}
+                      {{ episode.audio_duration }} mins
+                    {% endif %}
+                  </p>
 
-                <p class="episode-description soft-bottom">{{ episode.content | strip_html | truncatewords: 35 }}</p>
+                  {% if episode.content != blank %}
+                  <p class="episode-description">{{ episode.content | strip_html | truncatewords: 35 }}</p>
+                  {% endif %}
+                </div>
               {% endfor %}
             </div>
 
