@@ -141,7 +141,7 @@ layout: default
             <div class="row">
             {% if page.topic %}
               {% assign limited = site.videos | where: 'topic', page.topic | reverse | exclude: page.title | slice: 0, 9 %}
-              {% if limited.size < 1 %}
+              {% if limited.size == 0 %}
                 {% assign limited = site.videos | reverse | exclude: page.title | slice: 0, 9 %}
               {% endif %}
             {% else %}
