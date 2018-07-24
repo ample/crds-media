@@ -10,9 +10,10 @@ module Jekyll
 
       def perform
         site.collections.each do |type, collection|
-          collection.docs.each do |doc|
+          tpl = get_template(type)
+          next if tpl.nil?
 
-            tpl = get_template(type)
+          collection.docs.each do |doc|
             tokens = get_symbols(tpl)
 
             unless (tokens - doc.url_placeholders.keys).empty?
