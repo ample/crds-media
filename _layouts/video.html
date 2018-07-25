@@ -118,7 +118,7 @@ layout: default
     <div class="push-top soft-top row">
       <div class="col-sm-8 col-sm-offset-2">
 
-        <section class="{% if series == nil %} soft-7-bottom {% else %} push-bottom {% endif %}">
+        <section>
           <h2 class="component-header flush-top">
             {% if page.series_slug %}In this Series
             {% elsif page.topic %}Related Videos{% else %}Recent Videos{% endif %}
@@ -137,30 +137,29 @@ layout: default
 
           {% else %}
 
-          <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
-            <div class="feature-cards">
-              {% if page.topic %}
-              {% assign limited = site.videos | where: 'topic', page.topic | sort: 'date' | reverse | exclude: page.title %}
-              {% if limited.size < 1 %}
-              {% assign limited = site.videos | sort: 'date' | reverse | slice: 0, 9 | exclude: page.title %}
+          <div class="cards-3x cards-2x-xs">
+            <div class="row">
+            {% if page.topic %}
+              {% assign limited = site.videos | where: 'topic', page.topic | reverse | exclude: page.title | slice: 0, 9 %}
+              {% if limited.size == 0 %}
+                {% assign limited = site.videos | reverse | exclude: page.title | slice: 0, 9 %}
               {% endif %}
-              {% else %}
-              {% assign limited = site.videos | sort: 'date' | reverse | slice: 0, 9 |exclude: page.title %}
-              {% endif %}
+            {% else %}
+              {% assign limited = site.videos | reverse | exclude: page.title | slice: 0, 9 %}
+            {% endif %}
 
-              {% for video in limited limit: 8 %}
+            {% for video in limited limit: 9 %}
               {% include _video-card.html %}
-              {% endfor %}
+            {% endfor %}
             </div>
           </div>
-
           {% endif %}
         </section>
 
         {% if page.series_slug %}
 
         {% assign limited = site.series | sort: 'date' | reverse | slice: 0, 7 | exclude: page.series %}
-        <section class="soft-7-bottom">
+        <section>
           <h2 class="component-header flush-top">Recent Series</h2>
           <div class="cards-2x">
             <div class="row">
