@@ -20,7 +20,7 @@
     > a:hover,
     > a:focus {
       border: 0;
-      background-color: transparent;
+      background-color: transparent !important;
       color: $cr-gray;
       padding-left: 0;
       padding-right: 0;
@@ -30,8 +30,4 @@
       color: $cr-gray-dark;
     }
   }
-}
-
-.tab-pane {
-  padding: 1.875rem 0;
 }

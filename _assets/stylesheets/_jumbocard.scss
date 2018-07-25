@@ -13,7 +13,7 @@
     background-repeat: no-repeat;
   }
 
-  & .jumbocard-link {
+  .jumbocard-link {
     position: absolute;
     top: 0;
     right: 0;
@@ -29,15 +29,18 @@
     }
   }
 
-  & .jumbocard-content {
+  .jumbocard-content {
     position: absolute;
     bottom: 0;
     width: 100%;
     padding: 15px;
-    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.7));
 
     @media (min-width: $screen-sm) {
       padding: 30px;
+    }
+
+    &.gradient-bg {
+      background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.7));
     }
 
     .jumbocard-title {
@@ -72,6 +75,42 @@
       @media (min-width: $screen-sm) {
         font-size: 110px;
         padding-bottom: $line-height-computed/2;
+      }
+    }
+  }
+}
+
+.music-tpl .jumbocard {
+  @media (min-width: $screen-sm) {
+    padding-top: 40rem; // 640px
+  }
+
+  @media (min-width: $screen-md) {
+    padding-top: 56.25rem; // 900px
+  }
+
+  .breadcrumb {
+    position: absolute;
+    top: 60px;
+    left: 15px;
+    z-index: 1;
+
+    @media (min-width: $screen-sm) {
+      left: 60px;
+    }
+
+  }
+
+  .jumbocard-content {
+    @media (max-width: $screen-sm) {
+      padding-bottom: 2.8125rem; // 45px
+    }
+
+    .jumbocard-title {
+      line-height: .91;
+      @media (min-width: $screen-sm) {
+        font-size: 90px;
+        line-height: .89;
       }
     }
   }

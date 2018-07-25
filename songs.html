@@ -5,6 +5,7 @@ title: Songs
 paginate:
   songs:
     per: 8
+    sort: date desc
 ---
 
 <div class="container">
@@ -23,5 +24,7 @@ paginate:
       </div>
     </div>
   </div>
-  {% include _pagination.html collection="songs" %}
+  <div class="push-top">
+    {% include _pagination.html collection="songs" %}
+  </div>
 </div>

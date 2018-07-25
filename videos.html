@@ -26,16 +26,16 @@ paginate:
         <div class="cards-2x">
           <div class="row">
           {% for video in page.videos.offset %}
-            {% include _video-card.html image_size="2x" %}
+            {% include _video-card.html imgix_size="2x" %}
           {% endfor %}
           </div>
         </div>
       {% endif %}
 
-      <div class="cards-4x cards-2x-xs" data-page="videos">
+      <div class="cards-4x" data-page="videos">
         <div class="row" data-page-number="{{ page.videos.page }}">
           {% for video in page.videos.docs %}
-            {% include _video-card.html image_size="4x" %}
+            {% include _video-card.html imgix_size="4x" %}
           {% endfor %}
         </div>
       </div>
@@ -43,7 +43,7 @@ paginate:
       <div class="loading hide">
         {% include _preloader.html %}
       </div>
-      <div class="push-bottom">
+      <div>
         {% include _pagination.html collection="videos" link_root="videos" remote=true %}
       </div>
     </div>

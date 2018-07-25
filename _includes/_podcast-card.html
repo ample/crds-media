@@ -1,6 +1,10 @@
 <div class="card">
   <a href="{{ podcast.url }}">
-    <img src="{{ podcast.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
+    {% if podcast.image %}
+      <img src="{{ podcast.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
+    {% else %}
+      <img src="{{ site.default_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
+    {% endif %}
   </a>
   <div class="card-block hard-bottom">
     <a href="{{ podcast.url }}">
