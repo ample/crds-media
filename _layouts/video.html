@@ -25,7 +25,7 @@ layout: default
               {% assign url_array = page.url | split: '/' | shift | pop %}
               {% capture url_string %} {{ page.url | replace: '/', " " }}{% endcapture %}
               {% assign url="" %}
-              <ol class="breadcrumb push-top hard-sides flush-bottom hard-sides">
+              <ol class="breadcrumb push-top hard-sides">
                 <li><a href="/">Media</a></li>
 
                 {% for breadcrumb in url_array %}

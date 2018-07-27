@@ -1,6 +1,7 @@
 .breadcrumb {
-  background-color: transparent;
+  background-color: transparent !important;
   position: relative;
+  margin-bottom: -.5rem;
 
   &.text-white {
     a {
@@ -31,9 +32,10 @@
     // Overrides Bootstrap breadcrumb style
     +li {
       // Breadcrumb separator should come after breadcrumb, not before
+      // Important flag is for Firefox
       &:before {
-        content: " ";
-        padding: 0;
+        content: " " !important;
+        padding: 0 !important;
       }
     }
   }
