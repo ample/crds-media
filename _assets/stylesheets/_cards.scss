@@ -1,20 +1,24 @@
 .card-deck--expanded-layout {
-  .card.card-2x {
-    flex: 1 0 auto;
+  .card {
+    margin-bottom: 1.5rem;
 
-    @media (min-width: $screen-sm) {
-      flex-basis: 50%;
-      max-width: 50%;
-      margin-right: 0;
-      padding: 0 15px;
-    }
+    &.card-2x {
+      flex: 1 0 auto;
 
-    &:nth-child(odd) {
-      padding-left: 0;
-    }
+      @media (min-width: $screen-sm) {
+        flex-basis: 50%;
+        max-width: 50%;
+        margin-right: 0;
+        padding: 0 15px;
+      }
 
-    &:nth-child(even) {
-      padding-right: 0;
+      &:nth-child(odd) {
+        padding-left: 0;
+      }
+
+      &:nth-child(even) {
+        padding-right: 0;
+      }
     }
   }
 
@@ -110,7 +114,11 @@
   }
 }
 
-
+.card-block {
+  .component-header {
+    line-height: .95;
+  }
+}
 
 
 .overlay-card {
