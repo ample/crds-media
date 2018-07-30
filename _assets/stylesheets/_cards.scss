@@ -179,11 +179,25 @@
     .overlay-card-title {
       font-size: 4vw;
     }
+
+    .overlay-card-image {
+      &::after {
+        height: 145px;
+        margin-top: -145px;
+      }
+    }
   }
 
   @media screen and (min-width: $screen-md) {
     .overlay-card-content {
       padding: 30px;
+    }
+
+    .overlay-card-image {
+      &::after {
+        height: 200px;
+        margin-top: -200px;
+      }
     }
   }
 
@@ -191,6 +205,13 @@
     .overlay-card-title {
       font-size: 4.5rem;
       line-height: .8;
+    }
+
+    .overlay-card-image {
+      &::after {
+        height: 250px;
+        margin-top: -250px;
+      }
     }
   }
 }

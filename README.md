@@ -303,6 +303,19 @@ If you run into an error on your terminal saying `NoMethodError: undefined metho
 3. Run `bundle update jekyll-contentful`
 4. Run `bundle exec jekyll contentful && bundle exec jekyll serve`
 
+Updates to DDK
+----------
+
+When making changes in the DDK that should be reflected in this project:
+
+1. In the `crds-media` Gemfile, change the `crds-styles` gem to point at development by adding `, branch: 'development'` 
+
+For example:
+
+  ```gem 'crds-styles', "~> 3.0.1", git: 'https://github.com/crdschurch/crds-styles.git', branch: 'development'```
+
+2. Once your pull request is merged in `crds-styles`, run `bundle update crds-styles` in `crds-media` 
+
 License
 ----------
 
