@@ -4,6 +4,7 @@
 //= require ./vendor/clipboard.min
 //= require ./vendor/crds-card-carousel-v0.2.0.min
 //= require ./vendor/flickity.pkgd.min
+//= require ./vendor/imgix-optimizer
 //= require ./components/clipboard
 //= require ./components/gtm
 //= require ./components/header
