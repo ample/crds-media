@@ -158,12 +158,12 @@ layout: default
 
         {% if page.series_slug %}
 
-        {% assign limited = site.series | sort: "start_date" | reverse | exclude: page.series | slice: 0, 7 %}
+        {% assign limited = site.series | sort: "start_date" | reverse | exclude: page.series | slice: 0, 6 %}
         <section>
           <h2 class="component-header flush-top">Recent Series</h2>
           <div class="cards-2x">
             <div class="row">
-              {% for item in limited limit: 6 %}
+              {% for item in limited %}
               <div class="card">
                 {% include _series-card.html %}
               </div>
