@@ -56,6 +56,8 @@ collections:
   series:
     output: true
     permalink: /:collection/:slug
+  tags:
+    output: false
   messages:
     output: true
     permalink: /series/:series_slug/:slug
@@ -243,6 +245,13 @@ contentful:
         other:
           layout: series
           draft: false
+    tags:
+      id: tag
+      frontmatter:
+        entry_mappings:
+          title: title
+          slug: slug
+          video_collection: video_collection
     messages:
       id: message
       body: description
