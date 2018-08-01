@@ -215,6 +215,8 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    uglifier (4.1.17)
+      execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.5)
@@ -242,6 +244,7 @@ DEPENDENCIES
   rspec
   sprockets (~> 3.7.2)
   tzinfo-data
+  uglifier
   video-tags (~> 0.0.1)!
 
 BUNDLED WITH
