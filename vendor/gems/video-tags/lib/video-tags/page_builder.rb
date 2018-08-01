@@ -4,7 +4,7 @@ module Jekyll
   module VideoTags
     class PageBuilder
 
-      attr_reader :site, :tag_names
+      attr_reader :site, :tag_names, :featureable_tags
 
       def initialize(site)
         @site = site
@@ -17,17 +17,23 @@ module Jekyll
         def init_tags
           begin
             # Gather an array of tag names from the video collection docs.
-            @tag_names = site.collections['videos'].docs.collect { |d| d.data['tags'] }.flatten.uniq.sort
+            video_tag_names = site.collections['videos'].docs.collect { |d| d.data['tags'] }.flatten.uniq.sort
+
+            # Filter out only those tags that can act as video collections.
+            @featureable_tags = @site.collections['tags'].docs.select { |t|
+              video_tag_names.include?(t.data['title']) && t.data['video_collection']
+            }
+            @tag_names = featureable_tags.collect { |t| t.data['title'] }
 
             # Inject video_tags into the site's config so they can be iterated
             # upon. Specifically, this enables us to build the video nav without
             # extra effort.
             site.config['video_tags'] = []
-            tag_names.each do |name|
+            featureable_tags.each do |tag|
               site.config['video_tags'] << {
-                'title' => name,
-                'slug' => name.parameterize,
-                'url' => "/videos/tags/#{name.parameterize}"
+                'title' => tag.data['title'],
+                'slug' => tag.data['slug'],
+                'url' => "/videos/tags/#{tag.data['slug']}"
               }
             end
           rescue NoMethodError
@@ -39,15 +45,15 @@ module Jekyll
         def generate_pages
           # For each video tag, build out a corresponding page using the video_tag
           # layout.
-          tag_names.each do |name|
+          featureable_tags.each do |tag|
             page = Jekyll::Page.new(site, site.source, '_layouts', 'video_tag.html')
             # Customize the URL for the new page.
-            page.instance_variable_set('@url', "/videos/tags/#{name.parameterize}/index.html")
+            page.instance_variable_set('@url', "/videos/tags/#{tag.data['slug']}/index.html")
             # Add default frontmatter to the new page.
             (page.data ||= {}).merge!(
               'layout' => 'default',
-              'slug' => name.parameterize,
-              'title' => name
+              'slug' => tag.data['slug'],
+              'title' => tag.data['title']
             )
             # Inject the page into the site's pages.
             site.pages << page

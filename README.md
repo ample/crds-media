@@ -303,6 +303,19 @@ If you run into an error on your terminal saying `NoMethodError: undefined metho
 3. Run `bundle update jekyll-contentful`
 4. Run `bundle exec jekyll contentful && bundle exec jekyll serve`
 
+Hotfixing with cherry-pick'd commits
+---------
+
+1. Locate the commit hash of the commit you would like to hotfix.
+2. Create a `hotfix` branch and use `git cherry-pick <commit-hash>` to add the
+   commit/s
+3. Push the hotfix branch and create a pull request against `release` (demo). Check
+   your work on `mediademo.crossroads.net`.
+4. If things looked good, simply create another pull request comparing `release` to
+   `master` (prod). Once merged, you will have hotfixed all envs!
+
+_note: make sure you don’t “Squash and Merge”. Leave a merge commit._ 
+
 Updates to DDK
 ----------
 
