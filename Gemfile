@@ -3,6 +3,7 @@ source "https://rubygems.org"
 gem "jekyll", "~> 3.7.2"
 gem 'activesupport'
 gem 'hashie'
+gem 'uglifier'
 
 group :development do
   gem 'pry'

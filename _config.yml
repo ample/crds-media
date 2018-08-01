@@ -332,6 +332,7 @@ assets:
   source_maps: true # false on JEKYLL_ENV=production
   destination: "/assets"
   compression: true
+  js_compressor: uglifier
   sources:
   - _assets/stylesheets
   - _assets/javascripts
