@@ -110,9 +110,6 @@
   }
 }
 
-
-
-
 .overlay-card {
   display: block;
   position: relative;
@@ -137,6 +134,11 @@
     img {
       width: 100%;
     }
+  }
+
+  .overlay-card-link:hover {
+    color: initial;
+    text-decoration: none;
   }
 
   .overlay-card-content {
@@ -211,6 +213,23 @@
       &::after {
         height: 250px;
         margin-top: -250px;
+      }
+    }
+  }
+}
+
+.overlay-card-xl {
+  .overlay-card-content {
+    @media (min-width: $screen-sm) {
+      padding: 3.75rem;
+    }
+    .overlay-card-title {
+      font-size: 4rem;
+      margin-left: -.2rem;
+
+      @media (min-width: $screen-sm) {
+        font-size: 6.875rem;
+        padding-bottom: $line-height-computed/2;
       }
     }
   }
