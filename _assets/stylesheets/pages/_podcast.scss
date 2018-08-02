@@ -74,7 +74,7 @@
 
     @media screen and (min-width: $screen-sm) {
       .podcast-header-text {
-        left: 330px;
+        left: 400px;
         padding-left: 1rem;
         width: calc(100% - 330px);
       }
@@ -86,8 +86,8 @@
       }
 
       .podcast-header-artwork {
-        width: 20.625rem; // 330px
-        height: 20.625rem; // 330px
+        width: 25rem; // 400px
+        height: 25rem; // 400px
       }
     }
   }
