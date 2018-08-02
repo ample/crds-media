@@ -7,7 +7,7 @@
   {% endfor %}
   </ul>
 
-  <div class="tab-content">
+  <div class="tab-content soft-top">
   {% for tab in include.tabs %}
     <div role="tabpanel" class="tab-pane soft-bottom" id="{{tab}}">
       {{ page[tab] | markdownify }}

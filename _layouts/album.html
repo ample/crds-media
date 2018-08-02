@@ -26,10 +26,21 @@ layout: default
             </h1>
 
             <!-- album description -->
-            <div class="font-size-base white-faded markdown">{{ page.content }}</div>
+            <div class="font-size-base white-faded">{{ page.content }}</div>
 
             {% include _external-music-links.html %}
 
+            {% assign album = site.songs | where: 'album_title', page.title %}
+            {% if album.size > 0 %}
+            <div class="tracks text-center">
+              <h3 class="font-size-large font-family-base-light text-white">tracklist</h3>
+              <ul class="list-unstyled">
+                {% for song in album %}
+                <li><a href="{{ song.url }}">{{ song.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endif %}
           </div>
         </div>
       </div>

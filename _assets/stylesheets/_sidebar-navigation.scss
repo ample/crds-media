@@ -10,6 +10,10 @@
 
   .dropdown-menu {
     right: 0;
+
+    > li > a {
+      white-space: normal;
+    }
   }
 
   @media screen and (min-width: $screen-md) {
