@@ -58,6 +58,8 @@ collections:
     permalink: /:collection/:slug
   tags:
     output: false
+  features:
+    output: false
   messages:
     output: true
     permalink: /series/:series_slug/:slug
@@ -252,6 +254,13 @@ contentful:
           title: title
           slug: slug
           video_collection: video_collection
+    features:
+      id: featured_media
+      frontmatter:
+        entry_mappings:
+          title: title
+          path: path
+          entry_ids: entries/id
     messages:
       id: message
       body: description
