@@ -108,7 +108,6 @@
     }
 
     .header-content {
-      background-color: rgba($cr-black, 0.2);
       padding: 1rem 0;
 
       @media screen and (min-width: $screen-sm) {
@@ -154,13 +153,13 @@
 
       &.episode-description {
         font-size: $font-size-small;
-        line-height: $line-height-small; //20px
+        line-height: 1.4;
       }
     }
 
     & .list-title {
       font-size: $font-size-large;
-      line-height: $line-height-large;
+      line-height: 1.4;
 
       &:first-child{
         margin-top: 0;
