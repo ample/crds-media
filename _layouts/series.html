@@ -9,7 +9,7 @@ layout: default
   <div class="jumbotron jumbotron-xl soft-14-top soft-2-bottom mobile-soft-top {{ overflow-hidden }}" style="background-image: url('{{ page.bg_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
     {% if page.bg_image == nil %}
       <div class="blur" style="background-image: url('{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img></div>
-      <div class="bg-overlay-85"></div>
+      <div class="bg-overlay"></div>
     {% endif %}
 
     <div class="jumbotron-content">
