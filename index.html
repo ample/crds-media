@@ -10,10 +10,10 @@ paginate:
     limit: 1
     sort: start_date desc
 ---
-{% assign recent_featured = site.recent_media | slice: 1, 3 %}
-{% assign recent_unfeatured = site.recent_media | slice: 4, 8 %}
 
-{% for jumbocard in site.recent_media limit: 1 %}
+{% assign feature_obj = site.features | where: 'page_path', page.url | first %}
+
+{% for jumbocard in feature_obj.docs limit: 1 %}
   {% include _jumbocard.html size="xl" %}
 {% endfor %}
 
@@ -22,18 +22,20 @@ paginate:
     <div class="col-md-8">
       <div class="push-bottom">
         <h2 class="collection-header push-bottom text-gray-light">featured media</h2>
-        {% for jumbocard in recent_featured %}
+        {% assign features = feature_obj.docs | slice: 1, 100 %}
+        {% for jumbocard in features %}
           <div class="push-bottom soft-bottom">
             {% include _jumbocard.html %}
           </div>
         {% endfor %}
       </div>
-      {% if recent_unfeatured.size > 0 %}
+      {% assign recent_media = site.recent_media | slice: 1, 8 %}
+      {% if recent_media.size > 0 %}
         <div>
           <h2 class="collection-header text-gray-light push-bottom">most recent</h2>
           <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
             <div class="feature-cards">
-              {% for card in recent_unfeatured %}
+              {% for card in recent_media %}
                 {% include _media-card.html carousel=true %}
               {% endfor %}
             </div>

@@ -259,8 +259,8 @@ contentful:
       frontmatter:
         entry_mappings:
           title: title
-          path: path
-          entry_ids: entries/id
+          page_path: path
+          doc_ids: entries/id
     messages:
       id: message
       body: description
