@@ -1,4 +1,5 @@
 <a href="{{ item.url }}" class="overlay-card {% if include.size == "xl" %} overlay-card-xl {% endif %}">
+  <div class="bg-overlay"></div>
   <div class="overlay-card-image">
     {% if item.image %}
       <img src="{{ item.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.card_2x }}" alt="{{ item.image.title }}" data-optimize-img>
