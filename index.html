@@ -13,8 +13,8 @@ paginate:
 
 {% assign feature_obj = site.features | where: 'page_path', page.url | first %}
 
-{% for jumbocard in feature_obj.docs limit: 1 %}
-  {% include _jumbocard.html size="xl" %}
+{% for item in feature_obj.docs limit: 1 %}
+  {% include _overlay-card.html size="xl" %}
 {% endfor %}
 
 <div class="container push-top">
@@ -23,9 +23,9 @@ paginate:
       <div class="push-bottom">
         <h2 class="collection-header push-bottom text-gray-light">featured media</h2>
         {% assign features = feature_obj.docs | slice: 1, 100 %}
-        {% for jumbocard in features %}
+        {% for item in features %}
           <div class="soft-bottom">
-            {% include _jumbocard.html %}
+            {% include _overlay-card.html %}
           </div>
         {% endfor %}
       </div>

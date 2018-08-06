@@ -6,9 +6,7 @@ layout: default
 
 <article class="article-tpl">
   <header style="background-image: url('{% if page.image %}{{ page.image | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img data-hero-image>
-
     <div class="bg-overlay"></div>
-
     <div class="container mobile-soft-half-bottom soft-bottom">
       <div class="row mobile-soft-half-bottom soft-half-bottom">
         <div class="col-md-8 col-md-offset-2">
