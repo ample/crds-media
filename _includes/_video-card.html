@@ -24,15 +24,15 @@
       <a href="{{ video.url }}">
         <h5 class="card-title font-size-smaller push-quarter-bottom">{{ video.title }}</h5>
     {% endif %}
-        <div class="font-size-smaller">
+        <div class="font-size-smaller push-quarter-top push-half-bottom">
           {% if video.topic != nil %}
-            <a class="text-gray-light" href="{{ topic.url }}">{{ video.topic }} &#xB7;</a>
+            <a class="text-gray" href="{{ topic.url }}">{{ video.topic }} &#xB7;</a>
           {% endif %}
           {% for person in video.authors %}
             {% assign video_author = site.authors | where: "name", person | first %}
-            <a class="text-gray-light" href="{{ video_author.url }}">{{ person }}</a>
+            <a class="text-gray" href="{{ video_author.url }}">{{ person }}</a>
             {% unless forloop.last %}
-            <span class="text-gray-light">&amp;</span>
+            <span class="text-gray">&amp;</span>
             {% endunless %}
           {% endfor %}
         </div>

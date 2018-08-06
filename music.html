@@ -22,7 +22,7 @@ paginate:
         {% endif %}
         <div class="jumbocard jumbocard-xl" style="background-image: url('{{ bg_img | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}');" data-optimize-bg-img>
           {% if forloop.index == 1 %}
-            <ol class="breadcrumb hard flush-bottom text-white">
+            <ol class="breadcrumb hard text-white">
               <li><a href="/">Media</a></li>
             </ol>
           {% endif %}

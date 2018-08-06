@@ -24,7 +24,7 @@ paginate:
         <h2 class="collection-header push-bottom text-gray-light">featured media</h2>
         {% assign features = feature_obj.docs | slice: 1, 100 %}
         {% for jumbocard in features %}
-          <div class="push-bottom soft-bottom">
+          <div class="soft-bottom">
             {% include _jumbocard.html %}
           </div>
         {% endfor %}
@@ -44,25 +44,25 @@ paginate:
       {% endif %}
     </div>
     <div class="col-md-4">
-      <div class="push-bottom">
-        <h2 class="collection-header push-bottom text-gray-light">series</h2>
-      </div>
-
       {% if page.series.docs.size != 0 %}
-        {% assign featured = page.series.docs | first %}
-        {% assign unfeatured_series = page.series.docs | slice: 1, 3 %}
-        {% include _media-object-featured.html %}
-        <hr>
-        {% for media in unfeatured_series %}
+        <div class="push-bottom soft-bottom">
+          <h2 class="collection-header push-bottom text-gray-light">series</h2>
+
+          {% assign featured = page.series.docs | first %}
+          {% assign unfeatured_series = page.series.docs | slice: 1, 3 %}
+          {% include _media-object-featured.html %}
+          <hr>
+          {% for media in unfeatured_series %}
           {% include _media-object.html count="6 episodes" media_type="series" %}
           {% unless forloop.last %}
-            <hr>
+          <hr>
           {% endunless %}
-        {% endfor %}
+          {% endfor %}
+        </div>
       {% endif %}
 
       {% if page.podcasts.docs.size != 0 %}
-        <div class="push-bottom">
+        <div class="push-bottom soft-bottom">
           <h2 class="collection-header push-bottom text-gray-light">podcasts</h2>
           {% assign featured = page.podcasts.docs | first %}
           {% assign unfeatured_podcasts = page.podcasts.docs | slice: 1, 3 %}

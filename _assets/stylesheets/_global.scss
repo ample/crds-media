@@ -6,6 +6,7 @@
 
 .collection-header {
   border-top-width: 2px;
+  font-size: 1.4rem;
 }
 
 .alert {
@@ -33,6 +34,11 @@
       &:active:hover,
       &:focus {
         text-decoration: none;
+      }
+
+      svg {
+        height: 24px;
+        width: 24px;
       }
     }
   }
