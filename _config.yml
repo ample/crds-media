@@ -6,7 +6,7 @@ url: "https://media.crossroads.net" # the base hostname & protocol for your site
 image: "https://crds-cms-uploads.imgix.net/content/images/cr-social-sharing-still-bg.jpg"
 
 # disable_hubspot: true
-permalink: /:title
+permalink: /:title/
 
 markdown: kramdown
 plugins:
