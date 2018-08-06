@@ -147,8 +147,12 @@
   }
 
   .overlay-card-content {
-    background-color: $cr-gray-darker;
+    background: transparent;
+    bottom: 0;
+    left: 0;
     padding: 15px 15px 20px;
+    position: absolute;
+    right: 0;
   }
 
   .overlay-card-category {
@@ -175,14 +179,6 @@
   }
 
   @media screen and (min-width: $screen-sm) {
-    .overlay-card-content {
-      background: transparent;
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
-
     .overlay-card-title {
       font-size: 4vw;
     }
@@ -224,6 +220,14 @@
 }
 
 .overlay-card-xl {
+  max-height: calc(100vh - 72px);
+  overflow: hidden;
+
+  .overlay-card-image img {
+    object-fit: cover;
+    object-position: center;
+  }
+
   .overlay-card-content {
     @media (min-width: $screen-sm) {
       padding: 3.75rem;
