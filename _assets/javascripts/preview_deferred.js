@@ -3,6 +3,7 @@
 //= require ./vendor/addthis_widget.min
 //= require ./vendor/clipboard.min
 //= require ./vendor/marked
+//= require ./vendor/imgix-optimizer
 //= require ./components/clipboard
 //= require ./components/gtm
 //= require ./components/header

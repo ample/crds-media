@@ -1,0 +1,10 @@
+.music-tpl .breadcrumb-container {
+  position: absolute;
+  top: 122px;
+  left: 15px;
+  z-index: 1;
+
+  @media (min-width: $screen-sm) {
+    left: 60px;
+  }
+}

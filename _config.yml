@@ -6,7 +6,7 @@ url: "https://media.crossroads.net" # the base hostname & protocol for your site
 image: "https://crds-cms-uploads.imgix.net/content/images/cr-social-sharing-still-bg.jpg"
 
 # disable_hubspot: true
-permalink: pretty
+permalink: /:title/
 
 markdown: kramdown
 plugins:
@@ -21,6 +21,7 @@ exclude:
   - package.json
   - README.md
   - _migrations
+  - spec
   - vendor
 
 include:
@@ -31,34 +32,38 @@ collections_dir: collections
 collections:
   articles:
     output: true
-    permalink: /articles/:slug
+    permalink: /:collection/:title
   topics:
     output: true
-    permalink: /topics/:path
+    permalink: /:collection/:title
   authors:
     output: true
-    permalink: /:collection/:path
+    permalink: /:collection/:title
   podcasts:
     output: true
-    permalink: /:collection/:slug
+    permalink: /:collection/:title
   episodes:
     output: true
-    permalink: /podcasts/:podcast_slug/:slug
+    permalink: /podcasts/:podcast_slug/:title
   albums:
     output: true
-    permalink: /:collection/:slug
+    permalink: /:collection/:title
   songs:
     output: true
-    permalink: /:collection/:slug
+    permalink: /:collection/:title
   videos:
     output: true
-    permalink: /:collection/:slug
+    permalink: /:collection/:title
   series:
     output: true
-    permalink: /:collection/:slug
+    permalink: /:collection/:title
+  tags:
+    output: false
+  features:
+    output: false
   messages:
     output: true
-    permalink: /series/:series_slug/:slug
+    permalink: /series/:series_slug/:title
 
 merged_collections:
   recent_media:
@@ -232,6 +237,7 @@ contentful:
           slug: slug
           image: image/url
           bg_image: background_image/url
+          date: starts_at
           start_date: starts_at
           end_date: ends_at
           youtube_url: youtube_url
@@ -242,6 +248,20 @@ contentful:
         other:
           layout: series
           draft: false
+    tags:
+      id: tag
+      frontmatter:
+        entry_mappings:
+          title: title
+          slug: slug
+          video_collection: video_collection
+    features:
+      id: featured_media
+      frontmatter:
+        entry_mappings:
+          title: title
+          page_path: path
+          doc_ids: entries/id
     messages:
       id: message
       body: description
@@ -322,6 +342,7 @@ assets:
   source_maps: true # false on JEKYLL_ENV=production
   destination: "/assets"
   compression: true
+  js_compressor: uglifier
   sources:
   - _assets/stylesheets
   - _assets/javascripts
