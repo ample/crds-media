@@ -9,7 +9,7 @@ layout: default
       <div class="row">
         <div class="col-sm-10 col-sm-offset-1">
           <div class="episode-header">
-            <ol class="breadcrumb hard flush-bottom text-white">
+            <ol class="breadcrumb hard-sides hard-top text-white">
               <li><a href="/">Media</a></li>
               <li><a href="/podcasts">Podcasts</a></li>
               <li><a href="{{ podcast.url }}">{{ podcast.title }}</a></li>
@@ -45,7 +45,7 @@ layout: default
       </div>
     </div>
 
-    <div class="row push-bottom">
+    <div class="row push-bottom soft-half-bottom">
       <div class="col-sm-8 col-sm-offset-2">
         {% for author_name in podcast.authors %}
           {% assign author = site.authors | where:"name", author_name | first %}
@@ -94,7 +94,7 @@ layout: default
     {% include _subscribe-buttons.html content_type=podcast %}
 
     {% if site.podcasts.size > 1 %}
-      <div class="row">
+      <div class="row push-top soft-half-top">
         <div class="col-sm-8 col-sm-offset-2">
 
             <div class="push-ends">

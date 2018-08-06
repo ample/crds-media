@@ -12,7 +12,7 @@ paginate:
     <li><a href="/">Media</a></li>
   </ol>
 
-  <h3 class="font-family-condensed-extra font-size-h1 text-uppercase flush-top push-bottom">Series</h3>
+  <h3 class="section-header font-size-h1 flush-top push-bottom">Series</h3>
 
   <!-- Begin current Series -->
   {% for featured in page.series.offset %}
@@ -51,7 +51,7 @@ paginate:
     {% if past_series.year != series_year %}
 
       {% assign series_year = past_series.year %}
-      <h4 class="font-family-condensed-extra font-size-h3 text-uppercase">{{ series_year }} Series</h4>
+      <h4 class="component-header font-size-h3 push-top soft-half-top">{{ series_year }} Series</h4>
 
       <!-- Past series: Current year -->
       {% assign current_year = site.time | date: "%Y" %}

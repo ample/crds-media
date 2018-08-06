@@ -40,6 +40,13 @@ a.hover-text-gray-lighter:hover * {
   }
 }
 
+.text-uppercase {
+  &.font-size-smaller {
+    font-size: 13px !important;
+    letter-spacing: .5px;
+  }
+}
+
 .font-size-smallest {
   font-size: 10px;
 }
@@ -63,10 +70,6 @@ a.hover-text-gray-lighter:hover * {
 
 .middle {
   vertical-align: middle;
-}
-
-.soft-7-bottom {
-  padding-bottom: 7rem;
 }
 
 .img-size-5 {
