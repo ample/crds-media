@@ -26,12 +26,12 @@ paginate:
                 <img src="{{ site.default_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.card_2x }}" alt="{{ item.image.title }}" data-optimize-img />
               {% endif %}
             </div>
-          
+
             <div class="overlay-card-content block">
               <p class="overlay-card-category">{{ item.featured_label }}</p>
               <h2 class="overlay-card-title">{{ item.title | truncate: 55 }}</h2>
               <p class="overlay-card-author">{{ item.featured_text }}</p>
-          
+
               {% include _media-label.html source=item %}
 
               <a class="btn btn-white btn-outline" href="{{ item.url }}">
