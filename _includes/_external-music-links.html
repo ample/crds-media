@@ -1,7 +1,7 @@
 {% if page.spotify_url.size > 1 or page.apple_music_url.size > 1 or page.youtube_url.size > 1 or page.google_play_url.size > 1 %}
-  <div class="border-white-15 bg-black-50 text-center">
+  <div class="border-white-15 soft-half-sides bg-black-50 text-center">
     <h3 class="text-lowercase font-size-large font-family-base-light text-white">Stream or Buy</h3>
-    <ul class="list-inline">
+    <ul class="list-unstyled">
       {% if page.spotify_url.size > 1 %}
         <li class="push-bottom"><a href="{{ page.spotify_url }}"><img class="push-quarter-top" src="//dz6ito7tas43n.cloudfront.net/images/spotify.svg" alt="spotify" style="height: 2rem;"></a></li>
       {% endif %}

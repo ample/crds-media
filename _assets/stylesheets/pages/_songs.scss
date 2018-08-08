@@ -1,24 +1,24 @@
 .song-detail-tpl {
-  .jumbotron {
-    padding-top: 10rem;
-    padding-bottom: 3.75rem;
-
-    @media screen and (min-width: $screen-md) {
-      padding-top: 15rem;
-    }
-
-    .card .block {
-      display: block;
-    }
+  > header {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 138px 0 1rem;
   }
 
   .bg-overlay {
-    background: linear-gradient(to bottom, transparent, rgba(23,23,23,1) 50%, rgba(23,23,23,1) 100%);
+    background: linear-gradient(to bottom, transparent, rgba(23,23,23,1) 85%);
   }
 
   .media-artwork {
     box-shadow: 0 0 .5rem 0 rgba($cr-black, 15);
     width: 100%;
+  }
+
+  @media screen and (min-width: $screen-sm) {
+    > header {
+      padding: 390px 0 2rem;
+    }
   }
 }
 
