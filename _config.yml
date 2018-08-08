@@ -69,7 +69,7 @@ merged_collections:
   recent_media:
     merge:
       - articles
-      - videos
+      - songs
     sort: date desc
 
 contentful:
