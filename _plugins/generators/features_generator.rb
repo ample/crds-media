@@ -7,7 +7,7 @@ module Jekyll
       # Cycle through each of the features in the sites' features collection.
       site.collections['features'].docs.each do |feature|
         # IDs of the entries attached to the feature in Contentful.
-        doc_ids = feature.data['doc_ids']
+        doc_ids = feature.data['doc_ids'] || []
         # Using the IDs, select the doc objects from the site and maintain the
         # sort order of the doc_ids.
         docs = docs.select { |d| doc_ids.include?(d.data['id']) }
