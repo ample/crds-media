@@ -12,24 +12,34 @@ paginate:
 ---
 
 {% assign feature_obj = site.features | where: 'page_path', page.url | first %}
+{% assign managed_features = feature_obj.docs %}
 
-{% for item in feature_obj.docs limit: 1 %}
-  {% include _overlay-card.html size="xl" %}
-{% endfor %}
+{% if managed_features.size > 0 %}
+  {% assign item = feature_obj.docs | first %}
+{% else %}
+  {% assign item = site.recent_media | first %}
+{% endif %}
+{% include _overlay-card.html size="xl" %}
 
 <div class="container push-top">
   <div class="row">
     <div class="col-md-8">
-      <div class="push-bottom">
-        <h2 class="collection-header push-bottom text-gray-light">featured media</h2>
-        {% assign features = feature_obj.docs | slice: 1, 100 %}
-        {% for item in features %}
-          <div class="soft-bottom">
-            {% include _overlay-card.html %}
-          </div>
-        {% endfor %}
-      </div>
-      {% assign recent_media = site.recent_media | slice: 1, 8 %}
+      {% if managed_features.size > 1 %}
+        <div class="push-bottom">
+          <h2 class="collection-header push-bottom text-gray-light">featured media</h2>
+          {% assign features = feature_obj.docs | slice: 1, 100 %}
+          {% for item in features %}
+            <div class="soft-bottom">
+              {% include _overlay-card.html %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% if managed_features.size > 0 %}
+        {% assign recent_media = site.recent_media | slice: 0, 8 %}
+      {% else %}
+        {% assign recent_media = site.recent_media | slice: 1, 8 %}
+      {% endif %}
       {% if recent_media.size > 0 %}
         <div>
           <h2 class="collection-header text-gray-light push-bottom">most recent</h2>
