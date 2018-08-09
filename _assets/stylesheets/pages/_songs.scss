@@ -10,9 +10,8 @@
     background: linear-gradient(to bottom, transparent, rgba(23,23,23,1) 85%);
   }
 
-  .media-artwork {
-    box-shadow: 0 0 .5rem 0 rgba($cr-black, 15);
-    width: 100%;
+  > .bg-charcoal {
+    padding-bottom: 90px;
   }
 
   .external-music-links {
@@ -46,6 +45,10 @@
   @media screen and (min-width: $screen-sm) {
     > header {
       padding: 390px 0 2rem;
+    }
+
+    > .bg-charcoal {
+      padding-bottom: 60px;
     }
 
     .external-music-links {
