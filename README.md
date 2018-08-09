@@ -303,6 +303,32 @@ If you run into an error on your terminal saying `NoMethodError: undefined metho
 3. Run `bundle update jekyll-contentful`
 4. Run `bundle exec jekyll contentful && bundle exec jekyll serve`
 
+Hotfixing with cherry-pick'd commits
+---------
+
+1. Locate the commit hash of the commit you would like to hotfix.
+2. Create a `hotfix` branch and use `git cherry-pick <commit-hash>` to add the
+   commit/s
+3. Push the hotfix branch and create a pull request against `release` (demo). Check
+   your work on `mediademo.crossroads.net`.
+4. If things looked good, simply create another pull request comparing `release` to
+   `master` (prod). Once merged, you will have hotfixed all envs!
+
+_note: make sure you don’t “Squash and Merge”. Leave a merge commit._ 
+
+Updates to DDK
+----------
+
+When making changes in the DDK that should be reflected in this project:
+
+1. In the `crds-media` Gemfile, change the `crds-styles` gem to point at development by adding `, branch: 'development'` 
+
+For example:
+
+  ```gem 'crds-styles', "~> 3.0.1", git: 'https://github.com/crdschurch/crds-styles.git', branch: 'development'```
+
+2. Once your pull request is merged in `crds-styles`, run `bundle update crds-styles` in `crds-media` 
+
 License
 ----------
 

@@ -5,6 +5,7 @@
     background-size: cover;
     margin-bottom: 30px;
     padding: 138px 0 30px;
+    position: relative;
 
     h1 {
       color: $cr-white;
@@ -56,7 +57,7 @@
     margin-top: 30px;
 
     .custom_images svg {
-      height: 21px;
+      height: 24px;
     }
 
     .keywords {

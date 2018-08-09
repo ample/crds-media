@@ -18,7 +18,7 @@
 
 
   .card {
-    margin-top: 3.75rem;
+    margin-top: 2.75rem;
 
     &:first-child {
       margin-top: 0;
@@ -74,7 +74,7 @@
 
     @media screen and (min-width: $screen-sm) {
       .podcast-header-text {
-        left: 330px;
+        left: 400px;
         padding-left: 1rem;
         width: calc(100% - 330px);
       }
@@ -86,8 +86,8 @@
       }
 
       .podcast-header-artwork {
-        width: 20.625rem; // 330px
-        height: 20.625rem; // 330px
+        width: 25rem; // 400px
+        height: 25rem; // 400px
       }
     }
   }
@@ -108,7 +108,6 @@
     }
 
     .header-content {
-      background-color: rgba($cr-black, 0.2);
       padding: 1rem 0;
 
       @media screen and (min-width: $screen-sm) {
@@ -140,7 +139,7 @@
     margin-top: 1.875rem;
 
     @media screen and (min-width: $screen-sm) {
-      margin-top: 7rem;
+      margin-top: 9.5rem;
     }
 
     & p {
@@ -154,13 +153,13 @@
 
       &.episode-description {
         font-size: $font-size-small;
-        line-height: $line-height-small; //20px
+        line-height: 1.4;
       }
     }
 
     & .list-title {
       font-size: $font-size-large;
-      line-height: $line-height-large;
+      line-height: 1.4;
 
       &:first-child{
         margin-top: 0;
