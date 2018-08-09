@@ -46,31 +46,36 @@ layout: default
           <!-- Featured Video -->
           {% for video in videos limit: 1 %}
             {% if video.source_url %}
-              <div class="card relative push-bottom">
+              <div class="card relative push-bottom embed-video">
                 {% assign video_id = video.source_url | youtube_id %}
                 <div class="push-ends">
                   {% include _yt-embed.html %}
                 </div>
-                <div class="pull-right">
-                  {% include _yt-subscribe-btn.html url="https://www.youtube.com/user/crdschurch" %}
-                </div>
-                <h6 class="card-title text-white push-quarter-bottom">{{ video.title }}</h6>
-                <div class="font-size-smaller">
-                  {% if video.topic != nil %}
-                    <a class="text-gray-light" href="{{ topic.url }}">{{ video.topic }} &#xB7;</a>
-                  {% endif %}
+                <div class="embed-info">
+                  <div>
+                    <h6 class="card-title text-white push-quarter-bottom flush-top">{{ video.title }}</h6>
+                    <div class="font-size-smaller">
+                      {% for person in video.authors %}
+                        {% assign video_author = site.authors | where: "name", person | first %}
+                        <a class="text-gray-light" href="{{ video_author.url }}">{{ person }}</a>
+                        {% unless forloop.last %}
+                        <span class="text-gray-light">&amp;</span>
+                        {% endunless %}
+                      {% endfor %}
 
-                  {% for person in video.authors %}
-                    {% assign video_author = site.authors | where: "name", person | first %}
-                    <a class="text-gray-light" href="{{ video_author.url }}">{{ person }}</a>
-                    {% unless forloop.last %}
-                    <span class="text-gray-light">&amp;</span>
-                    {% endunless %}
-                  {% endfor %}
+                      {% if video.topic != nil %}
+                        <a class="text-gray-light" href="{{ topic.url }}">{{ video.topic | prepend: '∙ ' }}</a>
+                      {% endif %}
+                    </div>
+                  </div>
+                  <div>
+                    {% include _yt-subscribe-btn.html url="https://www.youtube.com/user/crdschurch" %}
+                  </div>
                 </div>
               </div>
             {% else %}
               {% include _video-card.html imgix_size="1x" theme="dark" %}
+              <!-- 🚨 Button text should be white -->
             {% endif %}
           {% endfor %}
 

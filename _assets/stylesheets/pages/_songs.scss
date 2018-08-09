@@ -27,6 +27,22 @@
     }
   }
 
+  .embed-video {
+    .card-title {
+      font-size: $font-size-small;
+      line-height: 1.3;
+    }
+
+    .embed-info {
+      display: flex;
+      justify-content: space-between;
+
+      div:first-child{
+        margin-right: .5rem;
+      }
+    }
+  }
+
   @media screen and (min-width: $screen-sm) {
     > header {
       padding: 390px 0 2rem;
@@ -38,6 +54,13 @@
           display: block;
           padding: 0;
         }
+      }
+    }
+
+    .embed-video {
+      .card-title {
+        font-size: 21px;
+        line-height: .9;
       }
     }
   }
