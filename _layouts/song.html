@@ -48,7 +48,7 @@ layout: default
             {% if video.source_url %}
               <div class="card relative push-bottom embed-video">
                 {% assign video_id = video.source_url | youtube_id %}
-                <div class="push-ends">
+                <div class="push-bottom">
                   {% include _yt-embed.html %}
                 </div>
                 <div class="embed-info">
