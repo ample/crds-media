@@ -16,7 +16,7 @@ module Jekyll
         "cms" => "https://#{env_prefix}.crossroads.net/proxy/content/",
         "app" => "https://#{env_prefix}.crossroads.net/",
         "img" => "https://#{env_prefix}.crossroads.net/proxy/gateway/api/image/profile/",
-        "prefix" => "#{env_prefix unless @site.config['env'] == 'production' }"
+        "prefix" => "#{env_prefix unless @site.config['jekyll_env'] == 'production' }"
       }
       @site.config['url'] = ENV['SITE_URL'] if ENV['SITE_URL']
     end
