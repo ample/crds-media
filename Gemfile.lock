@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/ample/paging-mister-hyde.git
+  revision: d3bcd3bc10e0d5b975b0b3b5ff7f83dad20fbd80
+  branch: feature/US14581-tag-detail-page
+  specs:
+    paging-mister-hyde (0.0.1)
+      activesupport
+      jekyll
+
+GIT
   remote: https://github.com/ample/jekyll-placeholders.git
   revision: 503eef68d21b020b8d611025ab7029c80e569186
   specs:
@@ -39,9 +48,9 @@ PATH
       jekyll
 
 PATH
-  remote: vendor/gems/paging-mister-hyde
+  remote: vendor/gems/media-tags
   specs:
-    paging-mister-hyde (0.0.1)
+    media-tags (0.0.1)
       jekyll
 
 PATH
@@ -238,6 +247,7 @@ DEPENDENCIES
   jekyll-placeholders (~> 0.0.1)!
   jekyll-redirect-from
   launchy
+  media-tags (~> 0.0.1)!
   paging-mister-hyde (~> 0.0.1)!
   pry
   pry-nav

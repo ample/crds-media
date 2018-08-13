@@ -17,10 +17,11 @@ group :test do
 end
 
 group :jekyll_plugins do
-  gem "paging-mister-hyde", "~> 0.0.1", path: File.join(File.dirname(__FILE__), "./vendor/gems/paging-mister-hyde")
+  gem 'paging-mister-hyde', '~> 0.0.1', github: 'ample/paging-mister-hyde', branch: 'feature/US14581-tag-detail-page'
   gem "jekyll-placeholders", "~> 0.0.1", git: 'https://github.com/ample/jekyll-placeholders.git'
   gem "jekyll-collection-merger", "~> 0.0.1", path: File.join(File.dirname(__FILE__), "./vendor/gems/jekyll-collection-merger")
   gem "video-tags", "~> 0.0.1", path: File.expand_path('./vendor/gems/video-tags', __dir__)
+  gem 'media-tags', '~> 0.0.1', path: File.expand_path('./vendor/gems/media-tags', __dir__)
   gem "jekyll-crds", "~> 0.0.1", path: File.join(File.dirname(__FILE__), "./vendor/gems/jekyll-crds")
   # gem "jekyll-contentful", "~> 0.0.1", path: File.join(File.dirname(__FILE__), "../jekyll-contentful")
   gem "jekyll-contentful", "~> 0.0.6", git: 'https://github.com/crdschurch/jekyll-contentful.git'

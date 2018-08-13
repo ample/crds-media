@@ -1,0 +1,28 @@
+---
+layout: default
+paginate:
+  tagged_media:
+    collections:
+      - articles
+      - episodes
+      - messages
+      - songs
+      - videos
+    per: 2
+    offset: 4
+    sort: date desc
+    where:
+      tags: :title
+---
+
+{% for item in page.tagged_media.offset %}
+  {{ item.title }}
+  <br>
+{% endfor %}
+
+<hr>
+
+{% for item in page.tagged_media.docs %}
+  {{ item.title }}
+  <br>
+{% endfor %}
