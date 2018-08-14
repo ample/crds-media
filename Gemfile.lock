@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/ample/paging-mister-hyde.git
-  revision: 2eb4d5b01d52174bfe8205171605ae78f64a3cbe
+  revision: 6c26f387279b8491648f1cd852589e30a82a3df0
   specs:
-    paging-mister-hyde (0.1.0)
+    paging-mister-hyde (0.1.1)
       activesupport
       jekyll
 
@@ -30,13 +30,6 @@ GIT
       activesupport
       contentful (>= 2.6.0)
       dotenv
-      jekyll
-
-PATH
-  remote: vendor/gems/jekyll-collection-merger
-  specs:
-    jekyll-collection-merger (0.0.1)
-      activesupport
       jekyll
 
 PATH
@@ -233,7 +226,6 @@ DEPENDENCIES
   hashie
   jekyll (~> 3.7.2)
   jekyll-assets
-  jekyll-collection-merger (~> 0.0.1)!
   jekyll-contentful (~> 0.0.6)!
   jekyll-crds (~> 0.0.1)!
   jekyll-feed (~> 0.6)

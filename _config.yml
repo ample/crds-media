@@ -6,8 +6,7 @@ url: "https://media.crossroads.net" # the base hostname & protocol for your site
 image: "https://crds-cms-uploads.imgix.net/content/images/cr-social-sharing-still-bg.jpg"
 
 # disable_hubspot: true
-# permalink: /:title/
-permalink: pretty
+permalink: /:title/
 
 markdown: kramdown
 plugins:
@@ -66,13 +65,6 @@ collections:
   messages:
     output: true
     permalink: /series/:series_slug/:title
-
-merged_collections:
-  recent_media:
-    merge:
-      - articles
-      - songs
-    sort: date desc
 
 contentful:
   content_types:
