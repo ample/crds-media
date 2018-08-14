@@ -1,13 +1,13 @@
-require_relative '../spec_helper'
+require 'spec_helper'
 
-describe Jekyll::MediaTags::Generator do
+describe 'Jekyll::MediaTagsGenerator' do
 
   before do
     @site = JekyllHelper.scaffold(
       collections_dir: File.expand_path('../support/collections', __dir__),
       collections: %w(videos tags)
     )
-    @generator = Jekyll::MediaTags::Generator.new
+    @generator = Jekyll::MediaTagsGenerator.new
     @generator.generate(@site)
   end
 

@@ -47,12 +47,6 @@ PATH
       jekyll
 
 PATH
-  remote: vendor/gems/media-tags
-  specs:
-    media-tags (0.0.1)
-      jekyll
-
-PATH
   remote: vendor/gems/video-tags
   specs:
     video-tags (0.0.1)
@@ -246,7 +240,6 @@ DEPENDENCIES
   jekyll-placeholders (~> 0.0.1)!
   jekyll-redirect-from
   launchy
-  media-tags (~> 0.0.1)!
   paging-mister-hyde (~> 0.0)!
   pry
   pry-nav
