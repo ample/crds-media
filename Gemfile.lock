@@ -24,9 +24,9 @@ GIT
 
 GIT
   remote: https://github.com/crdschurch/jekyll-contentful.git
-  revision: 521c3bcbbf8e0a8ce543acd773462c35dd6130c8
+  revision: b39caa3f9ee2d868270b74f6c63d7bd971acd30e
   specs:
-    jekyll-contentful (0.0.6)
+    jekyll-contentful (0.0.8)
       activesupport
       contentful (>= 2.6.0)
       dotenv
