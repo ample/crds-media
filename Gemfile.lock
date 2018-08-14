@@ -1,9 +1,8 @@
 GIT
   remote: git://github.com/ample/paging-mister-hyde.git
-  revision: d3bcd3bc10e0d5b975b0b3b5ff7f83dad20fbd80
-  branch: feature/US14581-tag-detail-page
+  revision: 2eb4d5b01d52174bfe8205171605ae78f64a3cbe
   specs:
-    paging-mister-hyde (0.0.1)
+    paging-mister-hyde (0.1.0)
       activesupport
       jekyll
 
@@ -62,7 +61,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (5.2.0)
+    activesupport (5.2.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
@@ -194,7 +193,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    rouge (3.1.1)
+    rouge (3.2.0)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
       rspec-expectations (~> 3.7.0)
@@ -248,7 +247,7 @@ DEPENDENCIES
   jekyll-redirect-from
   launchy
   media-tags (~> 0.0.1)!
-  paging-mister-hyde (~> 0.0.1)!
+  paging-mister-hyde (~> 0.0)!
   pry
   pry-nav
   rspec
