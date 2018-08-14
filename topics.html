@@ -1,6 +1,5 @@
 ---
 layout: default
-permalink: /topics/index.html
 ---
 
 <div class="container">
@@ -10,24 +9,18 @@ permalink: /topics/index.html
       <div class="row">
       {% for topic in site.topics %}
         <div class="card">
-          {{ topic.image }}
           <a href="{{ topic.url }}">
-            {% for item in site.articles %}
-              {% if item.topic == topic.title %}
-                {% assign post = item %}
-                {% break %}
-              {% endif %}
-            {% endfor %}
-            <img class="card-img-top img-responsive" src="{{ post.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_card }}" data-optimize-img>
+            <img class="card-img-top img-responsive" src="{% if topic.image %}{{ topic.image | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder_card }}" data-optimize-img>
           </a>
           <div class="card-block">
             <a href="{{ topic.url }}">
               <h4 class="card-title card-title--overlap text-uppercase">{{ topic.title }}</h4>
             </a>
-            <h5 class="card-subtitle">{% include _count.html collection=site.articles key="topic" subject=topic.title label="article" %}</h5>
-            <h5 class="card-subtitle">{% include _count.html collection=site.episodes key="topic" subject=topic.title label="podcast" %}</h5>
-            <h5 class="card-subtitle">{% include _count.html collection=site.songs key="topic" subject=topic.title label="song" %}</h5>
-            <h5 class="card-subtitle">{% include _count.html collection=site.videos key="topic" subject=topic.title label="video" %}</h5>
+            <ul>
+              {% for tag in topic.tags %}
+                <li><a href="/tags/{{ tag.slug }}/">{{ tag.title }}</a></li>
+              {% endfor %}
+            </ul>
           </div>
         </div>
       {% endfor %}
