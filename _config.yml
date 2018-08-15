@@ -33,36 +33,37 @@ collections:
   articles:
     output: true
     permalink: /:collection/:title
+    filename: "{{ published_at | date: '%Y-%m-%d' }}-{{ slug }}"
   topics:
-    output: true
+    output: false
     permalink: /:collection/:title
   authors:
-    output: true
+    output: false
     permalink: /:collection/:title
   podcasts:
-    output: true
+    output: false
     permalink: /:collection/:title
   episodes:
-    output: true
+    output: false
     permalink: /podcasts/:podcast_slug/:title
   albums:
-    output: true
+    output: false
     permalink: /:collection/:title
   songs:
-    output: true
+    output: false
     permalink: /:collection/:title
   videos:
-    output: true
+    output: false
     permalink: /:collection/:title
   series:
-    output: true
+    output: false
     permalink: /:collection/:title
   tags:
     output: false
   features:
     output: false
   messages:
-    output: true
+    output: false
     permalink: /series/:series_slug/:title
 
 merged_collections:
@@ -73,224 +74,11 @@ merged_collections:
     sort: date desc
 
 contentful:
-  content_types:
-    articles:
-      id: article
-      body: body
-      filename: "{{ published_at | date: '%Y-%m-%d' }}-{{ slug }}"
-      frontmatter:
-        entry_mappings:
-          title: title
-          image: image/url
-          author: author/full_name
-          lead: lead_text
-          topic: category/title
-          date: published_at
-          slug: slug
-          tags: tags/title
-        other:
-          layout: article
-          draft: false
-    authors:
-      id: author
-      body: summary
-      frontmatter:
-        entry_mappings:
-          name: full_name
-          image: image/url
-        other:
-          layout: author
-          draft: false
-    topics:
-      id: category
-      frontmatter:
-        entry_mappings:
-          title: title
-        other:
-          layout: topic
-          draft: false
-    podcasts:
-      id: podcast
-      body: description
-      frontmatter:
-        entry_mappings:
-          title: title
-          subtitle: subtitle
-          image: image/url
-          background: bg_image/url
-          authors: author/full_name
-          apple_podcasts_url: apple_podcasts_url
-          google_play_url: google_play_url
-          stitcher_url: stitcher_url
-          slug: slug
-        other:
-          layout: podcast
-          draft: false
-    episodes:
-      id: episode
-      body: description
-      filename: "{{ episode_number }}-{{ slug }}"
-      frontmatter:
-        entry_mappings:
-          title: title
-          episode_number: episode_number
-          season_number: season_number
-          date: published_at
-          podcast: podcast/title
-          podcast_slug: podcast/slug
-          image: podcast/image/url
-          slug: slug
-          topic: category/title
-          tags: tags/title
-          description: description
-          show_notes: show_notes
-          transcription: transcription
-          audio_duration: audio_duration
-          audio_embed_code: audio_embed_code
-        other:
-          layout: episode
-          draft: false
-    albums:
-      id: album
-      body: description
-      frontmatter:
-        entry_mappings:
-          title: title
-          date: published_at
-          image: image/url
-          bg_image: bg_image/url
-          authors: author/full_name
-          spotify_url: spotify_url
-          apple_music_url: apple_music_url
-          google_play_url: google_play_url
-          slug: slug
-        other:
-          layout: album
-          draft: false
-    songs:
-      id: song
-      body: description
-      frontmatter:
-        entry_mappings:
-          title: title
-          details: details
-          lyrics: lyrics
-          chords: chords
-          stems: stems
-          topic: category/title
-          topic_slug: category/slug
-          tags: tags/title
-          author: author/full_name
-          duration: audio_duration
-          album_title: album/title
-          album_image: album/image/url
-          album_slug: album/slug
-          date: published_at
-          image: image/url
-          bg_image: bg_image/url
-          spotify_url: spotify_url
-          apple_music_url: apple_music_url
-          google_play_url: google_play_url
-          youtube_url: youtube_url
-          related_videos: related_videos
-          call_to_action: call_to_action
-          featured_label: featured_label
-          featured_subtitle: featured_subtitle
-          slug: slug
-        other:
-          layout: song
-          draft: false
-    videos:
-      id: video
-      body: description
-      frontmatter:
-        entry_mappings:
-          title: title
-          subtitle: subtitle
-          authors: author/full_name
-          duration: video_duration
-          date: published_at
-          image: image/url
-          source_url: source_url
-          topic: category/title
-          topic_slug: category/slug
-          tags: tags/title
-          description: description
-          transcription: transcription
-          apple_podcasts_url: apple_podcasts_url
-          google_play_url: google_play_url
-          slug: slug
-          view_count: view_count
-        other:
-          layout: video
-          draft: false
-    series:
-      id: series
-      body: description
-      associations:
-        videos:
-          - videos
-          - messages
-      frontmatter:
-        entry_mappings:
-          title: title
-          slug: slug
-          image: image/url
-          bg_image: background_image/url
-          date: starts_at
-          start_date: starts_at
-          end_date: ends_at
-          youtube_url: youtube_url
-          apple_podcasts_url: apple_podcasts_url
-          google_play_url: google_play_url
-          year: "{{ starts_at | date: '%Y' }}"
-          videos: videos/id
-        other:
-          layout: series
-          draft: false
-    tags:
-      id: tag
-      frontmatter:
-        entry_mappings:
-          title: title
-          slug: slug
-          video_collection: video_collection
-    features:
-      id: featured_media
-      frontmatter:
-        entry_mappings:
-          title: title
-          page_path: path
-          doc_ids: entries/id
-    messages:
-      id: message
-      body: description
-      links:
-        series_slug:
-          content_type: series
-          field: videos
-          value: slug
-      frontmatter:
-        entry_mappings:
-          title: title
-          authors: author/full_name
-          image: image/url
-          source_url: source_url
-          audio_source_url: audio_source_url
-          program_url: program/url
-          video_duration: video_duration
-          topic: category/title
-          topic_slug: category/slug
-          tags: tags/title
-          description: description
-          transcription: transcription
-          apple_podcasts_url: apple_podcasts_url
-          google_play_url: google_play_url
-          date: published_at
-          slug: slug
-        other:
-          layout: video
-          draft: false
+  exclude:
+    - migrations
+    - location
+    - page
+    - promo
 
 defaults:
   - scope:
@@ -298,42 +86,42 @@ defaults:
     values:
       js_manifest: application_deferred
   - scope:
-      path: "/articles"
+      path: ""
       type: articles
     values:
       layout: article
   - scope:
-      path: "/topics"
+      path: ""
       type: topics
     values:
       layout: topic
   - scope:
-      path: "/authors"
+      path: ""
       type: authors
     values:
       layout: author
   - scope:
-      path: "/podcasts"
+      path: ""
       type: podcasts
     values:
       layout: podcast
   - scope:
-      path: "/episodes"
+      path: ""
       type: episodes
     values:
       layout: episode
   - scope:
-      path: "/videos"
+      path: ""
       type: videos
     values:
       layout: video
   - scope:
-      path: "/series"
+      path: ""
       type: series
     values:
       layout: series
   - scope:
-      path: "/messages"
+      path: ""
       type: messages
     values:
       layout: video
