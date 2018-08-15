@@ -1,5 +1,5 @@
 module Jekyll
-  class SubtopicGenerator < Jekyll::Generator
+  class SubtopicsGenerator < Jekyll::Generator
 
     def generate(site)
       docs = site.collections.values.collect(&:docs).flatten
