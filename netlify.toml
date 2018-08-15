@@ -3,6 +3,6 @@
     npm i -g purgecss &&
     bundle exec jekyll crds &&
     bundle exec jekyll contentful &&
-    bundle exec rspec ./vendor -r ./spec/support/jekyll_helper.rb &&
+    bundle exec rspec ./vendor ./spec &&
     bundle exec jekyll build
   '''

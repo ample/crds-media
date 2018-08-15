@@ -89,18 +89,7 @@ layout: default
             </li>
           </ul>
           {% endif %}
-          {% if page.tags.size > 0 %}
-          <p class="flush-bottom soft-half-top">
-            <strong>Tags</strong>
-          </p>
-          <ul class="list-inline">
-            {% for tag in page.tags %}
-            <li>
-              <a href="{{ site.search_domain }}/search?q=tags: '{{ tag }}'" title="Search {{ tag }}">{{ tag }}</a>
-            </li>
-            {% endfor %}
-          </ul>
-          {% endif %}
+          {% include _tags_list.html %}
       </div>
       <div class="col-sm-4 col-md-3 soft-half-top">
         {% include _subscribe-buttons.html content_type=page youtube=true row=false subscribe=false %}

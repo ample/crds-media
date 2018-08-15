@@ -72,168 +72,7 @@ The following is a list of custom options for frontmatter arguments beyond what 
 
 ### Pagination
 
-You can paginate one or more collections, on a per-page basis, by defining a `paginate` object in template front-matter. In the following example, the `articles` collection will be reduced to multiple pages containing `8` or fewer document instances and exposed to the template via the `page.articles` variable...
-
-```liquid
----
-...
-paginate:
-  articles:
-    per: 8
----
-
-{% for doc in page.articles.docs %}
-  ...
-{% endfor %}
-
-{% include _pagination.html collection="articles" %}
-```
-
-The pages will be generated dynamically according to the name of the template. For example, if the file described in the example above was named `articles.html` &mdash; the paths for the generated pages would resolve to `/articles/page/2`, `/articles/page/3`, etc.
-
-#### Offsetting Collections
-
-You can abstract the first `n` items from your paginated collection by defining an `offset` number. This is helpful if you'd like to expose a certain number of "featured" entries on the landing page of your collection. For example...
-
-```liquid
----
-...
-paginate:
-  articles:
-    offset: 3
-    per: 8
----
-
-{{ page.articles.offset }} // the first 3 items
-
-{{ page.articles.docs }} // the rest of paginated collection, sans the first 3 items
-```
-
-#### Asyncronous Page Loading
-
-You can implement an async 'load more' interaction automatically by ensuring your template contains the following concerns. Note, this approach will hide the static pagination elements from the user and present a link that will dynamically append the next page's worth of items on each click.
-
-```liquid
-<div data-page="songs">
-  <div data-page-number="{{ page.songs.page }}">
-    {% for song in page.songs.docs %}
-      ...
-    {% endfor %}
-  </div>
-  <div class="loading hide">
-    {% include _preloader.html %}
-  </div>
-</div>
-{% include _pagination.html collection="songs" remote=true %}
-```
-
-#### Filtering Collections
-
-By adding a series of `where` arguments, you can obtain a filtered collection (i.e. a _subset_ of the Jekyll collection).
-
-This works by using the `where` option within your pagination config and providing a series of key-value pairs where the key is the name of the attribute within the collection objects and the value is what that attribute must equal (or _contain_, more on that below).
-
-For example, if you'd like to only show articles where the title of the article is "My Title" you could do this:
-
-```liquid
----
-...
-paginate:
-  articles:
-    per: 8
-    where:
-      title: "My Title"
----
-```
-
-You can add more that one filter argument, but the paginator will treat these as AND conditions, meaning both conditions must be true for the document to be presented in the collection.
-
-```liquid
----
-...
-paginate:
-  articles:
-    per: 8
-    where:
-      title: "My Title"
-      subtitle: "My Subtitle"
----
-```
-
-Filtering also supports dynamic values. Inspired by [ruby symbols](https://ruby-doc.org/core-2.2.0/Symbol.html), any value with a leading colon will look for that value in the data object of **the page** that is rendering the collection. For example:
-
-```liquid
----
-...
-title: "Hello World"
-paginate:
-  articles:
-    per: 8
-    where:
-      subtitle: :title
----
-```
-
-In this example, the only articles that would be returned in the collection would be those where their subtitle matched the title of the page rendering the collection (i.e. "Hello World").
-
-Finally, filtering supports array fields and looks for only a single match. The paginator does this automatically. Let's say your articles have tags via a `tags` field. And the current tag is the title of the page rendering the collection. You could do something like this:
-
-```liquid
----
-...
-paginate:
-  articles:
-    per: 8
-    where:
-      tags: :title
----
-```
-
-In this case, only those articles containing at least one tag matching the title of the page rendering the collection would be returned.
-
-#### Sorting Collections
-
-In the absence of filtering, pagination takes the collection as presented by Jekyll. You can optionally add a `sort` option to choose a data parameter to use to sort the collection. The first string is the method by which you'd like to sort and the second is the sorting direction (`asc`/`desc`). The direction is optional.
-
-For example, if you wanted to sort articles in reverse chronological order, that might look something like this:
-
-```liquid
----
-...
-paginate:
-  articles:
-    per: 8
-    sort: date desc
----
-```
-
-But if you wanted to sort articles by title, that can look like this:
-
-```liquid
----
-...
-paginate:
-  articles:
-    per: 8
-    sort: title
----
-```
-
-#### Limiting Number of Pages Created
-
-You can limit the first `n` pages from your paginated collection by defining a `limit` number. This is helpful if you'd like to show the first `n` pages without generating pages for the entire collection such as on the homepage. On the homepage we want the simplicity of the paginate gem, but we don't want to create additional pages for each content type nor show pagination for articles, podcasts, songs, videos, etc.
-
-For example, if you only want to show the first 8 most recent items of articles, and not show additional pages:
-
-```liquid
----
-...
-paginate:
-  articles:
-    per: 8
-    limit: 1
----
-```
+Documentation for pagination has [moved with the gem](https://github.com/ample/paging-mister-hyde).
 
 ### Merging Collections
 
@@ -314,20 +153,20 @@ Hotfixing with cherry-pick'd commits
 4. If things looked good, simply create another pull request comparing `release` to
    `master` (prod). Once merged, you will have hotfixed all envs!
 
-_note: make sure you don’t “Squash and Merge”. Leave a merge commit._ 
+_note: make sure you don’t “Squash and Merge”. Leave a merge commit._
 
 Updates to DDK
 ----------
 
 When making changes in the DDK that should be reflected in this project:
 
-1. In the `crds-media` Gemfile, change the `crds-styles` gem to point at development by adding `, branch: 'development'` 
+1. In the `crds-media` Gemfile, change the `crds-styles` gem to point at development by adding `, branch: 'development'`
 
 For example:
 
   ```gem 'crds-styles', "~> 3.0.1", git: 'https://github.com/crdschurch/crds-styles.git', branch: 'development'```
 
-2. Once your pull request is merged in `crds-styles`, run `bundle update crds-styles` in `crds-media` 
+2. Once your pull request is merged in `crds-styles`, run `bundle update crds-styles` in `crds-media`
 
 License
 ----------
