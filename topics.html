@@ -1,30 +1,40 @@
 ---
 layout: default
+title: Topics
 ---
 
 <div class="container">
-  <h2 class="section-header">Topics</h2>
-  <div data-card-deck class="card-deck">
-    <div class="cards-4x">
-      <div class="row">
-      {% for topic in site.topics %}
-        <div class="card">
-          <a href="{{ topic.url }}">
-            <img class="card-img-top img-responsive" src="{% if topic.image %}{{ topic.image | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder_card }}" data-optimize-img>
+  <ol class="breadcrumb hard-sides hard-bottom push-top">
+    <li><a href="/">Media</a></li>
+  </ol>
+
+  <h1 class="font-family-condensed-extra text-uppercase flush-top push-bottom">
+    {{ page.title }}
+  </h1>
+
+  <div class="masonry-grid">
+    {% for topic in site.topics %}
+      <div class="masonry-item" style="background-image:url('{% if topic.image %}{{ topic.image | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}');">
+        <div class="bg-overlay"></div>
+        <div class="masonry-item-content">
+          <a class="masonry-item-link link-icon font-family-base-mid" href="{{ topic.url }}">
+            <span class="link-icon-text">Best of this topic</span>
+            <svg class="icon icon-1" viewBox="0 0 256 256">
+              <use xlink:href="/assets/svgs/icons.svg#chevron-right"></use>
+            </svg>
           </a>
-          <div class="card-block">
-            <a href="{{ topic.url }}">
-              <h4 class="card-title card-title--overlap text-uppercase">{{ topic.title }}</h4>
-            </a>
-            <ul>
-              {% for tag in topic.tags %}
-                <li><a href="/tags/{{ tag.slug }}/">{{ tag.title }}</a></li>
-              {% endfor %}
-            </ul>
-          </div>
+          <h2 class="section-header masonry-item-title">
+            <a href="{{ topic.url }}">{{ topic.title }}</a>
+          </h2>
+          <ul class="list-unstyled">
+            {% for tag in topic.tags %}
+              <li>
+                <a href="/tags/{{ tag.slug }}/" class="masonry-item-link">{{ tag.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
         </div>
-      {% endfor %}
       </div>
-    </div>
+    {% endfor %}
   </div>
 </div>
