@@ -34,7 +34,7 @@ collections:
     output: true
     permalink: /:collection/:title
     filename: "{{ published_at | date: '%Y-%m-%d' }}-{{ slug }}"
-  topics:
+  categories:
     output: false
     permalink: /:collection/:title
   authors:
@@ -92,7 +92,7 @@ defaults:
       layout: article
   - scope:
       path: ""
-      type: topics
+      type: categories
     values:
       layout: topic
   - scope:
