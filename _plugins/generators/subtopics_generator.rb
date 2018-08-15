@@ -9,7 +9,7 @@ module Jekyll
           .collect { |d| d.data['tags'] }.flatten.uniq
         topic.data['tags'] = site.collections['tags'].docs
           .select { |t| tag_names.include?(t.data['title']) }
-          .sort_by { |t| t.data['title'] }
+          .sort_by { |t| t.data['title'].downcase }
       end
     end
 
