@@ -100,6 +100,8 @@ contentful:
       frontmatter:
         entry_mappings:
           title: title
+          slug: slug
+          image: image/url
         other:
           layout: topic
           draft: false
