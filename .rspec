@@ -1,3 +1,2 @@
 --color
 --format documentation
---require ./vendor/gems/paging-mister-hyde/spec/spec_helper
