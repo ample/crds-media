@@ -2,73 +2,177 @@
 layout: default
 ---
 
-<div class="container">
-  <h1 class="section-header">{{ page.title }}</h1>
-
-  {% assign articles = site.articles | where:"topic", page.title | reverse %}
-  {% if articles.size > 0 %}
-  <div class="push-ends">
-    <h2 class="page-header font-size-h2 flush-top">Articles</h2>
-  </div>
-  <div data-card-deck class="card-deck">
-    <div class="cards-4x">
+<div class="topics-detail-tpl">
+  <!-- Start main topic header -->
+  <header style="background-image: url('https://placem.at/places?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
+    <div class="container">
       <div class="row">
-      {% for post in articles %}
-        {% if post.topic == page.title %}
-          {% include _article-card.html content_type=post %}
-        {% endif %}
-      {% endfor %}
+        <div class="col-md-8">
+          <ol class="breadcrumb text-white hard-sides push-top">
+            <li><a href="/">Media</a></li>
+            <li><a href="/topics">Topics</a></li>
+          </ol>
+
+          <h1>{{ page.title }}</h1>
+
+          <div class="description">
+            <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas faucibus mollis interdum. Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="featured-media">
+    <div class="container">
+      <div class="featured-media-grid">
+        <!-- Displaying the 3 most recent medias (regardless of type) here -->
+        <div>
+          <a href="#link_to_article">
+            <img src="https://placem.at/places?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.card_3x }}" alt="" data-optimize-img>
+            <!-- Not linking to topic page 'cuz we're on the topic page for these cards -->
+            <div class="topic soft-quarter-top">Relationships</div>
+            <h3 class="title flush-ends">Duis mollis, est non commodo luctus</h3>
+          </a>
+          <!-- Link should go to whomever has credit, i.e., series page, author page or podcast page -->
+          <a href="#link_to_credit_page">
+            <div class="credit">IKR? Podcast</div>
+          </a>
+        </div>
+        <div>
+          <a href="#link_to_article">
+            <img src="https://placem.at/places?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.card_3x }}" alt="image 2" data-optimize-img>
+            <div class="topic soft-quarter-top">Relationships</div>
+            <h3 class="title flush-ends">Duis mollis</h3>
+          </a>
+          <a href="#link_to_credit_page">
+            <div class="credit">Obsessed</div>
+          </a>
+        </div>
+        <div>
+          <a href="#link_to_article">
+            <img src="https://placem.at/places?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.card_3x }}" alt="image 3" data-optimize-img>
+            <div class="topic soft-quarter-top">Relationships</div>
+            <h3 class="title flush-ends">Duis non commodo luctus</h3>
+          </a>
+          <a href="#link_to_credit_page">
+            <div class="credit">Liz Young</div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
-  {% endif %}
+  <!-- End main topic header -->
 
-  {% assign episodes = site.episodes | where:"topic", page.title %}
-  {% if episodes.size > 0 %}
-    <div class="push-ends">
-      <h2 class="page-header font-size-h2 flush-top">Podcasts</h2>
-    </div>
-    <div data-card-deck class="card-deck">
-      <div class="cards-4x">
-        <div class="row">
-        {% for podcast in episodes %}
-          {% include _podcast-card.html %}
-        {% endfor %}
-        </div>
-      </div>
-    </div>
-  {% endif %}
+  <!-- Subtopic section -->
+  <section class="subtopic-layout container">
+    <header>
+      <h5>Subtitle</h5>
+      <a href="#">View all</a>
+    </header>
 
-  {% assign songs = site.songs | where:"topic", page.title | reverse %}
-  {% if songs.size > 0 %}
-    <div class="push-ends">
-      <h2 class="page-header font-size-h2 flush-top">Songs</h2>
-    </div>
-    <div data-card-deck class="card-deck">
-      <div class="cards-4x">
-        <div class="row">
-          {% for song in songs %}
-            {% include _song-card.html %}
-          {% endfor %}
+    <div class="row">
+      <main class="col-md-8">
+        <div class="feature-main">
+          <!--❓ Not sure if the links can be split up for an overlay card. Might make the tapping experience muddy if the bg image directs user to article and elements on top of the bg image go elsewhere. -->
+          <a href="#" class="overlay-card">
+            <div class="bg-overlay"></div>
+            <div class="overlay-card-image">
+              <img src="https://placem.at/places?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.card_2x }}" alt="" data-optimize-img>
+            </div>
+            <div class="overlay-card-content">
+              <p class="overlay-card-category">Culture</p>
+              <h3 class="overlay-card-title">1 Hey GQ: Stay in your lane</h3>
+              <p class="overlay-card-author">Brian Tome</p>
+              {% include _media-label.html source='podcast' %}
+            </div>
+          </a>
         </div>
-      </div>
-    </div>
-  {% endif %}
+        <div class="feature-sub">
+          <a href="#link_to_article" class="list-card">
+            <div class="image">
+              <img src="https://placem.at/places?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.topic_feature_sub }}" alt="" data-optimize-img>
+            </div>
+            <!-- Category only visible on desktop -->
+            <p class="topic">Culture</p>
+            <h3 class="title">2 Hey GQ: Stay in your lane</h3>
+            <!-- Content only available on mobile -->
+            <!-- Content char count limit 125 -->
+            <div class="content">
+              <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam porta sem malesuada magna mollis euismod. Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Sed posuere consectetur est at lobortis. Curabitur blandit tempus porttitor.</p>
+            </div>
+            <p class="credit">Brian Tome</p>
+          </a>
+        </div>
+        <div class="feature-sub">
+          <a href="#link_to_article" class="list-card">
+            <div class="image">
+              <img src="https://placem.at/places?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.topic_feature_sub }}" alt="" data-optimize-img>
+            </div>
+            <p class="topic">Culture</p>
+            <h3 class="title">3 Hey GQ: Stay in your lane</h3>
+            <div class="content">
+              <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam porta sem malesuada magna mollis euismod. Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Sed posuere consectetur est at lobortis. Curabitur blandit tempus porttitor.</p>
+            </div>
+            <p class="credit">Brian Tome</p>
+          </a>
+        </div>
+      </main>
 
-  <!-- Videos -->
-  {% assign videos = site.videos | where:"topic", page.title | reverse %}
-  {% if videos.size > 0 %}
-    <div class="push-ends">
-      <h2 class="page-header font-size-h2 flush-top">Videos</h2>
+      <aside class="col-md-4">
+        <a class="list-card" href="#link_to_article">
+          <div class="image">
+            <img src="https://placem.at/places?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="" sizes="{{ site.image_sizes.media_object }}" data-optimize-img>
+          </div>
+
+          <h4 class="title flush-top">Lorem Etiam Tristique Sit</h4>
+          <div class="content">
+            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam porta sem malesuada magna mollis euismod. Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Sed posuere consectetur est at lobortis. Curabitur blandit tempus porttitor.</p>
+          </div>
+          <div class="credit">Liz Young</div>
+        </a>
+        <a class="list-card" href="#link_to_article">
+          <div class="image">
+            <img src="https://placem.at/places?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="" sizes="{{ site.image_sizes.media_object }}" data-optimize-img>
+          </div>
+
+          <h4 class="title flush-top">Lorem Etiam Tristique Sit</h4>
+          <div class="content">
+            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam porta sem malesuada magna mollis euismod. Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Sed posuere consectetur est at lobortis. Curabitur blandit tempus porttitor.</p>
+          </div>
+          <div class="credit">Liz Young</div>
+        </a>
+        <a class="list-card" href="#link_to_article">
+          <div class="image">
+            <img src="https://placem.at/places?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="" sizes="{{ site.image_sizes.media_object }}" data-optimize-img>
+          </div>
+
+          <h4 class="title flush-top">Lorem Etiam Tristique Sit</h4>
+          <div class="content">
+            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam porta sem malesuada magna mollis euismod. Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Sed posuere consectetur est at lobortis. Curabitur blandit tempus porttitor.</p>
+          </div>
+          <div class="credit">Liz Young</div>
+        </a>
+        <a class="list-card" href="#link_to_article">
+          <div class="image">
+            <img src="https://placem.at/places?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="" sizes="{{ site.image_sizes.media_object }}" data-optimize-img>
+          </div>
+
+          <h4 class="title flush-top">Lorem Etiam Tristique Sit</h4>
+          <div class="content">
+            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam porta sem malesuada magna mollis euismod. Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Sed posuere consectetur est at lobortis. Curabitur blandit tempus porttitor.</p>
+          </div>
+          <div class="credit">Liz Young</div>
+        </a>
+      </aside>
     </div>
-    <div data-card-deck class="card-deck">
-      <div class="cards-4x">
-        <div class="row">
-          {% for video in videos %}
-            {% include _video-card.html %}
-          {% endfor %}
-        </div>
-      </div>
+  </section>
+
+  <!-- Promo section -->
+  <section class="promo">
+    <div class="container">
+      <h2>How to build a brotherhood</h2>
+      <p>Nulla vitae elit libero, a pharetra augue.</p>
     </div>
-  {% endif %}
+  </section>
 </div>
