@@ -369,5 +369,6 @@ image_sizes:
   full_width: "100vw"
   half_width: "50vw"
   one_hundred: "100%"
+  topic_feature_sub: "(min-width: 992px) 370px, (min-width: 0px) 100px"
 
 typekit_url: https://use.typekit.net/ccb3vpa.css
