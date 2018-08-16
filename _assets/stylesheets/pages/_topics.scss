@@ -80,8 +80,8 @@
 
   .subtopic-layout {
     // By setting a top/bottom margin on the subtopics, it will ensure the design doesn't have wide gaps if promos aren't included. The margins will simply collapse if subtopic includes are stacked upon each other.
-    margin-top: 60px;
-    margin-bottom: 60px;
+    margin-top: 45px;
+    margin-bottom: 45px;
 
     > header {
       border-top: 2px solid lighten($cr-gray-light, 24);
@@ -180,6 +180,9 @@
 
   @media screen and (min-width: $screen-md) {
     .subtopic-layout {
+      margin-top: 60px;
+      margin-bottom: 60px;
+
       main {
         display: grid;
         grid-template-rows: auto auto;
@@ -231,11 +234,6 @@
       aside {
         .list-card:first-of-type {
           margin-top: 0;
-        }
-
-        .list-card:last-of-type {
-          margin-bottom: 1rem;
-          padding-bottom: 18px;
         }
       }
     }
