@@ -59,20 +59,7 @@ layout: default
         {% endif %}
 
         <!-- Tags -->
-        {% if page.tags.size > 0 %}
-        <div class="keywords">
-          <p class="flush-bottom soft-half-top">
-            <strong>Tags</strong>
-          </p>
-          <ul class="list-inline" data-tags>
-            {% for tag in page.tags %}
-            <li>
-              <a href="{{ site.search_domain }}/search?q=tags: '{{ tag }}'" title="Search {{ tag }}">{{ tag | downcase }}</a>
-            </li>
-            {% endfor %}
-          </ul>
-        </div>
-        {% endif %}
+        {% include _tags_list.html %}
 
         <section class="soft-top">
           <header class="more-media-header">

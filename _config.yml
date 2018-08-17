@@ -18,10 +18,11 @@ plugins:
 exclude:
   - Gemfile
   - Gemfile.lock
+  - Guardfile
   - package.json
   - README.md
-  - _migrations
   - spec
+  - tmp
   - vendor
 
 include:
@@ -65,13 +66,6 @@ collections:
     output: true
     permalink: /series/:series_slug/:title
 
-merged_collections:
-  recent_media:
-    merge:
-      - articles
-      - songs
-    sort: date desc
-
 contentful:
   content_types:
     articles:
@@ -106,6 +100,8 @@ contentful:
       frontmatter:
         entry_mappings:
           title: title
+          slug: slug
+          image: image/url
         other:
           layout: topic
           draft: false
