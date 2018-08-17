@@ -8,24 +8,34 @@ layout: default
   <div class="bg-charcoal">
     <div class="container">
       <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
+        <div class="col-md-8 col-md-offset-2">
 
           {% if video_id %}
-          <div class="row push-top soft-top">
-            <div class="mobile-flush push-half-sides">
+          <div class="push-top soft-top">
+            <div class="mobile-flush">
               {% include _yt-embed.html %}
             </div>
           </div>
           {% endif %}
 
-          <div class="row">
+          <header>
+            {% if page.audio_source_url or page.program_url %}
+            <div class="push-quarter-top">
+              {% if page.audio_source_url %}
+              <a class="secondary" href="{{ page.audio_source_url }}" target="_blank">Listen to audio</a>
+              {% endif %}
+              {% if page.program_url %}
+              <a class="secondary" href="{{ page.program_url }}" target="_blank">View program</a>
+              {% endif %}
+            </div>
+            {% endif %}
 
-            <div class="col-xs-8 col-lg-10">
+            <div>
               <!-- Start breadcrumbs -->
               {% assign url_array = page.url | split: '/' | shift | pop %}
               {% capture url_string %} {{ page.url | replace: '/', " " }}{% endcapture %}
               {% assign url="" %}
-              <ol class="breadcrumb push-top hard-sides">
+              <ol class="breadcrumb hard-sides">
                 <li><a href="/">Media</a></li>
 
                 {% for breadcrumb in url_array %}
@@ -41,16 +51,7 @@ layout: default
 
               <h1 class="font-family-condensed-extra text-uppercase flush-top push-bottom text-white">{{ page.title }}</h1>
             </div>
-            <div class="col-xs-4 col-lg-2 push-top text-right">
-              {% if page.audio_source_url %}
-              <a class="block text-gray-light font-size-smaller" href="{{ page.audio_source_url }}" target="_blank">Listen to audio</a>
-              {% endif %}
-
-              {% if page.program_url %}
-              <a class="block text-gray-light font-size-smaller" href="{{ page.program_url }}" target="_blank">View program</a>
-              {% endif %}
-            </div>
-          </div>
+          </header>
         </div>
       </div>
     </div>

@@ -13,4 +13,35 @@
       }
     }
   }
+
+  header {
+    > div:first-of-type {
+      > a {
+        display: block;
+        font-size: $font-size-small;
+      }
+    }
+
+    > div:last-of-type {
+      margin-top: 12px;
+    }
+  }
+
+  @media screen and (min-width: $screen-xs) {
+    header {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+
+      > div:first-of-type {
+        flex: 0 0 auto;
+        order: 2;
+        text-align: right;
+      }
+
+      > div:last-of-type {
+        margin-top: 0;
+      }
+    }
+  }
 }
