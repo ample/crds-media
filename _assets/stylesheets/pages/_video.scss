@@ -15,14 +15,14 @@
   }
 
   header {
-    > div:first-of-type {
+    .sources {
       > a {
         display: block;
         font-size: $font-size-small;
       }
     }
 
-    > div:last-of-type {
+    > div:not(.sources) {
       margin-top: 12px;
     }
   }
@@ -33,13 +33,13 @@
       justify-content: space-between;
       margin-top: 2rem;
 
-      > div:first-of-type {
+      .sources {
         flex: 0 0 auto;
         order: 2;
         text-align: right;
       }
 
-      > div:last-of-type {
+      div:not(.sources) {
         margin-top: 0;
       }
     }
