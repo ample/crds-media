@@ -29,7 +29,10 @@ layout: default
         {% for item in page.featured_media %}
           <div>
             <a href="{{ item.url }}">
-              <img src="{% if item.image %}{{ item.image | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ post.image.title }}" sizes="{{ site.image_sizes.cards_3x }}" data-optimize-img>
+              <div class="image">
+                <img src="{% if item.image %}{{ item.image | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ post.image.title }}" sizes="{{ site.image_sizes.cards_3x }}" data-optimize-img>
+                {% include _media-label.html source=item %}
+              </div>
               <div class="topic soft-quarter-top">{{ page.title }}</div>
               <h3 class="title flush-ends">{{ item.title }}</h3>
               <div class="credit">
@@ -70,6 +73,7 @@ layout: default
               <a href="{{ item.url }}" class="list-card">
                 <div class="image">
                   <img src="{% if item.image %}{{ item.image | imgix: site.imgix }}{% else %}{{ site.default_image }}{% endif %}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.topic_feature_sub }}" alt="" data-optimize-img>
+                  {% include _media-label.html source=item %}
                 </div>
                 {% if item.topic %}
                   <p class="topic">{{ item.topic }}</p>
@@ -97,6 +101,7 @@ layout: default
             <a class="list-card" href="{{ item.url }}">
               <div class="image">
                 <img src="{% if item.image %}{{ item.image | imgix: site.imgix }}{% else %}{{ site.default_image }}{% endif %}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.media_object }}" alt="" data-optimize-img>
+                {% include _media-label.html source=item %}
               </div>
 
               <h4 class="title flush-top">{{ item.title }}</h4>
