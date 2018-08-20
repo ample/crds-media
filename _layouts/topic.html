@@ -52,7 +52,7 @@ layout: default
     <section class="subtopic-layout container">
       <header>
         <h5>{{ subtopic.title }}</h5>
-        {% if subtopic.media.size > 7 %}
+        {% if media_items.size > 7 %}
           <a href="{{ subtopic.url }}">View all</a>
         {% endif %}
       </header>
