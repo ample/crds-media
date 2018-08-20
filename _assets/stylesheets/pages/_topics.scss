@@ -64,6 +64,9 @@
 
     .image {
       position: relative;
+      > img {
+        width: 100%;
+      }
     }
 
     .topic {
@@ -125,6 +128,10 @@
           margin-bottom: 18px;
           position: relative;
           width: 100px;
+
+          > img {
+            width: 100%;
+          }
         }
 
         .title {
