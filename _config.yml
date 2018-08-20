@@ -97,11 +97,13 @@ contentful:
           draft: false
     topics:
       id: category
+      body: description
       frontmatter:
         entry_mappings:
           title: title
           slug: slug
           image: image/url
+          featured_tag_ids: tags/id
         other:
           layout: topic
           draft: false
