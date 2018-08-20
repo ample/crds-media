@@ -81,7 +81,7 @@ layout: default
                 <h3 class="title">{{ item.title }}</h3>
 
                 <div class="content">
-                  {{ item.excerpt }}
+                  {{ item.excerpt | truncate: 125 }}
                 </div>
                 <p class="credit">
                   {% if item.author %}
@@ -106,7 +106,7 @@ layout: default
 
               <h4 class="title flush-top">{{ item.title }}</h4>
               <div class="content">
-                {{ item.excerpt }}
+                {{ item.excerpt | truncate: 125 }}
               </div>
               <div class="credit">
                 {% if item.author %}
