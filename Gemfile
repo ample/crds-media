@@ -45,5 +45,5 @@ group :jekyll_plugins do
   gem 'video-tags', '~> 0.0.1', path: File.expand_path('./vendor/gems/video-tags', __dir__)
 
   # Must be loaded after jekyll-assets, otherwise the assets won't be discoverable.
-  gem 'crds-styles', '~> 3.0.2', git: 'https://github.com/crdschurch/crds-styles.git'
+  gem 'crds-styles', '~> 3.0.3', git: 'https://github.com/crdschurch/crds-styles.git'
 end

@@ -16,9 +16,9 @@ GIT
 
 GIT
   remote: https://github.com/crdschurch/crds-styles.git
-  revision: f47bfed7cddcc42609a69c8e101fefe2c1cfb0b0
+  revision: b2be2eee295adbc181f8a44fe24a513d0140a1f8
   specs:
-    crds-styles (3.0.2)
+    crds-styles (3.0.3)
       bootstrap-sass (~> 3.3)
       sass (~> 3.2)
 
@@ -55,7 +55,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    autoprefixer-rails (9.0.0)
+    autoprefixer-rails (9.1.1)
       execjs
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
@@ -221,7 +221,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-  crds-styles (~> 3.0.2)!
+  crds-styles (~> 3.0.3)!
   guard-rspec
   hashie
   jekyll (~> 3.7.2)
