@@ -62,6 +62,13 @@
       }
     }
 
+    .image {
+      position: relative;
+      > img {
+        width: 100%;
+      }
+    }
+
     .topic {
       text-transform: uppercase;
       font-size: 12px;
@@ -119,7 +126,12 @@
           float: right;
           margin-left: 18px;
           margin-bottom: 18px;
+          position: relative;
           width: 100px;
+
+          > img {
+            width: 100%;
+          }
         }
 
         .title {
@@ -166,14 +178,6 @@
         padding-bottom: 0;
       }
     }
-  }
-
-  // Dummy styles to stub in promo block. Can remove
-  .promo {
-    background: $cr-black;
-    color: $cr-white;
-    padding-top: 90px;
-    padding-bottom: 90px;
   }
 
   @media screen and (min-width: $screen-sm) {
