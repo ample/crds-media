@@ -60,15 +60,14 @@ layout: default_footer_flush
         {% endif %}
       </header>
 
-      <div class="features">
-        <main>
+      <div class="row">
+        <main class="col-md-8">
           <div class="feature-main">
             {% assign item = media_items | first %}
             {% include _overlay-card.html %}
           </div>
 
           {% assign feature_subs = media_items | slice: 1, 2 %}
-          {% if feature_subs.size > 0 %}
           {% for item in feature_subs %}
             <div class="feature-sub">
               <a href="{{ item.url }}" class="list-card">
@@ -94,11 +93,9 @@ layout: default_footer_flush
               </a>
             </div>
           {% endfor %}
-          {% endif %}
         </main>
 
-        {% if media_items.size > 3 %}
-        <aside>
+        <aside class="col-md-4">
           {% assign list_cards = media_items | slice: 3, 4 %}
           {% for item in list_cards %}
             <a class="list-card" href="{{ item.url }}">
@@ -121,7 +118,6 @@ layout: default_footer_flush
             </a>
           {% endfor %}
         </aside>
-        {% endif %}
       </div>
     </section>
   {% endfor %}
