@@ -13,4 +13,35 @@
       }
     }
   }
+
+  header {
+    .sources {
+      > a {
+        display: block;
+        font-size: $font-size-small;
+      }
+    }
+
+    > div:not(.sources) {
+      margin-top: 12px;
+    }
+  }
+
+  @media screen and (min-width: $screen-xs) {
+    header {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+
+      .sources {
+        flex: 0 0 auto;
+        order: 2;
+        text-align: right;
+      }
+
+      div:not(.sources) {
+        margin-top: 0;
+      }
+    }
+  }
 }

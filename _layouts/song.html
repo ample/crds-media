@@ -16,52 +16,61 @@ layout: default
 {% endif %}
 
 <div class="song-detail-tpl">
-  <div class="jumbotron jumbotron-xl" style="background-image: url('{{ bg_img | imgix: site.imgix }}'); background-size: cover;" data-optimize-bg-img>
+  <header style="background-image: url('{{ bg_img | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
     <div class="bg-overlay"></div>
-    <div class="container jumbotron-content">
-      <div class="row d-flex flex-column flex-md-row">
-        <div class="col-md-7 col-md-offset-1 text-left push-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
           <ol class="breadcrumb hard-sides text-white">
             <li><a href="/">Media</a></li>
             <li><a href="/music">Music</a></li>
           </ol>
-
-          <h2 class="font-family-condensed-extra font-size-giant text-uppercase text-white flush-top push-bottom">{{ page.title }}</h2>
-
-          <div class="font-size-base white-faded markdown">{{ page.content }}</div>
-        </div>
-        <div class="col-md-3 push-bottom">
-          {% include _external-music-links.html %}
+          <div class="row">
+            <div class="col-md-9">
+              <h1 class="text-white font-family-condensed-extra text-uppercase font-size-giant flush-top">{{ page.title }}</h1>
+              <div class="text-white soft-half-top">{{ page.content }}</div>
+            </div>
+            <div class="col-md-3">
+              {% include _external-music-links.html %}
+            </div>
+          </div>
         </div>
       </div>
-      {% if videos.size > 0 %}
-      <div class="row text-left">
+    </div>
+  </header>
+  {% if videos.size > 0 %}
+  <div class="bg-charcoal">
+    <div class="container">
+      <div class="row">
         <div class="col-md-10 col-md-offset-1">
-
           <!-- Featured Video -->
           {% for video in videos limit: 1 %}
             {% if video.source_url %}
-              <div class="card relative push-bottom">
+              <div class="card relative push-bottom embed-video">
                 {% assign video_id = video.source_url | youtube_id %}
-                <div class="push-ends">
+                <div class="push-bottom">
                   {% include _yt-embed.html %}
                 </div>
-                <div class="pull-right">
-                  {% include _yt-subscribe-btn.html url="https://www.youtube.com/user/crdschurch" %}
-                </div>
-                <h6 class="card-title text-white push-quarter-bottom">{{ video.title }}</h6>
-                <div class="font-size-smaller">
-                  {% if video.topic != nil %}
-                    <a class="text-gray-light" href="{{ topic.url }}">{{ video.topic }} &#xB7;</a>
-                  {% endif %}
+                <div class="embed-info">
+                  <div>
+                    <h6 class="card-title text-white push-quarter-bottom flush-top">{{ video.title }}</h6>
+                    <div class="font-size-smaller">
+                      {% for person in video.authors %}
+                        {% assign video_author = site.authors | where: "name", person | first %}
+                        <a class="text-gray-light" href="{{ video_author.url }}">{{ person }}</a>
+                        {% unless forloop.last %}
+                        <span class="text-gray-light">&amp;</span>
+                        {% endunless %}
+                      {% endfor %}
 
-                  {% for person in video.authors %}
-                    {% assign video_author = site.authors | where: "name", person | first %}
-                    <a class="text-gray-light" href="{{ video_author.url }}">{{ person }}</a>
-                    {% unless forloop.last %}
-                    <span class="text-gray-light">&amp;</span>
-                    {% endunless %}
-                  {% endfor %}
+                      {% if video.topic != nil %}
+                        <a class="text-gray-light" href="{{ topic.url }}">{{ video.topic | prepend: '∙ ' }}</a>
+                      {% endif %}
+                    </div>
+                  </div>
+                  <div>
+                    {% include _yt-subscribe-btn.html url="https://www.youtube.com/user/crdschurch" %}
+                  </div>
                 </div>
               </div>
             {% else %}
@@ -78,12 +87,11 @@ layout: default
               {% endfor %}
             </div>
           </div>
-
         </div>
       </div>
-      {% endif %}
     </div>
   </div>
+  {% endif %}
 </div>
 
 <div class="container">
@@ -120,18 +128,7 @@ layout: default
       {% endif %}
 
       <!-- Tags -->
-      {% if page.tags.size > 0 %}
-        <p class="flush-bottom soft-half-top">
-          <strong>Tags</strong>
-        </p>
-        <ul class="list-inline">
-          {% for tag in page.tags %}
-            <li>
-              <a href="{{ site.search_domain }}/search?q=tags: '{{ tag }}'" title="Search {{ tag }}">{{ tag }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      {% endif %}
+      {% include _tags_list.html %}
 
       <!-- Album -->
       {% if page.album_title %}
