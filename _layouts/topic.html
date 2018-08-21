@@ -81,7 +81,7 @@ layout: default
                 <h3 class="title">{{ item.title }}</h3>
 
                 <div class="content">
-                  {{ item.excerpt | truncate: 125 }}
+                  {{ item.excerpt | strip_html | strip_newlines | truncate: 125 }}
                 </div>
                 <p class="credit">
                   {% if item.author %}
