@@ -8,10 +8,12 @@ paginate:
 ---
 <div class="music-tpl">
   <div class="push-bottom">
-    <div class="breadcrumb-container">
-      <ol class="breadcrumb hard flush-bottom text-white">
-        <li><a href="/">Media</a></li>
-      </ol>
+    <div class="container">
+      <div class="breadcrumb-container">
+        <ol class="breadcrumb hard flush-bottom text-white">
+          <li><a href="/">Media</a></li>
+        </ol>
+      </div>
     </div>
     {% if page.songs.page == 1 %}
       {% assign featured = page.songs.offset %}
