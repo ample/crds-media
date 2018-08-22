@@ -36,12 +36,13 @@ end
 
 group :jekyll_plugins do
   gem 'jekyll-assets'
-  gem 'jekyll-contentful', '~> 0.0.6', git: 'https://github.com/crdschurch/jekyll-contentful.git'
-  gem 'jekyll-crds', '~> 0.0.1', path: File.join(File.dirname(__FILE__), './vendor/gems/jekyll-crds')
-  gem 'jekyll-feed', '~> 0.6'
-  gem 'jekyll-placeholders', '~> 0.0.1', git: 'https://github.com/ample/jekyll-placeholders.git'
   gem 'jekyll-redirect-from'
-  gem 'paging-mister-hyde', '~> 0.0', github: 'ample/paging-mister-hyde'
+  gem 'jekyll-feed', '~> 0.6'
+  gem 'jekyll-crds', '~> 0.0.1', path: File.join(File.dirname(__FILE__), './vendor/gems/jekyll-crds')
+  gem 'jekyll-contentful', '~> 0.0.6', git: 'https://github.com/crdschurch/jekyll-contentful.git'
+  gem 'jekyll-cloudsearch', '~> 0.0.1', git: 'https://github.com/crdschurch/jekyll-cloudsearch.git'
+  gem 'jekyll-placeholders', '~> 0.0.1', git: 'https://github.com/ample/jekyll-placeholders.git'
+  gem 'paging-mister-hyde', '~> 0.0', git: 'https://github.com/ample/paging-mister-hyde.git'
   gem 'video-tags', '~> 0.0.1', path: File.expand_path('./vendor/gems/video-tags', __dir__)
 
   # Must be loaded after jekyll-assets, otherwise the assets won't be discoverable.
