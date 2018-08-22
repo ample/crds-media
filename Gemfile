@@ -1,14 +1,30 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem "jekyll", "~> 3.7.2"
+# ---------------------------------------- | Base
+
+gem 'jekyll', '~> 3.7.2'
+
+# ---------------------------------------- | Utilities
+
 gem 'activesupport'
 gem 'hashie'
 gem 'uglifier'
+
+# To fix security vulnerability
+gem 'sprockets', '~> 3.7.2'
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Performance-booster for watching directories on Windows
+gem 'wdm', '~> 0.1.0' if Gem.win_platform?
 
 group :development do
   gem 'pry'
   gem 'pry-nav'
 end
+
+# ---------------------------------------- | Testing
 
 group :test do
   gem 'rspec'
@@ -16,26 +32,18 @@ group :test do
   gem 'launchy'
 end
 
+# ---------------------------------------- | Plugins
+
 group :jekyll_plugins do
-  gem "paging-mister-hyde", "~> 0.0.1", path: File.join(File.dirname(__FILE__), "./vendor/gems/paging-mister-hyde")
-  gem "jekyll-placeholders", "~> 0.0.1", git: 'https://github.com/ample/jekyll-placeholders.git'
-  gem "jekyll-collection-merger", "~> 0.0.1", path: File.join(File.dirname(__FILE__), "./vendor/gems/jekyll-collection-merger")
-  gem "video-tags", "~> 0.0.1", path: File.expand_path('./vendor/gems/video-tags', __dir__)
-  gem "jekyll-crds", "~> 0.0.1", path: File.join(File.dirname(__FILE__), "./vendor/gems/jekyll-crds")
-  # gem "jekyll-contentful", "~> 0.0.1", path: File.join(File.dirname(__FILE__), "../jekyll-contentful")
-  gem "jekyll-contentful", "~> 0.0.6", git: 'https://github.com/crdschurch/jekyll-contentful.git'
-  gem "jekyll-feed", "~> 0.6"
-  gem 'jekyll-redirect-from'
   gem 'jekyll-assets'
-  # gem 'crds-styles', "~> 3.0.1", git: 'https://github.com/crdschurch/crds-styles.git', branch: 'development'
-  gem 'crds-styles', "~> 3.0.2", git: 'https://github.com/crdschurch/crds-styles.git'
+  gem 'jekyll-contentful', '~> 0.0.6', git: 'https://github.com/crdschurch/jekyll-contentful.git'
+  gem 'jekyll-crds', '~> 0.0.1', path: File.join(File.dirname(__FILE__), './vendor/gems/jekyll-crds')
+  gem 'jekyll-feed', '~> 0.6'
+  gem 'jekyll-placeholders', '~> 0.0.1', git: 'https://github.com/ample/jekyll-placeholders.git'
+  gem 'jekyll-redirect-from'
+  gem 'paging-mister-hyde', '~> 0.0', github: 'ample/paging-mister-hyde'
+  gem 'video-tags', '~> 0.0.1', path: File.expand_path('./vendor/gems/video-tags', __dir__)
+
+  # Must be loaded after jekyll-assets, otherwise the assets won't be discoverable.
+  gem 'crds-styles', '~> 3.0.3', git: 'https://github.com/crdschurch/crds-styles.git'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-# Performance-booster for watching directories on Windows
-gem "wdm", "~> 0.1.0" if Gem.win_platform?
-
-# To fix security vulnerability
-gem 'sprockets', '~> 3.7.2'

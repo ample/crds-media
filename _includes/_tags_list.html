@@ -1,0 +1,14 @@
+{% assign tags = site.tags | where_exp: 'tag', 'page.tags contains tag.title' %}
+
+{% if tags.size > 0 %}
+  <p class="flush-bottom soft-half-top">
+    <strong>Tags</strong>
+  </p>
+  <ul class="list-inline">
+    {% for tag in tags %}
+      <li>
+        <a href="/tags/{{ tag.slug }}/">{{ tag.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

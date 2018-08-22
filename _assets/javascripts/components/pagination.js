@@ -33,7 +33,6 @@ CRDS.PageLoader.prototype.setup = function() {
 }
 
 CRDS.PageLoader.prototype.onClick = function(e) {
-  console.log($(this.container).height());
   e.preventDefault();
   this.page_number++;
   var path = this.getNextPage();
@@ -67,6 +66,8 @@ CRDS.PageLoader.prototype.onLoadMore = function(data) {
   $('[data-page=' + this.type + '] > .loading').hide();
   $(sel).find('[data-page-number]').last().after(nextPage);
   this.activatePage();
+  if (typeof Imgix !== 'undefined' && Imgix['Optimizer']) new Imgix.Optimizer();
+  this.container.css('height', 'auto');
 }
 
 CRDS.PageLoader.prototype.activatePage = function(type) {

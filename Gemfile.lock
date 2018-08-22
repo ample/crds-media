@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/ample/paging-mister-hyde.git
+  revision: 6c26f387279b8491648f1cd852589e30a82a3df0
+  specs:
+    paging-mister-hyde (0.1.1)
+      activesupport
+      jekyll
+
+GIT
   remote: https://github.com/ample/jekyll-placeholders.git
   revision: 503eef68d21b020b8d611025ab7029c80e569186
   specs:
@@ -8,27 +16,20 @@ GIT
 
 GIT
   remote: https://github.com/crdschurch/crds-styles.git
-  revision: f47bfed7cddcc42609a69c8e101fefe2c1cfb0b0
+  revision: b2be2eee295adbc181f8a44fe24a513d0140a1f8
   specs:
-    crds-styles (3.0.2)
+    crds-styles (3.0.3)
       bootstrap-sass (~> 3.3)
       sass (~> 3.2)
 
 GIT
   remote: https://github.com/crdschurch/jekyll-contentful.git
-  revision: 521c3bcbbf8e0a8ce543acd773462c35dd6130c8
+  revision: b39caa3f9ee2d868270b74f6c63d7bd971acd30e
   specs:
-    jekyll-contentful (0.0.6)
+    jekyll-contentful (0.0.8)
       activesupport
       contentful (>= 2.6.0)
       dotenv
-      jekyll
-
-PATH
-  remote: vendor/gems/jekyll-collection-merger
-  specs:
-    jekyll-collection-merger (0.0.1)
-      activesupport
       jekyll
 
 PATH
@@ -36,12 +37,6 @@ PATH
   specs:
     jekyll-crds (0.0.1)
       httparty
-      jekyll
-
-PATH
-  remote: vendor/gems/paging-mister-hyde
-  specs:
-    paging-mister-hyde (0.0.1)
       jekyll
 
 PATH
@@ -53,14 +48,14 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (5.2.0)
+    activesupport (5.2.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    autoprefixer-rails (9.0.0)
+    autoprefixer-rails (9.1.1)
       execjs
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
@@ -185,7 +180,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    rouge (3.1.1)
+    rouge (3.2.0)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
       rspec-expectations (~> 3.7.0)
@@ -226,19 +221,18 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-  crds-styles (~> 3.0.2)!
+  crds-styles (~> 3.0.3)!
   guard-rspec
   hashie
   jekyll (~> 3.7.2)
   jekyll-assets
-  jekyll-collection-merger (~> 0.0.1)!
   jekyll-contentful (~> 0.0.6)!
   jekyll-crds (~> 0.0.1)!
   jekyll-feed (~> 0.6)
   jekyll-placeholders (~> 0.0.1)!
   jekyll-redirect-from
   launchy
-  paging-mister-hyde (~> 0.0.1)!
+  paging-mister-hyde (~> 0.0)!
   pry
   pry-nav
   rspec
