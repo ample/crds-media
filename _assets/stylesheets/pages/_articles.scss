@@ -52,6 +52,60 @@
     }
   }
 
+  section.questions {
+    background: $cr-gray-lighter;
+    font-size: $font-size-small;
+    padding: 42px;
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-top: 0;
+      margin-bottom: 6px;
+    }
+
+    ul {
+      list-style: none;
+      margin-left: 1rem;
+      padding: 0;
+
+      li {
+        margin-bottom: 20px;
+        padding-left: 1rem;
+        position: relative;
+
+        &:first-of-type {
+          margin-top: 2rem;
+        }
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+
+        &::before {
+          content: '';
+          background-image: url('//d1tmclqz61gqwd.cloudfront.net/images/checkbox-checked-0.12.0.svg');
+          background-position: center;
+          background-size: cover;
+          margin-left: -1rem;
+          position: absolute;
+          left: 0;
+          top: 6px;
+          height: 1rem;
+          width: 1rem;
+        }
+      }
+    }
+
+    dl {
+      margin-bottom: 0;
+    }
+
+    dt {
+      font-weight: 600;
+    }
+  }
+
   footer {
     font-size: 1rem;
     margin-top: 30px;
