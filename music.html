@@ -1,6 +1,5 @@
 ---
-layout: default_footer_flush
-default_cta: Check It Out
+layout: default
 paginate:
   songs:
     offset: 4
@@ -9,42 +8,44 @@ paginate:
 ---
 <div class="music-tpl">
   <div class="push-bottom">
-    <div class="breadcrumb-container">
-      <ol class="breadcrumb hard flush-bottom text-white">
-        <li><a href="/">Media</a></li>
-      </ol>
+    <div class="container">
+      <div class="breadcrumb-container">
+        <ol class="breadcrumb hard flush-bottom text-white">
+          <li><a href="/">Media</a></li>
+        </ol>
+      </div>
     </div>
     {% if page.songs.page == 1 %}
       {% assign featured = page.songs.offset %}
       {% for item in featured %}
-        <div class="overlay-card overlay-card-xl">
-          <a class="overlay-card-link" href="{{ item.url }}">
-            <div class="overlay-card-image">
-              {% if item.image %}
-                <img src="{{ item.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.card_2x }}" alt="{{ item.image.title }}" data-optimize-img />
+      <a href="{{ item.url }}" class="splash-card" style="background-image:url('{% if item.image %}{{ item.image | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder_sixteen_nine }}')" sizes="{{ site.image_sizes.full_width }}" alt="{{ item.image.title }}" data-optimize-bg-img>
+        <div class="container">
+          <div class="content">
+            {% if item.featured_label %}
+            <p class="meta flush-ends">{{ item.featured_label }}</p>
+            {% endif %}
+
+            <h2 class="title flush-bottom push-top">{{ item.title | truncate: 55 }}</h2>
+
+            {% if item.featured_text %}
+            <p class="tagline flush-bottom push-top">{{ item.featured_text }}</p>
+            {% endif %}
+
+            <div class="btn btn-outline btn-white">
+              {% if item.call_to_action %}
+                {{ item.call_to_action }}
               {% else %}
-                <img src="{{ site.default_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.card_2x }}" alt="{{ item.image.title }}" data-optimize-img />
+                Check it out
               {% endif %}
             </div>
-
-            <div class="overlay-card-content block">
-              <p class="overlay-card-category">{{ item.featured_label }}</p>
-              <h2 class="overlay-card-title">{{ item.title | truncate: 55 }}</h2>
-              <p class="overlay-card-author">{{ item.featured_text }}</p>
-
-              {% include _media-label.html source=item %}
-
-              <a class="btn btn-white btn-outline" href="{{ item.url }}">
-                {% if item.call_to_action %} {{ item.call_to_action }} {% else %} {{ page.default_cta }} {% endif %}
-              </a>
-            </div>
-          </a>
+          </div>
         </div>
+      </a>
       {% endfor %}
     {% endif %}
   </div>
 
-  <div class="container push-bottom">
+  <div class="container">
     <div class="cards-4x cards-2x-xs" data-page="songs">
       <div class="row push-top" data-page-number="{{ page.songs.page }}">
         {% for card in page.songs.docs %}
