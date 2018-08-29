@@ -246,7 +246,9 @@
 }
 
 .overlay-feature-card-link {
-  overflow: hidden;
+  //For imgix background placeholder positioning
+  display: block;
+  position: relative;
 
   &:hover {
     text-decoration: none;
