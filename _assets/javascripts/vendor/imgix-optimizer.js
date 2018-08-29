@@ -98,7 +98,14 @@
     }, {
       key: 'setContainerTmpCss',
       value: function setContainerTmpCss() {
-        this.el.parent().css('position', 'relative');
+        this.parentStyles = {
+          display: this.el.parent().css('display'),
+          position: this.el.parent().css('position')
+        };
+        this.el.parent().css({
+          display: 'block',
+          position: 'relative'
+        });
       }
 
       /**
@@ -308,6 +315,7 @@
         setTimeout(function () {
           _this2.updateElImg();
           _this2.replaceElTmpCss();
+          _this2.replaceContainerTmpCss();
           _this2.removeTmpEls();
         }, this.timeToFade);
       }
@@ -347,6 +355,19 @@
       key: 'replaceElTmpCss',
       value: function replaceElTmpCss() {
         this.el.css('background-color', this.elBgColor);
+      }
+
+      /**
+       * Reset the container's adjusted CSS properties.
+       */
+
+    }, {
+      key: 'replaceContainerTmpCss',
+      value: function replaceContainerTmpCss() {
+        this.el.parent().css({
+          display: this.parentStyles.display,
+          position: this.parentStyles.position
+        });
       }
 
       /**
