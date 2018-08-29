@@ -244,3 +244,47 @@
     }
   }
 }
+
+.overlay-feature-card {
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+
+  .overlay-feature-card-content {
+    position: relative;
+    padding: 400px 15px 30px;
+
+    @media (min-width: $screen-md) {
+      padding: 400px 0 45px;
+    }
+
+    .overlay-feature-card-category {
+      color: rgba($cr-white, .8);
+      font-size: $font-size-small;
+      line-height: 1.2;
+      margin-bottom: .5rem;
+      text-transform: uppercase;
+    }
+
+    .overlay-feature-card-title {
+      color: $cr-white;
+      font-family: $condensed-extra-font-face;
+      font-size: 4rem;
+      line-height: .9;
+      margin-top: 0;
+      text-transform: uppercase;
+
+      @media (min-width: $screen-sm) {
+        font-size: 6.875rem; //110px
+      }
+    }
+
+    .overlay-feature-card-author {
+      color: $cr-gray-light;
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+  }
+}
