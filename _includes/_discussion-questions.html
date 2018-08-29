@@ -1,18 +1,18 @@
 <section class="discussion-questions">
   {% assign chaser = page.discussion["raw"]["fields"] %}
 
-  {{ chaser.intro }}
+  {{ chaser.intro | markdownify }}
 
   {% if page.discussion_questions.size > 0 %}
   <ol>
     {% for q in page.discussion_questions %}
-    <li>{{ q.content }}</li>
+    <li>{{ q.content | markdownify }}</li>
     {% endfor %}
   </ol>
   {% endif %}
 
   {% if chaser.challenge %}
   <p class="label">Challenge</p>
-  {{ chaser.challenge }}
+  {{ chaser.challenge | markdownify }}
   {% endif %}
 </section>
