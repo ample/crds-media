@@ -66,7 +66,9 @@ layout: default
         {% endif %}
 
         {% if page.series_slug %}
-        {% include _discussion-questions.html %}
+        <div class="push-bottom">
+          {% include _discussion-questions.html %}
+        </div>
         {% endif %}
 
         {% for author_name in page.authors %}
