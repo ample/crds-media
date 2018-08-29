@@ -246,6 +246,7 @@
 }
 
 .overlay-feature-card-link {
+  overflow: hidden;
 
   &:hover {
     text-decoration: none;
@@ -254,19 +255,19 @@
 }
 
 .overlay-feature-card {
-  position: relative;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   display: block;
+  box-sizing: border-box;
+  padding: 400px 15px 30px;
+
+  @media (min-width: $screen-md) {
+    padding: 400px 0 45px;
+  }
 
   .overlay-feature-card-content {
     position: relative;
-    padding: 400px 15px 30px;
-
-    @media (min-width: $screen-md) {
-      padding: 400px 0 45px;
-    }
 
     .overlay-feature-card-category {
       color: rgba($cr-white, .8);
