@@ -1,0 +1,18 @@
+<section class="discussion-questions">
+  {% assign chaser = page.discussion["raw"]["fields"] %}
+
+  {{ chaser.intro }}
+
+  {% if page.discussion_questions.size > 0 %}
+  <ol>
+    {% for q in page.discussion_questions %}
+    <li>{{ q.content }}</li>
+    {% endfor %}
+  </ol>
+  {% endif %}
+
+  {% if chaser.challenge %}
+  <p class="label">Challenge</p>
+  {{ chaser.challenge }}
+  {% endif %}
+</section>
