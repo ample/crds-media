@@ -62,6 +62,8 @@ collections:
     output: false
   features:
     output: false
+  discussion_questions:
+    output: false
   messages:
     output: true
     permalink: /series/:series_slug/:title
@@ -82,6 +84,7 @@ contentful:
           date: published_at
           slug: slug
           tags: tags/title
+          discussion: discussion
         other:
           layout: article
           draft: false
@@ -289,6 +292,9 @@ contentful:
         other:
           layout: video
           draft: false
+    discussion_questions:
+      id: discussion_question
+      body: question
 
 defaults:
   - scope:

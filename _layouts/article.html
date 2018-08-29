@@ -4,6 +4,18 @@ layout: default
 
 {% assign author = site.authors | where:"name", page.author | first %}
 
+{% assign chaser = page.discussion["raw"]["fields"] %}
+
+<div class="container">
+  <p>{{ chaser.intro | markdownify }}</p>
+  <p>{{ chaser.challenge | markdownify }}</p>
+
+  {% for q in page.discussion_questions %}
+    {{ q.content }}
+    <br>
+  {% endfor %}
+</div>
+
 <article class="article-tpl">
   <header style="background-image: url('{% if page.image %}{{ page.image | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img data-hero-image>
     <div class="bg-overlay"></div>
