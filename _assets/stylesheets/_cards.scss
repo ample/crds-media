@@ -245,6 +245,14 @@
   }
 }
 
+.overlay-feature-card-link {
+
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
 .overlay-feature-card {
   position: relative;
   background-position: center;
