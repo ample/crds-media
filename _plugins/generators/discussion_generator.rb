@@ -2,17 +2,15 @@ module Jekyll
   class DiscussionGenerator < Generator
 
     def generate(site)
-      # Global references to docs within Jekyll.
-      all_questions = site.collections['discussion_questions'].docs
+      # Global reference collecting all objects in discussion collection.
+      all_discussions = site.collections['discussions'].docs
       %w{articles messages}.each do |collection_name|
-        # Cycle through each collection type.
+        # Loop through the docs of each defined collection name.
         site.collections[collection_name].docs.each do |doc|
-          # Find discussion questions array
-          doc_questions = doc.data.dig('discussion', 'raw', 'fields', 'discussion_questions') || []
-          # Find ID for each discussion question
-          doc_question_ids = doc_questions.collect { |q| q['sys']['id'] }
-          # Match discussion question ID to discussion_questions collection entries.
-          doc.data['discussion_questions'] = all_questions.select { |q| doc_question_ids.include?(q.data['id']) }
+          # Get the ID of the discussion object from a collection doc.
+          discussion_id = doc.data['discussion']
+          # Find the matching discussion ID in global discussions array and create usable variable for it.
+          doc.data['discussion'] = all_discussions.find { |d| d.data['id'] == discussion_id }
         end
       end
     end

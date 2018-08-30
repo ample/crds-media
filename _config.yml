@@ -62,7 +62,7 @@ collections:
     output: false
   features:
     output: false
-  discussion_questions:
+  discussions:
     output: false
   messages:
     output: true
@@ -84,7 +84,7 @@ contentful:
           date: published_at
           slug: slug
           tags: tags/title
-          discussion: discussion
+          discussion: discussion/id
         other:
           layout: article
           draft: false
@@ -289,13 +289,19 @@ contentful:
           google_play_url: google_play_url
           date: published_at
           slug: slug
-          discussion: discussion
+          discussion: discussion/id
         other:
           layout: video
           draft: false
-    discussion_questions:
-      id: discussion_question
-      body: question
+    discussions:
+      id: discussion
+      body: intro
+      frontmatter:
+        entry_mappings:
+          intro: intro
+          challenge: challenge
+          discussion_questions: discussion_questions/question
+
 
 defaults:
   - scope:
