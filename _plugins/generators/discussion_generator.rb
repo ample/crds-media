@@ -3,7 +3,6 @@ module Jekyll
 
     def generate(site)
       # Global references to docs within Jekyll.
-      all_docs = site.collections.values.collect(&:docs).flatten
       all_questions = site.collections['discussion_questions'].docs
       %w{articles messages}.each do |collection_name|
         # Cycle through each collection type.
