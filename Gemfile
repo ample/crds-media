@@ -19,6 +19,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Performance-booster for watching directories on Windows
 gem 'wdm', '~> 0.1.0' if Gem.win_platform?
 
+gem 'dotenv'
+
 group :development do
   gem 'pry'
   gem 'pry-nav'
@@ -36,7 +38,7 @@ end
 
 group :jekyll_plugins do
   gem 'jekyll-assets'
-  gem 'jekyll-contentful', '~> 0.0.6', git: 'https://github.com/crdschurch/jekyll-contentful.git'
+  gem 'jekyll-contentful', '~> 0.0.1', git: 'https://github.com/crdschurch/jekyll-contentful.git', tag: '0.0.8'
   gem 'jekyll-crds', '~> 0.0.1', path: File.join(File.dirname(__FILE__), './vendor/gems/jekyll-crds')
   gem 'jekyll-feed', '~> 0.6'
   gem 'jekyll-placeholders', '~> 0.0.1', git: 'https://github.com/ample/jekyll-placeholders.git'
