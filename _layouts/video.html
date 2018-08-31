@@ -65,7 +65,7 @@ layout: default
           {% include _tabs.html tabs=tabs %}
         {% endif %}
 
-        {% if page.series_slug %}
+        {% if page.series_slug and page.discussion %}
         <div class="push-bottom">
           {% include _discussion-questions.html %}
         </div>

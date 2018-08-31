@@ -35,9 +35,11 @@ layout: default
       </main>
       {% endif %}
 
+      {% if page.discussion %}
       <div class="col-md-8 col-md-offset-2">
         {% include _discussion-questions.html %}
       </div>
+      {% endif %}
 
       <footer class="col-md-8 col-md-offset-2">
         <p class="flush-bottom">Written by <a href="{{ author.url }}" data-author-name>{{ page.author | titleize }}</a></p>
