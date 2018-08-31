@@ -1,0 +1,16 @@
+<section class="discussion-questions">
+  {{ page.discussion.intro | markdownify }}
+
+  {% if page.discussion.discussion_questions.size > 0 %}
+  <ol>
+    {% for q in page.discussion.discussion_questions %}
+    <li>{{ q | markdownify }}</li>
+    {% endfor %}
+  </ol>
+  {% endif %}
+
+  {% if page.discussion.challenge %}
+  <p class="label">Challenge</p>
+  {{ page.discussion.challenge | markdownify }}
+  {% endif %}
+</section>
