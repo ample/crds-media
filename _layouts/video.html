@@ -65,6 +65,12 @@ layout: default
           {% include _tabs.html tabs=tabs %}
         {% endif %}
 
+        {% if page.series_slug %}
+        <div class="push-bottom">
+          {% include _discussion-questions.html %}
+        </div>
+        {% endif %}
+
         {% for author_name in page.authors %}
         {% assign author = site.authors | where:"name", author_name | first %}
         {% if author %}

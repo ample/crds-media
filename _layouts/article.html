@@ -35,6 +35,10 @@ layout: default
       </main>
       {% endif %}
 
+      <div class="col-md-8 col-md-offset-2">
+        {% include _discussion-questions.html %}
+      </div>
+
       <footer class="col-md-8 col-md-offset-2">
         <p class="flush-bottom">Written by <a href="{{ author.url }}" data-author-name>{{ page.author | titleize }}</a></p>
         <date data-post-date>{{ page.date | format_date }}</date>
