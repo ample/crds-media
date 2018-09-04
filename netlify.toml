@@ -4,5 +4,14 @@
     bundle exec jekyll crds &&
     bundle exec jekyll contentful &&
     bundle exec rspec ./vendor ./spec &&
-    bundle exec jekyll build
+    bundle exec jekyll build -- --cloudsearch
   '''
+
+[context.development.environment]
+  AWS_CLOUDSEARCH_BASE_URL = "https://mediaint.crossroads.net"
+
+[context.release.environment]
+  AWS_CLOUDSEARCH_BASE_URL = "https://mediademo.crossroads.net"
+
+[context.master.environment]
+  AWS_CLOUDSEARCH_BASE_URL = "https://media.crossroads.net"
