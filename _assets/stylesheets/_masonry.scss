@@ -48,4 +48,12 @@
 .masonry-item-title {
   color: $cr-white;
   margin: 170px 0 1rem;
+
+  a {
+    &:hover,
+    &:focus {
+      color: rgba($cr-white, .85);
+      text-decoration: none;
+    }
+  }
 }

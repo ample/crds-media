@@ -18,7 +18,6 @@ paginate:
 <div class="container">
   <ol class="breadcrumb hard-sides hard-bottom push-top">
     <li><a href="/">Media</a></li>
-    <li><a href="/tags">Tags</a></li>
   </ol>
 
   <h1 class="font-family-condensed-extra text-uppercase flush-top push-bottom">
@@ -34,8 +33,8 @@ paginate:
   </div>
 
   {% if page.tagged_media.docs.size > 0 %}
-    <h2 class="collection-header text-gray-light push-bottom">
-      more in this topic
+    <h2 class="collection-header text-gray-light text-lowercase push-bottom">
+      more related to {{ page.title }}
     </h2>
 
     <div class="cards-4x" data-page="tagged_media">

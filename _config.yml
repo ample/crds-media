@@ -62,6 +62,8 @@ collections:
     output: false
   features:
     output: false
+  discussions:
+    output: false
   messages:
     output: true
     permalink: /series/:series_slug/:title
@@ -82,6 +84,7 @@ contentful:
           date: published_at
           slug: slug
           tags: tags/title
+          discussion: discussion/id
         other:
           layout: article
           draft: false
@@ -97,11 +100,13 @@ contentful:
           draft: false
     topics:
       id: category
+      body: description
       frontmatter:
         entry_mappings:
           title: title
           slug: slug
           image: image/url
+          featured_tag_ids: tags/id
         other:
           layout: topic
           draft: false
@@ -284,9 +289,19 @@ contentful:
           google_play_url: google_play_url
           date: published_at
           slug: slug
+          discussion: discussion/id
         other:
           layout: video
           draft: false
+    discussions:
+      id: discussion
+      body: intro
+      frontmatter:
+        entry_mappings:
+          intro: intro
+          challenge: challenge
+          discussion_questions: discussion_questions/question
+
 
 defaults:
   - scope:
@@ -365,5 +380,6 @@ image_sizes:
   full_width: "100vw"
   half_width: "50vw"
   one_hundred: "100%"
+  topic_feature_sub: "(min-width: 992px) 370px, (min-width: 0px) 100px"
 
 typekit_url: https://use.typekit.net/ccb3vpa.css

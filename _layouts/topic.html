@@ -1,74 +1,124 @@
 ---
-layout: default
+layout: default_footer_flush
 ---
 
-<div class="container">
-  <h1 class="section-header">{{ page.title }}</h1>
+<div class="topics-detail-tpl">
 
-  {% assign articles = site.articles | where:"topic", page.title | reverse %}
-  {% if articles.size > 0 %}
-  <div class="push-ends">
-    <h2 class="page-header font-size-h2 flush-top">Articles</h2>
-  </div>
-  <div data-card-deck class="card-deck">
-    <div class="cards-4x">
+  <header style="background-image: url('{% if page.image %}{{ page.image | imgix: site.imgix }}{% else %}{{ site.default_image }}{% endif %}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
+    <div class="container">
       <div class="row">
-      {% for post in articles %}
-        {% if post.topic == page.title %}
-          {% include _article-card.html content_type=post %}
-        {% endif %}
-      {% endfor %}
+        <div class="col-md-8">
+          <ol class="breadcrumb text-white hard-sides push-top">
+            <li><a href="/">Media</a></li>
+            <li><a href="/topics">Topics</a></li>
+          </ol>
+
+          <h1>{{ page.title }}</h1>
+
+          <div class="description">
+            {{ page.content }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="featured-media">
+    <div class="container">
+      <div class="featured-media-grid">
+        {% for item in page.featured_media %}
+          <div>
+            <a href="{{ item.url }}">
+              <div class="image">
+                <img src="{% if item.image %}{{ item.image | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ post.image.title }}" sizes="{{ site.image_sizes.cards_3x }}" data-optimize-img>
+                {% include _media-label.html source=item %}
+              </div>
+              <div class="topic soft-quarter-top">{{ page.title }}</div>
+              <h3 class="title flush-ends">{{ item.title }}</h3>
+              <div class="credit">
+                {% if item.author %}
+                  {{ item.author }}
+                {% elsif item.authors %}
+                  {{ item.authors | join: ', ' }}
+                {% endif %}
+              </div>
+            </a>
+          </div>
+        {% endfor %}
       </div>
     </div>
   </div>
-  {% endif %}
 
-  {% assign episodes = site.episodes | where:"topic", page.title %}
-  {% if episodes.size > 0 %}
-    <div class="push-ends">
-      <h2 class="page-header font-size-h2 flush-top">Podcasts</h2>
-    </div>
-    <div data-card-deck class="card-deck">
-      <div class="cards-4x">
-        <div class="row">
-        {% for podcast in episodes %}
-          {% include _podcast-card.html %}
-        {% endfor %}
-        </div>
-      </div>
-    </div>
-  {% endif %}
+  {% for data in page.featured_tag_data %}
+    {% assign subtopic = data.tag %}
+    {% assign media_items = data.media %}
+    <section class="subtopic-layout container">
+      <header>
+        <h5>{{ subtopic.title }}</h5>
+        {% if media_items.size > 7 %}
+          <a href="{{ subtopic.url }}">View all</a>
+        {% endif %}
+      </header>
 
-  {% assign songs = site.songs | where:"topic", page.title | reverse %}
-  {% if songs.size > 0 %}
-    <div class="push-ends">
-      <h2 class="page-header font-size-h2 flush-top">Songs</h2>
-    </div>
-    <div data-card-deck class="card-deck">
-      <div class="cards-4x">
-        <div class="row">
-          {% for song in songs %}
-            {% include _song-card.html %}
+      <div class="row">
+        <main class="col-md-8">
+          <div class="feature-main">
+            {% assign item = media_items | first %}
+            {% include _overlay-card.html %}
+          </div>
+
+          {% assign feature_subs = media_items | slice: 1, 2 %}
+          {% for item in feature_subs %}
+            <div class="feature-sub">
+              <a href="{{ item.url }}" class="list-card">
+                <div class="image">
+                  <img src="{% if item.image %}{{ item.image | imgix: site.imgix }}{% else %}{{ site.default_image }}{% endif %}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.topic_feature_sub }}" alt="" data-optimize-img>
+                  {% include _media-label.html source=item %}
+                </div>
+                {% if item.topic %}
+                  <p class="topic">{{ item.topic }}</p>
+                {% endif %}
+                <h3 class="title">{{ item.title }}</h3>
+
+                <div class="content">
+                  {{ item.content | strip_html | truncate: 125 }}
+                </div>
+                <p class="credit">
+                  {% if item.author %}
+                    {{ item.author }}
+                  {% elsif item.authors %}
+                    {{ item.authors | join: ', ' }}
+                  {% endif %}
+                </p>
+              </a>
+            </div>
           {% endfor %}
-        </div>
-      </div>
-    </div>
-  {% endif %}
+        </main>
 
-  <!-- Videos -->
-  {% assign videos = site.videos | where:"topic", page.title | reverse %}
-  {% if videos.size > 0 %}
-    <div class="push-ends">
-      <h2 class="page-header font-size-h2 flush-top">Videos</h2>
-    </div>
-    <div data-card-deck class="card-deck">
-      <div class="cards-4x">
-        <div class="row">
-          {% for video in videos %}
-            {% include _video-card.html %}
+        <aside class="col-md-4">
+          {% assign list_cards = media_items | slice: 3, 4 %}
+          {% for item in list_cards %}
+            <a class="list-card" href="{{ item.url }}">
+              <div class="image">
+                <img src="{% if item.image %}{{ item.image | imgix: site.imgix }}{% else %}{{ site.default_image }}{% endif %}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.media_object }}" alt="" data-optimize-img>
+                {% include _media-label.html source=item %}
+              </div>
+
+              <h4 class="title flush-top">{{ item.title }}</h4>
+              <div class="content">
+                {{ item.content | strip_html | truncate: 125 }}
+              </div>
+              <div class="credit">
+                {% if item.author %}
+                  {{ item.author }}
+                {% elsif item.authors %}
+                  {{ item.authors | join: ', ' }}
+                {% endif %}
+              </div>
+            </a>
           {% endfor %}
-        </div>
+        </aside>
       </div>
-    </div>
-  {% endif %}
+    </section>
+  {% endfor %}
 </div>

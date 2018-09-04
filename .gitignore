@@ -13,6 +13,7 @@ lambda
 .cache
 contentful-export-*
 tmp
+loadenv.ps1
 
 # Ignore content for the site, but not any nested "collections" directories.
 collections/*
