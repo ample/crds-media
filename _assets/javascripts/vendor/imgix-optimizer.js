@@ -98,7 +98,14 @@
     }, {
       key: 'setContainerTmpCss',
       value: function setContainerTmpCss() {
-        this.el.parent().css('position', 'relative');
+        this.parentStyles = {
+          display: this.el.parent().css('display'),
+          position: this.el.parent().css('position')
+        };
+        this.el.parent().css({
+          display: 'block',
+          position: 'relative'
+        });
       }
 
       /**
@@ -151,6 +158,7 @@
     }, {
       key: 'setTmpPlaceholderElCss',
       value: function setTmpPlaceholderElCss() {
+        this.tmpPlaceholderEl.addClass('imgix-optimizing');
         this.tmpPlaceholderEl.css({
           position: 'absolute',
           top: this.el.position().top,
@@ -307,6 +315,7 @@
         setTimeout(function () {
           _this2.updateElImg();
           _this2.replaceElTmpCss();
+          _this2.replaceContainerTmpCss();
           _this2.removeTmpEls();
         }, this.timeToFade);
       }
@@ -346,6 +355,19 @@
       key: 'replaceElTmpCss',
       value: function replaceElTmpCss() {
         this.el.css('background-color', this.elBgColor);
+      }
+
+      /**
+       * Reset the container's adjusted CSS properties.
+       */
+
+    }, {
+      key: 'replaceContainerTmpCss',
+      value: function replaceContainerTmpCss() {
+        this.el.parent().css({
+          display: this.parentStyles.display,
+          position: this.parentStyles.position
+        });
       }
 
       /**
@@ -512,7 +534,7 @@
         var newSrc = this.placeholderImg.attr('src').replace(/(\?|\&)(w=)(\d+)/i, '$1$2' + this.placeholderImg.width()).replace(/(\?|\&)(h=)(\d+)/i, '$1$2' + this.placeholderImg.height());
         this.fullSizeImg.attr('ix-src', newSrc);
         // TODO: Make this a configurable option or document it as a more semantic temporary class
-        this.fullSizeImg.addClass('img-responsive tmp-img-placeholder');
+        this.fullSizeImg.addClass('img-responsive imgix-optimizing');
         // TODO: This should respect the option from the Optimizer class for the select
         this.fullSizeImg.removeAttr('data-optimize-img');
       }
@@ -592,7 +614,7 @@
       value: function removeFullSizeImgProperties() {
         this.fullSizeImg.removeAttr('style');
         // TODO: Update this with how the class is handled above.
-        this.fullSizeImg.removeClass('tmp-img-placeholder');
+        this.fullSizeImg.removeClass('imgix-optimizing');
       }
 
       /**
