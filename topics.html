@@ -12,28 +12,33 @@ title: Topics
     {{ page.title }}
   </h1>
 
-  {% for topic in site.topics %}
-    <div class="topic-card" style="background-image:url('{% if topic.image %}{{ topic.image | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}');">
-      <div class="bg-overlay"></div>
-      <div class="topic-card-content">
-        <a class="topic-card-link link-icon font-family-base-mid" href="{{ topic.url }}">
-          <span class="link-icon-text">Best of this topic</span>
-          <svg class="icon icon-1" viewBox="0 0 256 256">
-            <use xlink:href="/assets/svgs/icons.svg#chevron-right"></use>
-          </svg>
-        </a>
-        <h2 class="section-header topic-card-title">
-          <a href="{{ topic.url }}">{{ topic.title }}</a>
-        </h2>
-        <ul class="list-unstyled">
-          {% for tag in topic.tags %}
-            <li>
-              <a href="/tags/{{ tag.slug }}/" class="topic-card-link">{{ tag.title | capitalize }}</a>
-            </li>
-          {% endfor %}
-        </ul>
+  <div class="row">
+    {% for col in site.topics_grid %}
+      <div class="col-md-4">
+        {% for topic in col %}
+          <div class="topic-card" style="background-image:url('{% if topic.image %}{{ topic.image | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}');">
+            <div class="bg-overlay"></div>
+            <div class="topic-card-content">
+              <a class="topic-card-link link-icon font-family-base-mid" href="{{ topic.url }}">
+                <span class="link-icon-text">Best of this topic</span>
+                <svg class="icon icon-1" viewBox="0 0 256 256">
+                  <use xlink:href="/assets/svgs/icons.svg#chevron-right"></use>
+                </svg>
+              </a>
+              <h2 class="section-header topic-card-title">
+                <a href="{{ topic.url }}">{{ topic.title }}</a>
+              </h2>
+              <ul class="list-unstyled">
+                {% for tag in topic.tags %}
+                  <li>
+                    <a href="/tags/{{ tag.slug }}/" class="topic-card-link">{{ tag.title | capitalize }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        {% endfor %}
       </div>
-    </div>
-  {% endfor %}
-
+    {% endfor %}
+  </div>
 </div>

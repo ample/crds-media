@@ -49,6 +49,36 @@ module Jekyll
           { 'tag' => tag, 'media' => media }
         end
       end
+
+      # binding.pry
+
+      topic_height = 78
+      tag_height = 24
+
+      total_height = (all_topics.size * topic_height) + (all_topics.collect { |t| t.data['tags'] }.flatten.size * tag_height)
+      max_col_height = (total_height * 0.35).floor
+
+      current_col = 0
+      current_col_height = 0
+      grid = []
+
+      all_topics.each do |topic|
+        current_col_height += topic_height + (topic.data['tags'].size * tag_height)
+
+        if current_col < 2 && current_col_height > max_col_height
+          current_col += 1
+          current_col_height = 0
+        end
+
+        grid[current_col] ||= []
+        grid[current_col] << topic
+      end
+
+      site.config['topics_grid'] = grid
+
+      # def topic_height(topic)
+      #   topic_height + (topic.data['tags'].size * tag_height)
+      # end
     end
 
   end
