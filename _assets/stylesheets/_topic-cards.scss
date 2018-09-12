@@ -1,18 +1,4 @@
-.masonry-grid {
-  @media (min-width: $screen-sm) {
-    -webkit-column-count: 2;
-    column-count: 2;
-    -webkit-column-gap: 2rem;
-    column-gap: 2rem;
-  }
-
-  @media (min-width: $screen-md) {
-    -webkit-column-count: 3;
-    column-count: 3;
-  }
-}
-
-.masonry-item {
+.topic-card {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -27,11 +13,11 @@
   }
 }
 
-.masonry-item-content {
+.topic-card-content {
   position: relative;
 }
 
-.masonry-item-link {
+.topic-card-link {
   color: $cr-white;
 
   &:hover,
@@ -45,7 +31,7 @@
   }
 }
 
-.masonry-item-title {
+.topic-card-title {
   color: $cr-white;
   margin: 170px 0 1rem;
 
