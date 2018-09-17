@@ -12,24 +12,25 @@ title: Topics
     {{ page.title }}
   </h1>
 
-  <div class="masonry-grid">
+  <div class="topic-card-deck">
     {% for topic in site.topics %}
-      <div class="masonry-item" style="background-image:url('{% if topic.image %}{{ topic.image | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}');">
+      <div class="topic-card-sizer"></div>
+      <div class="topic-card" style="background-image:url('{% if topic.image %}{{ topic.image | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}');">
         <div class="bg-overlay"></div>
-        <div class="masonry-item-content">
-          <a class="masonry-item-link link-icon font-family-base-mid" href="{{ topic.url }}">
+        <div class="topic-card-content">
+          <a class="topic-card-link link-icon font-family-base-mid" href="{{ topic.url }}">
             <span class="link-icon-text">Best of this topic</span>
             <svg class="icon icon-1" viewBox="0 0 256 256">
               <use xlink:href="/assets/svgs/icons.svg#chevron-right"></use>
             </svg>
           </a>
-          <h2 class="section-header masonry-item-title">
+          <h2 class="section-header topic-card-title">
             <a href="{{ topic.url }}">{{ topic.title }}</a>
           </h2>
           <ul class="list-unstyled">
             {% for tag in topic.tags %}
               <li>
-                <a href="/tags/{{ tag.slug }}/" class="masonry-item-link">{{ tag.title | capitalize }}</a>
+                <a href="/tags/{{ tag.slug }}/" class="topic-card-link">{{ tag.title | capitalize }}</a>
               </li>
             {% endfor %}
           </ul>
@@ -37,4 +38,18 @@ title: Topics
       </div>
     {% endfor %}
   </div>
+
+  <script src="//unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('.topic-card-deck').masonry({
+        columnWidth: '.topic-card-sizer',
+        itemSelector: '.topic-card',
+        percentPosition: true,
+        gutter: 24
+      });
+    });
+  </script>
+
 </div>
