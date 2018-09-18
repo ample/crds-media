@@ -6,7 +6,6 @@
 //= require ./vendor/flickity.pkgd.min
 //= require ./vendor/imgix-optimizer
 //= require ./components/clipboard
-//= require ./components/gtm
 //= require ./components/header
 //= require ./components/images
 //= require ./components/carousels
