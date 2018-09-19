@@ -4,7 +4,7 @@ layout: default_footer_flush
 
 <div class="topics-detail-tpl">
 
-  <header style="background-image: url('{% if page.image %}{{ page.image | imgix: site.imgix }}{% else %}{{ site.default_image }}{% endif %}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
+  <header style="background-image: url('{% if page.image.url %}{{ page.image.url | imgix: site.imgix }}{% else %}{{ site.default_image }}{% endif %}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
     <div class="container">
       <div class="row">
         <div class="col-md-8">
