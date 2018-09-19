@@ -18,18 +18,45 @@ GIT
       jekyll
 
 GIT
-  remote: https://github.com/crdschurch/crds-styles.git
-  revision: f47bfed7cddcc42609a69c8e101fefe2c1cfb0b0
+  remote: https://github.com/ample/paging-mister-hyde.git
+  revision: 6c26f387279b8491648f1cd852589e30a82a3df0
   specs:
-    crds-styles (3.0.2)
+    paging-mister-hyde (0.1.1)
+      activesupport
+      jekyll
+
+GIT
+  remote: https://github.com/crdschurch/crds-styles.git
+  revision: 444ed3820911b730c3be54f86132f205b3d2a31f
+  specs:
+    crds-styles (3.0.4)
       bootstrap-sass (~> 3.3)
       sass (~> 3.2)
 
+<<<<<<< HEAD
 PATH
   remote: vendor/gems/jekyll-collection-merger
+=======
+GIT
+  remote: https://github.com/crdschurch/jekyll-cloudsearch.git
+  revision: 7e36695f47eb07a3848343fd5b0a1d9aa77b5238
   specs:
-    jekyll-collection-merger (0.0.1)
+    jekyll-cloudsearch (0.0.2)
+      aws-sdk-cloudsearchdomain
+      contentful-management (~> 1.10.1)
+      jekyll
+      nokogiri
+
+GIT
+  remote: https://github.com/crdschurch/jekyll-contentful.git
+  revision: 58eeabd0007250ebe435e3f82627257f89299fa0
+  tag: 0.0.8
+>>>>>>> development
+  specs:
+    jekyll-contentful (0.0.8)
       activesupport
+      contentful (>= 2.6.0)
+      dotenv
       jekyll
 
 PATH
@@ -37,12 +64,6 @@ PATH
   specs:
     jekyll-crds (0.0.1)
       httparty
-      jekyll
-
-PATH
-  remote: vendor/gems/paging-mister-hyde
-  specs:
-    paging-mister-hyde (0.0.1)
       jekyll
 
 PATH
@@ -61,15 +82,26 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    autoprefixer-rails (9.0.0)
+    autoprefixer-rails (9.1.4)
       execjs
+    aws-eventstream (1.0.1)
+    aws-partitions (1.102.0)
+    aws-sdk-cloudsearchdomain (1.1.0)
+      aws-sdk-core (~> 3)
+      aws-sigv4 (~> 1.0)
+    aws-sdk-core (3.25.0)
+      aws-eventstream (~> 1.0)
+      aws-partitions (~> 1.0)
+      aws-sigv4 (~> 1.0)
+      jmespath (~> 1.0)
+    aws-sigv4 (1.0.3)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     coderay (1.1.2)
     colorator (1.1.0)
     concurrent-ruby (1.0.5)
-    contentful (2.8.0)
+    contentful (2.9.1)
       http (> 0.8, < 3.0)
       multi_json (~> 1)
     contentful-management (1.10.1)
@@ -105,7 +137,7 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    hashie (3.5.7)
+    hashie (3.6.0)
     http (2.2.2)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -143,9 +175,9 @@ GEM
       nokogiri (~> 1.8)
       pathutil (~> 0.16)
       sprockets (>= 3.3, < 4.1.beta)
-    jekyll-feed (0.9.3)
+    jekyll-feed (0.10.0)
       jekyll (~> 3.3)
-    jekyll-redirect-from (0.13.0)
+    jekyll-redirect-from (0.14.0)
       jekyll (~> 3.3)
     jekyll-sanity (1.2.0)
       jekyll (~> 3.1)
@@ -153,6 +185,10 @@ GEM
       sass (~> 3.4)
     jekyll-watch (2.0.0)
       listen (~> 3.0)
+<<<<<<< HEAD
+=======
+    jmespath (1.4.0)
+>>>>>>> development
     json (1.8.6)
     kramdown (1.17.0)
     launchy (2.4.3)
@@ -173,7 +209,7 @@ GEM
     multi_json (1.13.1)
     multi_xml (0.6.0)
     nenv (0.3.0)
-    nokogiri (1.8.2)
+    nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
     notiffany (0.1.1)
       nenv (~> 0.1)
@@ -186,11 +222,12 @@ GEM
       slop (~> 3.4)
     pry-nav (0.2.4)
       pry (>= 0.9.10, < 0.11.0)
-    public_suffix (3.0.2)
+    public_suffix (3.0.3)
     rack (2.0.5)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+<<<<<<< HEAD
     rouge (3.2.0)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
@@ -199,12 +236,22 @@ GEM
     rspec-core (3.7.1)
       rspec-support (~> 3.7.0)
     rspec-expectations (3.7.0)
+=======
+    rouge (3.2.1)
+    rspec (3.8.0)
+      rspec-core (~> 3.8.0)
+      rspec-expectations (~> 3.8.0)
+      rspec-mocks (~> 3.8.0)
+    rspec-core (3.8.0)
+      rspec-support (~> 3.8.0)
+    rspec-expectations (3.8.1)
+>>>>>>> development
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.7.0)
-    rspec-mocks (3.7.0)
+      rspec-support (~> 3.8.0)
+    rspec-mocks (3.8.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.7.0)
-    rspec-support (3.7.1)
+      rspec-support (~> 3.8.0)
+    rspec-support (3.8.0)
     ruby_dep (1.5.0)
     safe_yaml (1.0.4)
     sass (3.5.7)
@@ -221,7 +268,7 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.17)
+    uglifier (4.1.18)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
@@ -232,19 +279,25 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-  crds-styles (~> 3.0.2)!
+  crds-styles (~> 3.0.4)!
+  dotenv
   guard-rspec
   hashie
   jekyll (~> 3.7.2)
   jekyll-assets
+<<<<<<< HEAD
   jekyll-collection-merger (~> 0.0.1)!
   jekyll-contentful (~> 1.0)!
+=======
+  jekyll-cloudsearch (~> 0.0.1)!
+  jekyll-contentful (~> 0.0.1)!
+>>>>>>> development
   jekyll-crds (~> 0.0.1)!
   jekyll-feed (~> 0.6)
   jekyll-placeholders (~> 0.0.1)!
   jekyll-redirect-from
   launchy
-  paging-mister-hyde (~> 0.0.1)!
+  paging-mister-hyde (~> 0.0)!
   pry
   pry-nav
   rspec
@@ -254,4 +307,4 @@ DEPENDENCIES
   video-tags (~> 0.0.1)!
 
 BUNDLED WITH
-   1.16.1
+   1.16.3

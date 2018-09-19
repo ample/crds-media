@@ -45,6 +45,15 @@
   @media screen and (min-width: $screen-sm) {
     > header {
       padding: 390px 0 2rem;
+
+      .description {
+        display: flex;
+        justify-content: space-between;
+
+        .share {
+          flex: 0 0 234px;
+        }
+      }
     }
 
     > .bg-charcoal {

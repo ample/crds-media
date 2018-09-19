@@ -18,10 +18,11 @@ plugins:
 exclude:
   - Gemfile
   - Gemfile.lock
+  - Guardfile
   - package.json
   - README.md
-  - _migrations
   - spec
+  - tmp
   - vendor
 
 include:
@@ -62,16 +63,11 @@ collections:
     output: false
   features:
     output: false
+  discussions:
+    output: false
   messages:
     output: false
     permalink: /series/:series_slug/:title
-
-merged_collections:
-  recent_media:
-    merge:
-      - articles
-      - songs
-    sort: date desc
 
 contentful:
   exclude:
@@ -157,5 +153,6 @@ image_sizes:
   full_width: "100vw"
   half_width: "50vw"
   one_hundred: "100%"
+  topic_feature_sub: "(min-width: 992px) 370px, (min-width: 0px) 100px"
 
 typekit_url: https://use.typekit.net/ccb3vpa.css

@@ -25,12 +25,12 @@ layout: default
             <li><a href="/">Media</a></li>
             <li><a href="/music">Music</a></li>
           </ol>
-          <div class="row">
-            <div class="col-md-9">
+          <div class="description">
+            <div>
               <h1 class="text-white font-family-condensed-extra text-uppercase font-size-giant flush-top">{{ page.title }}</h1>
               <div class="text-white soft-half-top">{{ page.content }}</div>
             </div>
-            <div class="col-md-3">
+            <div class="share">
               {% include _external-music-links.html %}
             </div>
           </div>
@@ -128,18 +128,7 @@ layout: default
       {% endif %}
 
       <!-- Tags -->
-      {% if page.tags.size > 0 %}
-        <p class="flush-bottom soft-half-top">
-          <strong>Tags</strong>
-        </p>
-        <ul class="list-inline">
-          {% for tag in page.tags %}
-            <li>
-              <a href="{{ site.search_domain }}/search?q=tags: '{{ tag }}'" title="Search {{ tag }}">{{ tag }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      {% endif %}
+      {% include _tags_list.html %}
 
       <!-- Album -->
       {% if page.album_title %}

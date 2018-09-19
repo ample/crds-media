@@ -8,24 +8,34 @@ layout: default
   <div class="bg-charcoal">
     <div class="container">
       <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
+        <div class="col-md-10 col-md-offset-1">
 
           {% if video_id %}
-          <div class="row push-top soft-top">
-            <div class="mobile-flush push-half-sides">
+          <div class="push-top soft-top">
+            <div class="mobile-flush">
               {% include _yt-embed.html %}
             </div>
           </div>
           {% endif %}
 
-          <div class="row">
+          <header>
+            {% if page.audio_source_url or page.program_url %}
+            <div class="sources push-quarter-top">
+              {% if page.audio_source_url %}
+              <a class="secondary" href="{{ page.audio_source_url }}" target="_blank">Listen to audio</a>
+              {% endif %}
+              {% if page.program_url %}
+              <a class="secondary" href="{{ page.program_url }}" target="_blank">View program</a>
+              {% endif %}
+            </div>
+            {% endif %}
 
-            <div class="col-xs-8 col-lg-10">
+            <div>
               <!-- Start breadcrumbs -->
               {% assign url_array = page.url | split: '/' | shift | pop %}
               {% capture url_string %} {{ page.url | replace: '/', " " }}{% endcapture %}
               {% assign url="" %}
-              <ol class="breadcrumb push-top hard-sides">
+              <ol class="breadcrumb hard-sides">
                 <li><a href="/">Media</a></li>
 
                 {% for breadcrumb in url_array %}
@@ -41,16 +51,7 @@ layout: default
 
               <h1 class="font-family-condensed-extra text-uppercase flush-top push-bottom text-white">{{ page.title }}</h1>
             </div>
-            <div class="col-xs-4 col-lg-2 push-top text-right">
-              {% if page.audio_source_url %}
-              <a class="block text-gray-light font-size-smaller" href="{{ page.audio_source_url }}" target="_blank">Listen to audio</a>
-              {% endif %}
-
-              {% if page.program_url %}
-              <a class="block text-gray-light font-size-smaller" href="{{ page.program_url }}" target="_blank">View program</a>
-              {% endif %}
-            </div>
-          </div>
+          </header>
         </div>
       </div>
     </div>
@@ -58,52 +59,51 @@ layout: default
 
   <div class="container">
     <div class="row push-ends">
-      <div class="col-sm-4 col-md-5 col-sm-offset-2">
-        {% assign tabs = 'description transcription' | split: ' ' %}
-        {% if page.transcription or page.description %}
-          {% include _tabs.html tabs=tabs %}
-        {% endif %}
+      <div class="col-md-10 col-md-offset-1">
+        <div class="row">
+          <div class="col-md-9">
+            {% assign tabs = 'description transcription' | split: ' ' %}
+            {% if page.transcription or page.description %}
+              {% include _tabs.html tabs=tabs %}
+            {% endif %}
 
-        {% for author_name in page.authors %}
-        {% assign author = site.authors | where:"name", author_name | first %}
-        {% if author %}
-        {% if forloop.first %}<p class="flush-bottom">Featuring {% endif %}
-          <a href="{{ author.url }}">{{ author.name | titleize }}</a> {% if forloop.last == false %} and {% endif %} {% if forloop.last %}</p>{% endif%}
-          {% endif %}
-          {% endfor%}
-          <p>{{ page.date | format_date }} {% if page.video_duration != nil %}
-            <span class="divider push-quarter-sides">•</span> {{ page.video_duration }} {% endif %}</p>
+            {% if page.series_slug and page.discussion %}
+            <div class="push-bottom">
+              {% include _discussion-questions.html %}
+            </div>
+            {% endif %}
 
-          <div class="soft-half-top push-top">
-            {% include _social-share.html %}
+            {% for author_name in page.authors %}
+            {% assign author = site.authors | where:"name", author_name | first %}
+            {% if author %}
+            {% if forloop.first %}<p class="flush-bottom">Featuring {% endif %}
+              <a href="{{ author.url }}">{{ author.name | titleize }}</a> {% if forloop.last == false %} and {% endif %} {% if forloop.last %}</p>{% endif%}
+              {% endif %}
+              {% endfor%}
+              <p>{{ page.date | format_date }} {% if page.video_duration != nil %}
+                <span class="divider push-quarter-sides">•</span> {{ page.video_duration }} {% endif %}</p>
+
+              <div class="soft-half-top push-top">
+                {% include _social-share.html %}
+              </div>
+
+              {% assign topic = site.topics | where: "title", page.topic | first %}
+              {% if page.topic %}
+              <p class="flush-bottom soft-top">
+                <strong>Topic</strong>
+              </p>
+              <ul class="list-inline">
+                <li>
+                  <a href="{{ topic.url }}">{{ topic.title }}</a>
+                </li>
+              </ul>
+              {% endif %}
+              {% include _tags_list.html %}
           </div>
-
-          {% assign topic = site.topics | where: "title", page.topic | first %}
-          {% if page.topic %}
-          <p class="flush-bottom soft-top">
-            <strong>Topic</strong>
-          </p>
-          <ul class="list-inline">
-            <li>
-              <a href="{{ topic.url }}">{{ topic.title }}</a>
-            </li>
-          </ul>
-          {% endif %}
-          {% if page.tags.size > 0 %}
-          <p class="flush-bottom soft-half-top">
-            <strong>Tags</strong>
-          </p>
-          <ul class="list-inline">
-            {% for tag in page.tags %}
-            <li>
-              <a href="{{ site.search_domain }}/search?q=tags: '{{ tag }}'" title="Search {{ tag }}">{{ tag }}</a>
-            </li>
-            {% endfor %}
-          </ul>
-          {% endif %}
-      </div>
-      <div class="col-sm-4 col-md-3 soft-half-top">
-        {% include _subscribe-buttons.html content_type=page youtube=true row=false subscribe=false %}
+          <div class="col-md-3 soft-half-top">
+            {% include _subscribe-buttons.html content_type=page youtube=true row=false subscribe=false %}
+          </div>
+        </div>
       </div>
     </div>
 
@@ -116,7 +116,7 @@ layout: default
 
     {% if site.videos.size > 1 or messages.size > 1 %}
     <div class="push-top soft-top row">
-      <div class="col-sm-8 col-sm-offset-2">
+      <div class="col-md-10 col-md-offset-1">
 
         <section>
           <h2 class="component-header flush-top">

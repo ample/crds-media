@@ -1,0 +1,12 @@
+{% if include.tags.size > 0 %}
+  <p class="flush-bottom soft-half-top">
+    <strong>Tags</strong>
+  </p>
+  <ul class="list-inline">
+    {% for tag in include.tags %}
+      <li>
+        <a href="/tags/{{ tag.slug }}/">{{ tag.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

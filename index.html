@@ -1,7 +1,13 @@
 ---
 layout: default
-
 paginate:
+  recent_media:
+    collections:
+      - articles
+      - songs
+    per: 12
+    limit: 1
+    sort: date desc
   podcasts:
     per: 4
     limit: 1
@@ -17,9 +23,9 @@ paginate:
 {% if managed_features.size > 0 %}
   {% assign item = feature_obj.docs | first %}
 {% else %}
-  {% assign item = site.recent_media | first %}
+  {% assign item = page.recent_media.docs | first %}
 {% endif %}
-{% include _overlay-card.html size="xl" %}
+{% include _overlay-feature-card.html %}
 
 <div class="container push-top">
   <div class="row">
@@ -27,7 +33,7 @@ paginate:
       {% if managed_features.size > 0 %}
         {% assign features = feature_obj.docs | slice: 1, 100 %}
       {% else %}
-        {% assign features = site.recent_media | slice: 1, 3 %}
+        {% assign features = page.recent_media.docs | slice: 1, 3 %}
       {% endif %}
       {% if features.size > 0 %}
         <div class="push-bottom">
@@ -40,9 +46,9 @@ paginate:
         </div>
       {% endif %}
       {% if managed_features.size > 0 %}
-        {% assign recent_media = site.recent_media | slice: 0, 8 %}
+        {% assign recent_media = page.recent_media.docs | slice: 0, 8 %}
       {% else %}
-        {% assign recent_media = site.recent_media | slice: 4, 8 %}
+        {% assign recent_media = page.recent_media.docs | slice: 4, 8 %}
       {% endif %}
       {% if recent_media.size > 0 %}
         <div>

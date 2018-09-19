@@ -37,6 +37,12 @@ layout: default
       </main>
       {% endif %}
 
+      {% if page.discussion %}
+      <div class="col-md-8 col-md-offset-2">
+        {% include _discussion-questions.html %}
+      </div>
+      {% endif %}
+
       <footer class="col-md-8 col-md-offset-2">
         <p class="flush-bottom">Written by <a href="{{ author.url }}" data-author-name>{{ page.author.full_name | titleize }}</a></p>
         <date data-post-date>{{ page.date | format_date }}</date>
@@ -60,20 +66,7 @@ layout: default
         {% endif %}
 
         <!-- Tags -->
-        {% if tags.size > 0 %}
-          <div class="keywords">
-            <p class="flush-bottom soft-half-top">
-              <strong>Tags</strong>
-            </p>
-            <ul class="list-inline" data-tags>
-              {% for tag in tags %}
-              <li>
-                <a href="{{ site.search_domain }}/search?q=tags: '{{ tag.title }}'" title="Search {{ tag.title }}">{{ tag.title }}</a>
-              </li>
-              {% endfor %}
-            </ul>
-          </div>
-        {% endif %}
+        {% include _tags_list.html tags=tags %}
 
         <section class="soft-top">
           <header class="more-media-header">

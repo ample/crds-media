@@ -1,8 +1,12 @@
 require 'rspec'
+require 'jekyll'
 require 'jekyll-crds'
 require 'jekyll-placeholders'
-require 'paging-mister-hyde'
 require 'video-tags'
+
+require 'pry'
+
+require_relative './support/jekyll_helper'
 
 RSpec.configure do |config|
 end
