@@ -39,7 +39,7 @@ collections:
     output: true
     permalink: /:collection/:title
   authors:
-    output: false
+    output: true
     permalink: /:collection/:title
   podcasts:
     output: false
