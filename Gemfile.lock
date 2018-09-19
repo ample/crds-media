@@ -33,10 +33,6 @@ GIT
       bootstrap-sass (~> 3.3)
       sass (~> 3.2)
 
-<<<<<<< HEAD
-PATH
-  remote: vendor/gems/jekyll-collection-merger
-=======
 GIT
   remote: https://github.com/crdschurch/jekyll-cloudsearch.git
   revision: 7e36695f47eb07a3848343fd5b0a1d9aa77b5238
@@ -46,18 +42,6 @@ GIT
       contentful-management (~> 1.10.1)
       jekyll
       nokogiri
-
-GIT
-  remote: https://github.com/crdschurch/jekyll-contentful.git
-  revision: 58eeabd0007250ebe435e3f82627257f89299fa0
-  tag: 0.0.8
->>>>>>> development
-  specs:
-    jekyll-contentful (0.0.8)
-      activesupport
-      contentful (>= 2.6.0)
-      dotenv
-      jekyll
 
 PATH
   remote: vendor/gems/jekyll-crds
@@ -185,10 +169,7 @@ GEM
       sass (~> 3.4)
     jekyll-watch (2.0.0)
       listen (~> 3.0)
-<<<<<<< HEAD
-=======
     jmespath (1.4.0)
->>>>>>> development
     json (1.8.6)
     kramdown (1.17.0)
     launchy (2.4.3)
@@ -227,16 +208,6 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-<<<<<<< HEAD
-    rouge (3.2.0)
-    rspec (3.7.0)
-      rspec-core (~> 3.7.0)
-      rspec-expectations (~> 3.7.0)
-      rspec-mocks (~> 3.7.0)
-    rspec-core (3.7.1)
-      rspec-support (~> 3.7.0)
-    rspec-expectations (3.7.0)
-=======
     rouge (3.2.1)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
@@ -245,7 +216,6 @@ GEM
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.1)
->>>>>>> development
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-mocks (3.8.0)
@@ -285,13 +255,8 @@ DEPENDENCIES
   hashie
   jekyll (~> 3.7.2)
   jekyll-assets
-<<<<<<< HEAD
-  jekyll-collection-merger (~> 0.0.1)!
-  jekyll-contentful (~> 1.0)!
-=======
   jekyll-cloudsearch (~> 0.0.1)!
-  jekyll-contentful (~> 0.0.1)!
->>>>>>> development
+  jekyll-contentful (~> 1.0)!
   jekyll-crds (~> 0.0.1)!
   jekyll-feed (~> 0.6)
   jekyll-placeholders (~> 0.0.1)!
