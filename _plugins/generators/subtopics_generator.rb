@@ -5,7 +5,7 @@ module Jekyll
       # Global references to docs within Jekyll.
       all_docs = site.collections.values.collect(&:docs).flatten
       all_tags = site.collections['tags'].docs
-      all_topics = site.collections['topics'].docs
+      all_topics = site.collections['categories'].docs
       # Loop through each topic doc.
       all_topics.each do |topic|
         # Get all docs that have applied this topic.
