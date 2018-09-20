@@ -1,16 +1,16 @@
 GIT
-  remote: git://github.com/ample/paging-mister-hyde.git
-  revision: 6c26f387279b8491648f1cd852589e30a82a3df0
-  specs:
-    paging-mister-hyde (0.1.1)
-      activesupport
-      jekyll
-
-GIT
   remote: https://github.com/ample/jekyll-placeholders.git
   revision: 503eef68d21b020b8d611025ab7029c80e569186
   specs:
     jekyll-placeholders (0.0.1)
+      activesupport
+      jekyll
+
+GIT
+  remote: https://github.com/ample/paging-mister-hyde.git
+  revision: 6c26f387279b8491648f1cd852589e30a82a3df0
+  specs:
+    paging-mister-hyde (0.1.1)
       activesupport
       jekyll
 
@@ -21,6 +21,16 @@ GIT
     crds-styles (3.0.4)
       bootstrap-sass (~> 3.3)
       sass (~> 3.2)
+
+GIT
+  remote: https://github.com/crdschurch/jekyll-cloudsearch.git
+  revision: 7e36695f47eb07a3848343fd5b0a1d9aa77b5238
+  specs:
+    jekyll-cloudsearch (0.0.2)
+      aws-sdk-cloudsearchdomain
+      contentful-management (~> 1.10.1)
+      jekyll
+      nokogiri
 
 GIT
   remote: https://github.com/crdschurch/jekyll-contentful.git
@@ -56,16 +66,31 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    autoprefixer-rails (9.1.3)
+    autoprefixer-rails (9.1.4)
       execjs
+    aws-eventstream (1.0.1)
+    aws-partitions (1.102.0)
+    aws-sdk-cloudsearchdomain (1.1.0)
+      aws-sdk-core (~> 3)
+      aws-sigv4 (~> 1.0)
+    aws-sdk-core (3.25.0)
+      aws-eventstream (~> 1.0)
+      aws-partitions (~> 1.0)
+      aws-sigv4 (~> 1.0)
+      jmespath (~> 1.0)
+    aws-sigv4 (1.0.3)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     coderay (1.1.2)
     colorator (1.1.0)
     concurrent-ruby (1.0.5)
-    contentful (2.8.1)
+    contentful (2.9.1)
       http (> 0.8, < 3.0)
+      multi_json (~> 1)
+    contentful-management (1.10.1)
+      http (> 1.0, < 3.0)
+      json (~> 1.8)
       multi_json (~> 1)
     diff-lcs (1.3)
     domain_name (0.5.20180417)
@@ -75,13 +100,11 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
     eventmachine (1.2.7)
-    eventmachine (1.2.7-x64-mingw32)
     execjs (2.7.0)
     extras (0.3.0)
       forwardable-extended (~> 2.5)
     fastimage (2.1.3)
     ffi (1.9.25)
-    ffi (1.9.25-x64-mingw32)
     formatador (0.2.5)
     forwardable-extended (2.6.0)
     guard (2.14.2)
@@ -98,7 +121,7 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    hashie (3.5.7)
+    hashie (3.6.0)
     http (2.2.2)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -136,9 +159,9 @@ GEM
       nokogiri (~> 1.8)
       pathutil (~> 0.16)
       sprockets (>= 3.3, < 4.1.beta)
-    jekyll-feed (0.9.3)
+    jekyll-feed (0.10.0)
       jekyll (~> 3.3)
-    jekyll-redirect-from (0.13.0)
+    jekyll-redirect-from (0.14.0)
       jekyll (~> 3.3)
     jekyll-sanity (1.2.0)
       jekyll (~> 3.1)
@@ -146,6 +169,8 @@ GEM
       sass (~> 3.4)
     jekyll-watch (2.0.0)
       listen (~> 3.0)
+    jmespath (1.4.0)
+    json (1.8.6)
     kramdown (1.17.0)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -165,9 +190,7 @@ GEM
     multi_json (1.13.1)
     multi_xml (0.6.0)
     nenv (0.3.0)
-    nokogiri (1.8.2)
-      mini_portile2 (~> 2.3.0)
-    nokogiri (1.8.2-x64-mingw32)
+    nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
     notiffany (0.1.1)
       nenv (~> 0.1)
@@ -186,19 +209,19 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     rouge (3.2.1)
-    rspec (3.7.0)
-      rspec-core (~> 3.7.0)
-      rspec-expectations (~> 3.7.0)
-      rspec-mocks (~> 3.7.0)
-    rspec-core (3.7.1)
-      rspec-support (~> 3.7.0)
-    rspec-expectations (3.7.0)
+    rspec (3.8.0)
+      rspec-core (~> 3.8.0)
+      rspec-expectations (~> 3.8.0)
+      rspec-mocks (~> 3.8.0)
+    rspec-core (3.8.0)
+      rspec-support (~> 3.8.0)
+    rspec-expectations (3.8.1)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.7.0)
-    rspec-mocks (3.7.0)
+      rspec-support (~> 3.8.0)
+    rspec-mocks (3.8.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.7.0)
-    rspec-support (3.7.1)
+      rspec-support (~> 3.8.0)
+    rspec-support (3.8.0)
     ruby_dep (1.5.0)
     safe_yaml (1.0.4)
     sass (3.5.7)
@@ -215,18 +238,14 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2018.5)
-      tzinfo (>= 1.0.0)
-    uglifier (4.1.17)
+    uglifier (4.1.18)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.5)
-    unf_ext (0.0.7.5-x64-mingw32)
 
 PLATFORMS
   ruby
-  x64-mingw32
 
 DEPENDENCIES
   activesupport
@@ -236,6 +255,7 @@ DEPENDENCIES
   hashie
   jekyll (~> 3.7.2)
   jekyll-assets
+  jekyll-cloudsearch (~> 0.0.1)!
   jekyll-contentful (~> 0.0.1)!
   jekyll-crds (~> 0.0.1)!
   jekyll-feed (~> 0.6)
@@ -252,4 +272,4 @@ DEPENDENCIES
   video-tags (~> 0.0.1)!
 
 BUNDLED WITH
-   1.16.4
+   1.16.3
