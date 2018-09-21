@@ -1,0 +1,64 @@
+---
+layout: default
+---
+
+<div class="video-tpl">
+  <div class="bg-charcoal">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+
+          {% if page.source_url %}
+          <div class="push-top soft-top">
+            <div class="mobile-flush">
+              <!-- Needed for YT partial to load video -->
+              {% assign video_id = page.source_url | youtube_id %}
+              {% include _yt-embed.html %}
+            </div>
+          </div>
+          {% endif %}
+
+          <header>
+            {% if page.audio_source_url or page.program_url %}
+            <div class="sources push-quarter-top">
+              {% if page.audio_source_url %}
+              <a class="secondary" href="{{ page.audio_source_url }}" target="_blank">Listen to audio</a>
+              {% endif %}
+              {% if page.program_url %}
+              <a class="secondary" href="{{ page.program_url }}" target="_blank">View program</a>
+              {% endif %}
+            </div>
+            {% endif %}
+
+            <div>
+              <!-- Start breadcrumbs -->
+              {% assign url_array = page.url | split: '/' | shift | pop %}
+              {% capture url_string %} {{ page.url | replace: '/', " " }}{% endcapture %}
+              {% assign url="" %}
+              <ol class="breadcrumb hard-sides">
+                <li><a href="/">Media</a></li>
+
+                {% for breadcrumb in url_array %}
+                {% capture first_word %}{{ url_string | truncatewords: 1, "" }}{% endcapture %}
+                {% capture url %}{{ url }}/{{ first_word }}{% endcapture %}
+
+                <li><a href="{{ url }}">{{ breadcrumb | replace: '-', ' ' | capitalize }}</a></li>
+
+                {% capture url_string %}{{ url_string | remove_first: first_word }}{% endcapture %}
+                {% endfor %}
+              </ol>
+              <!-- End breadcrumbs -->
+
+              <h1 class="font-family-condensed-extra text-uppercase flush-top push-bottom text-white">{{ page.title }}</h1>
+            </div>
+          </header>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    {{ content }}
+  </div>
+
+</div>
