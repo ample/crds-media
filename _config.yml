@@ -120,7 +120,7 @@ defaults:
       path: ""
       type: messages
     values:
-      layout: video
+      layout: message
 
 assets:
   source_maps: true # false on JEKYLL_ENV=production
