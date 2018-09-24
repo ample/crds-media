@@ -1,15 +1,13 @@
 <div class="card">
   <a href="{{ podcast.url }}">
-    {% if podcast.image %}
-      <img src="{{ podcast.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
-    {% else %}
-      <img src="{{ site.default_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
-    {% endif %}
+    <img src="{% if podcast.image.url %}{{ podcast.image.url | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
   </a>
   <div class="card-block hard-bottom">
     <a href="{{ podcast.url }}">
       <h4 class="card-title card-title--overlap text-uppercase">{{ podcast.title }}</h4>
     </a>
-    <p class="soft-quarter-top">{{ podcast.content | strip_html | truncatewords: 25 }}</p>
+    <p class="soft-quarter-top">
+      {{ podcast.description | markdownify | strip_html | truncatewords: 25 }}
+    </p>
   </div>
 </div>
