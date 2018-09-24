@@ -27,9 +27,10 @@ GIT
 
 GIT
   remote: https://github.com/crdschurch/crds-styles.git
-  revision: 444ed3820911b730c3be54f86132f205b3d2a31f
+  revision: 9c0939d220e3b1ca25ab2315b8f73f9aab8f5d13
+  branch: development
   specs:
-    crds-styles (3.0.4)
+    crds-styles (3.0.5)
       bootstrap-sass (~> 3.3)
       sass (~> 3.2)
 
@@ -224,7 +225,7 @@ GEM
     rspec-support (3.8.0)
     ruby_dep (1.5.0)
     safe_yaml (1.0.4)
-    sass (3.5.7)
+    sass (3.6.0)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -249,7 +250,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-  crds-styles (~> 3.0.4)!
+  crds-styles (~> 3.0.0)!
   dotenv
   guard-rspec
   hashie
