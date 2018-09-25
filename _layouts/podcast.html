@@ -1,6 +1,9 @@
 ---
 layout: default
 ---
+
+{% assign episodes = site.episodes | filter: 'podcast.title', page.title %}
+
 <section class="media-podcast-show">
   <section class="podcast-hero jumbotron hard-top text-white" style="background-image: url('{{ page.bg_image.url | imgix: site.imgix }}');" data-optimize-bg-img>
     <div class="header-content">
@@ -74,7 +77,7 @@ layout: default
         <!-- Nav tabs -->
         <div>
           <ul class="nav nav-tabs" role="tablist">
-            {% assign season_numbers = site.episodes | where: "podcast", page.title | sort: "season_number" | map: "season_number" | uniq | reverse %}
+            {% assign season_numbers = episodes | sort: 'season_number' | map: 'season_number' | uniq | reverse %}
             {% for season_number in season_numbers %}
               <li role="presentation" {% if forloop.first %}class="active"{% endif %}>
                 <a href="#season-{{ season_number }}" aria-controls="description" role="tab" data-toggle="tab">
@@ -87,13 +90,13 @@ layout: default
 
         <!-- Tab Panes -->
         <div class="tab-content">
-          {% assign groups = site.episodes | where: "podcast", page.title | sort: "season_number" | reverse | group_by: "season_number" %}
+          {% assign groups = episodes | sort: 'season_number' | reverse | group_by: 'season_number' %}
 
           {% for group in groups %}
-            {% assign season_number = group.items | map: "season_number" | first %}
+            {% assign season_number = group.items | map: 'season_number' | first %}
             <div role="tabpanel" class="tab-pane {% if forloop.first %}active{% endif %}" id="season-{{ season_number }}">
 
-              {% assign episodes = group.items | sort: "episode_number" | reverse %}
+              {% assign episodes = group.items | sort: 'episode_number' | reverse %}
               {% for episode in episodes %}
                 <div class="push-top">
                   <a href="{{ episode.url }}">
