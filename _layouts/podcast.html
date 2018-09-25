@@ -2,12 +2,12 @@
 layout: default
 ---
 <section class="media-podcast-show">
-  <section class="podcast-hero jumbotron hard-top text-white" style="background-image: url('{{ page.background | imgix: site.imgix }}');" data-optimize-bg-img>
+  <section class="podcast-hero jumbotron hard-top text-white" style="background-image: url('{{ page.bg_image.url | imgix: site.imgix }}');" data-optimize-bg-img>
     <div class="header-content">
       <div class="container">
         <div class="mobile-wrapper">
           <div class="podcast-header-artwork">
-            <img class="feature-img" src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.podcast_thumb }}" data-optimize-img>
+            <img class="feature-img" src="{{ page.image.url | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.podcast_thumb }}" data-optimize-img>
           </div>
           <div class="podcast-header-text">
             <ol class="breadcrumb hard-sides hard-top text-white">
@@ -51,14 +51,14 @@ layout: default
   <div class="container content">
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
-        <div>{{ page.content }}</div>
-        {% for author_name in page.authors %}
-        {% assign author = site.authors | where:"name", author_name | first %}
-        {% if author %}
-          {% if forloop.first %}<p class="push-ends">Hosted by {% endif %}
-          <a href="{{ author.url }}">{{ author.name | titleize }}</a> {% if forloop.last == false %} and {% endif %}
-          {% if forloop.last %}</p>{% endif %}
-        {% endif %}
+        <div>{{ page.description | markdownify }}</div>
+        {% for author_name in page.author %}
+          {% assign author = site.authors | where: 'full_name', author_name.full_name | first %}
+          {% if author %}
+            {% if forloop.first %}<p class="push-ends">Hosted by {% endif %}
+            <a href="{{ author.url }}">{{ author.full_name | titleize }}</a> {% if forloop.last == false %} and {% endif %}
+            {% if forloop.last %}</p>{% endif %}
+          {% endif %}
         {% endfor%}
       </div>
     </div>

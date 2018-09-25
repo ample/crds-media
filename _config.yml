@@ -42,7 +42,7 @@ collections:
     output: true
     permalink: /:collection/:title
   podcasts:
-    output: false
+    output: true
     permalink: /:collection/:title
   episodes:
     output: false
