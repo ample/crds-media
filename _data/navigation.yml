@@ -1,0 +1,131 @@
+topics:
+  - title: Articles
+    url: /articles
+
+  - title: Music
+    url: /music
+
+  - title: Podcasts
+    url: /podcasts
+
+  - title: Series
+    url: /series
+
+  - title: Videos
+    url: /videos
+
+media_types:
+  - title: Culture
+    url: /topics/culture
+
+  - title: Faith
+    url: /topics/faith
+
+  - title: Finances
+    url: /topics/finances
+
+  - title: Leadership
+    url: /topics/leadership
+
+  - title: Relationship
+    url: /topics/relationship
+
+megamenu:
+  crossroads:
+    - title: Home
+      url:
+
+    - title: Serve
+      url:
+
+    - title: Give
+      url:
+
+    - title: Updates
+      url:
+
+    - title: Locations
+      url:
+
+  media:
+    - title: All Media
+      url:
+
+    - title: Series
+      url:
+
+    - title: Music
+      url:
+
+    - title: Videos
+      url:
+
+    - title: Articles
+      url:
+
+    - title: Podcasts
+      url:
+
+    - title: Topics
+      url:
+
+  grow:
+    - title: Get Started
+      url:
+
+    - title: Groups
+      url:
+
+    - title: Serving Opportunities
+      url:
+
+    - title: GO Somewhere
+      url:
+
+    - title: The Chaser
+      url:
+
+    - title: See who is nearby
+      url:
+
+    - title: Put yourself on the map
+      url:
+
+  care:
+    - title: Weddings
+      url:
+
+    - title: Counselors
+      url:
+
+    - title: Funerals
+      url:
+
+    - title: Prayer
+      url:
+
+  ministry:
+    - title: Kids' Club
+      url:
+
+    - title: Students 6-12th
+      url:
+
+    - title: ReachOut
+      url:
+
+    - title: Community Care
+      url:
+
+    - title: First Impressions
+      url:
+
+  contact:
+    - title: Ask a Question
+      url:
+
+    - title: Staff Contacts
+      url:
+
+    - title: Prayer Requests
+      url:
