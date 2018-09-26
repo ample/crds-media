@@ -1,5 +1,3 @@
-import * as http from 'http';
-
 <template>
   <div class="crds-roll-call">
     <div class="btn-group-bar">
@@ -17,6 +15,7 @@ import * as http from 'http';
     <div>
       {{ total }} {{ labelNoun }} {{ labelVerb }} discussing these questions
     </div>
+    <div v-if="hasError">You must include at least one person.</div>
     <div>
       <button class="btn btn-primary" v-on:click="submitData()">Submit group size</button>
     </div>
@@ -36,7 +35,8 @@ import * as http from 'http';
       return {
         total: 0,
         labelNoun: 'people',
-        labelVerb: 'are'
+        labelVerb: 'are',
+        hasError: false
       }
     },
     methods: {
@@ -58,10 +58,16 @@ import * as http from 'http';
           this.labelNoun = 'people';
           this.labelVerb = 'are';
         }
+        this.validateForm();
+      },
+      validateForm: function() {
+        this.hasError = false;
+        if (this.total <= 0) this.hasError = true;
       },
       submitData: function() {
+        this.validateForm();
 
-        // this.dispatchEvent(new CustomEvent('crds.rollcall.submitForm', { detail: this.location }));
+        if (this.hasError) return false;
 
         var postDataObj = {};
         postDataObj[process.env.VUE_APP_FIELD_ID] = this.total;
@@ -79,7 +85,7 @@ import * as http from 'http';
           }
         };
 
-        const req = http.request(options, (res) => {
+        var req = http.request(options, (res) => {
           res.setEncoding('utf8');
         });
 
