@@ -13,7 +13,8 @@ layout: video_tpl
 
         {% if page.discussion %}
         <div class="push-bottom">
-          {% include _discussion-questions.html %}
+          {% include _discussion-questions.html type=chaser %}
+          {% include _chaser-rollcall.html %}
         </div>
         {% endif %}
 
