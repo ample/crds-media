@@ -14,7 +14,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  @import 'https://d1tmclqz61gqwd.cloudfront.net/styles/crds-styles-3.0.5.min.css';
-</style>
