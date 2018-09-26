@@ -1,3 +1,5 @@
+import * as http from 'http';
+
 <template>
   <div class="crds-roll-call">
     <div class="btn-group-bar">
@@ -25,6 +27,9 @@
 </template>
 
 <script>
+  import * as http from 'http';
+  import * as querystring from 'querystring';
+
   export default {
     name: 'CrdsRollCall',
     data: function() {
@@ -55,7 +60,35 @@
         }
       },
       submitData: function() {
-        console.log('SUBMIT DATA ...');
+
+        // this.dispatchEvent(new CustomEvent('crds.rollcall.submitForm', { detail: this.location }));
+
+        var postDataObj = {};
+        postDataObj[process.env.VUE_APP_FIELD_ID] = this.total;
+
+        var postData = querystring.stringify(postDataObj);
+
+        var options = {
+          hostname: process.env.VUE_APP_FORM_DOMAIN,
+          port: 443,
+          path: process.env.VUE_APP_FORM_PATH,
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Length': Buffer.byteLength(postData)
+          }
+        };
+
+        const req = http.request(options, (res) => {
+          res.setEncoding('utf8');
+        });
+
+        req.on('error', (e) => {
+          console.error(`Problem with request: ${e.message}`);
+        });
+
+        req.write(postData);
+        req.end();
       }
     }
   }
