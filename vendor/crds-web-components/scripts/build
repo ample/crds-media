@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-vue-cli-service build --target wc --name $1 ./src/components/$1.vue --dest dist/$1
+vue-cli-service build --target wc --name $1 ./src/components/$1.vue --no-clean
