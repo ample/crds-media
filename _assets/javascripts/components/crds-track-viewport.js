@@ -660,12 +660,12 @@ function normalizeComponent (
   }
 }
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"2867f158-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/crds-track-viewport.vue?vue&type=template&id=356c702c&shadow
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"2867f158-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/crds-track-viewport.vue?vue&type=template&id=d1794708&shadow
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',[_vm._t("default")],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/crds-track-viewport.vue?vue&type=template&id=356c702c&shadow
+// CONCATENATED MODULE: ./src/components/crds-track-viewport.vue?vue&type=template&id=d1794708&shadow
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/crds-track-viewport.vue?vue&type=script&lang=js&shadow
 //
@@ -680,6 +680,10 @@ var staticRenderFns = []
     trackableDuration: {
       type: Number,
       default: 5000
+    },
+    trackableEvent: {
+      type: String,
+      default: 'TestEvent'
     }
   },
   data: function data() {
@@ -719,7 +723,8 @@ var staticRenderFns = []
     },
     track: function track() {
       if (this.tracked) return;
-      console.log('TRACK');
+      console.log('TRACK'); // if (typeof analytics !== 'undefined') analytics.track(this.trackableEvent, {})
+
       this.tracked = true;
     }
   }

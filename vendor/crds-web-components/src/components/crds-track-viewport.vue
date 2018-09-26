@@ -11,6 +11,10 @@
       trackableDuration: {
         type: Number,
         default: 5000
+      },
+      trackableEvent: {
+        type: String,
+        default: 'TestEvent'
       }
     },
     data: function() {
@@ -56,6 +60,7 @@
       track: function() {
         if (this.tracked) return;
         console.log('TRACK');
+        // if (typeof analytics !== 'undefined') analytics.track(this.trackableEvent, {})
         this.tracked = true;
       }
     }
