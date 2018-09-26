@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target wc --name crds-rollcall ./src/components/crds-rollcall.vue",
+    "build": "scripty",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -15,6 +15,7 @@
     "@vue/cli-plugin-eslint": "^3.0.4",
     "@vue/cli-service": "^3.0.4",
     "@vue/web-component-wrapper": "^1.2.0",
+    "scripty": "^1.7.2",
     "vue-template-compiler": "^2.5.17"
   },
   "eslintConfig": {
