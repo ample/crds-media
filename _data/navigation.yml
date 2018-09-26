@@ -1,4 +1,4 @@
-topics:
+media_types:
   - title: Articles
     url: /articles
 
@@ -14,7 +14,7 @@ topics:
   - title: Videos
     url: /videos
 
-media_types:
+topics:
   - title: Culture
     url: /topics/culture
 

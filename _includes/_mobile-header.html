@@ -11,12 +11,12 @@
   </div>
   <nav class="secondary-nav">
     <ul class="list-unstyled">
-      {% for media in data.media_types %}
-      <li><a href="{{ media.url }}">{{ media.title }}</a></li>
-      {% endfor %}
-      <li class="divider" role="separator"></li>
       {% for topic in data.topics %}
       <li><a href="{{ topic.url }}">{{ topic.title }}</a></li>
+      {% endfor %}
+      <li class="divider" role="separator"></li>
+      {% for media in data.media_types %}
+      <li><a href="{{ media.url }}">{{ media.title }}</a></li>
       {% endfor %}
     </ul>
   </nav>
