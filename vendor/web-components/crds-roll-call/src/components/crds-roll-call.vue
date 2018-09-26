@@ -16,13 +16,11 @@
       <div>
         {{ total }} {{ labelNoun }} {{ labelVerb }} discussing these questions
       </div>
-      <div v-if="hasError">You must include at least one person.</div>
       <div>
         <button class="btn btn-primary" v-on:click="submitData()">Submit group size</button>
       </div>
-      <p>
-        This information helps us ... do something?
-      </p>
+      <p v-if="hasError">You must include at least one person.</p>
+      <p v-if="!hasError">This information helps us ... do something?</p>
     </div>
     <div v-if="hasBeenSubmitted">
       Got it! Enjoy your discussion.
