@@ -1,1 +1,74 @@
-DESKTOP PARTIAL
+{% assign data = site.data.navigation %}
+
+<header class="media-header">
+  <div class="media-header-section">
+    <a href="/" class="brand">
+      <svg class="icon" height="81px" viewBox="0 0 308 81" width="308px">
+        <use xlink:href="/assets/svgs/crossroads-church-logo.svg#crossroads-church-logo"></use>
+      </svg>
+    </a>
+  </div>
+
+  <div class="media-header-section">
+    <ul class="list-inline">
+      {% for topic in data.topics %}
+      <li><a href="{{ topic.url }}">{{ topic.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="media-header-section dropdown-collapse">
+    <ul class="list-inline">
+      {% for media in data.media_types limit: 3 %}
+      <li><a href="{{ media.url }}">{{ media.title }}</a></li>
+      {% endfor %}
+      <li>
+        <div class="dropdown">
+          <button class="dropdown-toggle" type="button" id="navTopics" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            More
+            <svg class="icon icon-1" viewBox="0 0 256 256">
+              <use xlink:href="/assets/svgs/icons.svg#chevron-down"></use>
+            </svg>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="navTopics">
+            {% for media in data.media_types offset: 3 %}
+            <li><a href="{{ media.url }}">{{ media.title }}</a></li>
+            {% endfor %}
+            <li><a href="">All Media</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="media-header-section">
+    <a href="">Subscribe</a>
+  </div>
+
+  <div class="media-header-section">
+    <a href="">
+      <span class="sr-only">Search</span>
+      <span>
+        <svg class="icon icon-1" viewBox="0 0 256 256">
+          <use xlink:href="/assets/svgs/icons.svg#search"></use>
+        </svg>
+      </span>
+    </a>
+  </div>
+
+  <div class="media-header-section">
+    <a href="">
+      Menu
+      <span>
+        <svg class="icon icon-1" viewBox="0 0 256 256">
+          <use xlink:href="/assets/svgs/icons.svg#menu"></use>
+        </svg>
+      </span>
+      <!-- <span>
+        <svg class="icon icon-1" viewBox="0 0 256 256">
+          <use xlink:href="/assets/svgs/icons.svg#close-thin"></use>
+        </svg>
+      </span> -->
+    </a>
+  </div>
+</header>
