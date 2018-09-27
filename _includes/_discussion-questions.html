@@ -6,18 +6,18 @@
   </div>
   {% endif %}
 
-  {{ page.discussion.intro | markdownify }}
+  {{ include.discussion.intro | markdownify }}
 
-  {% if page.discussion.discussion_questions.size > 0 %}
+  {% if include.discussion.discussion_questions.size > 0 %}
   <ol>
-    {% for q in page.discussion.discussion_questions %}
+    {% for q in include.discussion.discussion_questions %}
     <li>{{ q | markdownify }}</li>
     {% endfor %}
   </ol>
   {% endif %}
 
-  {% if page.discussion.challenge %}
+  {% if include.discussion.challenge %}
   <p class="label">Challenge</p>
-  {{ page.discussion.challenge | markdownify }}
+  {{ include.discussion.challenge | markdownify }}
   {% endif %}
 </section>

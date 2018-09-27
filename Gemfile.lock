@@ -35,10 +35,10 @@ GIT
 
 GIT
   remote: https://github.com/crdschurch/jekyll-contentful.git
-  revision: 58eeabd0007250ebe435e3f82627257f89299fa0
-  tag: 0.0.8
+  revision: bd583e1e8de1ac107a61b6a6bbfe35d5d49c70d4
+  tag: 0.0.9
   specs:
-    jekyll-contentful (0.0.8)
+    jekyll-contentful (0.0.9)
       activesupport
       contentful (>= 2.6.0)
       dotenv
@@ -86,7 +86,7 @@ GEM
     coderay (1.1.2)
     colorator (1.1.0)
     concurrent-ruby (1.0.5)
-    contentful (2.9.1)
+    contentful (2.9.2)
       http (> 0.8, < 3.0)
       multi_json (~> 1)
     contentful-management (1.10.1)
@@ -136,7 +136,7 @@ GEM
       multi_xml (>= 0.5.2)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
-    jekyll (3.7.3)
+    jekyll (3.7.4)
       addressable (~> 2.4)
       colorator (~> 1.0)
       em-websocket (~> 0.5)
