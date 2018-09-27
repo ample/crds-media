@@ -32,7 +32,7 @@
 
         &:hover, &:active, &.active {
           color: $cr-gray;
-          font-weight: 500;
+          font-weight: 600;
           text-decoration: none;
         }
       }
@@ -120,7 +120,7 @@
     .megamenu-header {
       border-top: 1px solid rgba($cr-blue, .5);
       font-size: $font-size-base;
-      font-weight: 500;
+      font-weight: 600;
       position: relative;
       display: block;
       margin: 0 1rem;
@@ -173,7 +173,6 @@
 
 .desktop-header {
   .media-header {
-    border-bottom: 1px solid $cr-gray-lighter;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -186,6 +185,7 @@
 
   .media-header-section {
     border-right: 1px solid $cr-gray-lighter;
+    border-bottom: 1px solid $cr-gray-lighter;
     color: $cr-gray-light;
     font-size: $font-size-base;
     font-weight: 300;
@@ -200,31 +200,33 @@
       color: $cr-gray-light;
       line-height: 1;
 
-      &:hover {
+      &:hover,
+      &:focus {
         color: $cr-blue-dark;
         text-decoration: none;
       }
 
       &:active, &.active {
-        font-weight: 500;
+        font-weight: 600;
       }
+    }
+
+    button {
+      background: transparent;
+      border: 0;
+      padding: 0;
     }
 
     &.dropdown-collapse {
       flex: 1 1 auto;
-
-      button {
-        background: transparent;
-        border: 0;
-        padding: 0;
-      }
 
       svg {
         height: 10px;
       }
 
       .dropdown-menu {
-        border: 0;
+        border: 1px solid $cr-gray-lighter;
+        border-top: 0;
         border-radius: 0;
         box-shadow: none;
         font-weight: 300;
@@ -236,7 +238,8 @@
           padding-top: .5rem;
           padding-bottom: .5rem;
 
-          a:hover {
+          a:hover,
+          a:focus {
             background: none;
             color: $cr-blue-dark;
           }
@@ -244,10 +247,124 @@
       }
     }
 
+    a.subscribe {
+      color: $cr-cyan;
+      font-weight: 600;
+
+      &:hover {
+        color: $cr-blue-dark;
+      }
+    }
+
     @media screen and (min-width: $screen-md) {
       .list-inline > li {
         padding-right: .5rem;
         padding-left: .5rem;
+      }
+    }
+  }
+
+
+  // Menu styles
+  .media-header-section[data-menu-trigger] {
+    button {
+      display: flex;
+      align-items: center;
+
+      [data-menu-close] {
+        display: inline-flex;
+      }
+
+      [data-menu-open] {
+        display: none;
+      }
+    }
+
+    &.active {
+      background-color: lighten($cr-blue-dark, 10);
+      border-bottom: 0;
+      border-right: 0;
+      color: $cr-white;
+
+      button {
+        [data-menu-close] {
+          display: none;
+        }
+
+        [data-menu-open] {
+          display: inline-flex;
+        }
+      }
+    }
+  }
+
+  .desktop-megamenu {
+    display: none;
+
+    &.open {
+      display: grid;
+      grid-template-columns: 300px auto;
+      position: absolute;
+      height: auto;
+      width: 100%;
+      z-index: 10;
+    }
+
+    .profile {
+      background-color: $cr-blue-dark;
+      padding: 2rem;
+      padding-top: 5rem;
+
+      img {
+        border: 1px solid $cr-gray-lighter;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+
+    .menu {
+      background-color: lighten($cr-blue-dark, 10);
+      color: $cr-blue-light;
+      display: grid;
+      padding: 2rem;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 3rem;
+    }
+
+    .menu-list {
+      flex: 1 1 50%;
+
+      a {
+        color: $cr-blue-light;
+
+        &:hover {
+          color: $cr-white;
+          text-decoration: none;
+        }
+
+        &:focus, &:active, &.active {
+          color: $cr-white;
+          font-weight: 600;
+        }
+      }
+    }
+
+    .menu-header {
+      border-bottom: 2px solid rgba($cr-blue, .5);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    @media screen and (min-width: $screen-md) {
+      .menu {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 4rem;
+        padding: 3rem 5rem;
+      }
+
+      .menu-list {
+        flex-basis: 33%;
       }
     }
   }

@@ -34,7 +34,7 @@
             {% for media in data.media_types offset: 3 %}
             <li><a href="{{ media.url }}">{{ media.title }}</a></li>
             {% endfor %}
-            <li><a href="">All Media</a></li>
+            <li><a href="/">All Media</a></li>
           </ul>
         </div>
       </li>
@@ -42,11 +42,11 @@
   </div>
 
   <div class="media-header-section">
-    <a href="">Subscribe</a>
+    <a href="" class="subscribe">Subscribe</a>
   </div>
 
   <div class="media-header-section">
-    <a href="">
+    <a href="//crossroads.net/search">
       <span class="sr-only">Search</span>
       <span>
         <svg class="icon icon-1" viewBox="0 0 256 256">
@@ -56,19 +56,79 @@
     </a>
   </div>
 
-  <div class="media-header-section">
-    <a href="">
+  <div class="media-header-section" data-menu-trigger>
+    <button role="button">
       Menu
-      <span>
+      <!-- If menu is closed, this icon appears -->
+      <span class="push-quarter-left" data-menu-close>
         <svg class="icon icon-1" viewBox="0 0 256 256">
           <use xlink:href="/assets/svgs/icons.svg#menu"></use>
         </svg>
       </span>
-      <!-- <span>
+      <!-- If menu is open, this icon appears -->
+      <span class="push-quarter-left" data-menu-open>
         <svg class="icon icon-1" viewBox="0 0 256 256">
           <use xlink:href="/assets/svgs/icons.svg#close-thin"></use>
         </svg>
-      </span> -->
-    </a>
+      </span>
+    </button>
   </div>
 </header>
+
+<div class="desktop-megamenu" data-menu-modal>
+  <div class="profile text-center">
+    <img class="img-circle img-size-10" src="//crossroads-media.imgix.net/images/avatar.svg" alt="profile image">
+    <button class="btn btn-cyan btn-block text-center push-top">Sign in</button>
+    <a href="//crossroads.net/register" class="font-size-smaller push-top text-gray-lighter">Register an account</a>
+  </div>
+  <div class="menu">
+    <div class="menu-list">
+      <p class="menu-header">Crossroads</p>
+      <ul class="list-unstyled font-size-small">
+        {% for option in data.megamenu.crossroads %}
+        <li><a href="{{ option.url }}">{{ option.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="menu-list">
+      <p class="menu-header">Media</p>
+      <ul class="list-unstyled font-size-small">
+        {% for option in data.megamenu.media %}
+        <li><a href="{{ option.url }}">{{ option.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="menu-list">
+      <p class="menu-header">Grow</p>
+      <ul class="list-unstyled font-size-small">
+        {% for option in data.megamenu.grow %}
+        <li><a href="{{ option.url }}">{{ option.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="menu-list">
+      <p class="menu-header">Care</p>
+      <ul class="list-unstyled font-size-small">
+        {% for option in data.megamenu.care %}
+        <li><a href="{{ option.url }}">{{ option.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="menu-list">
+      <p class="menu-header">Ministry</p>
+      <ul class="list-unstyled font-size-small">
+        {% for option in data.megamenu.ministry %}
+        <li><a href="{{ option.url }}">{{ option.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="menu-list">
+      <p class="menu-header">Contact</p>
+      <ul class="list-unstyled font-size-small">
+        {% for option in data.megamenu.contact %}
+        <li><a href="{{ option.url }}">{{ option.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
