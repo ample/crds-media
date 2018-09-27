@@ -17,10 +17,11 @@
     <div class="rollcall-row rollcall-inline">
       <div class="form-group font-size-large mobile-push-half-top">
         <p>
-          <input id="roll-call-input-total" class="form-control rollcall-input" keyUp="inputChange" type="number" name="total"
-            bind:value="total" />
-          <label for="total" bind>people</label>
-          <span>are discussing these questions</span>
+          <span data-role="total">0</span>
+          <span data-role="labelNoun">people</span>
+          <span class="rollcall-sentence">
+            <span data-role="labelVerb">are</span> discussing these questions
+          </span>
         </p>
       </div>
     </div>
