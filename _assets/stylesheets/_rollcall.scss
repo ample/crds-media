@@ -10,12 +10,12 @@
   padding-right: 20px;
   text-align: center;
 
-  @media screen and (min-width: $screen-sm) {
-    padding-left: 45px;
-    padding-right: 45px;
-  }
+    @media screen and (min-width: $screen-sm) {
+      padding-left: 45px;
+      padding-right: 45px;
+    }
 
-  @media screen and (min-width: $screen-sm) {
+   @media screen and (min-width: $screen-sm) {
     .rollcall-inline {
       display: inline-block;
     }
@@ -58,6 +58,10 @@
           }
         }
 
+        &:not(.active).btn-blue {
+          color: $cr-blue;
+        }
+
         &:first-child,
         &:last-child {
           &:hover,
@@ -67,7 +71,11 @@
             color: $cr-white;
           }
 
-          &:focus,
+          &:focus {
+            background: transparent;
+            border-color: $btn-blue-border;
+            color: $cr-blue;
+          }
           &:active {
             background: $btn-blue-bg;
             border-color: $btn-blue-border;
