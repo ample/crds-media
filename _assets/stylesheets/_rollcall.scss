@@ -62,14 +62,14 @@
         &:last-child {
           &:hover,
           &:hover:focus {
-            background: darken($cr-blue, 5);
-            border-color: darken($cr-blue, 5);
+            background: darken($btn-blue-bg, 5);
+            border-color: darken($btn-blue-border, 5);
             color: $cr-white;
           }
 
           &:focus,
           &:active {
-            background: $cr-blue;
+            background: $btn-blue-bg;
             border-color: $btn-blue-border;
             color: $cr-white;
           }
@@ -94,30 +94,6 @@
     }
   }
 
-  .rollcall-input {
-    background: transparent;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    border-bottom-color: rgba($cr-white, .5);
-    color: $cr-white;
-    display: inline-flex;
-    font-size: 30px;
-    height: 48px;
-
-    &[name="total"] {
-      width: 54px;
-      margin-left: .5rem;
-      margin-right: .5rem;
-    }
-
-    &::-webkit-inner-spin-button,
-    &::-webkit-outer-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-  }
-
   .rollcall-row {
     display: inline-flex;
     margin-top: .25rem;
@@ -133,22 +109,7 @@
         padding-left: 14px;
       }
 
-      input:focus {
-        box-shadow: none;
-        border-bottom-color: rgba($cr-white, .5);
-      }
-
-      &[readonly] {
-        background: transparent;
-        border-top: none;
-        border-right: none;
-        border-left: none;
-        border-bottom-color: rgba($cr-white, .5);
-        color: $cr-white;
-        font-size: 30px;
-      }
-
-      > p span {
+      .rollcall-sentence {
         font-weight: 300;
       }
     }
