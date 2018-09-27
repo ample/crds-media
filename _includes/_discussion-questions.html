@@ -1,4 +1,11 @@
-<section class="discussion-questions">
+<section class="discussion-questions {% if include.type == chaser %}chaser-questions{% endif %}">
+
+  {% if include.type == chaser %}
+  <div class="push-quarter-bottom">
+    <img src="//s3.amazonaws.com/crossroads-assets/images/logo-chaser.svg">
+  </div>
+  {% endif %}
+
   {{ page.discussion.intro | markdownify }}
 
   {% if page.discussion.discussion_questions.size > 0 %}
