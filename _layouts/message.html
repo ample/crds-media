@@ -12,7 +12,7 @@ layout: video_tpl
         {% endif %}
 
         {% if page.discussion %}
-        <div class="push-bottom">
+        <div class="push-bottom" data-track-viewport='{ "duration": 2500, "event": "TestEvent" }'>
           {% include _discussion-questions.html %}
         </div>
         {% endif %}
