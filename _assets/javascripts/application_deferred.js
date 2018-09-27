@@ -5,13 +5,11 @@
 //= require ./vendor/crds-card-carousel-v0.2.0.min
 //= require ./vendor/flickity.pkgd.min
 //= require ./vendor/imgix-optimizer
-//= require ./vendor/vue.min
-//= require ./vendor/webcomponents-loader
 //= require ./components/clipboard
 //= require ./components/header
 //= require ./components/images
 //= require ./components/carousels
 //= require ./components/pagination
 //= require ./components/tabs
-//= require ./components/crds-track-viewport
-//= require ./components/crds-roll-call
+//= require ./components/track-viewport
+//= require ./components/roll-call

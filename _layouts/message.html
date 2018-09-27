@@ -12,11 +12,9 @@ layout: video_tpl
         {% endif %}
 
         {% if page.discussion %}
-        <crds-track-viewport>
-          <div class="push-bottom">
-            {% include _discussion-questions.html %}
-          </div>
-        </crds-track-viewport>
+        <div class="push-bottom">
+          {% include _discussion-questions.html %}
+        </div>
         {% endif %}
 
         <!-- List of contributors -->
