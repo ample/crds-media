@@ -1,0 +1,22 @@
+---
+layout: default
+title: The Chaser
+---
+
+{% assign discussion = site.chaser %}
+
+<div class="container push-bottom">
+  <div class="row push-ends">
+    <div class="col-sm-offset-2 col-sm-8">
+      <div class="row">
+        <div class="push-bottom" data-track-viewport='{ "duration": 60000, "event": "ChaserView" }'>
+
+          {% include _discussion-questions.html type=chaser discussion=discussion %}
+          <div class="triangle-up"></div>
+          {% include _chaser-rollcall.html %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
