@@ -1,4 +1,4 @@
-<form class="chaser-rollcall form-inline text-center" submit="submitForm">
+<form class="chaser-rollcall" submit="submitForm">
   <div>
     <div class="rollcall-row rollcall-inline">
       <div class="btn-group btn-group-bar btn-group-stepper">
@@ -16,10 +16,12 @@
     </div>
     <div class="rollcall-row rollcall-inline">
       <div class="form-group font-size-large mobile-push-half-top">
-        <input id="roll-call-input-total" class="form-control rollcall-input" keyUp="inputChange" type="number" name="total"
-          bind:value="total" />
-        <label for="total" bind>people</label>
-        <span>are discussing these questions</span>
+        <p>
+          <input id="roll-call-input-total" class="form-control rollcall-input" keyUp="inputChange" type="number" name="total"
+            bind:value="total" />
+          <label for="total" bind>people</label>
+          <span>are discussing these questions</span>
+        </p>
       </div>
     </div>
     <div class="push-top mobile-soft-quarter-top">

@@ -1,4 +1,26 @@
 .chaser-rollcall {
+  color: $cr-blue;
+  border: 1px solid;
+  border-color: darken($cr-blue-lighter, 5.8);
+  border-top-color: transparent;
+  position: relative;
+  top: -20px;
+  padding-top: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+
+  @media screen and (min-width: $screen-sm) {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  @media screen and (min-width: $screen-sm) {
+    .rollcall-inline {
+      display: inline-block;
+    }
+  }
+
   @keyframes rotateInitLoadingSpinner {
     100% {
       transform:rotate(360deg);
@@ -14,12 +36,14 @@
     background: transparent;
     animation: rotateInitLoadingSpinner 700ms linear infinite;
   }
+
   .preloader-wrapper {
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
   }
+
   .btn-group-stepper {
     display: inline-flex;
 
@@ -30,7 +54,7 @@
           &:hover,
           &:focus,
           &:active {
-            border-right-color: $cr-blue;
+            border-right-color: $btn-blue-border;
           }
         }
 
@@ -38,14 +62,16 @@
         &:last-child {
           &:hover,
           &:hover:focus {
-            background: darken($btn-blue-bg, 5);
-            border-color: darken($btn-blue-border, 5);
+            background: darken($cr-blue, 5);
+            border-color: darken($cr-blue, 5);
+            color: $cr-white;
           }
 
           &:focus,
           &:active {
-            background: $btn-blue-bg;
+            background: $cr-blue;
             border-color: $btn-blue-border;
+            color: $cr-white;
           }
         }
 
@@ -75,14 +101,12 @@
     border-left: none;
     border-bottom-color: rgba($cr-white, .5);
     color: $cr-white;
+    display: inline-flex;
     font-size: 30px;
     height: 48px;
 
     &[name="total"] {
       width: 54px;
-    }
-
-    &[name="total"] {
       margin-left: .5rem;
       margin-right: .5rem;
     }
@@ -124,12 +148,8 @@
         font-size: 30px;
       }
 
-      > span {
-        font-weight: normal;
-      }
-
-      label {
-        margin-right: .5rem;
+      > p span {
+        font-weight: 300;
       }
     }
   }
@@ -138,8 +158,9 @@
     padding: .7rem 1.1rem;
   }
 
-  .form-inline {
-    margin-top: 50px;
+  .text-gray-light.help-block {
+    font-style: normal;
+    font-family: $font-family-base;
   }
 
   // 🛠 Refactor in DDK
@@ -147,45 +168,16 @@
     text-align: unset;
   }
 
-  @media screen and (max-width: $screen-xs) {
-    .rollcall-input {
-      height: 48px;
-    }
-  }
-}
-
-.chaser-rollcall {
-  color: $cr-blue;
-  padding-top: 30px;
-  border: 1px solid;
-  border-color: darken($cr-blue-lighter, 5.8);
-  border-top-color: transparent;
-  position: relative;
-  top: -20px;
-
-  .btn-group-bar>.btn.btn-blue:last-child {
-    border-left-color: $cr-blue;
-  }
-
-  .btn-group>.btn:not(.active).btn-blue {
-    color: $cr-blue;
-  }
-
-  .text-gray-light.help-block {
-    font-style: normal;
-    font-family: $font-family-base;
-  }
-
-  @media screen and (min-width: $screen-sm) {
-    .rollcall-inline {
-      display: inline-block;
-    }
-  }
-
   .rollcall-success {
     text-align: center;
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 7rem;
+    padding-bottom: 9rem;
+    margin: 0;
+
+    @media screen and (min-width: $screen-sm) {
+      padding-top: 4.5rem;
+      padding-bottom: 6rem;
+    }
   }
 }
 
@@ -207,7 +199,7 @@
     position: absolute;
     width: 0;
     height: 0;
-    top: -15px;
+    top: -14px;
     left: -17px;
     border: 17px solid;
     border-color: transparent transparent $cr-white transparent;
