@@ -21,111 +21,111 @@ topics:
   - title: Faith
     url: /topics/faith
 
-  - title: Finances
-    url: /topics/finances
+  - title: Family
+    url: /topics/family
 
-  - title: Leadership
-    url: /topics/leadership
+  - title: Finance
+    url: /topics/finance
 
-  - title: Relationship
-    url: /topics/relationship
+  - title: Relationships
+    url: /topics/relationships
 
 megamenu:
   crossroads:
     - title: Home
-      url:
+      url: //crossroads.net
 
     - title: Serve
-      url:
+      url: //crossroads.net/serve
 
     - title: Give
-      url:
+      url: //crossroads.net/giving
 
     - title: Updates
-      url:
+      url: //crossroads.net/updates
 
     - title: Locations
-      url:
+      url: //crossroads.net/locations
 
   media:
     - title: All Media
-      url:
+      url: /
 
     - title: Series
-      url:
+      url: /series
 
     - title: Music
-      url:
+      url: /music
 
     - title: Videos
-      url:
+      url: /videos
 
     - title: Articles
-      url:
+      url: /articles
 
     - title: Podcasts
-      url:
+      url: /podcasts
 
     - title: Topics
-      url:
+      url: /topics
 
   grow:
     - title: Get Started
-      url:
+      url: //crossroads.net/getstarted
 
     - title: Groups
-      url:
+      url: //crossroads.net/groups
 
     - title: Serving Opportunities
-      url:
+      url: //crossroads.net/serve
 
     - title: GO Somewhere
-      url:
+      url: //crossroads.net/reachout/go
 
     - title: The Chaser
-      url:
+      url: //crossroads.net/the-chaser
 
     - title: See who is nearby
-      url:
+      url: //crossroads.net/connect
 
     - title: Put yourself on the map
-      url:
+      url: //crossroads.net/connect
 
   care:
     - title: Weddings
-      url:
+      url: //crossroads.net/care/weddings
 
     - title: Counselors
-      url:
+      url: //crossroads.net/care/counselors
 
     - title: Funerals
-      url:
+      url: //crossroads.net/care/funerals
 
     - title: Prayer
-      url:
+      url: //crossroads.net/prayer
 
   ministry:
     - title: Kids' Club
-      url:
+      url: //crossroads.net/anywhere-resources/kids-club
 
     - title: Students 6-12th
       url:
 
     - title: ReachOut
-      url:
+      url: //crossroads.net/reachout
 
     - title: Community Care
-      url:
+      url: //crossroads.net/care/communitycare/
 
     - title: First Impressions
-      url:
+      url: //crossroads.net/firstimpressions
 
   contact:
     - title: Ask a Question
-      url:
+      url: //crossroads.net/frequentquestions
 
     - title: Staff Contacts
-      url:
+      url: //crossroads.net/contactus
 
     - title: Prayer Requests
-      url:
+      url: //crossroads.net/prayer
