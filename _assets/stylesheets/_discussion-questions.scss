@@ -51,4 +51,6 @@
 
 .chaser-questions {
   background: $cr-blue-lighter;
+  border: 1px solid;
+  border-color: darken($cr-blue-lighter, 5.8);
 }
