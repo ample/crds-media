@@ -1,5 +1,4 @@
-.roll-call roll-call-form,
-roll-call roll-call-form {
+.chaser-rollcall {
   @keyframes rotateInitLoadingSpinner {
     100% {
       transform:rotate(360deg);
@@ -31,7 +30,7 @@ roll-call roll-call-form {
           &:hover,
           &:focus,
           &:active {
-            border-right-color: $cr-cyan-dark;
+            border-right-color: $cr-blue;
           }
         }
 
@@ -39,21 +38,21 @@ roll-call roll-call-form {
         &:last-child {
           &:hover,
           &:hover:focus {
-            background: darken($btn-cyan-bg, 5);
-            border-color: darken($btn-cyan-border, 5);
+            background: darken($btn-blue-bg, 5);
+            border-color: darken($btn-blue-border, 5);
           }
 
           &:focus,
           &:active {
-            background: $btn-cyan-bg;
-            border-color: $btn-cyan-border;
+            background: $btn-blue-bg;
+            border-color: $btn-blue-border;
           }
         }
 
         &:last-child {
           &,
           &:focus {
-            border-color: $btn-cyan-border;
+            border-color: $btn-blue-border;
           }
 
           &:hover,
@@ -83,12 +82,7 @@ roll-call roll-call-form {
       width: 54px;
     }
 
-    &[name="zip"] {
-      width: 127px;
-    }
-
-    &[name="total"],
-    &[name="zip"] {
+    &[name="total"] {
       margin-left: .5rem;
       margin-right: .5rem;
     }
@@ -109,6 +103,11 @@ roll-call roll-call-form {
     .form-group {
       display: inline-flex;
       margin-bottom: 0;
+      font-weight: 600;
+
+      @media screen and (min-width: $screen-sm) {
+        padding-left: 14px;
+      }
 
       input:focus {
         box-shadow: none;
@@ -125,6 +124,10 @@ roll-call roll-call-form {
         font-size: 30px;
       }
 
+      > span {
+        font-weight: normal;
+      }
+
       label {
         margin-right: .5rem;
       }
@@ -132,7 +135,7 @@ roll-call roll-call-form {
   }
 
   .btn-icon {
-    padding: 1.06rem 1rem;
+    padding: .7rem 1.1rem;
   }
 
   .form-inline {
@@ -154,6 +157,11 @@ roll-call roll-call-form {
 .chaser-rollcall {
   color: $cr-blue;
   padding-top: 30px;
+  border: 1px solid;
+  border-color: darken($cr-blue-lighter, 5.8);
+  border-top-color: transparent;
+  position: relative;
+  top: -20px;
 
   .btn-group-bar>.btn.btn-blue:last-child {
     border-left-color: $cr-blue;
@@ -161,18 +169,6 @@ roll-call roll-call-form {
 
   .btn-group>.btn:not(.active).btn-blue {
     color: $cr-blue;
-  }
-
-  .form-group {
-    font-weight: 600;
-
-    > span {
-      font-weight: normal;
-    }
-
-    @media screen and (min-width: $screen-sm) {
-      padding-left: 14px;
-    }
   }
 
   .text-gray-light.help-block {
@@ -185,6 +181,12 @@ roll-call roll-call-form {
       display: inline-block;
     }
   }
+
+  .rollcall-success {
+    text-align: center;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
 }
 
 .triangle-up {
@@ -194,9 +196,9 @@ roll-call roll-call-form {
   width: 0;
   height: 0;
   top: -19px;
-  border-left: 19px solid transparent;
-  border-right: 19px solid transparent;
-  border-bottom: 19px solid $cr-gray;
+  border-left: 19px solid;
+  border-right: 19px solid;
+  border-bottom: 19px solid;
   border-color: transparent transparent darken($cr-blue-lighter, 5.8) transparent;
 
   &:before {
