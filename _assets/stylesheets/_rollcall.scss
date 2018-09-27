@@ -58,6 +58,10 @@
           }
         }
 
+        &:not(.active).btn-blue {
+          color: $cr-blue;
+        }
+
         &:first-child,
         &:last-child {
           &:hover,
@@ -67,7 +71,11 @@
             color: $cr-white;
           }
 
-          &:focus,
+          &:focus {
+            background: transparent;
+            border-color: $btn-blue-border;
+            color: $cr-blue;
+          }
           &:active {
             background: $btn-blue-bg;
             border-color: $btn-blue-border;
