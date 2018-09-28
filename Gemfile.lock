@@ -44,10 +44,13 @@ GIT
       dotenv
       jekyll
 
-PATH
-  remote: vendor/gems/jekyll-crds
+GIT
+  remote: https://github.com/crdschurch/jekyll-crds.git
+  revision: 4845c18377748fbb77f3b84f4d09c79e4ec01636
+  tag: 0.0.2
   specs:
-    jekyll-crds (0.0.1)
+    jekyll-crds (0.0.2)
+      activesupport
       httparty
       jekyll
 
@@ -258,7 +261,7 @@ DEPENDENCIES
   jekyll-assets
   jekyll-cloudsearch (~> 0.0.1)!
   jekyll-contentful (~> 0.0.1)!
-  jekyll-crds (~> 0.0.1)!
+  jekyll-crds!
   jekyll-feed (~> 0.6)
   jekyll-placeholders (~> 0.0.1)!
   jekyll-redirect-from
