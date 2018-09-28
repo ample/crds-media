@@ -1,16 +1,23 @@
-<section class="discussion-questions">
-  {{ page.discussion.intro | markdownify }}
+<section class="discussion-questions {% if include.type == chaser %}chaser-questions{% endif %}">
 
-  {% if page.discussion.discussion_questions.size > 0 %}
+  {% if include.type == chaser %}
+  <div class="push-quarter-bottom">
+    <img class="chaser-logo" src="//d1tmclqz61gqwd.cloudfront.net/images/logo-chaser.svg">
+  </div>
+  {% endif %}
+
+  {{ include.discussion.intro | markdownify }}
+
+  {% if include.discussion.discussion_questions.size > 0 %}
   <ol>
-    {% for q in page.discussion.discussion_questions %}
+    {% for q in include.discussion.discussion_questions %}
     <li>{{ q | markdownify }}</li>
     {% endfor %}
   </ol>
   {% endif %}
 
-  {% if page.discussion.challenge %}
+  {% if include.discussion.challenge %}
   <p class="label">Challenge</p>
-  {{ page.discussion.challenge | markdownify }}
+  {{ include.discussion.challenge | markdownify }}
   {% endif %}
 </section>
