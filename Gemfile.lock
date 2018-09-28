@@ -35,10 +35,10 @@ GIT
 
 GIT
   remote: https://github.com/crdschurch/jekyll-contentful.git
-  revision: bd583e1e8de1ac107a61b6a6bbfe35d5d49c70d4
-  tag: 0.0.9
+  revision: 506ffc546f4901a45c9dbe49ff4d4d12bd5e570d
+  branch: 0.0.10
   specs:
-    jekyll-contentful (0.0.9)
+    jekyll-contentful (0.0.10)
       activesupport
       contentful (>= 2.6.0)
       dotenv
