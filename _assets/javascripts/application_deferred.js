@@ -11,3 +11,5 @@
 //= require ./components/carousels
 //= require ./components/pagination
 //= require ./components/tabs
+//= require ./components/track-viewport
+//= require ./components/roll-call
