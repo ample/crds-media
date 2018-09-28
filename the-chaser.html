@@ -22,12 +22,12 @@ permalink: /the-chaser/
       <div class="row">
         {% if site.chaser_message %}
           <p class="bg-gray soft metadata push-ends">
-            For the Weekend of {{ site.chaser_message.date | format_date }}
+            For the Weekend of {{ site.chaser_message.date | date: '%B %-d, %Y' }}
           </p>
         {% endif %}
         <div class="push-bottom" data-track-viewport='{ "duration": 60000, "event": "ChaserView" }'>
 
-          {% include _discussion-questions.html type=chaser discussion=discussion %}
+          {% include _discussion-questions.html type='chaser' discussion=discussion %}
           <div class="triangle-up"></div>
           {% include _chaser-rollcall.html %}
 
