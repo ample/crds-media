@@ -202,7 +202,7 @@
 
       &:hover,
       &:focus {
-        color: $cr-blue-dark;
+        color: $cr-blue;
         text-decoration: none;
       }
 
@@ -241,7 +241,7 @@
           a:hover,
           a:focus {
             background: none;
-            color: $cr-blue-dark;
+            color: $cr-blue;
           }
         }
       }
@@ -252,7 +252,7 @@
       font-weight: 600;
 
       &:hover {
-        color: $cr-blue-dark;
+        color: $cr-blue;
       }
     }
 
