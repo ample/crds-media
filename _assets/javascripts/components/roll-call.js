@@ -66,21 +66,21 @@
 
       if (hasError) return false;
 
-      console.log('SUBMITTING DATA ...');
-
       var url = CRDS.rollCall.formUrl;
       var data = {}
       data[CRDS.rollCall.totalFieldId] = total;
       data[CRDS.rollCall.urlFieldId] = window.location.href;
 
-      $.post(url, data, function() {
-        console.log('SUCCESS!');
-      });
+      $.post(url, data, function() { return });
 
       hasBeenSubmitted = true;
 
       els.form.addClass('hidden');
       els.successText.removeClass('hidden');
+
+      if (typeof analytics !== 'undefined') {
+        analytics.track('RollCallSubmitted', { NumberOfPeople: total });
+      }
     }
 
     els.submit.on('click', submitData);

@@ -36,7 +36,6 @@
 
     var track = function() {
       if (tracked) return;
-      // console.log('TRACK');
       if (typeof analytics !== 'undefined') analytics.track(options.event, {});
       tracked = true;
     }
