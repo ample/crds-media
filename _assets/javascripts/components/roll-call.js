@@ -79,7 +79,11 @@
       els.successText.removeClass('hidden');
 
       if (typeof analytics !== 'undefined') {
-        analytics.track('RollCallSubmitted', { NumberOfPeople: total });
+        analytics.track('RollCallSubmitted', {
+          NumberOfPeople: total,
+          Source: 'Chaser',
+          URL: window.location.href
+        });
       }
     }
 
