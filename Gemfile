@@ -39,7 +39,7 @@ end
 group :jekyll_plugins do
   gem 'jekyll-assets'
   gem 'jekyll-redirect-from'
-  gem 'jekyll-contentful', '~> 0.0.1', git: 'https://github.com/crdschurch/jekyll-contentful.git', branch: '0.0.10'
+  gem 'jekyll-contentful', '~> 0.0.1', git: 'https://github.com/crdschurch/jekyll-contentful.git', tag: '0.0.10'
   gem 'jekyll-feed', '~> 0.6'
   gem 'jekyll-crds', git: 'https://github.com/crdschurch/jekyll-crds.git', tag: '0.0.2'
   gem 'jekyll-cloudsearch', '~> 0.0.1', git: 'https://github.com/crdschurch/jekyll-cloudsearch.git'
