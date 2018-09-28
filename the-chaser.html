@@ -20,8 +20,11 @@ permalink: /the-chaser/
   <div class="row soft-sides push-sides">
     <div class="col-sm-offset-2 col-sm-8">
       <div class="row">
-        <!-- 🛠 Need to change this to update programmatically | date: '%B %-d, %Y' -->
-        <p class="bg-gray soft metadata push-ends">For the Weekend of September 28, 2018</p>
+        {% if site.chaser_message %}
+          <p class="bg-gray soft metadata push-ends">
+            For the Weekend of {{ site.chaser_message.date | format_date }}
+          </p>
+        {% endif %}
         <div class="push-bottom" data-track-viewport='{ "duration": 60000, "event": "ChaserView" }'>
 
           {% include _discussion-questions.html type=chaser discussion=discussion %}

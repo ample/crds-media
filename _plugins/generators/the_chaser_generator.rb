@@ -7,6 +7,8 @@ module Jekyll
       chaser_id = get_most_recent_discussion.id
       chaser = site.collections['discussions'].docs.detect { |d| d.data['contentful_id'] == chaser_id }
       site.config['chaser'] = chaser
+      chaser_msg = site.collections['messages'].docs.detect { |m| m.data['discussion'] == chaser_id }
+      site.config['chaser_message'] = chaser_msg
     end
 
     private
