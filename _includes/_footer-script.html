@@ -1,4 +1,1 @@
-{% if page.js_manifest %}
-{% capture asset_path %}{% asset {{page.js_manifest}} @path %}{% endcapture %}
-<script async type="text/javascript" src="{{ asset_path | absolute_url }}"></script>
-{% endif %}
+<script async type="text/javascript" src="{% asset {{page.js_manifest}} @path %}"></script>
