@@ -261,7 +261,7 @@ DEPENDENCIES
   jekyll-assets
   jekyll-cloudsearch (~> 0.0.1)!
   jekyll-contentful (~> 0.0.1)!
-  jekyll-crds!
+  jekyll-crds (~> 0.0.1)!
   jekyll-feed (~> 0.6)
   jekyll-placeholders (~> 0.0.1)!
   jekyll-redirect-from
