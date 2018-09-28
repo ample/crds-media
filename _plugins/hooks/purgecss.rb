@@ -21,5 +21,5 @@ Jekyll::Hooks.register(:site, :post_write) do |_site|
   # Write configuration file.
   File.open(config_file, 'w+') { |f| f.write(config_text) }
   # Run purgecss command.
-  # system("purgecss --config #{config_file} --out _site/assets")
+  system("purgecss --config #{config_file} --out _site/assets")
 end
