@@ -55,11 +55,11 @@ layout: default
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
         <div>{{ page.description | markdownify }}</div>
-        {% for author_name in page.author %}
-          {% assign author = site.authors | where: 'full_name', author_name.full_name | first %}
+        {% for author_obj in page.author %}
+          {% assign author = site.authors | where: 'full_name', author_obj.full_name | first %}
           {% if author %}
             {% if forloop.first %}<p class="push-ends">Hosted by {% endif %}
-            <a href="{{ author.url }}">{{ author.full_name | titleize }}</a> {% if forloop.last == false %} and {% endif %}
+              <a href="{{ author.url }}">{{ author.full_name | titleize }}</a> {% if forloop.last == false %} and {% endif %}
             {% if forloop.last %}</p>{% endif %}
           {% endif %}
         {% endfor%}
