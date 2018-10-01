@@ -12,8 +12,10 @@ layout: video_tpl
         {% endif %}
 
         {% if page.discussion %}
-        <div class="push-bottom">
-          {% include _discussion-questions.html %}
+        <div class="push-bottom" data-track-viewport='{ "duration": 60000, "event": "ChaserView" }'>
+          {% include _discussion-questions.html type='chaser' discussion=page.discussion %}
+          <div class="triangle-up"></div>
+          {% include _chaser-rollcall.html %}
         </div>
         {% endif %}
 
