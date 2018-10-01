@@ -48,10 +48,10 @@ collections:
     output: true
     permalink: /podcasts/:podcast_slug/:title
   albums:
-    output: false
+    output: true
     permalink: /:collection/:title
   songs:
-    output: false
+    output: true
     permalink: /:collection/:title
   videos:
     output: false
@@ -121,6 +121,16 @@ defaults:
       type: messages
     values:
       layout: message
+  - scope:
+      path: ""
+      type: albums
+    values:
+      layout: album
+  - scope:
+      path: ""
+      type: songs
+    values:
+      layout: song
 
 assets:
   source_maps: true # false on JEKYLL_ENV=production

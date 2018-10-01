@@ -1,18 +1,18 @@
 ---
 layout: default
 ---
-{% assign this_album = site.albums | where:"title", page.album_title | first %}
+{% assign album = site.albums | where: 'title', page.album.title | first %}
 
-{% assign videos = "" | split: "" %}
+{% comment %} {% assign videos = "" | split: "" %}
 {% for related_video in page.related_videos %}
   {% assign video = site.videos | where: "title", related_video["raw"]["fields"]["title"] | first %}
   {% assign videos = videos | push: video %}
-{% endfor %}
+{% endfor %} {% endcomment %}
 
-{% if page.bg_image %}
-  {% assign bg_img = page.bg_image %}
+{% if page.bg_image.url %}
+  {% assign bg_img = page.bg_image.url %}
 {% else %}
-  {% assign bg_img = page.image %}
+  {% assign bg_img = page.image.url %}
 {% endif %}
 
 <div class="song-detail-tpl">
@@ -38,13 +38,13 @@ layout: default
       </div>
     </div>
   </header>
-  {% if videos.size > 0 %}
+  {% if page.related_videos.size > 0 %}
   <div class="bg-charcoal">
     <div class="container">
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <!-- Featured Video -->
-          {% for video in videos limit: 1 %}
+          {% for video in page.related_videos limit: 1 %}
             {% if video.source_url %}
               <div class="card relative push-bottom embed-video">
                 {% assign video_id = video.source_url | youtube_id %}
@@ -81,7 +81,7 @@ layout: default
           <!-- Other Related Videos -->
           <div class="cards-4x cards-2x-sm">
             <div class="row">
-              {% assign other_videos = videos | slice: 1, videos.size %}
+              {% assign other_videos = page.related_videos | slice: 1, page.related_videos.size %}
               {% for video in other_videos %}
                 {% include _video-card.html imgix_size="4x" theme="dark" %}
               {% endfor %}
@@ -131,28 +131,27 @@ layout: default
       {% include _tags_list.html %}
 
       <!-- Album -->
-      {% if page.album_title %}
+      {% if album %}
         <p class="flush-bottom soft-half-top">
           <strong>Album</strong>
         </p>
         <div class="media flush-top">
           <div class="d-flex flex-row-reverse">
             <div class="media-object">
-              <a href="/albums/{{ page.album_slug }}">
-                <img class="img-size-6" src="{{ page.album_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}" sizes="{{ site.image_sizes.album_thumb }}" data-optimize-img />
+              <a href="{{ album.url }}">
+                <img class="img-size-6" src="{{ album.image.url | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}" sizes="{{ site.image_sizes.album_thumb }}" data-optimize-img />
               </a>
             </div>
           </div>
 
           <div class="media-body d-flex flex-column justify-content-center align-items-start">
-            <a href="/albums/{{ page.album_slug }}">
-              {{ page.album_title }}
+            <a href="{{ album.url }}">
+              {{ album.title }}
             </a>
             <div>
-            {% for author in this_album.authors %}
-              {% assign this_author = site.authors | where:"name", author | first %}
-              {% if this_author %}
-                <span class="font-size-small text-gray-light">{{ this_author.name }}</span>{% if forloop.last == false %}, {% endif%}
+            {% for author in album.author %}
+              {% if author %}
+                <span class="font-size-small text-gray-light">{{ author.full_name }}</span>{% if forloop.last == false %}, {% endif%}
               {% endif %}
             {% endfor %}
             </div>
@@ -177,7 +176,7 @@ layout: default
               {% for song in recent limit: 9 %}
                 <div class="card card-3x">
                   <a href="{{ song.url }}">
-                    <img src="{{ song.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_3x_centered_carousel }}" data-optimize-img>
+                    <img src="{{ song.image.url | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_3x_centered_carousel }}" data-optimize-img>
                   </a>
                   <div class="card-block hard">
                     <a href="{{ song.url }}">
