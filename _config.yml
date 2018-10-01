@@ -54,7 +54,7 @@ collections:
     output: true
     permalink: /:collection/:title
   videos:
-    output: false
+    output: true
     permalink: /:collection/:title
   series:
     output: false
