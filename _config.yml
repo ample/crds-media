@@ -37,7 +37,7 @@ collections:
     filename: "{{ published_at | date: '%Y-%m-%d' }}-{{ slug }}"
   categories:
     output: true
-    permalink: /:collection/:title
+    permalink: /topics/:title
   authors:
     output: true
     permalink: /:collection/:title
