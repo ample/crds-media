@@ -24,7 +24,7 @@ module Jekyll
           return [] unless d.data['tags'].is_a?(Array)
           d.data['tags'].collect { |t| t['id'] }
         end
-        tag_ids.flatten!.uniq!
+        tag_ids = tag_ids.flatten.uniq
         # Use the topic's tag names to collect the Jekyll docs representing the
         # associated tags.
         topic_tags = all_tags.select { |t| tag_ids.include?(t.data['contentful_id']) }
