@@ -1,4 +1,16 @@
 GIT
+  remote: git://github.com/ample/jekyll-contentful.git
+  revision: eacd7284d1505499c3ecceb911af4a48afb081e1
+  branch: feature/US14642-update-jekyll-contentful
+  specs:
+    jekyll-contentful (1.0.3)
+      activesupport
+      contentful (>= 2.6.0)
+      contentful-management (~> 1.10.1)
+      dotenv
+      jekyll
+
+GIT
   remote: https://github.com/ample/jekyll-placeholders.git
   revision: 503eef68d21b020b8d611025ab7029c80e569186
   specs:
@@ -41,16 +53,6 @@ GIT
     jekyll-crds (0.0.1)
       activesupport
       httparty
-      jekyll
-
-PATH
-  remote: /Users/seancdavis/code/jekyll-contentful
-  specs:
-    jekyll-contentful (1.0.3)
-      activesupport
-      contentful (>= 2.6.0)
-      contentful-management (~> 1.10.1)
-      dotenv
       jekyll
 
 PATH
