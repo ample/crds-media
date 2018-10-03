@@ -1,4 +1,31 @@
 GIT
+  remote: git://github.com/ample/jekyll-placeholders.git
+  revision: 503eef68d21b020b8d611025ab7029c80e569186
+  specs:
+    jekyll-placeholders (0.0.1)
+      activesupport
+      jekyll
+
+GIT
+  remote: git://github.com/ample/paging-mister-hyde.git
+  revision: 934478a1d4b9e7939125bfbe720dbea18834e9c7
+  branch: feature/US14642-update-jekyll-contentful
+  specs:
+    paging-mister-hyde (0.2.0)
+      activesupport
+      jekyll
+
+GIT
+  remote: git://github.com/crdschurch/jekyll-cloudsearch.git
+  revision: 7e36695f47eb07a3848343fd5b0a1d9aa77b5238
+  specs:
+    jekyll-cloudsearch (0.0.2)
+      aws-sdk-cloudsearchdomain
+      contentful-management (~> 1.10.1)
+      jekyll
+      nokogiri
+
+GIT
   remote: git://github.com/crdschurch/jekyll-contentful.git
   revision: d945dbeeb4d0dd96b2c91f37c76b257236b2e686
   specs:
@@ -10,19 +37,13 @@ GIT
       jekyll
 
 GIT
-  remote: https://github.com/ample/jekyll-placeholders.git
-  revision: 503eef68d21b020b8d611025ab7029c80e569186
+  remote: git://github.com/crdschurch/jekyll-crds.git
+  revision: 9e7ea6ae39adef8a4e30d82baba43e4339137e15
+  tag: 0.0.1
   specs:
-    jekyll-placeholders (0.0.1)
+    jekyll-crds (0.0.1)
       activesupport
-      jekyll
-
-GIT
-  remote: https://github.com/ample/paging-mister-hyde.git
-  revision: b5e8ee230b3805566ce4f042fee59f42ebae9e4d
-  specs:
-    paging-mister-hyde (0.1.2)
-      activesupport
+      httparty
       jekyll
 
 GIT
@@ -33,26 +54,6 @@ GIT
     crds-styles (3.0.6)
       bootstrap-sass (~> 3.3)
       sass (~> 3.2)
-
-GIT
-  remote: https://github.com/crdschurch/jekyll-cloudsearch.git
-  revision: 7e36695f47eb07a3848343fd5b0a1d9aa77b5238
-  specs:
-    jekyll-cloudsearch (0.0.2)
-      aws-sdk-cloudsearchdomain
-      contentful-management (~> 1.10.1)
-      jekyll
-      nokogiri
-
-GIT
-  remote: https://github.com/crdschurch/jekyll-crds.git
-  revision: 9e7ea6ae39adef8a4e30d82baba43e4339137e15
-  tag: 0.0.1
-  specs:
-    jekyll-crds (0.0.1)
-      activesupport
-      httparty
-      jekyll
 
 PATH
   remote: vendor/gems/video-tags
@@ -73,11 +74,11 @@ GEM
     autoprefixer-rails (9.1.4)
       execjs
     aws-eventstream (1.0.1)
-    aws-partitions (1.102.0)
-    aws-sdk-cloudsearchdomain (1.1.0)
-      aws-sdk-core (~> 3)
+    aws-partitions (1.105.0)
+    aws-sdk-cloudsearchdomain (1.3.0)
+      aws-sdk-core (~> 3, >= 3.26.0)
       aws-sigv4 (~> 1.0)
-    aws-sdk-core (3.25.0)
+    aws-sdk-core (3.29.0)
       aws-eventstream (~> 1.0)
       aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.0)
@@ -263,7 +264,7 @@ DEPENDENCIES
   jekyll-contentful (~> 1.0)!
   jekyll-crds!
   jekyll-feed (~> 0.6)
-  jekyll-placeholders (~> 0.0.1)!
+  jekyll-placeholders (~> 0.0)!
   jekyll-redirect-from
   launchy
   paging-mister-hyde (~> 0.0)!

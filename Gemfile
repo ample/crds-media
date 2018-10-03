@@ -41,10 +41,10 @@ group :jekyll_plugins do
   gem 'jekyll-contentful', '~> 1.0', github: 'crdschurch/jekyll-contentful'
   gem 'jekyll-redirect-from'
   gem 'jekyll-feed', '~> 0.6'
-  gem 'jekyll-crds', git: 'https://github.com/crdschurch/jekyll-crds.git', tag: '0.0.1'
-  gem 'jekyll-cloudsearch', '~> 0.0.1', git: 'https://github.com/crdschurch/jekyll-cloudsearch.git'
-  gem 'jekyll-placeholders', '~> 0.0.1', git: 'https://github.com/ample/jekyll-placeholders.git'
-  gem 'paging-mister-hyde', '~> 0.0', git: 'https://github.com/ample/paging-mister-hyde.git'
+  gem 'jekyll-crds', github: 'crdschurch/jekyll-crds', tag: '0.0.1'
+  gem 'jekyll-cloudsearch', '~> 0.0.1', github: 'crdschurch/jekyll-cloudsearch'
+  gem 'jekyll-placeholders', '~> 0.0', github: 'ample/jekyll-placeholders'
+  gem 'paging-mister-hyde', '~> 0.0', github: 'ample/paging-mister-hyde', branch: 'feature/US14642-update-jekyll-contentful'
   gem 'video-tags', '~> 0.0.1', path: File.expand_path('./vendor/gems/video-tags', __dir__)
 
   # Must be loaded after jekyll-assets, otherwise the assets won't be discoverable.
