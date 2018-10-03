@@ -41,6 +41,10 @@ layout: default
       </div>
       {% endif %}
 
+      <div class="col-md-8 col-md-offset-2 soft-top">
+        {% include _signoff.html %}
+      </div>
+
       <footer class="col-md-8 col-md-offset-2">
         <p class="flush-bottom">Written by <a href="{{ author.url }}" data-author-name>{{ page.author | titleize }}</a></p>
         <date data-post-date>{{ page.date | format_date }}</date>
