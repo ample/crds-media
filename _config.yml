@@ -57,7 +57,7 @@ collections:
     output: true
     permalink: /:collection/:title
   series:
-    output: false
+    output: true
     permalink: /:collection/:title
   tags:
     output: false
@@ -66,8 +66,9 @@ collections:
   discussions:
     output: false
   messages:
-    output: false
-    permalink: /series/:series_slug/:title
+    output: true
+    # permalink: /series/:series_slug/:title
+    permalink: /:collection/:title
 
 contentful:
   exclude:

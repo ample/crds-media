@@ -61,10 +61,9 @@ layout: video_tpl
       <div class="row">
       {% if topic %}
         {% assign limited = site.videos | filter: 'category.title', topic.title | reverse | exclude: page.title | slice: 0, 9 %}
-        {% comment %} {% assign limited = site.videos | where: 'topic', page.topic | reverse | exclude: page.title | slice: 0, 9 %} {% endcomment %}
         {% if limited.size == 0 %}
           {% assign limited = site.videos | reverse | exclude: page.title | slice: 0, 9 %}
-          {% endif %}
+        {% endif %}
       {% else %}
         {% assign limited = site.videos | reverse | exclude: page.title | slice: 0, 9 %}
       {% endif %}

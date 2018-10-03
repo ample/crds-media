@@ -38,7 +38,8 @@ end
 
 group :jekyll_plugins do
   gem 'jekyll-assets'
-  gem 'jekyll-contentful', '~> 1.0', github: 'ample/jekyll-contentful'
+  # gem 'jekyll-contentful', '~> 1.0', github: 'ample/jekyll-contentful'
+  gem 'jekyll-contentful', '~> 1.0', path: File.expand_path('../jekyll-contentful', __dir__)
   gem 'jekyll-redirect-from'
   gem 'jekyll-feed', '~> 0.6'
   gem 'jekyll-crds', git: 'https://github.com/crdschurch/jekyll-crds.git', tag: '0.0.1'

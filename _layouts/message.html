@@ -12,41 +12,43 @@ layout: video_tpl
         {% endif %}
 
         {% if page.discussion %}
-        <div class="push-bottom" data-track-viewport='{ "duration": 60000, "event": "ChaserView" }'>
-          {% include _discussion-questions.html type='chaser' discussion=page.discussion %}
-          <div class="triangle-up"></div>
-          {% include _chaser-rollcall.html %}
-        </div>
+          {% assign discussion = site.discussions | where: 'contentful_id', page.discussion.id | first %}
+          <div class="push-bottom" data-track-viewport='{ "duration": 60000, "event": "ChaserView" }'>
+            {% include _discussion-questions.html type='chaser' discussion=discussion %}
+            <div class="triangle-up"></div>
+            {% include _chaser-rollcall.html %}
+          </div>
         {% endif %}
 
         <!-- List of contributors -->
         {% if page.authors %}
-        {% for author_name in page.authors %}
-          {% assign author = site.authors | where: "name", author_name | first %}
-          {% if forloop.first %}<p class="flush-bottom">Featuring{% elsif forloop.last %}and{% else %}&comma;{% endif %} <a href="{{ author.url }}">{{author_name | titleize}}</a>{% if forloop.last %}</p>{% endif %}
-        {% endfor %}
+          {% for author_name in page.authors %}
+            {% assign author = site.authors | where: "name", author_name | first %}
+            {% if forloop.first %}<p class="flush-bottom">Featuring{% elsif forloop.last %}and{% else %}&comma;{% endif %} <a href="{{ author.url }}">{{author_name | titleize}}</a>{% if forloop.last %}</p>{% endif %}
+          {% endfor %}
         {% endif %}
 
-        <p>{{ page.date | format_date }}{% if page.video_duration != nil %} <span class="divider push-quarter-sides">•</span> {{ page.video_duration }} {% endif %}</p>
+        <p>{{ page.published_at | format_date }}{% if page.video_duration != nil %} <span class="divider push-quarter-sides">•</span> {{ page.video_duration }} {% endif %}</p>
 
         <div class="soft-half-top push-top">
           {% include _social-share.html %}
         </div>
 
         <!-- Only 1 topic per page -->
-        {% if page.topic %}
-        <p class="flush-bottom soft-top">
-          <strong>Topic</strong>
-        </p>
-        <ul class="list-inline">
-          <li>
-            <a href="/topics/{{ page.topic_slug }}">{{ page.topic }}</a>
-          </li>
-        </ul>
+        {% assign topic = page.category | get_doc %}
+        {% if topic %}
+          <p class="flush-bottom soft-top">
+            <strong>Topic</strong>
+          </p>
+          <ul class="list-inline">
+            <li>
+              <a href="{{ topic.url }}">{{ topic.title }}</a>
+            </li>
+          </ul>
         {% endif %}
 
         <!-- Page can have many tags -->
-        {% include _tags_list.html %}
+        {% include _tags_list.html tags=page.tags %}
       </div>
       <div class="col-md-3 soft-half-top">
         {% include _subscribe-buttons.html content_type=page youtube=true row=false subscribe=false %}
@@ -55,33 +57,33 @@ layout: video_tpl
   </div>
 </div>
 
-{% assign series = site.series | where: 'slug', page.series_slug %}
-{% for messages in series %}
+{% assign series = site.series | filter: 'videos.id', page.contentful_id | first %}
+{% comment %} {% for messages in series %}
   {% assign videos = messages.associations['videos'] | exclude: page.title %}
-{% endfor %}
+{% endfor %} {% endcomment %}
 
 <div class="push-top soft-top row">
   <!-- Show if series has additional messages -->
-  {% if videos %}
-  <section class="col-md-10 col-md-offset-1">
-    <h2 class="component-header flush-top">In this Series</h2>
+  {% if series.videos %}
+    <section class="col-md-10 col-md-offset-1">
+      <h2 class="component-header flush-top">In this Series</h2>
 
-    <div class="cards-4x cards-2x-xs">
-      <div class="row">
-      {% for message in videos %}
-        {% include _message-card.html series=false %}
-      {% endfor %}
+      <div class="cards-4x cards-2x-xs">
+        <div class="row">
+        {% for message in videos %}
+          {% include _message-card.html series=false %}
+        {% endfor %}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
   {% endif %}
 
-  {% assign limited = site.series | sort: "start_date" | reverse | exclude: page.series | slice: 0, 6 %}
+  {% assign recent_series = site.series | sort: 'starts_at' | reverse | exclude: series.title | slice: 0, 6 %}
   <section class="col-md-10 col-md-offset-1">
     <h2 class="component-header flush-top">Recent Series</h2>
     <div class="cards-3x">
       <div class="row">
-        {% for item in limited %}
+        {% for item in recent_series %}
         <div class="card">
           {% include _series-card.html %}
         </div>

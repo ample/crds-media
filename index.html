@@ -7,14 +7,14 @@ paginate:
       - songs
     per: 12
     limit: 1
-    sort: date desc
+    sort: published_at desc
   podcasts:
     per: 4
     limit: 1
   series:
     per: 4
     limit: 1
-    sort: start_date desc
+    sort: starts_at desc
 ---
 
 {% assign feature_obj = site.features | where: 'page_path', page.url | first %}
