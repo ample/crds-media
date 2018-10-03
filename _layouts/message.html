@@ -58,9 +58,6 @@ layout: video_tpl
 </div>
 
 {% assign series = site.series | filter: 'videos.id', page.contentful_id | first %}
-{% comment %} {% for messages in series %}
-  {% assign videos = messages.associations['videos'] | exclude: page.title %}
-{% endfor %} {% endcomment %}
 
 <div class="push-top soft-top row">
   <!-- Show if series has additional messages -->
@@ -70,9 +67,10 @@ layout: video_tpl
 
       <div class="cards-4x cards-2x-xs">
         <div class="row">
-        {% for message in videos %}
-          {% include _message-card.html series=false %}
-        {% endfor %}
+          {% for item in series.videos %}
+            {% assign message = item | get_doc %}
+            {% include _message-card.html series=false %}
+          {% endfor %}
         </div>
       </div>
     </section>
