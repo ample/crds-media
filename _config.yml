@@ -58,15 +58,17 @@ collections:
   series:
     output: true
     permalink: /:collection/:title
+  messages:
+    output: true
+    permalink: /series/:series_slug/:title
   tags:
     output: false
   features:
     output: false
   discussions:
     output: false
-  messages:
-    output: true
-    permalink: /series/:series_slug/:title
+  signoffs:
+    output: false
 
 contentful:
   content_types:
@@ -301,6 +303,14 @@ contentful:
           intro: intro
           challenge: challenge
           discussion_questions: discussion_questions/question
+    signoffs:
+      id: sign_off
+      body: body
+      frontmatter:
+        entry_mappings:
+          title: title
+          date: published_at
+          body: body
 
 
 defaults:
