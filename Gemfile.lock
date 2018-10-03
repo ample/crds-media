@@ -8,18 +8,18 @@ GIT
 
 GIT
   remote: https://github.com/ample/paging-mister-hyde.git
-  revision: 6c26f387279b8491648f1cd852589e30a82a3df0
+  revision: b5e8ee230b3805566ce4f042fee59f42ebae9e4d
   specs:
-    paging-mister-hyde (0.1.1)
+    paging-mister-hyde (0.1.2)
       activesupport
       jekyll
 
 GIT
   remote: https://github.com/crdschurch/crds-styles.git
-  revision: 9c0939d220e3b1ca25ab2315b8f73f9aab8f5d13
-  branch: development
+  revision: 26e644317981c6338372ac51e494c39351b81ac0
+  tag: v3.0.6
   specs:
-    crds-styles (3.0.5)
+    crds-styles (3.0.6)
       bootstrap-sass (~> 3.3)
       sass (~> 3.2)
 
@@ -212,7 +212,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    rouge (3.2.1)
+    rouge (3.3.0)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
       rspec-expectations (~> 3.8.0)
@@ -253,7 +253,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-  crds-styles (~> 3.0.0)!
+  crds-styles!
   dotenv
   guard-rspec
   hashie

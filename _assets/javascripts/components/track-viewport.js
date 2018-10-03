@@ -36,8 +36,11 @@
 
     var track = function() {
       if (tracked) return;
-      // console.log('TRACK');
-      if (typeof analytics !== 'undefined') analytics.track(options.event, {});
+      if (typeof analytics !== 'undefined') {
+        analytics.track(options.event, {
+          URL: window.location.href
+        });
+      }
       tracked = true;
     }
 
@@ -45,15 +48,11 @@
   }
 
   var resolveOptions = function(el) {
-    var defaultOptions = {
-      duration: 5000,
-      event: 'TrackViewport'
-    };
     var options = $(el).data('track-viewport');
-    if (typeof options !== 'object') options = {};
-    if (!options['duration']) options['duration'] = defaultOptions['duration'];
-    if (!options['event']) options['event'] = defaultOptions['event'];
-    return options;
+    return {
+      duration: options['duration'] || 5000,
+      event: options['event'] || 'TrackViewport'
+    }
   }
 
   $(document).ready(function() {
