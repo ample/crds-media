@@ -1,9 +1,8 @@
 GIT
-  remote: git://github.com/ample/jekyll-contentful.git
-  revision: eacd7284d1505499c3ecceb911af4a48afb081e1
-  branch: feature/US14642-update-jekyll-contentful
+  remote: git://github.com/crdschurch/jekyll-contentful.git
+  revision: d945dbeeb4d0dd96b2c91f37c76b257236b2e686
   specs:
-    jekyll-contentful (1.0.3)
+    jekyll-contentful (1.0.4)
       activesupport
       contentful (>= 2.6.0)
       contentful-management (~> 1.10.1)
