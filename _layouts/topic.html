@@ -16,7 +16,7 @@ layout: default_footer_flush
           <h1>{{ page.title }}</h1>
 
           <div class="description">
-            {{ page.content }}
+            {{ page.description | markdownify }}
           </div>
         </div>
       </div>
@@ -30,16 +30,18 @@ layout: default_footer_flush
           <div>
             <a href="{{ item.url }}">
               <div class="image">
-                <img src="{% if item.image %}{{ item.image | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ post.image.title }}" sizes="{{ site.image_sizes.cards_3x }}" data-optimize-img>
+                <img src="{% if item.image.url %}{{ item.image.url | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ post.image.title }}" sizes="{{ site.image_sizes.cards_3x }}" data-optimize-img>
                 {% include _media-label.html source=item %}
               </div>
               <div class="topic soft-quarter-top">{{ page.title }}</div>
               <h3 class="title flush-ends">{{ item.title }}</h3>
               <div class="credit">
                 {% if item.author %}
-                  {{ item.author }}
+                  {% assign author = item.author | get_doc %}
+                  {{ author.full_name }}
                 {% elsif item.authors %}
-                  {{ item.authors | join: ', ' }}
+                  {% assign authors = item.author | get_docs %}
+                  {{ authors | map: 'full_name' | join: ', ' }}
                 {% endif %}
               </div>
             </a>
@@ -72,22 +74,24 @@ layout: default_footer_flush
             <div class="feature-sub">
               <a href="{{ item.url }}" class="list-card">
                 <div class="image">
-                  <img src="{% if item.image %}{{ item.image | imgix: site.imgix }}{% else %}{{ site.default_image }}{% endif %}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.topic_feature_sub }}" alt="" data-optimize-img>
+                  <img src="{% if item.image.url %}{{ item.image.url | imgix: site.imgix }}{% else %}{{ site.default_image }}{% endif %}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.topic_feature_sub }}" alt="" data-optimize-img>
                   {% include _media-label.html source=item %}
                 </div>
-                {% if item.topic %}
-                  <p class="topic">{{ item.topic }}</p>
+                {% if item.category %}
+                  <p class="topic">{{ item.category.title }}</p>
                 {% endif %}
                 <h3 class="title">{{ item.title }}</h3>
 
                 <div class="content">
-                  {{ item.content | strip_html | truncate: 125 }}
+                  {{ item | content | markdownify | strip_html | truncate: 125 }}
                 </div>
                 <p class="credit">
                   {% if item.author %}
-                    {{ item.author }}
+                    {% assign author = item.author | get_doc %}
+                    {{ author.full_name }}
                   {% elsif item.authors %}
-                    {{ item.authors | join: ', ' }}
+                    {% assign authors = item.author | get_docs %}
+                    {{ authors | map: 'full_name' | join: ', ' }}
                   {% endif %}
                 </p>
               </a>
@@ -100,19 +104,21 @@ layout: default_footer_flush
           {% for item in list_cards %}
             <a class="list-card" href="{{ item.url }}">
               <div class="image">
-                <img src="{% if item.image %}{{ item.image | imgix: site.imgix }}{% else %}{{ site.default_image }}{% endif %}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.media_object }}" alt="" data-optimize-img>
+                <img src="{% if item.image.url %}{{ item.image.url | imgix: site.imgix }}{% else %}{{ site.default_image }}{% endif %}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.media_object }}" alt="" data-optimize-img>
                 {% include _media-label.html source=item %}
               </div>
 
               <h4 class="title flush-top">{{ item.title }}</h4>
               <div class="content">
-                {{ item.content | strip_html | truncate: 125 }}
+                {{ item | content | markdownify | strip_html | truncate: 125 }}
               </div>
               <div class="credit">
                 {% if item.author %}
-                  {{ item.author }}
+                  {% assign author = item.author | get_doc %}
+                  {{ author.full_name }}
                 {% elsif item.authors %}
-                  {{ item.authors | join: ', ' }}
+                  {% assign authors = item.author | get_docs %}
+                  {{ authors | map: 'full_name' | join: ', ' }}
                 {% endif %}
               </div>
             </a>

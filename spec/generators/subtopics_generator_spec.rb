@@ -5,7 +5,7 @@ describe 'Jekyll::SubtopicsGenerator' do
   before do
     @site = JekyllHelper.scaffold(
       collections_dir: File.expand_path('../support/collections', __dir__),
-      collections: %w(articles tags topics videos)
+      collections: %w(articles tags categories videos)
     )
     @generator = Jekyll::SubtopicsGenerator.new
     @generator.generate(@site)
@@ -38,7 +38,7 @@ describe 'Jekyll::SubtopicsGenerator' do
   private
 
     def get_topic(title)
-      @site.collections['topics'].docs.detect { |t| t.data['title'] == title }
+      @site.collections['categories'].docs.detect { |t| t.data['title'] == title }
     end
 
     def get_tag(title)
