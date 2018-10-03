@@ -35,8 +35,15 @@ layout: default
       </main>
       {% endif %}
 
-      {% if page.discussion %}
+      {% assign signoff = site.signoffs | sort: 'date' | reverse | first %}
       <div class="col-md-8 col-md-offset-2">
+        <section class="signoff">
+          {{ signoff.body | markdownify }}
+        </section>
+      </div>
+
+      {% if page.discussion %}
+      <div class="col-md-8 col-md-offset-2 soft-top">
         {% include _discussion-questions.html discussion=page.discussion %}
       </div>
       {% endif %}
