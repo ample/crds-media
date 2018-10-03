@@ -1,0 +1,5 @@
+{% assign signoff = site.signoffs | sort: 'date' | reverse | first %}
+
+<section class="signoff">
+  {{ signoff.body | markdownify }}
+</section>
