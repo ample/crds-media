@@ -17,7 +17,7 @@ paginate:
     sort: starts_at desc
 ---
 
-{% assign feature_obj = site.features | where: 'page_path', page.url | first %}
+{% assign feature_obj = site.featured_media | where: 'page_path', page.url | first %}
 {% assign managed_features = feature_obj.docs %}
 
 {% if managed_features.size > 0 %}

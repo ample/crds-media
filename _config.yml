@@ -65,7 +65,7 @@ collections:
     permalink: /:collection/:title
   tags:
     output: false
-  features:
+  featured_media:
     output: false
   discussions:
     output: false
