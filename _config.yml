@@ -46,7 +46,7 @@ collections:
     permalink: /:collection/:title
   episodes:
     output: true
-    permalink: /podcasts/:podcast_slug/:title
+    permalink: /podcasts/(:podcast/:slug)/:title
   albums:
     output: true
     permalink: /:collection/:title
