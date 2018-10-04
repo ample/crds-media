@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git://github.com/ample/paging-mister-hyde.git
-  revision: 934478a1d4b9e7939125bfbe720dbea18834e9c7
+  revision: 8cda2545a8ee184d1cfdac2e4f5c0eebf2fac571
   branch: feature/US14642-update-jekyll-contentful
   specs:
     paging-mister-hyde (0.2.0)
