@@ -37,12 +37,13 @@ layout: default
       </main>
       {% endif %}
 
-      {% assign sign_off = site.sign_offs | sort: 'published_at' | reverse | first %}
-      <div class="col-md-8 col-md-offset-2">
-        <section class="signoff">
-          {{ sign_off.body | markdownify }}
-        </section>
-      </div>
+      {% if site.sign_off %}
+        <div class="col-md-8 col-md-offset-2">
+          <section class="signoff">
+            {{ site.sign_off.body | markdownify }}
+          </section>
+        </div>
+      {% endif %}
 
       {% if page.discussion %}
       <div class="col-md-8 col-md-offset-2 soft-top">
