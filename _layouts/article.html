@@ -37,10 +37,10 @@ layout: default
       </main>
       {% endif %}
 
-      {% assign signoff = site.signoffs | sort: 'date' | reverse | first %}
+      {% assign sign_off = site.sign_offs | sort: 'published_at' | reverse | first %}
       <div class="col-md-8 col-md-offset-2">
         <section class="signoff">
-          {{ signoff.body | markdownify }}
+          {{ sign_off.body | markdownify }}
         </section>
       </div>
 

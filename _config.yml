@@ -69,7 +69,7 @@ collections:
     output: false
   discussions:
     output: false
-  signoffs:
+  sign_offs:
     output: false
 
 contentful:
