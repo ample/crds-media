@@ -279,7 +279,6 @@ contentful:
           authors: author/full_name
           image: image/url
           source_url: source_url
-          audio_source_url: audio_source_url
           program_url: program/url
           video_duration: video_duration
           topic: category/title
@@ -292,6 +291,8 @@ contentful:
           date: published_at
           slug: slug
           discussion: discussion/id
+          audio_file: audio_file/url
+          video_file: video_file/url
         other:
           layout: message
           draft: false
