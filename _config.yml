@@ -59,16 +59,18 @@ collections:
   series:
     output: true
     permalink: /:collection/:title
+  messages:
+    output: true
+    # permalink: /series/:series_slug/:title
+    permalink: /:collection/:title
   tags:
     output: false
   features:
     output: false
   discussions:
     output: false
-  messages:
-    output: true
-    # permalink: /series/:series_slug/:title
-    permalink: /:collection/:title
+  signoffs:
+    output: false
 
 contentful:
   exclude:
