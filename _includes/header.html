@@ -1,5 +1,8 @@
-<div class="crds-shared-header">
-  <div data-header>
-    {% include _shared_global_header.html %}
-  </div>
+<div class="mobile-header visible-xs-block">
+  {% include _mobile-header.html %}
 </div>
+<div class="desktop-header hidden-xs">
+  {% include _desktop-header.html %}
+</div>
+
+<div class="alert alert-success text-center" data-role="alert" style="z-index: 1; display: none;"><strong>Thanks!</strong> Check your inbox for our newest content.</div>
