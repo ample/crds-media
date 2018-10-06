@@ -1,4 +1,5 @@
-<header class="commentary-header" style="position: relative; background-color: rgba(0, 0, 0, 0); background-image: url('https://crossroads-media.imgix.net/images/type-bg.jpg');">
+<header class="commentary-header"
+  style="position: relative; background-color: rgba(0, 0, 0, 0); background-image: url('{% if page.image %}{{ page.image | imgix: site.imgix }}{% else %}{{ 'https://crossroads-media.imgix.net/images/type-bg.jpg' | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder }}');" data-optimize-bg-img data-hero-image>
   <div class="bg-overlay"></div>
   <div class="container">
     <div class="row">
@@ -6,11 +7,13 @@
         <div class="episode-header">
           <ol class="breadcrumb text-white hard-left">
             <li><a href="/">Media</a></li>
-            <li><a href="/commentary">Commentary</a></li>
+            <li><a href="/commentaries">Commentaries</a></li>
           </ol>
-          <h1 class="text-white flush-top" data-title="">Musical Ambition and Destruction</h1>    
+          <h1 class="text-white flush-top" data-title="">{{ page.title | escape | upcase }}</h1>
           <p class="flush-bottom soft-half-top">
-            <span class="read-time font-size-smaller push-quarter-ends">2h ago</span>
+            <span class="read-time font-size-smaller push-quarter-ends">
+              <time is="time-ago" datetime="{{ page.date }}" title="{{ page.date }}"></time>
+            </span>
           </p>
         </div>
       </div>
