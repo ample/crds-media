@@ -1,8 +1,1 @@
 <script async type="text/javascript" src="{% asset {{page.js_manifest}} @path %}"></script>
-<script>
-  $(document).ready(function () {
-    var date = $('time').parent().attr("datetime");
-    var timePassed = moment(date).fromNow();
-    $('time').append(timePassed);
-  });
-</script>

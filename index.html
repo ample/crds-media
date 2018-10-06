@@ -16,7 +16,7 @@ paginate:
     limit: 1
     sort: start_date desc
   commentaries:
-    per: 6
+    per: 4
     limit: 1
     sort: date desc
 ---
@@ -69,14 +69,12 @@ paginate:
     </div>
     <div class="col-md-4">
 
-
-
       {% if page.commentaries.docs.size != 0 %}
         <div class="push-bottom soft-bottom">
           <h2 class="collection-header push-bottom text-gray-light">fresh perspectives</h2>
           {% assign unfeatured_commentaries = page.commentaries.docs | slice: 0, 4 %}
-          {% for media in unfeatured_commentaries %}
-            {% include _media-title-list.html count="6 episodes" media_type="commentaries" %}
+          {% for featured in unfeatured_commentaries %}
+            {% include _media-object-list.html media_type="commentary" %}
           {% endfor %}
         </div>
       {% endif %}
