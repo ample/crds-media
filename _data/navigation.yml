@@ -1,0 +1,131 @@
+media_types:
+  - title: Articles
+    url: /articles
+
+  - title: Music
+    url: /music
+
+  - title: Podcasts
+    url: /podcasts
+
+  - title: Series
+    url: /series
+
+  - title: Videos
+    url: /videos
+
+topics:
+  - title: Culture
+    url: /topics/culture
+
+  - title: Faith
+    url: /topics/faith
+
+  - title: Family
+    url: /topics/family
+
+  - title: Finance
+    url: /topics/finance
+
+  - title: Relationships
+    url: /topics/relationships
+
+megamenu:
+  crossroads:
+    - title: Home
+      url: //crossroads.net
+
+    - title: Serve
+      url: //crossroads.net/serve
+
+    - title: Give
+      url: //crossroads.net/giving
+
+    - title: Updates
+      url: //crossroads.net/updates
+
+    - title: Locations
+      url: //crossroads.net/locations
+
+  media:
+    - title: All Media
+      url: /
+
+    - title: Series
+      url: /series
+
+    - title: Music
+      url: /music
+
+    - title: Videos
+      url: /videos
+
+    - title: Articles
+      url: /articles
+
+    - title: Podcasts
+      url: /podcasts
+
+    - title: Topics
+      url: /topics
+
+  grow:
+    - title: Get Started
+      url: //crossroads.net/getstarted
+
+    - title: Groups
+      url: //crossroads.net/groups
+
+    - title: Serving Opportunities
+      url: //crossroads.net/serve
+
+    - title: GO Somewhere
+      url: //crossroads.net/reachout/go
+
+    - title: The Chaser
+      url: //crossroads.net/the-chaser
+
+    - title: See who is nearby
+      url: //crossroads.net/connect
+
+    - title: Put yourself on the map
+      url: //crossroads.net/connect
+
+  care:
+    - title: Weddings
+      url: //crossroads.net/care/weddings
+
+    - title: Counselors
+      url: //crossroads.net/care/counselors
+
+    - title: Funerals
+      url: //crossroads.net/care/funerals
+
+    - title: Prayer
+      url: //crossroads.net/prayer
+
+  ministry:
+    - title: Kids' Club
+      url: //crossroads.net/anywhere-resources/kids-club
+
+    - title: Students 6-12th
+      url:
+
+    - title: ReachOut
+      url: //crossroads.net/reachout
+
+    - title: Community Care
+      url: //crossroads.net/care/communitycare/
+
+    - title: First Impressions
+      url: //crossroads.net/firstimpressions
+
+  contact:
+    - title: Ask a Question
+      url: //crossroads.net/frequentquestions
+
+    - title: Staff Contacts
+      url: //crossroads.net/contactus
+
+    - title: Prayer Requests
+      url: //crossroads.net/prayer
