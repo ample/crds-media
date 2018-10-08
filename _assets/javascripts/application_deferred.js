@@ -5,6 +5,8 @@
 //= require ./vendor/crds-card-carousel-v0.2.0.min
 //= require ./vendor/flickity.pkgd.min
 //= require ./vendor/imgix-optimizer
+//= require ./vendor/reactive-auth-v0.0.1.umd
+//= require ./vendor/knockout-3.4.2
 //= require ./components/clipboard
 //= require ./components/header
 //= require ./components/images
@@ -13,3 +15,4 @@
 //= require ./components/tabs
 //= require ./components/track-viewport
 //= require ./components/roll-call
+//= require ./lib/header

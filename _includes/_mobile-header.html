@@ -1,0 +1,163 @@
+{% assign data = site.data.navigation %}
+
+<header class="media-header">
+  <div>
+    <a href="//crossroads.net" class="brand">
+      <svg class="icon" height="81px" viewBox="0 0 308 81" width="308px">
+        <use xlink:href="/assets/svgs/crossroads-church-logo.svg#crossroads-church-logo"></use>
+      </svg>
+    </a>
+    <a href="#" type="button" class="subscribe">Subscribe</a>
+  </div>
+  <nav class="secondary-nav">
+    <ul class="list-unstyled">
+      {% for topic in data.topics %}
+      <li><a href="{{ topic.url }}">{{ topic.title }}</a></li>
+      {% endfor %}
+      <li class="divider" role="separator"></li>
+      {% for media in data.media_types %}
+      <li><a href="{{ media.url }}">{{ media.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+</header>
+
+<nav class="primary-nav">
+  <button role="button" data-menu-trigger>
+    <!-- If menu is closed, this icon appears -->
+    <div data-menu-close>
+      <span>
+        <svg class="icon icon-1" viewBox="0 0 256 256">
+          <use xlink:href="/assets/svgs/icons.svg#menu"></use>
+        </svg>
+      </span>
+      <span>Menu</span>
+    </div>
+    <!-- If menu is open, this icon appears -->
+    <div data-menu-open>
+      <span>
+        <svg class="icon icon-1" viewBox="0 0 256 256">
+          <use xlink:href="/assets/svgs/icons.svg#close-thin"></use>
+        </svg>
+      </span>
+      <span>Close</span>
+    </div>
+  </button>
+  <a href="//crossroads.net/profile/personal">
+    <span>
+      <img class="img-circle img-size-20" alt="profile image" data-bind="attr: { src: profile_image }, visible: is_authenticated">
+      <svg class="icon icon-1" viewBox="0 0 256 256" data-bind="visible: !is_authenticated()">
+        <use xlink:href="/assets/svgs/icons.svg#twitter"></use>
+      </svg>
+    </span>
+    <span>Account</span>
+  </a>
+  <a href="//crossroads.net/search">
+    <span>
+      <svg class="icon icon-1" viewBox="0 0 256 256">
+        <use xlink:href="/assets/svgs/icons.svg#search"></use>
+      </svg>
+    </span>
+    <span>Search</span>
+  </a>
+  <button role="button" data-chat-trigger>
+    <span>
+      <!-- placeholder icon -->
+      <svg class="icon icon-1" viewBox="0 0 256 256">
+        <use xlink:href="/assets/svgs/icons.svg#facebook"></use>
+      </svg>
+    </span>
+    <span>Chat</span>
+  </button>
+</nav>
+
+<div class="mobile-megamenu" data-menu-modal>
+  <div class="screwhead">
+    <a href="//crossroads.net">
+    <svg class="icon icon-3" height="300" viewBox="0 0 300 300" width="300">
+      <use xlink:href="/assets/svgs/screwhead-crds.svg#screwhead-crds"></use>
+      </svg>
+    </a>
+  </div>
+
+  <ul class="list-unstyled">
+    <li>
+      <a class="megamenu-header collapsed" role="button" data-toggle="collapse" href="#megamenu-crossroads" aria-expanded="false" aria-controls="#megamenu-crossroads">
+          Crossroads
+        <svg class="icon icon-1" viewBox="0 0 256 256">
+          <use xlink:href="/assets/svgs/icons.svg#chevron-right"></use>
+        </svg>
+      </a>
+      <ul class="subnav collapse list-unstyled" id="megamenu-crossroads">
+        {% for option in data.megamenu.crossroads %}
+        <li><a href="{{ option.url }}">{{ option.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </li>
+    <li>
+      <a class="megamenu-header collapsed" role="button" data-toggle="collapse" href="#megamenu-media" aria-expanded="false" aria-controls="#megamenu-media">
+          Media
+        <svg class="icon icon-1" viewBox="0 0 256 256">
+          <use xlink:href="/assets/svgs/icons.svg#chevron-right"></use>
+        </svg>
+      </a>
+      <ul class="subnav collapse list-unstyled" id="megamenu-media">
+        {% for option in data.megamenu.media %}
+        <li><a href="{{ option.url }}">{{ option.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </li>
+    <li>
+      <a class="megamenu-header collapsed" role="button" data-toggle="collapse" href="#megamenu-grow" aria-expanded="false" aria-controls="#megamenu-grow">
+          Grow
+        <svg class="icon icon-1" viewBox="0 0 256 256">
+          <use xlink:href="/assets/svgs/icons.svg#chevron-right"></use>
+        </svg>
+      </a>
+      <ul class="subnav collapse list-unstyled" id="megamenu-grow">
+        {% for option in data.megamenu.media %}
+        <li><a href="{{ option.url }}">{{ option.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </li>
+    <li>
+      <a class="megamenu-header collapsed" role="button" data-toggle="collapse" href="#megamenu-care" aria-expanded="false" aria-controls="#megamenu-care">
+          Care
+        <svg class="icon icon-1" viewBox="0 0 256 256">
+          <use xlink:href="/assets/svgs/icons.svg#chevron-right"></use>
+        </svg>
+      </a>
+      <ul class="subnav collapse list-unstyled" id="megamenu-care">
+        {% for option in data.megamenu.media %}
+        <li><a href="{{ option.url }}">{{ option.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </li>
+    <li>
+      <a class="megamenu-header collapsed" role="button" data-toggle="collapse" href="#megamenu-ministry" aria-expanded="false" aria-controls="#megamenu-ministry">
+          Ministry
+        <svg class="icon icon-1" viewBox="0 0 256 256">
+          <use xlink:href="/assets/svgs/icons.svg#chevron-right"></use>
+        </svg>
+      </a>
+      <ul class="subnav collapse list-unstyled" id="megamenu-ministry">
+        {% for option in data.megamenu.media %}
+        <li><a href="{{ option.url }}">{{ option.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </li>
+    <li>
+      <a class="megamenu-header collapsed" role="button" data-toggle="collapse" href="#megamenu-contact" aria-expanded="false" aria-controls="#megamenu-contact">
+          Contact
+        <svg class="icon icon-1" viewBox="0 0 256 256">
+          <use xlink:href="/assets/svgs/icons.svg#chevron-right"></use>
+        </svg>
+      </a>
+      <ul class="subnav collapse list-unstyled" id="megamenu-contact">
+        {% for option in data.megamenu.media %}
+        <li><a href="{{ option.url }}">{{ option.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </li>
+  </ul>
+</div>
