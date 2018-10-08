@@ -5,6 +5,7 @@
 //= require ./vendor/crds-card-carousel-v0.2.0.min
 //= require ./vendor/flickity.pkgd.min
 //= require ./vendor/imgix-optimizer
+//= require ./vendor/moment.min.js
 //= require ./components/clipboard
 //= require ./components/header
 //= require ./components/images
@@ -13,3 +14,4 @@
 //= require ./components/tabs
 //= require ./components/track-viewport
 //= require ./components/roll-call
+//= require ./components/dates.js
