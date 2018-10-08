@@ -3,19 +3,19 @@
   <img class="img-circle img-size-8" alt="profile image" data-bind="attr: { src: profile_image }">
   <p class="profile-name" data-bind="html: name"></p>
   <ul class="list-unstyled">
-    <li><a data-bind="attr: { href: domain + '/profile' }">My Profile</a></li>
-    <li><a data-bind="attr: { href: domain + '/me/giving' }">Giving History</a></li>
-    <li><a data-bind="attr: { href: domain + '/serve-signup' }">Sign Up to Serve</a></li>
-    <li><a data-bind="attr: { href: domain + '/groups/search/my' }">My Groups</a></li>
-    <li><a data-bind="attr: { href: domain + '/trips/mytrips' }">My Trips</a></li>
-    <li><a data-bind="attr: { href: domain + '/mycamps' }">My Students Camps</a></li>
-    <li><a data-bind="attr: { href: domain + '/childcare' }">Childcare</a></li>
-    <li><a data-bind="attr: { href: domain + '/signout' }">Sign Out</a></li>
+    <li><a href="{{ site.shared_header.app }}profile">My Profile</a></li>
+    <li><a href="{{ site.shared_header.app }}giving">Giving History</a></li>
+    <li><a href="{{ site.shared_header.app }}serve-signup">Sign Up to Serve</a></li>
+    <li><a href="{{ site.shared_header.app }}groups/search/my">My Groups</a></li>
+    <li><a href="{{ site.shared_header.app }}trips/mytrips">My Trips</a></li>
+    <li><a href="{{ site.shared_header.app }}mycamps">My Students Camps</a></li>
+    <li><a href="{{ site.shared_header.app }}childcare">Childcare</a></li>
+    <li><a href="{{ site.shared_header.app }}signout">Sign Out</a></li>
   </ul>
 </div>
 <!-- Signed out markup -->
 <div class="profile text-center" data-bind="visible: !is_authenticated()">
   <img class="img-circle img-size-8" src="//crossroads-media.imgix.net/images/avatar.svg" alt="profile image">
-  <a class="btn btn-cyan btn-block text-center push-top" data-bind="attr: { href: domain + '/signin' }">Sign in</a>
-  <a class="font-size-smaller push-top text-gray-lighter" data-bind="attr: { href: domain + '/register' }">Register an account</a>
+  <a class="btn btn-cyan btn-block text-center push-top" href="{{ site.shared_header.app }}signin">Sign in</a>
+  <a class="font-size-smaller push-top text-gray-lighter" href="{{ site.shared_header.app }}register">Register an account</a>
 </div>
