@@ -5,7 +5,7 @@
   </header>
 
   <div class="soft-half-top">
-    {% assign limited = site.commentaries | sort: 'date' | reverse | slice: 0, 11 | exclude: page.title %}
+    {% assign limited = site.commentaries | sort: 'date' | reverse | slice: 0, 4 | exclude: page.title %}
     {% for featured in limited limit: 10 %}
     {% include _media-object-list.html media_type="commentary" %}
     {% endfor %}
