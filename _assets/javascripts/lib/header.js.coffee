@@ -2,7 +2,7 @@ if typeof window.CRDS is 'undefined' then window.CRDS = {}
 
 class CRDS.Header
 
-  debug: true
+  debug: false
   defaults:
     uid: undefined
     profile_image: 'https://crossroads-media.imgix.net/images/avatar.svg'
@@ -10,16 +10,17 @@ class CRDS.Header
 
   constructor: (sel) ->
     @session_key = "#{CRDS.media.prefix}sessionId"
-    @auth = new ReactiveAuth()
+    @auth = new ReactiveAuth(@session_key)
     @auth.subscribe()
-    @vm()
+    @setup()
     @events()
+    @update() if @has_existing_session()
 
-  vm: ->
+  setup: ->
+    @log 'setup()'
     @profile_image = ko.observable()
     @name = ko.observable()
-    @is_authenticated = ko.observable(false)
-
+    @is_authenticated = ko.observable(@has_existing_session())
     @apply_defaults()
     ko.applyBindings
       is_authenticated: @is_authenticated
@@ -70,9 +71,10 @@ class CRDS.Header
 
   has_existing_session: ->
     @log 'has_existing_session()'
-    @get_cookie(@session_key)
+    @get_cookie(@session_key) != undefined
 
   get_cookie: (name) ->
+    @log "get_cookie(#{name})"
     value = "; #{document.cookie}"
     parts = value.split("; #{name}=")
     if parts.length == 2
