@@ -77,6 +77,11 @@
       }
     }
 
+    .img-size-20 {
+      height: 20px;
+      width: 20px;
+    }
+
     a, button {
       background-color: $cr-white;
       border-right: 1px solid $cr-gray-lighter;
@@ -267,6 +272,8 @@
 
   // Menu styles
   .media-header-section[data-menu-trigger] {
+    width: 115px;
+
     button {
       display: flex;
       align-items: center;
@@ -296,6 +303,28 @@
         }
       }
     }
+
+    .avatar-icon {
+      position: relative;
+      height: 20px;
+      width: 20px;
+
+      img {
+        border: 2px solid $cr-white;
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        top: -6px;
+        right: -6px;
+        z-index: 10;
+      }
+
+      svg {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+    }
   }
 
   .desktop-megamenu {
@@ -319,6 +348,26 @@
         border: 1px solid $cr-gray-lighter;
         display: block;
         margin: 0 auto;
+      }
+
+      .profile-name {
+        color: $cr-blue-light;
+        font-family: $condensed-extra-font-face;
+        font-size: 2.25rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        margin: 0;
+      }
+
+      li {
+        a {
+          color: $cr-blue-light;
+          font-size: $font-size-small;
+
+          &:hover {
+            color: $cr-white;
+          }
+        }
       }
     }
 
@@ -359,7 +408,7 @@
     @media screen and (min-width: $screen-md) {
       .menu {
         grid-template-columns: repeat(3, 1fr);
-        grid-gap: 4rem;
+        grid-gap: 4rem 6rem;
         padding: 3rem 5rem;
       }
 
