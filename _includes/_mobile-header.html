@@ -43,12 +43,15 @@
       <span>Close</span>
     </div>
   </button>
-  <a href="/profile/personal">
+  <a href="//crossroads.net/profile/personal">
     <span>
-      <!-- placeholder icon -->
+      {% if signedin %}
+      <img class="img-circle img-size-20" src="//placecage.com/200/200" alt="profile image">
+      {% else %}
       <svg class="icon icon-1" viewBox="0 0 256 256">
         <use xlink:href="/assets/svgs/icons.svg#twitter"></use>
       </svg>
+      {% endif %}
     </span>
     <span>Account</span>
   </a>

@@ -1,0 +1,24 @@
+{% if signedin %}
+<!-- Signed in markup -->
+<div class="profile text-center">
+  <img class="img-circle img-size-8" src="//placecage.com/200/200" alt="profile image">
+  <p class="profile-name">Nic Cage</p>
+  <ul class="list-unstyled">
+    <li><a href="#">My Profile</a></li>
+    <li><a href="#">Giving History</a></li>
+    <li><a href="#">Sign Up to Serve</a></li>
+    <li><a href="#">My Groups</a></li>
+    <li><a href="#">My Trips</a></li>
+    <li><a href="#">My Students Camps</a></li>
+    <li><a href="#">Childcare</a></li>
+    <li><a href="#">Sign Out</a></li>
+  </ul>
+</div>
+{% else %}
+<!-- Signed out markup -->
+<div class="profile text-center">
+  <img class="img-circle img-size-8" src="//crossroads-media.imgix.net/images/avatar.svg" alt="profile image">
+  <button class="btn btn-cyan btn-block text-center push-top">Sign in</button>
+  <a href="//crossroads.net/register" class="font-size-smaller push-top text-gray-lighter">Register an account</a>
+</div>
+{% endif %}
