@@ -46,7 +46,7 @@ class CRDS.Header
   set_profile_image: ->
     @log 'get_profile_image()'
     if uid = @get_cookie('userId')
-      @profile_image "https://www.crossroads.net/proxy/gateway/api/image/profile/#{uid}"
+      @profile_image "#{@domain()}/proxy/gateway/api/image/profile/#{uid}"
     else
       @profile_image @defaults.profile_image
 
