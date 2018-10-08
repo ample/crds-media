@@ -6,6 +6,8 @@
 //= require ./vendor/flickity.pkgd.min
 //= require ./vendor/imgix-optimizer
 //= require ./vendor/moment.min.js
+//= require ./vendor/reactive-auth-v0.0.1.umd
+//= require ./vendor/knockout-3.4.2
 //= require ./components/clipboard
 //= require ./components/header
 //= require ./components/images
@@ -15,3 +17,4 @@
 //= require ./components/track-viewport
 //= require ./components/roll-call
 //= require ./components/dates.js
+//= require ./lib/header
