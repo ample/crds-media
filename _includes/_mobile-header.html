@@ -45,13 +45,10 @@
   </button>
   <a href="//crossroads.net/profile/personal">
     <span>
-      {% if signedin %}
-      <img class="img-circle img-size-20" src="//placecage.com/200/200" alt="profile image">
-      {% else %}
-      <svg class="icon icon-1" viewBox="0 0 256 256">
+      <img class="img-circle img-size-20" alt="profile image" data-bind="attr: { src: profile_image }, visible: is_authenticated">
+      <svg class="icon icon-1" viewBox="0 0 256 256" data-bind="visible: !is_authenticated()">
         <use xlink:href="/assets/svgs/icons.svg#twitter"></use>
       </svg>
-      {% endif %}
     </span>
     <span>Account</span>
   </a>
