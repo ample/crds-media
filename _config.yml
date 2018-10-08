@@ -61,8 +61,7 @@ collections:
     permalink: /:collection/:title
   messages:
     output: true
-    # permalink: /series/:series_slug/:title
-    permalink: /:collection/:title
+    permalink: /series/(:series/:slug)/:title
   tags:
     output: false
   featured_media:

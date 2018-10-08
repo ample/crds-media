@@ -26,6 +26,18 @@ GIT
       nokogiri
 
 GIT
+  remote: git://github.com/crdschurch/jekyll-contentful.git
+  revision: 3289cffead190c35af3be63218447f9f887082d7
+  tag: 1.1.0
+  specs:
+    jekyll-contentful (1.1.0)
+      activesupport
+      contentful (>= 2.6.0)
+      contentful-management (~> 1.10.1)
+      dotenv
+      jekyll
+
+GIT
   remote: git://github.com/crdschurch/jekyll-crds.git
   revision: 9e7ea6ae39adef8a4e30d82baba43e4339137e15
   tag: 0.0.1
@@ -43,16 +55,6 @@ GIT
     crds-styles (3.0.6)
       bootstrap-sass (~> 3.3)
       sass (~> 3.2)
-
-PATH
-  remote: /Users/seancdavis/code/jekyll-contentful
-  specs:
-    jekyll-contentful (1.1.0)
-      activesupport
-      contentful (>= 2.6.0)
-      contentful-management (~> 1.10.1)
-      dotenv
-      jekyll
 
 PATH
   remote: vendor/gems/video-tags
