@@ -72,12 +72,30 @@ collections:
     output: false
 
 contentful:
+  article:
+    map:
+      date: published_at
+  discussion:
+    map:
+      date: published_at
+  episode:
+    map:
+      date: published_at
   featured_media:
     map:
       page_path: path
   message:
     belongs_to:
       series: videos
+  series:
+    map:
+      date: starts_at
+  series:
+    map:
+      date: published_at
+  video:
+    map:
+      date: published_at
   exclude:
     - commentary
     - location
