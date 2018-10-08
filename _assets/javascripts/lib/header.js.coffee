@@ -24,6 +24,7 @@ class CRDS.Header
     ko.applyBindings
       is_authenticated: @is_authenticated
       profile_image: @profile_image
+      domain: @domain()
       name: @name
 
   events: ->
@@ -45,7 +46,7 @@ class CRDS.Header
   set_profile_image: ->
     @log 'get_profile_image()'
     if uid = @get_cookie('userId')
-      @profile_image "https://www.crossroads.net/proxy/gateway/api/image/profile/#{uid}"
+      @profile_image "#{@domain()}/proxy/gateway/api/image/profile/#{uid}"
     else
       @profile_image @defaults.profile_image
 
@@ -73,6 +74,10 @@ class CRDS.Header
     parts = value.split("; #{name}=")
     if parts.length == 2
       parts.pop().split(";").shift()
+
+  domain: ->
+    @log 'domain()'
+    "//#{if CRDS.media.prefix == '' then 'www' else CRDS.media.prefix}.crossroads.net"
 
   log: (str) ->
     console.log(str) if @debug

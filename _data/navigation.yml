@@ -33,19 +33,19 @@ topics:
 megamenu:
   crossroads:
     - title: Home
-      url: //crossroads.net
+      url: /
 
     - title: Serve
-      url: //crossroads.net/serve
+      url: /serve
 
     - title: Give
-      url: //crossroads.net/giving
+      url: /giving
 
     - title: Updates
-      url: //crossroads.net/updates
+      url: /updates
 
     - title: Locations
-      url: //crossroads.net/locations
+      url: /locations
 
   media:
     - title: All Media
@@ -71,61 +71,61 @@ megamenu:
 
   grow:
     - title: Get Started
-      url: //crossroads.net/getstarted
+      url: /getstarted
 
     - title: Groups
-      url: //crossroads.net/groups
+      url: /groups
 
     - title: Serving Opportunities
-      url: //crossroads.net/serve
+      url: /serve
 
     - title: GO Somewhere
-      url: //crossroads.net/reachout/go
+      url: /reachout/go
 
     - title: The Chaser
-      url: //crossroads.net/the-chaser
+      url: /the-chaser
 
     - title: See who is nearby
-      url: //crossroads.net/connect
+      url: /connect
 
     - title: Put yourself on the map
-      url: //crossroads.net/connect
+      url: /connect
 
   care:
     - title: Weddings
-      url: //crossroads.net/care/weddings
+      url: /care/weddings
 
     - title: Counselors
-      url: //crossroads.net/care/counselors
+      url: /care/counselors
 
     - title: Funerals
-      url: //crossroads.net/care/funerals
+      url: /care/funerals
 
     - title: Prayer
-      url: //crossroads.net/prayer
+      url: /prayer
 
   ministry:
     - title: Kids' Club
-      url: //crossroads.net/anywhere-resources/kids-club
+      url: /anywhere-resources/kids-club
 
     - title: Students 6-12th
       url:
 
     - title: ReachOut
-      url: //crossroads.net/reachout
+      url: /reachout
 
     - title: Community Care
-      url: //crossroads.net/care/communitycare/
+      url: /care/communitycare/
 
     - title: First Impressions
-      url: //crossroads.net/firstimpressions
+      url: /firstimpressions
 
   contact:
     - title: Ask a Question
-      url: //crossroads.net/frequentquestions
+      url: /frequentquestions
 
     - title: Staff Contacts
-      url: //crossroads.net/contactus
+      url: /contactus
 
     - title: Prayer Requests
-      url: //crossroads.net/prayer
+      url: /prayer

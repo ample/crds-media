@@ -2,7 +2,7 @@
 
 <header class="media-header">
   <div>
-    <a href="//crossroads.net" class="brand">
+    <a href="{{ site.shared_header.app }}" class="brand">
       <svg class="icon" height="81px" viewBox="0 0 308 81" width="308px">
         <use xlink:href="/assets/svgs/crossroads-church-logo.svg#crossroads-church-logo"></use>
       </svg>
@@ -43,7 +43,7 @@
       <span>Close</span>
     </div>
   </button>
-  <a href="//crossroads.net/profile/personal">
+  <a href="{{ site.shared_header.app }}profile/personal">
     <span>
       <img class="img-circle img-size-20" alt="profile image" data-bind="attr: { src: profile_image }, visible: is_authenticated">
       <svg class="icon icon-1" viewBox="0 0 256 256" data-bind="visible: !is_authenticated()">
@@ -52,7 +52,7 @@
     </span>
     <span>Account</span>
   </a>
-  <a href="//crossroads.net/search">
+  <a href="{{ site.shared_header.app }}search">
     <span>
       <svg class="icon icon-1" viewBox="0 0 256 256">
         <use xlink:href="/assets/svgs/icons.svg#search"></use>
@@ -73,7 +73,7 @@
 
 <div class="mobile-megamenu" data-menu-modal>
   <div class="screwhead">
-    <a href="//crossroads.net">
+    <a href="{{ site.shared_header.app }}">
     <svg class="icon icon-3" height="300" viewBox="0 0 300 300" width="300">
       <use xlink:href="/assets/svgs/screwhead-crds.svg#screwhead-crds"></use>
       </svg>
@@ -90,7 +90,7 @@
       </a>
       <ul class="subnav collapse list-unstyled" id="megamenu-crossroads">
         {% for option in data.megamenu.crossroads %}
-        <li><a href="{{ option.url }}">{{ option.title }}</a></li>
+        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </li>
@@ -115,8 +115,8 @@
         </svg>
       </a>
       <ul class="subnav collapse list-unstyled" id="megamenu-grow">
-        {% for option in data.megamenu.media %}
-        <li><a href="{{ option.url }}">{{ option.title }}</a></li>
+        {% for option in data.megamenu.grow %}
+        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </li>
@@ -128,8 +128,8 @@
         </svg>
       </a>
       <ul class="subnav collapse list-unstyled" id="megamenu-care">
-        {% for option in data.megamenu.media %}
-        <li><a href="{{ option.url }}">{{ option.title }}</a></li>
+        {% for option in data.megamenu.care %}
+        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </li>
@@ -141,8 +141,8 @@
         </svg>
       </a>
       <ul class="subnav collapse list-unstyled" id="megamenu-ministry">
-        {% for option in data.megamenu.media %}
-        <li><a href="{{ option.url }}">{{ option.title }}</a></li>
+        {% for option in data.megamenu.ministry %}
+        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </li>
@@ -154,8 +154,8 @@
         </svg>
       </a>
       <ul class="subnav collapse list-unstyled" id="megamenu-contact">
-        {% for option in data.megamenu.media %}
-        <li><a href="{{ option.url }}">{{ option.title }}</a></li>
+        {% for option in data.megamenu.contact %}
+        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </li>
