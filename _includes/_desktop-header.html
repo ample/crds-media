@@ -61,9 +61,18 @@
       Menu
       <!-- If menu is closed, this icon appears -->
       <span class="push-quarter-left" data-menu-close>
+        {% if signedin %}
+        <div class="avatar-icon">
+          <img class="img-circle img-size-1" src="//placecage.com/200/200" alt="profile image">
+          <svg class="icon icon-1" viewBox="0 0 256 256">
+            <use xlink:href="/assets/svgs/icons.svg#menu"></use>
+          </svg>
+        </div>
+        {% else %}
         <svg class="icon icon-1" viewBox="0 0 256 256">
           <use xlink:href="/assets/svgs/icons.svg#menu"></use>
         </svg>
+        {% endif %}
       </span>
       <!-- If menu is open, this icon appears -->
       <span class="push-quarter-left" data-menu-open>
@@ -76,20 +85,11 @@
 </header>
 
 <div class="desktop-megamenu" data-menu-modal>
-  <div class="profile text-center">
-    <img class="img-circle img-size-10" alt="" data-bind="attr: { src: profile_image }" />
-    <div data-bind="visible: is_authenticated">
-      <h4 data-bind="text: name" class="section-header"></h4>
-    </div>
-    <div data-bind="visible: !is_authenticated()">
-      <button class="btn btn-cyan btn-block text-center push-top">Sign in</button>
-      <a href="//crossroads.net/register" class="font-size-smaller push-top text-gray-lighter">Register an account</a>
-    </div>
-  </div>
+  {% include _header-profile.html %}
   <div class="menu">
     <div class="menu-list">
       <p class="menu-header">Crossroads</p>
-      <ul class="list-unstyled font-size-small">
+      <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.crossroads %}
         <li><a href="{{ option.url }}">{{ option.title }}</a></li>
         {% endfor %}
@@ -97,7 +97,7 @@
     </div>
     <div class="menu-list">
       <p class="menu-header">Media</p>
-      <ul class="list-unstyled font-size-small">
+      <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.media %}
         <li><a href="{{ option.url }}">{{ option.title }}</a></li>
         {% endfor %}
@@ -105,7 +105,7 @@
     </div>
     <div class="menu-list">
       <p class="menu-header">Grow</p>
-      <ul class="list-unstyled font-size-small">
+      <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.grow %}
         <li><a href="{{ option.url }}">{{ option.title }}</a></li>
         {% endfor %}
@@ -113,7 +113,7 @@
     </div>
     <div class="menu-list">
       <p class="menu-header">Care</p>
-      <ul class="list-unstyled font-size-small">
+      <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.care %}
         <li><a href="{{ option.url }}">{{ option.title }}</a></li>
         {% endfor %}
@@ -121,7 +121,7 @@
     </div>
     <div class="menu-list">
       <p class="menu-header">Ministry</p>
-      <ul class="list-unstyled font-size-small">
+      <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.ministry %}
         <li><a href="{{ option.url }}">{{ option.title }}</a></li>
         {% endfor %}
@@ -129,7 +129,7 @@
     </div>
     <div class="menu-list">
       <p class="menu-header">Contact</p>
-      <ul class="list-unstyled font-size-small">
+      <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.contact %}
         <li><a href="{{ option.url }}">{{ option.title }}</a></li>
         {% endfor %}

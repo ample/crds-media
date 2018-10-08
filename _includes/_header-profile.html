@@ -1,0 +1,22 @@
+<!-- Signed in markup -->
+<div class="profile text-center" data-bind="visible: is_authenticated">
+  <img class="img-circle img-size-8" alt="profile image" data-bind="attr: { src: profile_image }">
+  <p class="profile-name">Nic Cage</p>
+  <ul class="list-unstyled">
+    <li><a href="/profile">My Profile</a></li>
+    <li><a href="/me/giving">Giving History</a></li>
+    <li><a href="/serve-signup">Sign Up to Serve</a></li>
+    <li><a href="/groups/search/my">My Groups</a></li>
+    <li><a href="/trips/mytrips">My Trips</a></li>
+    <li><a href="/mycamps">My Students Camps</a></li>
+    <li><a href="/childcare">Childcare</a></li>
+    <li><a href="/signout">Sign Out</a></li>
+  </ul>
+</div>
+
+<!-- Signed out markup -->
+<div class="profile text-center" data-bind="visible: !is_authenticated()">
+  <img class="img-circle img-size-8" src="//crossroads-media.imgix.net/images/avatar.svg" alt="profile image">
+  <button class="btn btn-cyan btn-block text-center push-top">Sign in</button>
+  <a href="//crossroads.net/register" class="font-size-smaller push-top text-gray-lighter">Register an account</a>
+</div>
