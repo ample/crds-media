@@ -77,9 +77,14 @@
 
 <div class="desktop-megamenu" data-menu-modal>
   <div class="profile text-center">
-    <img class="img-circle img-size-10" src="//crossroads-media.imgix.net/images/avatar.svg" alt="profile image">
-    <button class="btn btn-cyan btn-block text-center push-top">Sign in</button>
-    <a href="//crossroads.net/register" class="font-size-smaller push-top text-gray-lighter">Register an account</a>
+    <img class="img-circle img-size-10" alt="" data-bind="attr: { src: profile_image }" />
+    <div data-bind="visible: is_authenticated">
+      <h4 data-bind="text: name" class="section-header"></h4>
+    </div>
+    <div data-bind="visible: !is_authenticated()">
+      <button class="btn btn-cyan btn-block text-center push-top">Sign in</button>
+      <a href="//crossroads.net/register" class="font-size-smaller push-top text-gray-lighter">Register an account</a>
+    </div>
   </div>
   <div class="menu">
     <div class="menu-list">
