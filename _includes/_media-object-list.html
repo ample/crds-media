@@ -6,6 +6,6 @@
     {{ featured.content | strip_html | truncatewords: 25 }}
   </p>
   <p class="font-size-smaller text-gray-light">
-    <time is="time-ago" datetime="{{ featured.date }}" title="{{ featured.date }}"></time>
+    <time is="time-ago" datetime="{{ featured.date | date: "%FT%T%z" }}" title="{{ featured.date | date: "%FT%T%z" }}"></time>
   </p>
 </div>

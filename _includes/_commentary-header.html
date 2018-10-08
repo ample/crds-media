@@ -12,7 +12,7 @@
           <h1 class="text-white flush-top" data-title="">{{ page.title | escape | upcase }}</h1>
           <p class="flush-bottom soft-half-top">
             <span class="read-time font-size-smaller push-quarter-ends">
-              <time is="time-ago" datetime="{{ page.date }}" title="{{ page.date }}"></time>
+              <time is="time-ago" datetime="{{ page.date | date: "%FT%T%z" }}" title="{{ page.date | date: "%FT%T%z" }}"></time>
             </span>
           </p>
         </div>
