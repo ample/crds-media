@@ -73,9 +73,16 @@ collections:
     output: false
 
 contentful:
+  featured_media:
+    map:
+      page_path: path
+  message:
+    belongs_to:
+      series: videos
   exclude:
-    - migrations
+    - commentary
     - location
+    - migrations
     - page
     - promo
 
