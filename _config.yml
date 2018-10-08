@@ -27,7 +27,6 @@ exclude:
 
 include:
   - _redirects
-  - _headers
 
 collections_dir: collections
 
