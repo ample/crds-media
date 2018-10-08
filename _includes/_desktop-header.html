@@ -61,7 +61,7 @@
       Menu
       <!-- If menu is closed, this icon appears -->
       <span class="push-quarter-left" data-menu-close>
-        <div class="avatar-icon" data-bind="visible: is_authenticated">
+        <div class="avatar-icon hide" data-bind="visible: is_authenticated, css: { hide: !is_authenticated() }">
           <img class="img-circle img-size-1" alt="profile image" data-bind="attr: { src: profile_image }">
           <svg class="icon icon-1" viewBox="0 0 256 256">
             <use xlink:href="/assets/svgs/icons.svg#menu"></use>

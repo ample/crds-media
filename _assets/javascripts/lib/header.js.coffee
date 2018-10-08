@@ -18,10 +18,9 @@ class CRDS.Header
 
   setup: ->
     @log 'setup()'
-    @profile_image = ko.observable()
-    @name = ko.observable()
+    @profile_image = ko.observable(@defaults.profile_image)
+    @name = ko.observable(@defaults.name)
     @is_authenticated = ko.observable(@has_existing_session())
-    @apply_defaults()
     ko.applyBindings
       is_authenticated: @is_authenticated
       profile_image: @profile_image
@@ -42,11 +41,6 @@ class CRDS.Header
     @log 'expire()'
     @is_authenticated(false)
     @apply_defaults()
-
-  apply_defaults: ->
-    @log 'apply_defaults()'
-    @profile_image(@defaults.profile_image)
-    @name(@defaults.name)
 
   set_profile_image: ->
     @log 'get_profile_image()'
