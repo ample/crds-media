@@ -45,7 +45,7 @@ group :jekyll_plugins do
   gem 'jekyll-crds', github: 'crdschurch/jekyll-crds', tag: '0.0.1'
   gem 'jekyll-cloudsearch', '~> 0.0.1', github: 'crdschurch/jekyll-cloudsearch'
   gem 'jekyll-placeholders', '~> 0.0', github: 'ample/jekyll-placeholders'
-  gem 'paging-mister-hyde', '~> 0.0', github: 'ample/paging-mister-hyde', branch: 'feature/US14642-update-jekyll-contentful'
+  gem 'paging-mister-hyde', '~> 0.2', github: 'ample/paging-mister-hyde'
   gem 'video-tags', '~> 0.0.1', path: File.expand_path('./vendor/gems/video-tags', __dir__)
 
   # Must be loaded after jekyll-assets, otherwise the assets won't be discoverable.

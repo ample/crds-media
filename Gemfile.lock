@@ -8,8 +8,7 @@ GIT
 
 GIT
   remote: git://github.com/ample/paging-mister-hyde.git
-  revision: 8cda2545a8ee184d1cfdac2e4f5c0eebf2fac571
-  branch: feature/US14642-update-jekyll-contentful
+  revision: 57e00057075dc5615262b595777f3816fd5bbfa3
   specs:
     paging-mister-hyde (0.2.0)
       activesupport
@@ -268,7 +267,7 @@ DEPENDENCIES
   jekyll-placeholders (~> 0.0)!
   jekyll-redirect-from
   launchy
-  paging-mister-hyde (~> 0.0)!
+  paging-mister-hyde (~> 0.2)!
   pry
   pry-nav
   rspec
