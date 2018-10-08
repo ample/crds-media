@@ -44,6 +44,7 @@ group :jekyll_plugins do
   gem 'jekyll-crds', '~> 0.0.1', git: 'https://github.com/crdschurch/jekyll-crds.git'
   gem 'jekyll-cloudsearch', '~> 0.0.1', git: 'https://github.com/crdschurch/jekyll-cloudsearch.git'
   gem 'jekyll-placeholders', '~> 0.0.1', git: 'https://github.com/ample/jekyll-placeholders.git'
+  gem 'jekyll-coffeescript'
   gem 'paging-mister-hyde', '~> 0.0', git: 'https://github.com/ample/paging-mister-hyde.git'
   gem 'video-tags', '~> 0.0.1', path: File.expand_path('./vendor/gems/video-tags', __dir__)
 
