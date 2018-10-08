@@ -22,10 +22,10 @@ layout: default
             {% if page.audio_file or page.video_file or page.program_url %}
             <div class="sources push-quarter-top">
               {% if page.audio_file %}
-              <a class="secondary" href="{{ page.audio_file }}" download="{{ page.audio_file }}">Download audio</a>
+              <a class="secondary" href="{{ page.audio_file | imgix: site.imgix }}?dl={{ page.audio_file | split: '/' | last }}">Download audio</a>
               {% endif %}
               {% if page.video_file %}
-              <a class="secondary" href="{{ page.video_file }}" download="{{ page.video_file }}">Download video</a>
+              <a class="secondary" href="{{ page.video_file | imgix: site.imgix }}?dl={{ page.video_file | split: '/' | last }}">Download video</a>
               {% endif %}
               {% if page.program_url %}
               <a class="secondary" href="{{ page.program_url }}" target="_blank">View program</a>
