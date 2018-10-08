@@ -292,6 +292,8 @@ contentful:
           date: published_at
           slug: slug
           discussion: discussion/id
+          audio_file: audio_file/url
+          video_file: video_file/url
         other:
           layout: message
           draft: false
