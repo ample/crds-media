@@ -2,7 +2,7 @@
 
 <header class="media-header">
   <div class="media-header-section">
-    <a href="/" class="brand">
+    <a href="{{ site.shared_header.app }}" class="brand">
       <svg class="icon" height="81px" viewBox="0 0 308 81" width="308px">
         <use xlink:href="/assets/svgs/crossroads-church-logo.svg#crossroads-church-logo"></use>
       </svg>
@@ -46,7 +46,7 @@
   </div>
 
   <div class="media-header-section">
-    <a href="//crossroads.net/search">
+    <a href="{{ site.shared_header.app }}search">
       <span class="sr-only">Search</span>
       <span>
         <svg class="icon icon-1" viewBox="0 0 256 256">
@@ -61,7 +61,13 @@
       Menu
       <!-- If menu is closed, this icon appears -->
       <span class="push-quarter-left" data-menu-close>
-        <svg class="icon icon-1" viewBox="0 0 256 256">
+        <div class="avatar-icon hide" data-bind="visible: is_authenticated, css: { hide: !is_authenticated() }">
+          <img class="img-circle img-size-1" alt="profile image" data-bind="attr: { src: profile_image }">
+          <svg class="icon icon-1" viewBox="0 0 256 256">
+            <use xlink:href="/assets/svgs/icons.svg#menu"></use>
+          </svg>
+        </div>
+        <svg class="icon icon-1" viewBox="0 0 256 256" data-bind="visible: !is_authenticated()">
           <use xlink:href="/assets/svgs/icons.svg#menu"></use>
         </svg>
       </span>
@@ -76,23 +82,19 @@
 </header>
 
 <div class="desktop-megamenu" data-menu-modal>
-  <div class="profile text-center">
-    <img class="img-circle img-size-10" src="//crossroads-media.imgix.net/images/avatar.svg" alt="profile image">
-    <button class="btn btn-cyan btn-block text-center push-top">Sign in</button>
-    <a href="//crossroads.net/register" class="font-size-smaller push-top text-gray-lighter">Register an account</a>
-  </div>
+  {% include _header-profile.html %}
   <div class="menu">
     <div class="menu-list">
       <p class="menu-header">Crossroads</p>
-      <ul class="list-unstyled font-size-small">
+      <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.crossroads %}
-        <li><a href="{{ option.url }}">{{ option.title }}</a></li>
+        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </div>
     <div class="menu-list">
       <p class="menu-header">Media</p>
-      <ul class="list-unstyled font-size-small">
+      <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.media %}
         <li><a href="{{ option.url }}">{{ option.title }}</a></li>
         {% endfor %}
@@ -100,33 +102,33 @@
     </div>
     <div class="menu-list">
       <p class="menu-header">Grow</p>
-      <ul class="list-unstyled font-size-small">
+      <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.grow %}
-        <li><a href="{{ option.url }}">{{ option.title }}</a></li>
+        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </div>
     <div class="menu-list">
       <p class="menu-header">Care</p>
-      <ul class="list-unstyled font-size-small">
+      <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.care %}
-        <li><a href="{{ option.url }}">{{ option.title }}</a></li>
+        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </div>
     <div class="menu-list">
       <p class="menu-header">Ministry</p>
-      <ul class="list-unstyled font-size-small">
+      <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.ministry %}
-        <li><a href="{{ option.url }}">{{ option.title }}</a></li>
+        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </div>
     <div class="menu-list">
       <p class="menu-header">Contact</p>
-      <ul class="list-unstyled font-size-small">
+      <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.contact %}
-        <li><a href="{{ option.url }}">{{ option.title }}</a></li>
+        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </div>

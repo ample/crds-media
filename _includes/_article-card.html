@@ -1,14 +1,10 @@
-{% assign author = site.authors | where: "name", post.author | first %}
-{% assign topic = site.topics | where: "title", post.topic | first %}
+{% assign author = post.author | get_doc %}
+{% assign topic = post.category | get_doc %}
 
 <div class="card">
   <a class="relative" href="{{ post.url }}">
     {% include _media-label.html source=post %}
-    {% if post.image %}
-      <img src="{{ post.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ post.image.title }}" sizes="{{ site.image_sizes.cards_3x }}" data-optimize-img>
-    {% else %}
-      <img src="{{ site.default_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ post.image.title }}" sizes="{{ site.image_sizes.cards_3x }}" data-optimize-img>
-    {% endif %}
+    <img src="{% if post.image %}{{ post.image.url | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ post.image.title }}" sizes="{{ site.image_sizes.cards_3x }}" data-optimize-img>
   </a>
   <p class="text-gray font-size-smaller push-quarter-top flush-bottom"><a href="{{ topic.url }}">{{ topic.title | upcase }}</a></p>
   <a href="{{ post.url }}">

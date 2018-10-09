@@ -19,16 +19,17 @@ paginate:
       {% for author in page.authors.docs %}
         <div class="card">
           <a href="{{ author.url }}">
-            <img class="card-img-top img-responsive" src="{{ author.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_card }}" data-optimize-img>
+            <img class="card-img-top img-responsive" src="{{ author.image.url | imgix: site.imgix }}?{{ site.imgix_params.placeholder_card }}" data-optimize-img>
           </a>
           <div class="card-block">
             <a href="{{ author.url }}">
-              <h4 class="card-title card-title--overlap text-uppercase">{{ author.name }}</h4>
+              <h4 class="card-title card-title--overlap text-uppercase">{{ author.full_name }}</h4>
             </a>
-            <h5 class="card-subtitle">{% include _count.html collection=site.articles key="author" subject=author.name label="article" %}</h5>
-            <h5 class="card-subtitle">{% include _count.html collection=site.podcasts key="authors" subject=author.name label="podcast" %}</h5>
-            <h5 class="card-subtitle">{% include _count.html collection=site.albums key="authors" subject=author.name label="album" %}</h5>
-            <h5 class="card-subtitle">{% include _count.html collection=site.videos key="authors" subject=author.name label="video" %}</h5>
+
+            <h5 class="card-subtitle">{% include _count.html collection=site.articles key="author" subject=author label="article" %}</h5>
+            <h5 class="card-subtitle">{% include _count.html collection=site.podcasts key="authors" subject=author label="podcast" %}</h5>
+            <h5 class="card-subtitle">{% include _count.html collection=site.albums key="authors" subject=author label="album" %}</h5>
+            <h5 class="card-subtitle">{% include _count.html collection=site.videos key="authors" subject=author label="video" %}</h5>
           </div>
         </div>
       {% endfor %}
