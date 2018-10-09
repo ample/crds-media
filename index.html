@@ -98,7 +98,7 @@ paginate:
         </div>
       {% endif %}
 
-      {% if page.podcasts.docs.size != 0 %}
+      {% if site.podcasts.size > 0 %}
         <div class="push-bottom soft-bottom">
           <h2 class="collection-header push-bottom text-gray-light">podcasts</h2>
           {% assign featured = site.ordered_podcasts | first %}
