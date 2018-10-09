@@ -7,21 +7,21 @@ paginate:
       - songs
     per: 12
     limit: 1
-    sort: date desc
+    sort: published_at desc
   podcasts:
     per: 4
     limit: 1
   series:
     per: 4
     limit: 1
-    sort: start_date desc
+    sort: starts_at desc
   commentaries:
     per: 4
     limit: 1
     sort: date desc
 ---
 
-{% assign feature_obj = site.features | where: 'page_path', page.url | first %}
+{% assign feature_obj = site.featured_media | where: 'page_path', page.url | first %}
 {% assign managed_features = feature_obj.docs %}
 
 {% if managed_features.size > 0 %}
@@ -79,8 +79,8 @@ paginate:
           <a class="font-size-small" href="/commentaries">See all commentaries</a>
         </div>
       {% endif %}
-   
-      
+
+
       {% if page.series.docs.size != 0 %}
         <div class="push-bottom soft-bottom">
           <h2 class="collection-header push-bottom text-gray-light">series</h2>
