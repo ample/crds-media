@@ -70,6 +70,9 @@ collections:
     output: false
   sign_offs:
     output: false
+  commentaries:
+    output: true
+    permalink: /:collection/:title
 
 contentful:
   article:
@@ -97,7 +100,6 @@ contentful:
     map:
       date: published_at
   exclude:
-    - commentary
     - location
     - migrations
     - page
