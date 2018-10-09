@@ -1,9 +1,9 @@
 <!-- Signed in markup -->
 <div class="profile text-center" data-bind="visible: is_authenticated">
-  <img class="img-circle img-size-8" alt="profile image" data-bind="attr: { src: profile_image }">
+  <a href="{{ site.shared_header.app }}personal/profile"><img class="img-circle img-size-8" alt="profile image" data-bind="attr: { src: profile_image }"></a>
   <p class="profile-name" data-bind="html: name"></p>
   <ul class="list-unstyled">
-    <li><a href="{{ site.shared_header.app }}profile">My Profile</a></li>
+    <li><a href="{{ site.shared_header.app }}profile/personal">My Profile</a></li>
     <li><a href="{{ site.shared_header.app }}me/giving">Giving History</a></li>
     <li><a href="{{ site.shared_header.app }}serve-signup">Sign Up to Serve</a></li>
     <li><a href="{{ site.shared_header.app }}groups/search/my">My Groups</a></li>
