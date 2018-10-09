@@ -42,12 +42,17 @@
       <span>Close</span>
     </div>
   </button>
-  <a href="{{ site.shared_header.app }}profile/personal">
+  <a href="{{ site.shared_header.app }}signin" data-bind="visible: !is_authenticated()">
     <span>
-      <img class="img-circle img-size-20" alt="profile image" data-bind="attr: { src: profile_image }, visible: is_authenticated">
-      <svg class="icon icon-1" viewBox="0 0 256 256" data-bind="visible: !is_authenticated()">
+      <svg class="icon icon-1" viewBox="0 0 256 256">
         <use xlink:href="/assets/svgs/icons.svg#twitter"></use>
       </svg>
+    </span>
+    <span>Sign in</span>
+  </a>
+  <a href="{{ site.shared_header.app }}profile/personal" data-bind="visible: is_authenticated()">
+    <span>
+      <img class="img-circle img-size-20" alt="profile image" data-bind="attr: { src: profile_image }">
     </span>
     <span>Account</span>
   </a>
