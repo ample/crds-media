@@ -5,6 +5,8 @@ paginate:
     collections:
       - articles
       - songs
+      - messages
+      - episodes
     per: 12
     limit: 1
     sort: date desc
@@ -79,8 +81,7 @@ paginate:
           <a class="font-size-small" href="/commentaries">See all commentaries</a>
         </div>
       {% endif %}
-   
-      
+
       {% if page.series.docs.size != 0 %}
         <div class="push-bottom soft-bottom">
           <h2 class="collection-header push-bottom text-gray-light">series</h2>
