@@ -53,7 +53,7 @@ class CRDS.Header
   set_name: ->
     @log 'set_name()'
     if name = @get_cookie('username')
-      @name name
+      @name decodeURI(name)
     else
       @name undefined
 
