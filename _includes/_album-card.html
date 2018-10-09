@@ -1,10 +1,6 @@
 <div class="card">
   <a href="{{ album.url }}">
-    {% if album.image %}
-      <img src="{{ album.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
-    {% else %}
-      <img src="{{ site.default_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
-    {% endif %}
+    <img src="{% if album.image.url %}{{ album.image.url | imgix: site.imgix }}{% else %}{{ site.default_image }}{% endif %}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.cards_4x }}" data-optimize-img>
   </a>
 
   {% if include.title != false %}

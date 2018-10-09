@@ -13,7 +13,9 @@ title: Podcasts
   <div data-card-deck class="card-deck">
     <div class="cards-2x">
       <div class="row">
-        {% include _podcasts.html limit=site.podcasts.size %}
+        {% for podcast in site.ordered_podcasts %}
+          {% include _podcast-card.html %}
+        {% endfor %}
       </div>
     </div>
   </div>
