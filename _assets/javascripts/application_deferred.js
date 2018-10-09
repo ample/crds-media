@@ -16,5 +16,6 @@
 //= require ./components/tabs
 //= require ./components/track-viewport
 //= require ./components/roll-call
-//= require ./components/dates.js
+//= require ./components/dates
+//= require ./components/menu-squencher
 //= require ./lib/header
