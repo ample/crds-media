@@ -101,12 +101,13 @@ paginate:
       {% if page.podcasts.docs.size != 0 %}
         <div class="push-bottom soft-bottom">
           <h2 class="collection-header push-bottom text-gray-light">podcasts</h2>
-          {% assign featured = page.podcasts.docs | first %}
-          {% assign unfeatured_podcasts = page.podcasts.docs | slice: 1, 3 %}
+          {% assign featured = site.ordered_podcasts | first %}
+          {% assign unfeatured_podcasts = site.ordered_podcasts | slice: 1, 3 %}
+
           {% include _media-object-featured.html media_type="podcast" %}
           <hr>
           {% for media in unfeatured_podcasts %}
-            {% include _media-object.html count="7 episodes" media_type="podcast" %}
+            {% include _media-object.html media_type="podcast" %}
             {% unless forloop.last %}
               <hr>
             {% endunless %}
