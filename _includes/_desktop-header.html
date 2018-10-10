@@ -17,6 +17,8 @@
         </li>
       {% endfor %}
 
+      <li class="list-separator invisible" data-squenchable-item></li>
+
       {% for media in data.media_types %}
         <li class="invisible" data-squenchable-item>
           <a href="{{ media.url }}">{{ media.title }}</a>

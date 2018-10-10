@@ -261,10 +261,19 @@
       }
     }
 
-    [data-squechable-item] {
-      visibility: hidden;
-      &[data-width] {
-        visibility: visible;
+    .dropdown-menu .list-separator {
+      display: none;
+    }
+
+    .list-separator {
+      position: relative;
+      &:before {
+        background-color: $cr-gray-lighter;
+        content: ' ';
+        height: 64px;
+        position: absolute;
+        top: -38px;
+        width: 1px;
       }
     }
 
