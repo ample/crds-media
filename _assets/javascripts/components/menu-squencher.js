@@ -65,5 +65,5 @@
   }
 
   $(document).ready(initSquenchable);
-  $(window).on('resize', _.debounce(run, 150));
+  $(window).on('resize', run);
 })();

@@ -8,7 +8,6 @@
 //= require ./vendor/moment.min
 //= require ./vendor/reactive-auth-v0.0.1.umd
 //= require ./vendor/knockout-3.4.2
-//= require ./vendor/lodash.min
 //= require ./components/clipboard
 //= require ./components/header
 //= require ./components/images
