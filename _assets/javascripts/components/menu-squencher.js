@@ -1,52 +1,69 @@
 (function(){
 
+  var initSquenchable = function() {
+    $('[data-squenchable-item]').each(function(idx, item) {
+      $(item).attr('data-width', Math.ceil($(item).outerWidth()) + 2);
+    });
+    overflowContainer().attr('data-width', Math.ceil(overflowContainer().outerWidth()) + 10);
+    run();
+  }
+
   var run = function() {
+    console.log('--- RUN ---');
     // TODO: This could be moved inside the loop and the itemsWidth() function
     // can be removed.
-    if (remainingWidth() > itemsWidth()) {
-      overflowContainer().addClass('hidden');
-    } else {
-      overflowContainer().removeClass('hidden');
-    }
+    // console.log('>>>', squenchableWidth(), itemsWidth(), '<<<');
+    // if (squenchableWidth() > itemsWidth()) {
+    //   overflowContainer().addClass('hidden');
+    // } else {
+      //   overflowContainer().removeClass('hidden');
+      // }
+
+    overflowContainer().addClass('hidden');
 
     overflowDropzone().html('');
 
-    var availableWidth = remainingWidth() - overflowWidth();
+    var availableWidth = squenchableWidth() - overflowWidth();
 
     $('[data-squenchable-item]').each(function(idx, item) {
-      if (availableWidth > 0) {
-        availableWidth -= $(item).outerWidth();
+      if (availableWidth > $(item).data('width')) {
+        console.log(availableWidth, $(item).data('width'), $(item).text().trim());
+        availableWidth -= $(item).data('width');
         $(item).removeClass('hidden');
       } else {
-        $(item).clone().appendTo(overflowDropzone());
+        availableWidth = 0;
+        console.log('MOVE: ', $(item).text().trim());
+        overflowContainer().removeClass('hidden');
+        var clone = $(item).clone().appendTo(overflowDropzone());
+        clone.removeClass('hidden');
         $(item).addClass('hidden');
       }
     });
   }
 
-  var remainingWidth = function() {
-    return $('[data-squenchable-container]').width();
+  var squenchableWidth = function() {
+    return Math.floor($('[data-squenchable-container]').width());
   }
 
-  var itemsWidth = function() {
-    if ($('[data-squenchable-item]').length == 0) { return 0 }
-    return $('[data-squenchable-item]')
-      .map(function() { return $(this).outerWidth() }).toArray()
-      .reduce(function(total, value) { return total + value });
-  }
+  // var itemsWidth = function() {
+  //   if ($('[data-squenchable-item]').length == 0) { return 0 }
+  //   return $('[data-squenchable-item]')
+  //     .map(function() { return $(this).data('width') }).toArray()
+  //     .reduce(function(total, value) { return total + value });
+  // }
 
   var overflowContainer = function() {
     return $('[data-squenchable-overflow]').first();
   }
 
   var overflowWidth = function() {
-    return overflowContainer().outerWidth();
+    return overflowContainer().data('width');
   }
 
   var overflowDropzone = function() {
     return $(overflowContainer().data('squenchable-overflow')).first();
   }
 
-  $(document).ready(run);
-  $(window).resize(run);
+  $(document).ready(initSquenchable);
+  $(window).on('resize', _.debounce(run, 150));
 })();
