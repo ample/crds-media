@@ -12,22 +12,22 @@
   <div class="media-header-section dropdown-collapse" data-squenchable-container>
     <ul class="list-inline">
       {% for topic in data.topics %}
-        <li data-squenchable-item>
+        <li class="invisible" data-squenchable-item>
           <a href="{{ topic.url }}">{{ topic.title }}</a>
         </li>
       {% endfor %}
 
       {% for media in data.media_types %}
-        <li data-squenchable-item>
+        <li class="invisible" data-squenchable-item>
           <a href="{{ media.url }}">{{ media.title }}</a>
         </li>
       {% endfor %}
 
-      <li data-squenchable-item>
+      <li class="invisible" data-squenchable-item>
         <a href="/">All Media</a>
       </li>
 
-      <li data-squenchable-overflow="[data-squenchable-dropdown]">
+      <li class="invisible" data-squenchable-overflow="[data-squenchable-dropdown]">
         <div class="dropdown">
           <button class="dropdown-toggle" type="button" id="navTopics" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             More

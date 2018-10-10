@@ -261,6 +261,13 @@
       }
     }
 
+    [data-squechable-item] {
+      visibility: hidden;
+      &[data-width] {
+        visibility: visible;
+      }
+    }
+
     @media screen and (min-width: $screen-md) {
       .list-inline > li {
         padding-right: .5rem;
