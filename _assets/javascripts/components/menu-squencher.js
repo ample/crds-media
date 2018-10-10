@@ -2,9 +2,9 @@
 
   var initSquenchable = function() {
     $('[data-squenchable-item]').each(function(idx, item) {
-      $(item).attr('data-width', Math.ceil($(item).outerWidth()) + 2);
+      $(item).attr('data-width', Math.ceil($(item).width()) + 20);
     });
-    overflowContainer().attr('data-width', Math.ceil(overflowContainer().outerWidth()) + 10);
+    overflowContainer().attr('data-width', Math.ceil(overflowContainer().width()) + 20);
     run();
   }
 
