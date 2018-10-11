@@ -19,6 +19,9 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - Guardfile
+  - node_modules
+  - package-lock.json
+  - package.json
   - package.json
   - README.md
   - spec
