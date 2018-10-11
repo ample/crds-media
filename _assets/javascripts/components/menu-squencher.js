@@ -4,7 +4,7 @@
   // However, simply looking at the outer width was still causing overflow
   // problems. Adding an even 20px (accounting for the 16px padding plus 4px
   // extra) seems to work well.
-  var itemPadding = 20;
+  var itemPadding = 28;
 
   /**
    * @function initSquenchable()
