@@ -1,9 +1,9 @@
 <div class="culture-column soft-half-bottom">
   <h5 class="font-family-condensed-extra text-uppercase flush-ends">
     
-    {% if include.media_type == "commentary" %}
-      <a href="/commentaries#{{ featured.slug }}">{{ featured.title }}</a>
-    {% elsif include.media_type == "commentary-more" %}
+    {% if include.media_type == "perspective" %}
+      <a href="/perspectives#{{ featured.slug }}">{{ featured.title }}</a>
+    {% elsif include.media_type == "perspective-more" %}
       <a href="{{ featured.url }}">{{ featured.title }}</a>
     {% endif %}
 

@@ -1,19 +1,19 @@
 ---
 layout: default
-title: Commentaries
+title: Perspectives
 paginate:
-  commentaries:
+  perspectives:
     per: 50
     sort: date desc
 ---
 
 <div data-page="articles">
 
-  {% assign featured_commentaries = page.commentaries.docs | slice: 0, 3 %}
-  {% for item in featured_commentaries %}
+  {% assign featured_perspectives = page.perspectives.docs | slice: 0, 3 %}
+  {% for item in featured_perspectives %}
 
   <article class="article-tpl" id="{{ item.slug }}">
-    <header class="commentary-header" style="position: relative; background-color: rgba(0, 0, 0, 0); background-image: url('{% if item.image.url %}{{ item.image.url | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder }}');"
+    <header class="perspective-header" style="position: relative; background-color: rgba(0, 0, 0, 0); background-image: url('{% if item.image.url %}{{ item.image.url | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder }}');"
       data-optimize-bg-img data-hero-image>
       <div class="bg-overlay"></div>
         <div class="container">
@@ -23,7 +23,7 @@ paginate:
                 {% if forloop.first == true %}
                   <ol class="breadcrumb breadcrumb text-white hard-left">
                     <li><a href="/">Media</a></li>
-                    <li><a href="/commentaries">Commentaries</a></li>
+                    <li><a href="/perspectives">Perspectives</a></li>
                   </ol>
                 {% endif %}
                 <h1 class="text-white flush-top" data-title="">{{ item.title | escape | upcase }}</h1>
@@ -84,7 +84,7 @@ paginate:
 
   {% endfor %}
 
-  <!-- More Commentaries -->
+  <!-- More Perspectives -->
   <div class="container">
     <div class="row">
       <div class="article-tpl col-sm-8 col-sm-offset-2 push-bottom">
@@ -93,9 +93,9 @@ paginate:
             <h3>more fresh perspectives</h3>
           </header>
           <div class="soft-half-top">
-            {% assign limited = site.commentaries | sort: 'published_at' | reverse | slice: 3, 20 %}
+            {% assign limited = site.perspectives | sort: 'published_at' | reverse | slice: 3, 20 %}
             {% for featured in limited limit: 20 %}
-            {% include _media-object-list.html media_type="commentary-more" %}
+            {% include _media-object-list.html media_type="perspective-more" %}
             {% endfor %}
           </div>
         </section>
