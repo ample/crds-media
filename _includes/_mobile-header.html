@@ -79,6 +79,26 @@
   </div>
 
   <ul class="list-unstyled">
+    <li data-bind="visible: is_authenticated">
+      <a class="megamenu-header collapsed" role="button" data-toggle="collapse" href="#megamenu-profile" aria-expanded="false" aria-controls="#megamenu-profile">
+        <img class="img-circle img-size-3 push-half-right" alt="profile image" data-bind="attr: { src: profile_image }">
+        <span data-bind="text: name"></span>
+        <svg class="icon icon-1" viewBox="0 0 256 256">
+          <use xlink:href="/assets/svgs/icons.svg#chevron-right"></use>
+        </svg>
+      </a>
+      <ul class="subnav collapse list-unstyled" id="megamenu-profile">
+        <li><a href="{{ site.shared_header.app }}profile/personal">My Profile</a></li>
+        <li><a href="{{ site.shared_header.app }}me/giving">Giving History</a></li>
+        <li><a href="{{ site.shared_header.app }}serve-signup">Sign Up to Serve</a></li>
+        <li><a href="{{ site.shared_header.app }}groups/search/my">My Groups</a></li>
+        <li><a href="{{ site.shared_header.app }}trips/mytrips">My Trips</a></li>
+        <li><a href="{{ site.shared_header.app }}mycamps">My Students Camps</a></li>
+        <li><a href="{{ site.shared_header.app }}childcare">Childcare</a></li>
+        <li><a href="{{ site.shared_header.app }}signout">Sign Out</a></li>
+      </ul>
+    </li>
+
     <li>
       <a class="megamenu-header collapsed" role="button" data-toggle="collapse" href="#megamenu-crossroads" aria-expanded="false" aria-controls="#megamenu-crossroads">
           Crossroads
