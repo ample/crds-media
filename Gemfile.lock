@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: https://github.com/ample/paging-mister-hyde.git
-  revision: 57e00057075dc5615262b595777f3816fd5bbfa3
+  revision: 742a94fae650a0a93f175f95d70515aaee9a8025
   specs:
     paging-mister-hyde (0.2.0)
       activesupport
