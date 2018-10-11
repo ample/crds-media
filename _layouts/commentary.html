@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Commentaries
 ---
 
 {% assign author = page.author | get_doc %}
@@ -39,11 +40,12 @@ layout: default
       <footer class="col-md-8 col-md-offset-2">
         {% if author %}
           <p class="flush-bottom">
-            Written by
+            by
             <a href="{{ author.url }}" data-author-name>{{ author.full_name | titleize }}</a>
+            <span class="font-size-large"> &#183;</span>
+            <date data-post-date>{{ page.published_at | format_date }}</date>
           </p>
         {% endif %}
-        <date data-post-date>{{ page.published_at | format_date }}</date>
 
         <div class="soft-top">
           {% include _social-share.html %}
@@ -74,9 +76,9 @@ layout: default
           </header>
 
           <div class="soft-half-top">
-            {% assign limited = site.commentaries | sort: 'published_at' | reverse | slice: 0, 4 | exclude: page.title %}
-            {% for featured in limited limit: 10 %}
-              {% include _media-object-list.html media_type="commentary" %}
+            {% assign limited = site.commentaries | sort: 'published_at' | reverse | slice: 0, 20 | exclude: page.title %}
+            {% for featured in limited limit: 20 %}
+              {% include _media-object-list.html media_type="commentary-more" %}
             {% endfor %}
           </div>
         </section>
