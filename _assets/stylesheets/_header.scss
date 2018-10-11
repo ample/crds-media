@@ -339,8 +339,13 @@
       padding: 2rem;
       padding-top: 5rem;
 
-      img {
+      .img-profile {
         border: 1px solid $cr-gray-lighter;
+        display: inline-block;
+        overflow: hidden;
+      }
+
+      img {
         display: block;
         margin: 0 auto;
       }
