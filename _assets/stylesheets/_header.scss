@@ -257,7 +257,15 @@
     }
 
     .dropdown-menu .list-separator {
-      display: none;
+      &:first-child {
+        display: none;
+      }
+      &:before {
+        content: ' ';
+        height: 1px;
+        top: auto;
+        width: 100%;
+      }
     }
 
     .list-separator {
