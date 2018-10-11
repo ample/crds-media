@@ -1,18 +1,18 @@
 media_types:
   - title: Articles
-    url: /articles/
+    url: /articles
 
   - title: Music
-    url: /music/
+    url: /music
 
   - title: Podcasts
-    url: /podcasts/
+    url: /podcasts
 
   - title: Series
-    url: /series/
+    url: /series
 
   - title: Videos
-    url: /videos/
+    url: /videos
 
 topics:
   - title: Culture
