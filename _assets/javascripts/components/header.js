@@ -20,4 +20,10 @@ $(document).ready(function(){
   $myGroup.on('show.bs.collapse','.collapse', function() {
     $myGroup.find('.collapse.in').collapse('hide');
   });
+
+  var loc = window.location.pathname;
+
+  $('.media-header-section').find('a').each(function() {
+    $(this).toggleClass('active', $(this).attr('href') == loc);
+  });
 });
