@@ -1,4 +1,5 @@
 {% assign data = site.data.navigation %}
+{% assign page_url = page.url | split: '/' %}
 
 <header class="media-header">
   <div class="media-header-section">
@@ -12,17 +13,15 @@
   <div class="media-header-section dropdown-collapse" data-squenchable-container>
     <ul class="list-inline">
       {% for topic in data.topics %}
-        <li class="invisible" data-squenchable-item>
-          <a href="{{ topic.url }}">{{ topic.title }}</a>
-        </li>
+      {% assign topic_url = topic.url | split: '/' %}
+      <li class="invisible" data-squenchable-item><a href="{{ topic.url }}" class="{% if topic_url == page_url %}active{% endif %}">{{ topic.title }}</a></li>
       {% endfor %}
 
       <li class="list-separator invisible" data-squenchable-item></li>
 
       {% for media in data.media_types %}
-        <li class="invisible" data-squenchable-item>
-          <a href="{{ media.url }}">{{ media.title }}</a>
-        </li>
+      {% assign media_url = media.url | split: '/' %}
+      <li class="invisible" data-squenchable-item><a href="{{ media.url }}" class="{% if media_url == page_url %}active{% endif %}">{{ media.title }}</a></li>
       {% endfor %}
 
       <li class="invisible" data-squenchable-item>
@@ -86,7 +85,8 @@
       <p class="menu-header">Crossroads</p>
       <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.crossroads %}
-        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}">{{ option.title }}</a></li>
+        {% assign option_url = option.url | split: '/' %}
+        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}" class="{% if option_url == page_url %}active{% endif %}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </div>
@@ -94,7 +94,8 @@
       <p class="menu-header">Media</p>
       <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.media %}
-        <li><a href="{{ option.url }}">{{ option.title }}</a></li>
+        {% assign option_url = option.url | split: '/' %}
+        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}" class="{% if option_url == page_url %}active{% endif %}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </div>
@@ -102,7 +103,8 @@
       <p class="menu-header">Grow</p>
       <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.grow %}
-        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}">{{ option.title }}</a></li>
+        {% assign option_url = option.url | split: '/' %}
+        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}" class="{% if option_url == page_url %}active{% endif %}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </div>
@@ -110,7 +112,8 @@
       <p class="menu-header">Care</p>
       <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.care %}
-        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}">{{ option.title }}</a></li>
+        {% assign option_url = option.url | split: '/' %}
+        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}" class="{% if option_url == page_url %}active{% endif %}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </div>
@@ -118,7 +121,8 @@
       <p class="menu-header">Ministry</p>
       <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.ministry %}
-        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}">{{ option.title }}</a></li>
+        {% assign option_url = option.url | split: '/' %}
+        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}" class="{% if option_url == page_url %}active{% endif %}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </div>
@@ -126,7 +130,8 @@
       <p class="menu-header">Contact</p>
       <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.contact %}
-        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}">{{ option.title }}</a></li>
+        {% assign option_url = option.url | split: '/' %}
+        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}" class="{% if option_url == page_url %}active{% endif %}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </div>

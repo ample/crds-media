@@ -1,4 +1,5 @@
 {% assign data = site.data.navigation %}
+{% assign page_url = page.url | split: '/' %}
 
 <header class="media-header">
   <div>
@@ -11,11 +12,13 @@
   <nav class="secondary-nav">
     <ul class="list-unstyled">
       {% for topic in data.topics %}
-      <li><a href="{{ topic.url }}">{{ topic.title }}</a></li>
+      {% assign topic_url = topic.url | split: '/' %}
+      <li><a href="{{ topic.url }}" class="{% if topic_url == page_url %}active{% endif %}">{{ topic.title }}</a></li>
       {% endfor %}
       <li class="divider" role="separator"></li>
       {% for media in data.media_types %}
-      <li><a href="{{ media.url }}">{{ media.title }}</a></li>
+      {% assign media_url = media.url | split: '/' %}
+      <li><a href="{{ media.url }}" class="{% if media_url == page_url %}active{% endif %}">{{ media.title }}</a></li>
       {% endfor %}
     </ul>
   </nav>

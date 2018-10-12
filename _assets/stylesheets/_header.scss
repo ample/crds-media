@@ -30,7 +30,14 @@
         font-weight: 300;
         padding: 0 1rem;
 
-        &:hover, &:active, &.active {
+        &:active, &.active {
+          &, &:focus {
+            color: $cr-gray-dark;
+            text-decoration: none;
+          }
+        }
+
+        &:hover {
           color: $cr-gray;
           text-decoration: none;
         }
@@ -209,6 +216,13 @@
       &:focus {
         color: $cr-blue;
         text-decoration: none;
+      }
+
+      &:active, &.active {
+        &, &:focus {
+          color: $cr-gray-dark;
+          text-decoration: none;
+        }
       }
     }
 
