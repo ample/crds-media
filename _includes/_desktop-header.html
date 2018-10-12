@@ -10,36 +10,33 @@
     </a>
   </div>
 
-  <div class="media-header-section">
+  <div class="media-header-section dropdown-collapse" data-squenchable-container>
     <ul class="list-inline">
       {% for topic in data.topics %}
       {% assign topic_url = topic.url | split: '/' %}
-      <li><a href="{{ topic.url }}" class="{% if topic_url == page_url %}active{% endif %}">{{ topic.title }}</a></li>
+      <li class="invisible" data-squenchable-item><a href="{{ topic.url }}" class="{% if topic_url == page_url %}active{% endif %}">{{ topic.title }}</a></li>
       {% endfor %}
-    </ul>
-  </div>
 
-  <div class="media-header-section dropdown-collapse">
-    <ul class="list-inline">
-      {% for media in data.media_types limit: 3 %}
+      <li class="list-separator invisible" data-squenchable-item></li>
+
+      {% for media in data.media_types %}
       {% assign media_url = media.url | split: '/' %}
-      <li><a href="{{ media.url }}" class="{% if media_url == page_url %}active{% endif %}">{{ media.title }}</a></li>
+      <li class="invisible" data-squenchable-item><a href="{{ media.url }}" class="{% if media_url == page_url %}active{% endif %}">{{ media.title }}</a></li>
       {% endfor %}
-      <li>
+
+      <li class="invisible" data-squenchable-item>
+        <a href="/">All Media</a>
+      </li>
+
+      <li class="invisible" data-squenchable-overflow="[data-squenchable-dropdown]">
         <div class="dropdown">
           <button class="dropdown-toggle" type="button" id="navTopics" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             More
             <svg class="icon icon-1" viewBox="0 0 256 256">
-              <use xlink:href="/assets/svgs/icons.svg#chevron-down"></use>
+              <use xlink:href="/assets/svgs/icons.svg#chevron-down-thin"></use>
             </svg>
           </button>
-          <ul class="dropdown-menu" aria-labelledby="navTopics">
-            {% for media in data.media_types offset: 3 %}
-            {% assign media_url = media.url | split: '/' %}
-            <li><a href="{{ media.url }}" class="{% if media_url == page_url %}active{% endif %}">{{ media.title }}</a></li>
-            {% endfor %}
-            <li><a href="/">All Media</a></li>
-          </ul>
+          <ul class="dropdown-menu" aria-labelledby="navTopics" data-squenchable-dropdown></ul>
         </div>
       </li>
     </ul>

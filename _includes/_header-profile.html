@@ -1,6 +1,8 @@
 <!-- Signed in markup -->
 <div class="profile text-center" data-bind="visible: is_authenticated">
-  <a href="{{ site.shared_header.app }}profile/personal"><img class="img-circle img-size-8" alt="profile image" data-bind="attr: { src: profile_image }"></a>
+  <a href="{{ site.shared_header.app }}profile/personal" class="img-circle img-size-8 img-profile">
+    <img alt="profile image" data-bind="attr: { src: profile_image }">
+  </a>
   <p class="profile-name" data-bind="text: name"></p>
   <ul class="list-unstyled">
     <li><a href="{{ site.shared_header.app }}profile/personal">My Profile</a></li>

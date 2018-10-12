@@ -209,6 +209,7 @@
 
     a {
       color: $cr-gray-light;
+      font-size: 15px;
       line-height: 1;
 
       &:hover,
@@ -229,6 +230,10 @@
       background: transparent;
       border: 0;
       padding: 0;
+    }
+
+    .dropdown-toggle {
+      height: 24px;
     }
 
     &.dropdown-collapse {
@@ -270,10 +275,34 @@
       }
     }
 
+    .dropdown-menu .list-separator {
+      &:first-child {
+        display: none;
+      }
+      &:before {
+        content: ' ';
+        height: 1px;
+        top: auto;
+        width: 100%;
+      }
+    }
+
+    .list-separator {
+      position: relative;
+      &:before {
+        background-color: $cr-gray-lighter;
+        content: ' ';
+        height: 64px;
+        position: absolute;
+        top: -38px;
+        width: 1px;
+      }
+    }
+
     @media screen and (min-width: $screen-md) {
       .list-inline > li {
-        padding-right: .5rem;
-        padding-left: .5rem;
+        padding-right: .75rem;
+        padding-left: .75rem;
       }
     }
   }
@@ -297,7 +326,7 @@
     }
 
     &.active {
-      background-color: lighten($cr-blue-dark, 10);
+      background-color: $cr-blue-dark;
       border-bottom: 0;
       border-right: 0;
       color: $cr-white;
@@ -319,6 +348,7 @@
       width: 20px;
 
       img {
+        background-color: $cr-white;
         border: 2px solid $cr-white;
         position: absolute;
         height: 20px;
@@ -349,12 +379,17 @@
     }
 
     .profile {
-      background-color: $cr-blue-dark;
+      background-color: #1D3647;
       padding: 2rem;
       padding-top: 5rem;
 
-      img {
+      .img-profile {
         border: 1px solid $cr-gray-lighter;
+        display: inline-block;
+        overflow: hidden;
+      }
+
+      img {
         display: block;
         margin: 0 auto;
       }
@@ -371,7 +406,7 @@
       li {
         a {
           color: $cr-blue-light;
-          font-size: $font-size-small;
+          font-size: 15px;
 
           &:hover {
             color: $cr-white;
@@ -381,7 +416,7 @@
     }
 
     .menu {
-      background-color: lighten($cr-blue-dark, 10);
+      background-color: $cr-blue-dark;
       color: $cr-blue-light;
       display: grid;
       padding: 2rem;
@@ -394,6 +429,7 @@
 
       a {
         color: $cr-blue-light;
+        font-size: 15px;
 
         &:hover {
           color: $cr-white;
@@ -407,10 +443,10 @@
     }
 
     .menu-header {
-      border-bottom: 2px solid rgba($cr-blue, .5);
+      border-bottom: 2px solid #3A5466;
       font-weight: 600;
-      margin-bottom: 1rem;
-      padding-bottom: 1rem;
+      margin-bottom: .5rem;
+      padding-bottom: .5rem;
     }
 
     @media screen and (min-width: $screen-md) {
