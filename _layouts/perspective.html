@@ -6,8 +6,7 @@ layout: default
 
 <article class="article-tpl">
 
-  <header class="perspective-header"
-  style="position: relative; background-color: rgba(0, 0, 0, 0); background-image: url('{% if page.image.url %}{{ page.image.url | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder }}');" data-optimize-bg-img data-hero-image>
+  <header class="perspective-header" style="background-image: url('{% if page.image.url %}{{ page.image.url | imgix: site.imgix }}{% else %}{{ '//crossroads-media.imgix.net/images/type-bg.jpg' | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder }}');" data-optimize-bg-img data-hero-image>
     <div class="bg-overlay"></div>
     <div class="container">
       <div class="row">
@@ -75,8 +74,8 @@ layout: default
           </header>
 
           <div class="soft-half-top">
-            {% assign limited = site.perspectives | sort: 'published_at' | reverse | slice: 0, 20 | exclude: page.title %}
-            {% for featured in limited limit: 20 %}
+            {% assign limited = site.perspectives | sort: 'published_at' | reverse | exclude: page.title | slice: 0, 4  %}
+            {% for featured in limited %}
               {% include _media-object-list.html media_type="perspective-more" %}
             {% endfor %}
           </div>

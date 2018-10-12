@@ -18,7 +18,7 @@ paginate:
     limit: 1
     sort: starts_at desc
   perspectives:
-    per: 4
+    per: 3
     limit: 1
     sort: date desc
 ---
@@ -74,8 +74,7 @@ paginate:
       {% if page.perspectives.docs.size != 0 %}
         <div class="push-bottom soft-bottom">
           <h2 class="collection-header push-bottom text-gray-light">another perspective</h2>
-          {% assign featured_perspectives = page.perspectives.docs | slice: 0, 3 %}
-          {% for featured in featured_perspectives %}
+          {% for featured in page.perspectives.docs %}
             {% include _media-object-list.html media_type="perspective" %}
           {% endfor %}
           <a class="font-size-small" href="/perspectives">see all</a>
