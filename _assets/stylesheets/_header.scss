@@ -217,6 +217,10 @@
       padding: 0;
     }
 
+    .dropdown-toggle {
+      height: 24px;
+    }
+
     &.dropdown-collapse {
       flex: 1 1 auto;
 
@@ -253,6 +257,30 @@
 
       &:hover {
         color: $cr-blue;
+      }
+    }
+
+    .dropdown-menu .list-separator {
+      &:first-child {
+        display: none;
+      }
+      &:before {
+        content: ' ';
+        height: 1px;
+        top: auto;
+        width: 100%;
+      }
+    }
+
+    .list-separator {
+      position: relative;
+      &:before {
+        background-color: $cr-gray-lighter;
+        content: ' ';
+        height: 64px;
+        position: absolute;
+        top: -38px;
+        width: 1px;
       }
     }
 
