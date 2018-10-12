@@ -6,8 +6,7 @@ layout: default
 
 <article class="article-tpl">
 
-  <header class="commentary-header"
-  style="position: relative; background-color: rgba(0, 0, 0, 0); background-image: url('{% if page.image.url %}{{ page.image.url | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder }}');" data-optimize-bg-img data-hero-image>
+  <header class="perspective-header" style="background-image: url('{% if page.image.url %}{{ page.image.url | imgix: site.imgix }}{% else %}{{ '//crossroads-media.imgix.net/images/type-bg.jpg' | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder }}');" data-optimize-bg-img data-hero-image>
     <div class="bg-overlay"></div>
     <div class="container">
       <div class="row">
@@ -15,7 +14,7 @@ layout: default
           <div class="episode-header">
             <ol class="breadcrumb text-white hard-left">
               <li><a href="/">Media</a></li>
-              <li><a href="/commentaries">Commentaries</a></li>
+              <li><a href="/perspectives">Perspectives</a></li>
             </ol>
             <h1 class="text-white flush-top" data-title="">{{ page.title | escape | upcase }}</h1>
             <p class="flush-bottom soft-half-top">
@@ -39,11 +38,12 @@ layout: default
       <footer class="col-md-8 col-md-offset-2">
         {% if author %}
           <p class="flush-bottom">
-            Written by
+            by
             <a href="{{ author.url }}" data-author-name>{{ author.full_name | titleize }}</a>
+            <span class="font-size-large"> &#183;</span>
+            <date data-post-date>{{ page.published_at | format_date }}</date>
           </p>
         {% endif %}
-        <date data-post-date>{{ page.published_at | format_date }}</date>
 
         <div class="soft-top">
           {% include _social-share.html %}
@@ -69,14 +69,14 @@ layout: default
 
         <section class="soft-top">
           <header class="more-media-header">
-            <h3>more fresh perspectives</h3>
-            <a class="font-size-small" href="/commentaries">See all commentaries</a>
+            <h3>more perspectives</h3>
+            <a class="font-size-small" href="/perspectives">see all</a>
           </header>
 
           <div class="soft-half-top">
-            {% assign limited = site.commentaries | sort: 'published_at' | reverse | slice: 0, 4 | exclude: page.title %}
-            {% for featured in limited limit: 10 %}
-              {% include _media-object-list.html media_type="commentary" %}
+            {% assign limited = site.perspectives | sort: 'published_at' | reverse | exclude: page.title | slice: 0, 4  %}
+            {% for featured in limited %}
+              {% include _media-object-list.html media_type="perspective-more" %}
             {% endfor %}
           </div>
         </section>
