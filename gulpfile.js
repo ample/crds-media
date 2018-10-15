@@ -31,6 +31,8 @@ gulp.task('css', ['purgecss'], function() {
   return;
 });
 
+// TODO: Add CSS watch task
+
 // gulp.task('sass:watch', function () {
 //   gulp.watch('./sass/**/*.scss', ['sass']);
 // });
@@ -63,30 +65,4 @@ gulp.task('js', jsTasks, function() {
   return
 });
 
-// gulp.task('babel', ['coffee'], function() {
-//   return gulp.src([
-//       '_assets/javascripts/components/*.js',
-//     ])
-//     .pipe(concat('manifest.js'))
-//     .pipe(babel({
-//       presets: ['@babel/env']
-//     }))
-//     .pipe(gulp.dest('_assets/javascripts/tmp'))
-// });
-
-// gulp.task('babel', ['coffee'], function() {
-//   return gulp.src([
-//       '_assets/javascripts/**/*.js',
-//       '!_assets/javascripts/tmp/**/*',
-//       '!_assets/javascripts/application*.js',
-//       '!_assets/javascripts/preview*.js'
-//     ])
-//     .pipe(babel({
-//       presets: [
-//         ['@babel/env', {
-//           modules: false
-//         }]
-//       ]
-//     }))
-//     .pipe(gulp.dest('_assets/javascripts/tmp'))
-// });
+// TODO: Add JS watch task
