@@ -16,23 +16,22 @@ excerpt: "Our thoughts on culture."
   {% for item in page.perspectives.offset %}
 
   <article class="article-tpl" id="{{ item.slug }}">
-    <header class="perspective-header" style="background-image: url('{% if item.image.url %}{{ item.image.url | imgix: site.imgix }}{% else %}{{ '//crossroads-media.imgix.net/images/type-bg.jpg' | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder }}');"
-      data-optimize-bg-img data-hero-image>
+    <header class="perspective-header" style="background-image: url('{% if item.image.url %}{{ item.image.url | imgix: site.imgix }}{% else %}{{ '//crossroads-media.imgix.net/images/type-bg.jpg' | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img data-hero-image>
       <div class="bg-overlay"></div>
       <div class="container">
         <div class="row" data-page-number="{{ item.articles.page }}">
           <div class="col-sm-8 col-sm-offset-2">
             <div class="episode-header">
               {% if forloop.first == true %}
-                <ol class="breadcrumb breadcrumb text-white hard-left">
-                  <li><a href="/">Media</a></li>
-                  <li><a href="/perspectives">Perspectives</a></li>
-                </ol>
+              <ol class="breadcrumb breadcrumb text-white hard-left">
+                <li><a href="/">Media</a></li>
+                <li><a href="/perspectives">Perspectives</a></li>
+              </ol>
               {% endif %}
               <h1 class="text-white flush-top" data-title="">{{ item.title | escape | upcase }}</h1>
               <p class="flush-bottom soft-half-top">
                 <span class="read-time font-size-smaller push-quarter-ends">
-                  <time is="time-ago" datetime="{{ item.published_at | date: "%FT%T%z" }}" title="{{ item.published_at | date: "%FT%T%z" }}"></time>
+                  <time is="time-ago" datetime="{{ item.published_at | date: '%FT%T%z' }}" title="{{ item.published_at | date: '%FT%T%z' }}"></time>
                 </span>
               </p>
             </div>
@@ -76,10 +75,10 @@ excerpt: "Our thoughts on culture."
             </ul>
           </div>
           {% endif %}
-    
+
           <!-- Tags -->
           {% include _tags_list.html tags=item.tags %}
-    
+
         </footer>
       </div>
     </div>

@@ -5,8 +5,7 @@ layout: default
 {% assign author = page.author | get_doc %}
 
 <article class="article-tpl">
-
-  <header class="perspective-header" style="background-image: url('{% if page.image.url %}{{ page.image.url | imgix: site.imgix }}{% else %}{{ '//crossroads-media.imgix.net/images/type-bg.jpg' | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder }}');" data-optimize-bg-img data-hero-image>
+  <header class="perspective-header" style="background-image: url('{% if page.image.url %}{{ page.image.url | imgix: site.imgix }}{% else %}{{ '//crossroads-media.imgix.net/images/type-bg.jpg' | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img data-hero-image>
     <div class="bg-overlay"></div>
     <div class="container">
       <div class="row">
@@ -19,7 +18,7 @@ layout: default
             <h1 class="text-white flush-top" data-title="">{{ page.title | escape | upcase }}</h1>
             <p class="flush-bottom soft-half-top">
               <span class="read-time font-size-smaller push-quarter-ends">
-                <time is="time-ago" datetime="{{ page.published_at | date: "%FT%T%z" }}" title="{{ page.published_at | date: "%FT%T%z" }}"></time>
+                <time is="time-ago" datetime="{{ page.published_at | date: '%FT%T%z' }}" title="{{ page.published_at | date: '%FT%T%z' }}"></time>
               </span>
             </p>
           </div>
@@ -30,19 +29,18 @@ layout: default
 
   <div class="container">
     <div class="row">
-
       <main class="col-md-8 col-md-offset-2">
         {{ page.body | markdownify }}
       </main>
 
       <footer class="col-md-8 col-md-offset-2">
         {% if author %}
-          <p class="flush-bottom">
-            by
-            <a href="{{ author.url }}" data-author-name>{{ author.full_name | titleize }}</a>
-            <span class="font-size-large"> &#183;</span>
-            <date data-post-date>{{ page.published_at | format_date }}</date>
-          </p>
+        <p class="flush-bottom">
+          by
+          <a href="{{ author.url }}" data-author-name>{{ author.full_name | titleize }}</a>
+          <span class="font-size-large"> &#183;</span>
+          <date data-post-date>{{ page.published_at | format_date }}</date>
+        </p>
         {% endif %}
 
         <div class="soft-top">
@@ -52,16 +50,16 @@ layout: default
         <!-- Topic -->
         {% assign topic = page.category | get_doc %}
         {% if topic %}
-          <div class="keywords">
-            <p class="flush-bottom soft-top">
-              <strong>Topic</strong>
-            </p>
-            <ul class="list-inline">
-              <li>
-                <a href="{{ topic.url }}">{{ topic.title }}</a>
-              </li>
-            </ul>
-          </div>
+        <div class="keywords">
+          <p class="flush-bottom soft-top">
+            <strong>Topic</strong>
+          </p>
+          <ul class="list-inline">
+            <li>
+              <a href="{{ topic.url }}">{{ topic.title }}</a>
+            </li>
+          </ul>
+        </div>
         {% endif %}
 
         <!-- Tags -->
@@ -80,12 +78,7 @@ layout: default
             {% endfor %}
           </div>
         </section>
-
       </footer>
-
-    </div>
-
     </div>
   </div>
-
 </article>
