@@ -1,7 +1,6 @@
 const gulp = require('gulp');
 
 const babel = require('gulp-babel');
-var coffee = require('gulp-coffee');
 var concat = require('gulp-concat');
 const exec = require('child_process').exec;
 const sass = require('gulp-sass');
@@ -91,14 +90,3 @@ gulp.task('js', jsTasks, function() {
 //     }))
 //     .pipe(gulp.dest('_assets/javascripts/tmp'))
 // });
-
-gulp.task('coffee', function() {
-  return gulp.src([
-      '_assets/javascripts/**/*.coffee',
-      '!_assets/javascripts/**/*.js'
-    ])
-    .pipe(coffee({
-      bare: true
-    }))
-    .pipe(gulp.dest('_assets/javascripts'))
-});
