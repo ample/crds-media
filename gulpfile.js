@@ -2,8 +2,7 @@
 
 const gulp = require('gulp');
 
-const cleanCss = require('gulp-clean-css');
-const run = require('gulp-run-command').default;
+const exec = require('child_process').exec;
 const sass = require('gulp-sass');
 const tildeImporter = require('node-sass-tilde-importer');
 
@@ -18,21 +17,20 @@ const cssFilePath = assetPath('application.css');
 gulp.task('sass', function() {
   return gulp.src('_assets/stylesheets/application.scss')
     .pipe(sass({
-      importer: tildeImporter
+      importer: tildeImporter,
+      outputStyle: 'compressed'
     }))
     .pipe(gulp.dest(assetDir));
 });
 
-gulp.task('purgecss', run(`purgecss --config ./purgecss.config.json --out ${assetDir}`));
-
-gulp.task('minify-css', function() {
-  return gulp.src(cssFilePath)
-    .pipe(cleanCss({
-      compatibility: '*'
-    }))
-    .pipe(gulp.dest(assetDir));
+gulp.task('purgecss', ['sass'], function() {
+  exec(`purgecss --config ./purgecss.config.json --out ${assetDir}`, function(err) {
+    if (err) return console.error(err);
+    return;
+  });
 });
 
+gulp.task('css', ['purgecss'], function() { return });
 
 // gulp.task('sass:watch', function () {
 //   gulp.watch('./sass/**/*.scss', ['sass']);
