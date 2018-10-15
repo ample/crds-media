@@ -1,8 +1,14 @@
 {
   "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
     "crds-styles": "^3.0.6",
     "gulp": "^3.9.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-coffee": "^3.0.2",
+    "gulp-concat": "^2.6.1",
     "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^3.0.1",
     "node-sass-tilde-importer": "^1.0.2"
   }
 }
