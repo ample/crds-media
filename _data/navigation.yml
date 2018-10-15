@@ -1,0 +1,131 @@
+media_types:
+  - title: Articles
+    url: /articles
+
+  - title: Music
+    url: /music
+
+  - title: Podcasts
+    url: /podcasts
+
+  - title: Series
+    url: /series
+
+  - title: Videos
+    url: /videos
+
+topics:
+  - title: Culture
+    url: /topics/culture
+
+  - title: Faith
+    url: /topics/faith
+
+  - title: Family
+    url: /topics/family
+
+  - title: Finance
+    url: /topics/finance
+
+  - title: Relationships
+    url: /topics/relationships
+
+megamenu:
+  crossroads:
+    - title: Home
+      url: /
+
+    - title: Serve
+      url: /serve
+
+    - title: Give
+      url: /giving
+
+    - title: Updates
+      url: /updates
+
+    - title: Locations
+      url: /locations
+
+  media:
+    - title: All Media
+      url: /
+
+    - title: Series
+      url: /series
+
+    - title: Music
+      url: /music
+
+    - title: Videos
+      url: /videos
+
+    - title: Articles
+      url: /articles
+
+    - title: Podcasts
+      url: /podcasts
+
+    - title: Topics
+      url: /topics
+
+  grow:
+    - title: Get Started
+      url: /getstarted
+
+    - title: Groups
+      url: /groups
+
+    - title: Serving Opportunities
+      url: /serve
+
+    - title: GO Somewhere
+      url: /reachout/go
+
+    - title: The Chaser
+      url: /the-chaser
+
+    - title: See who is nearby
+      url: /connect
+
+    - title: Put yourself on the map
+      url: /connect
+
+  care:
+    - title: Weddings
+      url: /care/weddings
+
+    - title: Counselors
+      url: /care/counselors
+
+    - title: Funerals
+      url: /care/funerals
+
+    - title: Prayer
+      url: /prayer
+
+  ministry:
+    - title: Kids' Club
+      url: /anywhere-resources/kids-club
+
+    - title: Students 6-12th
+      url: /studentministry
+
+    - title: ReachOut
+      url: /reachout
+
+    - title: Community Care
+      url: /care/communitycare/
+
+    - title: First Impressions
+      url: /firstimpressions
+
+  contact:
+    - title: Ask a Question
+      url: /frequentquestions
+
+    - title: Staff Contacts
+      url: /contactus
+
+    - title: Prayer Requests
+      url: /prayer

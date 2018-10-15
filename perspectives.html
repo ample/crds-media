@@ -1,0 +1,114 @@
+---
+layout: default
+title: Perspectives
+image:
+  url: "//crossroads-media.s3.amazonaws.com/images/another-perspective-social.jpg"
+paginate:
+  perspectives:
+    offset: 3
+    per: 10
+    sort: date desc
+excerpt: "Our thoughts on culture."
+---
+
+<div data-page="articles">
+
+  {% for item in page.perspectives.offset %}
+
+  <article class="article-tpl" id="{{ item.slug }}">
+    <header class="perspective-header" style="background-image: url('{% if item.image.url %}{{ item.image.url | imgix: site.imgix }}{% else %}{{ '//crossroads-media.imgix.net/images/type-bg.jpg' | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder }}');"
+      data-optimize-bg-img data-hero-image>
+      <div class="bg-overlay"></div>
+      <div class="container">
+        <div class="row" data-page-number="{{ item.articles.page }}">
+          <div class="col-sm-8 col-sm-offset-2">
+            <div class="episode-header">
+              {% if forloop.first == true %}
+                <ol class="breadcrumb breadcrumb text-white hard-left">
+                  <li><a href="/">Media</a></li>
+                  <li><a href="/perspectives">Perspectives</a></li>
+                </ol>
+              {% endif %}
+              <h1 class="text-white flush-top" data-title="">{{ item.title | escape | upcase }}</h1>
+              <p class="flush-bottom soft-half-top">
+                <span class="read-time font-size-smaller push-quarter-ends">
+                  <time is="time-ago" datetime="{{ item.published_at | date: "%FT%T%z" }}" title="{{ item.published_at | date: "%FT%T%z" }}"></time>
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+    
+        <main class="col-md-8 col-md-offset-2">
+          {{ item.body | markdownify }}
+        </main>
+    
+        <footer class="col-md-8 col-md-offset-2 push-bottom">
+          {% if item.author %}
+          <p class="flush-bottom">
+            by
+            <a href="{{ item.author.url }}" data-author-name>{{ item.author.full_name | titleize }}</a>
+            <span class="font-size-large"> &#183;</span>
+            <date data-post-date>{{ item.published_at | format_date }}</date>
+          </p>
+          {% endif %}
+    
+          <div class="soft-top">
+            {% include _social-share.html %}
+          </div>
+    
+          <!-- Topic -->
+          {% assign topic = item.category | get_doc %}
+          {% if topic %}
+          <div class="keywords">
+            <p class="flush-bottom soft-top">
+              <strong>Topic</strong>
+            </p>
+            <ul class="list-inline">
+              <li>
+                <a href="{{ topic.url }}">{{ topic.title }}</a>
+              </li>
+            </ul>
+          </div>
+          {% endif %}
+    
+          <!-- Tags -->
+          {% include _tags_list.html tags=item.tags %}
+    
+        </footer>
+      </div>
+    </div>
+  </article>
+
+  {% endfor %}
+
+  <!-- More Perspectives -->
+  <div class="container">
+    <div class="row">
+      <div class="article-tpl col-sm-8 col-sm-offset-2 push-bottom" >
+        <section class="soft-top" data-page="perspectives">
+          <header class="more-media-header push-bottom">
+            <h3>more another perspectives</h3>
+          </header>
+          <div data-page-number="{{ page.perspectives.page }}">
+            {% for featured in page.perspectives.docs %}
+              {% include _media-object-list.html media_type="perspective-more" %}
+            {% endfor %}
+          </div>
+        <div class="loading hide">
+          {% include _preloader.html %}
+        </div>
+        </section>
+        <div class="push-top">
+          {% include _pagination.html collection="perspectives" remote=true label="" %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

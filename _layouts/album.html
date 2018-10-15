@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div class="media-music-album">
-  <div class="jumbotron jumbotron-xl" style="background-image: url('{{ page.bg_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
+  <div class="jumbotron jumbotron-xl" style="background-image: url('{{ page.bg_image.url | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
     <div class="bg-overlay"></div>
     <div class="jumbotron-content">
       <div class="container">
@@ -11,7 +11,7 @@ layout: default
           <div class="col-sm-8 col-sm-offset-2 text-left md-text-center">
             <!-- album image -->
             <div class="album-artwork">
-              <img class="img-full-width" src="{{ page.image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.song_artwork }}" data-optimize-img>
+              <img class="img-full-width" src="{{ page.image.url | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.song_artwork }}" data-optimize-img>
             </div>
 
             <!-- breadcrumb navigation -->

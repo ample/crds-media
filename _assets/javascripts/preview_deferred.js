@@ -8,3 +8,4 @@
 //= require ./components/header
 //= require ./components/images
 //= require ./components/preview
+//= require ./components/menu-squencher

@@ -5,19 +5,25 @@ paginate:
     collections:
       - articles
       - songs
+      - messages
+      - episodes
     per: 12
     limit: 1
-    sort: date desc
+    sort: published_at desc
   podcasts:
     per: 4
     limit: 1
   series:
     per: 4
     limit: 1
-    sort: start_date desc
+    sort: starts_at desc
+  perspectives:
+    per: 3
+    limit: 1
+    sort: date desc
 ---
 
-{% assign feature_obj = site.features | where: 'page_path', page.url | first %}
+{% assign feature_obj = site.featured_media | where: 'page_path', page.url | first %}
 {% assign managed_features = feature_obj.docs %}
 
 {% if managed_features.size > 0 %}
@@ -64,6 +70,17 @@ paginate:
       {% endif %}
     </div>
     <div class="col-md-4">
+
+      {% if page.perspectives.docs.size != 0 %}
+        <div class="push-bottom soft-bottom">
+          <h2 class="collection-header push-bottom text-gray-light">another perspective</h2>
+          {% for featured in page.perspectives.docs %}
+            {% include _media-object-list.html media_type="perspective" %}
+          {% endfor %}
+          <a class="font-size-small" href="/perspectives">see all</a>
+        </div>
+      {% endif %}
+
       {% if page.series.docs.size != 0 %}
         <div class="push-bottom soft-bottom">
           <h2 class="collection-header push-bottom text-gray-light">series</h2>
@@ -81,15 +98,16 @@ paginate:
         </div>
       {% endif %}
 
-      {% if page.podcasts.docs.size != 0 %}
+      {% if site.podcasts.size > 0 %}
         <div class="push-bottom soft-bottom">
           <h2 class="collection-header push-bottom text-gray-light">podcasts</h2>
-          {% assign featured = page.podcasts.docs | first %}
-          {% assign unfeatured_podcasts = page.podcasts.docs | slice: 1, 3 %}
+          {% assign featured = site.ordered_podcasts | first %}
+          {% assign unfeatured_podcasts = site.ordered_podcasts | slice: 1, 3 %}
+
           {% include _media-object-featured.html media_type="podcast" %}
           <hr>
           {% for media in unfeatured_podcasts %}
-            {% include _media-object.html count="7 episodes" media_type="podcast" %}
+            {% include _media-object.html media_type="podcast" %}
             {% unless forloop.last %}
               <hr>
             {% endunless %}

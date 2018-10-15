@@ -17,7 +17,8 @@ module Jekyll
         def init_tags
           begin
             # Gather an array of tag names from the video collection docs.
-            video_tag_names = site.collections['videos'].docs.collect { |d| d.data['tags'] }.flatten.uniq.sort
+            videos = site.collections['videos'].docs
+            video_tag_names = videos.collect { |d| d.data['tags'].collect { |t| t['title'] } }.flatten.uniq.sort
 
             # Filter out only those tags that can act as video collections.
             @featureable_tags = @site.collections['tags'].docs.select { |t|
