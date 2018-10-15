@@ -42,11 +42,10 @@ excerpt: "Our thoughts on culture."
 
     <div class="container">
       <div class="row">
-    
         <main class="col-md-8 col-md-offset-2">
           {{ item.body | markdownify }}
         </main>
-    
+
         <footer class="col-md-8 col-md-offset-2 push-bottom">
           {% if item.author %}
           <p class="flush-bottom">
@@ -56,11 +55,11 @@ excerpt: "Our thoughts on culture."
             <date data-post-date>{{ item.published_at | format_date }}</date>
           </p>
           {% endif %}
-    
+
           <div class="soft-top">
             {% include _social-share.html %}
           </div>
-    
+
           <!-- Topic -->
           {% assign topic = item.category | get_doc %}
           {% if topic %}
