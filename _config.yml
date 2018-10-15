@@ -74,7 +74,7 @@ collections:
     output: false
   sign_offs:
     output: false
-  commentaries:
+  perspectives:
     output: true
     permalink: /:collection/:title
 
@@ -103,9 +103,11 @@ contentful:
   video:
     map:
       date: published_at
-  commentary:
+  perspective:
     map:
       date: published_at
+    exclude:
+      - category
   exclude:
     - location
     - migrations
@@ -169,9 +171,9 @@ defaults:
       layout: song
   - scope:
       path: ""
-      type: commentaries
+      type: perspectives
     values:
-      layout: commentary
+      layout: perspective
 
 assets:
   source_maps: true # false on JEKYLL_ENV=production
