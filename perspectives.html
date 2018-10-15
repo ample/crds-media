@@ -50,7 +50,7 @@ excerpt: "Our thoughts on culture."
           {% if item.author %}
           <p class="flush-bottom">
             by
-            <a href="{{ item.author.url }}" data-author-name>{{ item.author.full_name | titleize }}</a>
+            <a href="/authors/{{ item.author.slug }}" data-author-name>{{ item.author.full_name | titleize }}</a>
             <span class="font-size-large"> &#183;</span>
             <date data-post-date>{{ item.published_at | format_date }}</date>
           </p>
