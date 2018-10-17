@@ -86,7 +86,7 @@
       <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.crossroads %}
         {% assign option_url = option.url | split: '/' %}
-        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}" class="{% if option_url == page_url %}active{% endif %}">{{ option.title }}</a></li>
+        <li><a href="{{ option.url | replace: '(CRDS_DOMAIN)', site.crds_domain }}" class="{% if option_url == page_url %}active{% endif %}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </div>
@@ -95,7 +95,7 @@
       <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.media %}
         {% assign option_url = option.url | split: '/' %}
-        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}" class="{% if option_url == page_url %}active{% endif %}">{{ option.title }}</a></li>
+        <li><a href="{{ option.url | replace: '(CRDS_DOMAIN)', site.crds_domain }}" class="{% if option_url == page_url %}active{% endif %}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </div>
@@ -104,7 +104,7 @@
       <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.grow %}
         {% assign option_url = option.url | split: '/' %}
-        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}" class="{% if option_url == page_url %}active{% endif %}">{{ option.title }}</a></li>
+        <li><a href="{{ option.url | replace: '(CRDS_DOMAIN)', site.crds_domain }}" class="{% if option_url == page_url %}active{% endif %}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </div>
@@ -113,7 +113,7 @@
       <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.care %}
         {% assign option_url = option.url | split: '/' %}
-        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}" class="{% if option_url == page_url %}active{% endif %}">{{ option.title }}</a></li>
+        <li><a href="{{ option.url | replace: '(CRDS_DOMAIN)', site.crds_domain }}" class="{% if option_url == page_url %}active{% endif %}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </div>
@@ -122,7 +122,7 @@
       <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.ministry %}
         {% assign option_url = option.url | split: '/' %}
-        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}" class="{% if option_url == page_url %}active{% endif %}">{{ option.title }}</a></li>
+        <li><a href="{{ option.url | replace: '(CRDS_DOMAIN)', site.crds_domain }}" class="{% if option_url == page_url %}active{% endif %}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </div>
@@ -131,7 +131,7 @@
       <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.contact %}
         {% assign option_url = option.url | split: '/' %}
-        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}" class="{% if option_url == page_url %}active{% endif %}">{{ option.title }}</a></li>
+        <li><a href="{{ option.url | replace: '(CRDS_DOMAIN)', site.crds_domain }}" class="{% if option_url == page_url %}active{% endif %}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </div>
