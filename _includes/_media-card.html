@@ -12,8 +12,11 @@
     {% else %}
       {% include _media-label.html source=card content_type=include.content_type %}
     {% endif %}
-    {% if card.image.url %}
-      <img src="{{ card.image.url | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>
+
+    {% assign image = card.image %}
+    {% if card.content_type == 'episode' %}{% assign image = card.podcast.image %}{% endif %}
+    {% if image.url %}
+      <img src="{{ image.url | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>
     {% else %}
       <img src="{{ site.default_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>
     {% endif %}

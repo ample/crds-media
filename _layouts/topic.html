@@ -30,7 +30,9 @@ layout: default_footer_flush
           <div>
             <a href="{{ item.url }}">
               <div class="image">
-                <img src="{% if item.image.url %}{{ item.image.url | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ post.image.title }}" sizes="{{ site.image_sizes.cards_3x }}" data-optimize-img>
+                {% assign image = item.image %}
+                {% if item.content_type == 'episode' %}{% assign image = item.podcast.image %}{% endif %}
+                <img src="{% if image.url %}{{ image.url | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ image.title }}" sizes="{{ site.image_sizes.cards_3x }}" data-optimize-img>
                 {% include _media-label.html source=item %}
               </div>
               <div class="topic soft-quarter-top">{{ page.title }}</div>

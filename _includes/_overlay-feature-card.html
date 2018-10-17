@@ -2,10 +2,12 @@
 {% comment %}
 // This assures the songs content type uses the background image instead of the thumbnail image like all other content types.
 {% endcomment %}
-{% assign handle = item.collection %}
+{% assign handle = item.content_type %}
 {% case handle %}
-  {% when 'songs' %}
+  {% when 'song' %}
      {% assign image_source = item.bg_image.url %}
+  {% when 'episode' %}
+     {% assign image_source = item.podcast.image.url %}
   {% else %}
      {% assign image_source = item.image.url %}
 {% endcase %}
