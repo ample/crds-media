@@ -1,0 +1,131 @@
+media_types:
+  - title: Articles
+    url: /articles
+
+  - title: Music
+    url: /music
+
+  - title: Podcasts
+    url: /podcasts
+
+  - title: Series
+    url: /series
+
+  - title: Videos
+    url: /videos
+
+topics:
+  - title: Culture
+    url: /topics/culture
+
+  - title: Faith
+    url: /topics/faith
+
+  - title: Family
+    url: /topics/family
+
+  - title: Finance
+    url: /topics/finance
+
+  - title: Relationships
+    url: /topics/relationships
+
+megamenu:
+  crossroads:
+    - title: Home
+      url: (CRDS_DOMAIN)
+
+    - title: Serve
+      url: (CRDS_DOMAIN)/serve
+
+    - title: Give
+      url: (CRDS_DOMAIN)/giving
+
+    - title: Updates
+      url: (CRDS_DOMAIN)/updates
+
+    - title: Locations
+      url: (CRDS_DOMAIN)/locations
+
+  media:
+    - title: All Media
+      url: /
+
+    - title: Series
+      url: /series
+
+    - title: Music
+      url: /music
+
+    - title: Videos
+      url: /videos
+
+    - title: Articles
+      url: /articles
+
+    - title: Podcasts
+      url: /podcasts
+
+    - title: Topics
+      url: /topics
+
+  grow:
+    - title: Get Started
+      url: (CRDS_DOMAIN)/getstarted
+
+    - title: Groups
+      url: (CRDS_DOMAIN)/groups
+
+    - title: Serving Opportunities
+      url: (CRDS_DOMAIN)/serve
+
+    - title: GO Somewhere
+      url: (CRDS_DOMAIN)/reachout/go
+
+    - title: The Chaser
+      url: (CRDS_DOMAIN)/the-chaser
+
+    - title: See who is nearby
+      url: (CRDS_DOMAIN)/connect
+
+    - title: Put yourself on the map
+      url: (CRDS_DOMAIN)/connect
+
+  care:
+    - title: Weddings
+      url: (CRDS_DOMAIN)/care/weddings
+
+    - title: Counselors
+      url: (CRDS_DOMAIN)/care/counselors
+
+    - title: Funerals
+      url: (CRDS_DOMAIN)/care/funerals
+
+    - title: Prayer
+      url: (CRDS_DOMAIN)/prayer
+
+  ministry:
+    - title: Kids' Club
+      url: (CRDS_DOMAIN)/anywhere-resources/kids-club
+
+    - title: Students 6-12th
+      url: (CRDS_DOMAIN)/studentministry
+
+    - title: ReachOut
+      url: (CRDS_DOMAIN)/reachout
+
+    - title: Community Care
+      url: (CRDS_DOMAIN)/care/communitycare/
+
+    - title: First Impressions
+      url: (CRDS_DOMAIN)/firstimpressions
+
+  contact:
+    - title: Ask a Question
+      url: (CRDS_DOMAIN)/frequentquestions
+
+    - title: Staff Contacts
+      url: (CRDS_DOMAIN)/contactus
+
+    - title: Prayer Requests
+      url: (CRDS_DOMAIN)/prayer

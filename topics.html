@@ -13,9 +13,9 @@ title: Topics
   </h1>
 
   <div class="topic-card-deck">
-    {% for topic in site.topics %}
+    {% for topic in site.categories %}
       <div class="topic-card-sizer"></div>
-      <div class="topic-card" style="background-image:url('{% if topic.image %}{{ topic.image | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}');">
+      <div class="topic-card" style="background-image:url('{% if topic.image.url %}{{ topic.image.url | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}');">
         <div class="bg-overlay"></div>
         <div class="topic-card-content">
           <a class="topic-card-link link-icon font-family-base-mid" href="{{ topic.url }}">

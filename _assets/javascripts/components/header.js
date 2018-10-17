@@ -1,12 +1,19 @@
 $(document).ready(function(){
-  var options = {
-    cmsEndpoint: CRDS.media.cms,
-    appEndpoint: CRDS.media.app,
-    imgEndpoint: CRDS.media.img,
-    crdsCookiePrefix: CRDS.media.prefix
-  };
-  var header = new CRDS.SharedHeader(options);
-      header.render();
+  $("[data-menu-trigger]").mouseup(function () {
+    $(this).toggleClass("active");
+    $("[data-menu-modal]").toggleClass("open");
+    $("#mobile-navbar").toggleClass("open");
+  });
 
-  $('div[data-header]').css('visibility', 'visible');
+  $("[data-chat-trigger]").click(function () {
+    FrontChat('show');
+  });
+
+  var $myGroup = $("[data-menu-modal]");
+  $myGroup.on('show.bs.collapse','.collapse', function() {
+    $(this).show();
+  });
+  $myGroup.on('hide.bs.collapse','.collapse', function() {
+    $(this).hide();
+  });
 });
