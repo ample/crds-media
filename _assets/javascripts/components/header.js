@@ -9,13 +9,6 @@ $(document).ready(function(){
     FrontChat('show');
   });
 
-  // $('.subscribe').click(function() {
-  //   $('[data-role=alert]').fadeIn();
-  //   setTimeout(function(){
-  //     $('[data-role=alert]').fadeOut();
-  //   }, 3000);
-  // });
-
   var $myGroup = $("[data-menu-modal]");
   $myGroup.on('show.bs.collapse','.collapse', function() {
     $(this).show();
