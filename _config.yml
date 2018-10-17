@@ -94,6 +94,9 @@ contentful:
   series:
     map:
       date: starts_at
+  song:
+    map:
+      date: published_at
   video:
     map:
       date: published_at
