@@ -71,7 +71,7 @@ megamenu:
 
   grow:
     - title: Get Started
-      url: (CRDS_DOMAIN)/getstarte,d
+      url: (CRDS_DOMAIN)/getstarted
 
     - title: Groups
       url: (CRDS_DOMAIN)/groups
