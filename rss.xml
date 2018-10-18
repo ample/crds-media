@@ -43,8 +43,12 @@ layout: none
         <item>
           <title>{{ message.title | xml_escape }}</title>
           <itunes:author>Crossroads</itunes:author>
-          <description>{{ message.description | xml_escape }}</description>
-          <itunes:summary>{{ message.description | xml_escape }}</itunes:summary>
+          <description>
+            {{ message.description | markdownify | strip_html | xml_escape | replace: '&amp;', '&' | truncate: 255, '' }}
+          </description>
+          <itunes:summary>
+            {{ message.description | markdownify | strip_html | xml_escape | replace: '&amp;', '&' | truncate: 255, '' }}
+          </itunes:summary>
           <itunes:explicit>no</itunes:explicit>
           {% comment %}{%- if message.video_duration -%}<itunes:duration>{{ message.video_duration }}</itunes:duration>{%- endif -%}{% endcomment %}
           <pubDate>{{ message.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
@@ -53,7 +57,9 @@ layout: none
           <guid isPermaLink="false">http:{{ message.video_file.url }}</guid>
           <feedburner:origLink>http:{{ message.video_file.url }}</feedburner:origLink>
           <media:content url="http:{{ message.video_file.url }}" type="video/mp4" />
-          <itunes:subtitle>{{ message.description | markdownify | strip_html | xml_escape | truncate: 255, '' }}</itunes:subtitle>
+          <itunes:subtitle>
+            {{ message.description | markdownify | strip_html | xml_escape | replace: '&amp;', '&' | truncate: 255, '' }}
+          </itunes:subtitle>
         </item>
       {%- endif -%}
     {%- endfor -%}
