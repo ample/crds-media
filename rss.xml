@@ -48,11 +48,11 @@ layout: none
           <itunes:explicit>no</itunes:explicit>
           {% comment %}{%- if message.video_duration -%}<itunes:duration>{{ message.video_duration }}</itunes:duration>{%- endif -%}{% endcomment %}
           <pubDate>{{ message.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-          <link>https:{{ message.video_file.url }}</link>
-          <enclosure url="https:{{ message.video_file.url }}" type="video/mp4" length="123456" />
-          <guid isPermaLink="false">https:{{ message.video_file.url }}</guid>
-          <feedburner:origLink>https:{{ message.video_file.url }}</feedburner:origLink>
-          <media:content url="https:{{ message.video_file.url }}" type="video/mp4" />
+          <link>http:{{ message.video_file.url }}</link>
+          <enclosure url="http:{{ message.video_file.url }}" type="video/mp4" length="123456" />
+          <guid isPermaLink="false">http:{{ message.video_file.url }}</guid>
+          <feedburner:origLink>http:{{ message.video_file.url }}</feedburner:origLink>
+          <media:content url="http:{{ message.video_file.url }}" type="video/mp4" />
           <itunes:subtitle>{{ message.description | markdownify | xml_escape }}</itunes:subtitle>
         </item>
       {%- endif -%}
