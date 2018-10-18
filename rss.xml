@@ -37,7 +37,7 @@ layout: none
     <media:thumbnail url="http://crds-cms-uploads.imgix.net/content/images/CR-podcast-videos.jpg" />
     <media:keywords>Crossroads,Cincinnati,church,Tome,Brian,Tome,Chuck,Mingo,Mingo</media:keywords>
     <media:category scheme="http://www.itunes.com/dtds/podcast-1.0.dtd">Religion &amp; Spirituality/Christianity</media:category>
-    {%- assign messages = site.messages | sort_by: 'published_at' | reverse -%}
+    {%- assign messages = site.messages | sort: 'published_at' | reverse -%}
     {%- for message in messages -%}
       {%- if message.video_file.url -%}
         <item>
