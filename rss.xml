@@ -6,13 +6,13 @@ layout: none
   <channel>
     <title>Crossroads Videos</title>
     <description>Crossroads Church in Cincinnati, Ohio is a community for people who are seeking God - from those who are brand new to the whole "church" thing to committed followers of Jesus.</description>
-    <link>https://www.crossroads.net</link>
+    <link>http://www.crossroads.net</link>
         <language>en-us</language>
     <copyright>Please redistribute</copyright>
     <image>
       <title>Crossroads Videos</title>
-      <url>https://crds-cms-uploads.imgix.net/content/images/CR-podcast-videos.jpg</url>
-      <link>https://www.crossroads.net</link>
+      <url>http://crds-cms-uploads.imgix.net/content/images/CR-podcast-videos.jpg</url>
+      <link>http://www.crossroads.net</link>
       <width>100</width>
       <height>200</height>
     </image>
@@ -22,7 +22,7 @@ layout: none
       <itunes:name>Crossroads</itunes:name>
       <itunes:email>websitefeedback@crossroads.net</itunes:email>
     </itunes:owner>
-    <itunes:image href="https://crds-cms-uploads.imgix.net/content/images/CR-podcast-videos.jpg" />
+    <itunes:image href="http://crds-cms-uploads.imgix.net/content/images/CR-podcast-videos.jpg" />
     <itunes:explicit>no</itunes:explicit>
     <itunes:keywords>Crossroads,Cincinnati,church,Tome,Brian,Tome,Chuck,Mingo,Mingo</itunes:keywords>
     <itunes:subtitle>Crossroads Church in Cincinnati, Ohio is a community for people who are seeking God - from those who are brand new to the whole "church" thing to committed followers of Jesus.</itunes:subtitle>
@@ -34,7 +34,7 @@ layout: none
     <atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" />
     <feedburner:info uri="crossroads/videomessages" />
     <media:copyright>Please redistribute</media:copyright>
-    <media:thumbnail url="https://crds-cms-uploads.imgix.net/content/images/CR-podcast-videos.jpg" />
+    <media:thumbnail url="http://crds-cms-uploads.imgix.net/content/images/CR-podcast-videos.jpg" />
     <media:keywords>Crossroads,Cincinnati,church,Tome,Brian,Tome,Chuck,Mingo,Mingo</media:keywords>
     <media:category scheme="http://www.itunes.com/dtds/podcast-1.0.dtd">Religion &amp; Spirituality/Christianity</media:category>
     {%- assign messages = site.messages | reverse -%}
