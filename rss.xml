@@ -46,10 +46,10 @@ layout: none
           <description>{{ message.description | xml_escape }}</description>
           <itunes:summary>{{ message.description | xml_escape }}</itunes:summary>
           <itunes:explicit>no</itunes:explicit>
-          {%- if message.video_file -%}<itunes:duration>{{ message.video_duration }}</itunes:duration>{%- endif -%}
+          {% comment %}{%- if message.video_duration -%}<itunes:duration>{{ message.video_duration }}</itunes:duration>{%- endif -%}{% endcomment %}
           <pubDate>{{ message.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
           <link>https:{{ message.video_file.url }}</link>
-          <enclosure url="https:{{ message.video_file }}" type="video/mp4">
+          <enclosure url="https:{{ message.video_file.url }}" type="video/mp4">
           <guid isPermaLink="false">https:{{ message.video_file.url }}</guid>
           <feedburner:origLink>https:{{ message.video_file.url }}</feedburner:origLink>
           <media:content url="https:{{ message.video_file.url }}" type="video/mp4" />
