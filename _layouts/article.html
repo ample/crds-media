@@ -30,8 +30,8 @@ title: Articles
       <main class="col-md-8 col-md-offset-2" data-body></main>
       {% else %}
       <main class="col-md-8 col-md-offset-2">
-        {% if page.lead %}
-        <p class="lead">{{ page.lead }}</p>
+        {% if page.lead_text %}
+        <p class="lead">{{ page.lead_text }}</p>
         {% endif %}
 
         {{ page.body | markdownify }}
