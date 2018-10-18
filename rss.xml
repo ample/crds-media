@@ -51,7 +51,7 @@ layout: none
           </itunes:summary>
           <itunes:explicit>no</itunes:explicit>
           {% comment %}{%- if message.video_duration -%}<itunes:duration>{{ message.video_duration }}</itunes:duration>{%- endif -%}{% endcomment %}
-          <pubDate>{{ message.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+          <pubDate>{{ message.published_at | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
           <link>http:{{ message.video_file.url }}</link>
           <enclosure url="http:{{ message.video_file.url }}" type="video/mp4" length="123456" />
           <guid isPermaLink="false">http:{{ message.video_file.url }}</guid>
