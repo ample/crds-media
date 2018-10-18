@@ -11,8 +11,8 @@ layout: none
     <copyright>Please redistribute</copyright>
     <image>
       <title>Crossroads Videos</title>
-      <url>https://crds-cms-uploads.imgix.net/content/images/CR-podcast-videos.jpg</url>
-      <link>Crossroads Videos</link>
+      <url>http://crds-cms-uploads.imgix.net/content/images/CR-podcast-videos.jpg</url>
+      <link>http://www.crossroads.net</link>
       <width>100</width>
       <height>200</height>
     </image>
@@ -22,40 +22,46 @@ layout: none
       <itunes:name>Crossroads</itunes:name>
       <itunes:email>websitefeedback@crossroads.net</itunes:email>
     </itunes:owner>
-    <itunes:image href="https://crds-cms-uploads.imgix.net/content/images/CR-podcast-videos.jpg" />
+    <itunes:image href="http://crds-cms-uploads.imgix.net/content/images/CR-podcast-videos.jpg" />
     <itunes:explicit>no</itunes:explicit>
     <itunes:keywords>Crossroads,Cincinnati,church,Tome,Brian,Tome,Chuck,Mingo,Mingo</itunes:keywords>
     <itunes:subtitle>Crossroads Church in Cincinnati, Ohio is a community for people who are seeking God - from those who are brand new to the whole "church" thing to committed followers of Jesus.</itunes:subtitle>
     <itunes:category text="Religion &amp; Spirituality">
-      <itunes:category text="RSS_iTunesSubCategory" />
+      <itunes:category text="Christianity"></itunes:category>
     </itunes:category>
     <atom:link href="http://www.crossroads.net" type="application/rss+xml" />
-    <atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="http://feeds.feedburner.com/crossroads/VideoMessages" />
+    <atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
     <atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" />
     <feedburner:info uri="crossroads/videomessages" />
     <media:copyright>Please redistribute</media:copyright>
-    <media:thumbnail url="https://crds-cms-uploads.imgix.net/content/images/CR-podcast-videos.jpg" />
+    <media:thumbnail url="http://crds-cms-uploads.imgix.net/content/images/CR-podcast-videos.jpg" />
     <media:keywords>Crossroads,Cincinnati,church,Tome,Brian,Tome,Chuck,Mingo,Mingo</media:keywords>
     <media:category scheme="http://www.itunes.com/dtds/podcast-1.0.dtd">Religion &amp; Spirituality/Christianity</media:category>
     {%- assign messages = site.messages | reverse -%}
     {%- for message in messages -%}
-      {% if message.video_file %}
+      {%- if message.video_file.url -%}
         <item>
           <title>{{ message.title | xml_escape }}</title>
           <itunes:author>Crossroads</itunes:author>
-          <description>{{ message.description | xml_escape }}</description>
-          <itunes:summary>{{ message.description | xml_escape }}</itunes:summary>
+          <description>
+            {{ message.description | markdownify | strip_html | xml_escape | replace: '&amp;', '&' | truncate: 255, '' }}
+          </description>
+          <itunes:summary>
+            {{ message.description | markdownify | strip_html | xml_escape | replace: '&amp;', '&' | truncate: 255, '' }}
+          </itunes:summary>
           <itunes:explicit>no</itunes:explicit>
-          <itunes:duration>{{ message.video_duration }}</itunes:duration>
+          {% comment %}{%- if message.video_duration -%}<itunes:duration>{{ message.video_duration }}</itunes:duration>{%- endif -%}{% endcomment %}
           <pubDate>{{ message.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-          <link>https:{{ message.video_file }}</link>
-          <enclosure url="https:{{ message.video_file }}" type="video/mp4" length="123456" />
-          <guid isPermaLink="false">https:{{ message.video_file }}</guid>
-          <feedburner:origLink>https:{{ message.video_file }}</feedburner:origLink>
-          <media:content url="https:{{ message.video_file }}" type="video/mp4" />
-          <itunes:subtitle>{{ message.description | xml_escape }}</itunes:subtitle>
+          <link>http:{{ message.video_file.url }}</link>
+          <enclosure url="http:{{ message.video_file.url }}" type="video/mp4" length="123456" />
+          <guid isPermaLink="false">http:{{ message.video_file.url }}</guid>
+          <feedburner:origLink>http:{{ message.video_file.url }}</feedburner:origLink>
+          <media:content url="http:{{ message.video_file.url }}" type="video/mp4" />
+          <itunes:subtitle>
+            {{ message.description | markdownify | strip_html | xml_escape | replace: '&amp;', '&' | truncate: 255, '' }}
+          </itunes:subtitle>
         </item>
-      {% endif %}
+      {%- endif -%}
     {%- endfor -%}
   </channel>
 </rss>
