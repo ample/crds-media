@@ -53,7 +53,7 @@ layout: none
           <guid isPermaLink="false">http:{{ message.video_file.url }}</guid>
           <feedburner:origLink>http:{{ message.video_file.url }}</feedburner:origLink>
           <media:content url="http:{{ message.video_file.url }}" type="video/mp4" />
-          <itunes:subtitle>{{ message.description | markdownify | xml_escape }}</itunes:subtitle>
+          <itunes:subtitle>{{ message.description | markdownify | strip_html | xml_escape }}</itunes:subtitle>
         </item>
       {%- endif -%}
     {%- endfor -%}
