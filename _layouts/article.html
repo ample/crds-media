@@ -47,8 +47,9 @@ title: Articles
       {% endif %}
 
       {% if page.discussion %}
+      {% assign discussion = page.discussion | get_doc %}
       <div class="col-md-8 col-md-offset-2 soft-top">
-        {% include _discussion-questions.html discussion=page.discussion %}
+        {% include _discussion-questions.html discussion=discussion %}
       </div>
       {% endif %}
 
