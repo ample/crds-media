@@ -47,6 +47,13 @@ megamenu:
     - title: Locations
       url: (CRDS_DOMAIN)/locations
 
+  about:
+    - title: Explore
+      url: (CRDS_DOMAIN)/explore
+
+    - title: Our History
+      url: (CRDS_DOMAIN)/ourhistory/
+
   media:
     - title: All Media
       url: /
