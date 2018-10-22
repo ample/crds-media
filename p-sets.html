@@ -1,0 +1,28 @@
+---
+layout: default
+title: Perspectives
+image:
+  url: "//crossroads-media.s3.amazonaws.com/images/another-perspective-social.jpg"
+excerpt: "Our thoughts on culture."
+---
+
+<div class="container">
+  {% for set in site.perspective_sets %}
+    <h2>
+      <a href="{{ set.url }}">{{ set.title }}</a>
+    </h2>
+
+    <img src="{{ set.image.url | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}" alt="{{ set.image.title }}" data-optimize-img>
+
+    <ul>
+      {% assign perspectives = set.perspectives | get_docs | sort: 'published_at' | reverse %}
+      {% for perspective in perspectives %}
+        <li>
+          <a href="{{ perspective.url }}">{{ perspective.title }}</a>
+          <br>
+          {{ perspective.published_at | format_date }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+</div>
