@@ -20,37 +20,18 @@ layout: default_footer_flush
       <div class="featured-article">
         <article>
           <header>
-            <h1 class="title">Making a murder</h1>
-            <time class="published">Oct 5</time>
+            <h1 class="title">{{ page.title }}</h1>
+            <time class="published">{{ page.published_at | date: '%b %-d' }}</time>
           </header>
           <div class="content">
-            <p>Donec id elit non mi porta gravida at eget metus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec sed odio dui. Donec sed odio dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id ligula porta felis euismod semper. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam id dolor id nibh ultricies vehicula ut id elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+            {{ page.body | markdownify }}
           </div>
           <footer>
-            <ul class="list-inline">
-              <li>
-                <a href="#">
-                  <svg class="icon icon-2" viewBox="0 0 256 256">
-                    <use xlink:href="/assets/svgs/icons.svg#facebook"></use>
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <svg class="icon icon-2" viewBox="0 0 256 256">
-                    <use xlink:href="/assets/svgs/icons.svg#twitter"></use>
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <svg class="icon icon-2" viewBox="0 0 256 256">
-                    <use xlink:href="/assets/svgs/icons.svg#link"></use>
-                  </svg>
-                </a>
-              </li>
-            </ul>
-            <address>Written by <a href="#">Liz Young</a></address>
+            {% include _social-share.html %}
+            {% if page.author %}
+              {% assign author = page.author | get_doc %}
+              <address>Written by <a href="{{ author.url }}">{{ author.full_name }}</a></address>
+            {% endif %}
           </footer>
         </article>
       </div>
@@ -58,158 +39,28 @@ layout: default_footer_flush
 
     <div class="row">
       <div class="related-articles">
-        <article>
-          <a href="#">
-            <header>
-              <h2 class="title">Fusce Sit Sem Venenatis Ipsum</h2>
-              <time class="published">Sep 28</time>
-            </header>
-            <div class="content">
-              <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            </div>
-          </a>
-          <footer>
-            <ul class="list-inline">
-              <li>
-                <a href="#">
-                  <svg class="icon icon-1" viewBox="0 0 256 256">
-                    <use xlink:href="/assets/svgs/icons.svg#facebook"></use>
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <svg class="icon icon-1" viewBox="0 0 256 256">
-                    <use xlink:href="/assets/svgs/icons.svg#twitter"></use>
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <svg class="icon icon-1" viewBox="0 0 256 256">
-                    <use xlink:href="/assets/svgs/icons.svg#link"></use>
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </footer>
-        </article>
-
-        <article>
-          <a href="#">
-            <header>
-              <h2 class="title">Fusce Sit Sem Venenatis Ipsum</h2>
-              <time class="published">Sep 28</time>
-            </header>
-            <div class="content">
-              <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            </div>
-          </a>
-          <footer>
-            <ul class="list-inline">
-              <li>
-                <a href="#">
-                  <svg class="icon icon-1" viewBox="0 0 256 256">
-                    <use xlink:href="/assets/svgs/icons.svg#facebook"></use>
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <svg class="icon icon-1" viewBox="0 0 256 256">
-                    <use xlink:href="/assets/svgs/icons.svg#twitter"></use>
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <svg class="icon icon-1" viewBox="0 0 256 256">
-                    <use xlink:href="/assets/svgs/icons.svg#link"></use>
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </footer>
-        </article>
-
-        <article>
-          <a href="#">
-            <header>
-              <h2 class="title">Fusce Sit Sem Venenatis Ipsum</h2>
-              <time class="published">Sep 28</time>
-            </header>
-            <div class="content">
-              <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            </div>
-          </a>
-          <footer>
-            <ul class="list-inline">
-              <li>
-                <a href="#">
-                  <svg class="icon icon-1" viewBox="0 0 256 256">
-                    <use xlink:href="/assets/svgs/icons.svg#facebook"></use>
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <svg class="icon icon-1" viewBox="0 0 256 256">
-                    <use xlink:href="/assets/svgs/icons.svg#twitter"></use>
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <svg class="icon icon-1" viewBox="0 0 256 256">
-                    <use xlink:href="/assets/svgs/icons.svg#link"></use>
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </footer>
-        </article>
-
-        <article>
-          <a href="#">
-            <header>
-              <h2 class="title">Fusce Sit Sem Venenatis Ipsum</h2>
-              <time class="published">Sep 28</time>
-            </header>
-            <div class="content">
-              <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            </div>
-          </a>
-          <footer>
-            <ul class="list-inline">
-              <li>
-                <a href="#">
-                  <svg class="icon icon-1" viewBox="0 0 256 256">
-                    <use xlink:href="/assets/svgs/icons.svg#facebook"></use>
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <svg class="icon icon-1" viewBox="0 0 256 256">
-                    <use xlink:href="/assets/svgs/icons.svg#twitter"></use>
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <svg class="icon icon-1" viewBox="0 0 256 256">
-                    <use xlink:href="/assets/svgs/icons.svg#link"></use>
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </footer>
-        </article>
+        {% assign perspectives = site.perspectives | sort: 'published_at' | reverse | exclude: page.title | slice: 0, 4 %}
+        {% for perspective in perspectives %}
+          <article>
+            <a href="{{ perspective.url }}">
+              <header>
+                <h2 class="title">{{ perspective.title }}</h2>
+                <time class="published">{{ perspective.published_at | date: '%b %-d' }}</time>
+              </header>
+              <div class="content">
+                {{ perspective.body | truncate: 100 }}
+              </div>
+            </a>
+            <footer>
+              {% include _social-share.html %}
+            </footer>
+          </article>
+        {% endfor %}
       </div>
     </div>
   </main>
 
   <footer class="footer-btn">
-    <a href="" role="button">See more perspectives</a>
+    <a href="/perspectives" role="button">See more perspectives</a>
   </footer>
 </div>
