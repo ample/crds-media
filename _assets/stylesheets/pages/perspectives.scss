@@ -1,0 +1,188 @@
+/*
+** 1. Global template styles
+** 2. Header styles
+** 3. Article styles
+** 4. Footer btn styles
+*/
+
+
+
+
+.perspective-tpl {
+  /* 1. Global template styles */
+  background: $cr-gray-lighter;
+
+
+
+
+  /* 2. Header styles */
+  > header {
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: $cr-white;
+    margin-bottom: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+    // This rule needed to override DDK styles
+    h3 {
+      color: $cr-white;
+    }
+  }
+
+  .page-title {
+    font-size: $font-size-h1;
+    font-weight: 100;
+    text-transform: lowercase;
+  }
+
+  .page-tagline {
+    font-size: $font-size-large;
+  }
+
+  @media screen and (min-width: $screen-sm) {
+    .page-title {
+      font-size: 4rem;
+    }
+  }
+
+
+
+
+  /* 3. Article styles */
+  .featured-article,
+  .related-articles > article {
+    background: $cr-white;
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    h1.title, h2.title, .title { margin: 0; }
+  }
+
+  .featured-article {
+    @include make-sm-column(8);
+    @include make-sm-column-offset(2);
+
+    font-size: $font-size-large;
+    padding: 3.75rem;
+
+    header {
+      margin-bottom: 10px;
+    }
+
+    h1.title, .title {
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+
+    .published {
+      font-size: $font-size-base;
+    }
+
+    .content {
+      margin-bottom: 2rem;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      address {
+        background: initial;
+        color: $cr-gray-light;
+        font-size: $font-size-base;
+        margin-bottom: initial;
+        padding: initial;
+      }
+
+      .list-inline {
+        margin-bottom: 0;
+      }
+
+      .icon-2 {
+        height: 24px;
+        width: auto;
+      }
+    }
+  }
+
+  .related-articles {
+    @include make-sm-column(7);
+    @include make-sm-column-offset(2.5);
+
+    > article {
+      font-size: $font-size-base;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      padding: 2rem;
+
+      > a {
+        color: $cr-gray-dark;
+
+        &:hover,
+        &:focus {
+          color: $cr-gray-dark;
+          text-decoration: none;
+        }
+      }
+
+      h2.title, .title {
+        font-size: $font-size-base;
+      }
+
+      .published {
+        font-size: $font-size-small;
+      }
+
+      header {
+        margin-bottom: .5rem;
+      }
+
+      .content {
+        margin-bottom: 1rem;
+      }
+
+      footer a {
+        color: $cr-gray-light;
+
+        &:hover {
+          color: $cr-gray;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  h1.title, h2.title, .title {
+    font-family: $font-size-base;
+    font-weight: 600;
+  }
+
+  .published {
+    color: $cr-gray-light;
+  }
+
+
+
+
+  /* 4. Pagination btn styles */
+  footer.footer-btn {
+    background: $cr-gray-light;
+    border-radius: 0;
+    display: block;
+    margin-top: 1.25rem;
+    padding: 1rem 0;
+    text-align: center;
+    width: 100%;
+
+    a {
+      color: $cr-white;
+      font-size: $font-size-base;
+    }
+  }
+}
