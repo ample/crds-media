@@ -17,6 +17,8 @@
 
   /* 2. Header styles */
   > header {
+    background-repeat: no-repeat;
+    background-size: cover;
     color: $cr-white;
     margin-bottom: 2rem;
     padding-top: 3rem;
