@@ -30,13 +30,9 @@
     }
   }
 
-  .page-title,
-  .page-tagline {
-    font-weight: 100;
-  }
-
   .page-title {
     font-size: $font-size-h1;
+    font-weight: 100;
     text-transform: lowercase;
   }
 
@@ -64,7 +60,7 @@
       align-items: flex-end;
     }
 
-    h1, h2, .title { margin: 0; }
+    h1.title, h2.title, .title { margin: 0; }
   }
 
   .featured-article {
@@ -78,7 +74,7 @@
       margin-bottom: 10px;
     }
 
-    h1, .title {
+    h1.title, .title {
       font-size: 1.5rem;
       font-weight: 400;
     }
@@ -135,7 +131,7 @@
         }
       }
 
-      h2, .title {
+      h2.title, .title {
         font-size: $font-size-base;
       }
 
@@ -162,14 +158,13 @@
     }
   }
 
-  h1, h2, .title {
+  h1.title, h2.title, .title {
     font-family: $font-size-base;
     font-weight: 600;
   }
 
   .published {
     color: $cr-gray-light;
-    font-weight: 100;
   }
 
 
@@ -188,7 +183,6 @@
     a {
       color: $cr-white;
       font-size: $font-size-base;
-      font-weight: 100;
     }
   }
 }
