@@ -1,0 +1,20 @@
+.perspective-tpl {
+  .perspective-group {
+    padding: 60px 0;
+  }
+
+  .perspective-group-title {
+    color: $cr-white;
+    font-family: $condensed-extra-font-face;
+    font-size: $font-size-h3;
+    text-transform: uppercase;
+
+    &:hover,
+    &:focus {
+      &, h1 {
+        color: $cr-white;
+        text-decoration: none;
+      }
+    }
+  }
+}
