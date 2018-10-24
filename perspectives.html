@@ -9,7 +9,8 @@ excerpt: "Our thoughts on culture."
 <div class="perspective-tpl">
   {% include _perspective_header.html %}
 
-  {% for set in site.perspective_sets %}
+  {% assign perspective_sets = site.perspective_sets | sort: 'published_at' | reverse %}
+  {% for set in perspective_sets %}
     {% include _perspective_set.html set=set %}
   {% endfor %}
 </div>
