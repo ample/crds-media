@@ -8,7 +8,7 @@
       {{ include.perspective.body | markdownify | strip_html | truncatewords: 25 }}
     </div>
     <footer>
-      {% include _social-share.html url=include.perspective.url %}
+      {% include _social-share.html item=include.perspective %}
     </footer>
   </a>
 </article>
