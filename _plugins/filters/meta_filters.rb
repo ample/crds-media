@@ -21,7 +21,7 @@ module Jekyll
     end
 
     def meta_image(page)
-      return "https:#{page['meta']['image']['url']}" if page.to_h.dig('meta', 'title', 'url').present?
+      return "https:#{page['meta']['image']['url']}" if page.to_h.dig('meta', 'image', 'url').present?
       image_url = imgix(page.to_h.dig('image', 'url')) || site.config['image']
       "https:#{escape(image_url)}"
     end
