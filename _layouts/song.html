@@ -75,7 +75,7 @@ layout: default
           <!-- Other Related Videos -->
           <div class="cards-4x cards-2x-sm">
             <div class="row">
-              {% assign other_videos = page.related_videos | slice: 1, page.related_videos.size | get_docs %}
+              {% assign other_videos = page.related_videos | slice: 1, page.related_videos.size %}
               {% for video in other_videos %}
                 {% include _video-card.html imgix_size="4x" theme="dark" %}
               {% endfor %}
