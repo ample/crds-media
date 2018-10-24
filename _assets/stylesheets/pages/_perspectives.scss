@@ -54,28 +54,34 @@
     margin-bottom: 1.25rem;
   }
 
-  .featured-article,
+  .featured-article > article,
   .related-articles > article {
     background: $cr-white;
 
     header {
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
+      align-items: flex-start;
+
+      time {
+        flex: 0 0 auto;
+      }
     }
 
     h1.title, h2.title, .title { margin: 0; }
   }
 
   .featured-article {
-    @include make-sm-column(8);
-    @include make-sm-column-offset(2);
+    @include make-md-column(10);
+    @include make-md-column-offset(1);
 
-    font-size: $font-size-large;
-    padding: 3.75rem;
+    article {
+      font-size: $font-size-base;
+      padding: 2rem;
+    }
 
     header {
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
     h1.title, .title {
@@ -93,8 +99,7 @@
 
     footer {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
 
       address {
         background: initial;
@@ -107,8 +112,8 @@
   }
 
   .related-articles {
-    @include make-sm-column(7);
-    @include make-sm-column-offset(2.5);
+    @include make-md-column(7);
+    @include make-md-column-offset(2.5);
 
     > article {
       font-size: $font-size-base;
@@ -125,22 +130,23 @@
           text-decoration: none;
         }
       }
+    }
 
-      h2.title, .title {
-        font-size: $font-size-base;
-      }
+    h2.title, .title {
+      font-size: $font-size-base;
+    }
 
-      .published {
-        font-size: $font-size-small;
-      }
+    .published {
+      font-size: $font-size-small;
+    }
 
-      header {
-        margin-bottom: .5rem;
-      }
+    header {
+      margin-bottom: .5rem;
+    }
 
-      .content {
-        margin-bottom: 1rem;
-      }
+    .content {
+      margin-bottom: 1rem;
+    }
 
     footer {
       svg {
@@ -186,6 +192,30 @@
 
   .published {
     color: $cr-gray-light;
+  }
+
+  @media screen and (min-width: $screen-sm) {
+    .featured-article,
+    .related-articles {
+      header { align-items: center; }
+    }
+  }
+
+  @media screen and (min-width: $screen-md) {
+    .featured-article {
+      header { margin-bottom: 10px; }
+
+      article {
+        font-size: $font-size-large;
+        padding: 3.75rem;
+       }
+
+      footer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
   }
 
 
