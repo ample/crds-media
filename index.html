@@ -20,7 +20,7 @@ paginate:
   perspectives:
     per: 3
     limit: 1
-    sort: date desc
+    sort: published_at desc
 ---
 
 {% assign feature_obj = site.featured_media | where: 'page_path', page.url | first %}
@@ -70,50 +70,28 @@ paginate:
       {% endif %}
     </div>
     <div class="col-md-4">
-      <!-- start perspective -->
-      <section class="perspectives-landing">
-        <header style="background-image: url('//crds-cms-uploads.imgix.net/content/images/another-perspective-bg.png?blend64=MTUxNTE1&balph=60&bm=normal&w=10')" data-optimize-bg-img>
-          <img class="branding" src="//crds-cms-uploads.imgix.net/content/images/logo-another-perspective.svg" alt="another perspective">
-        </header>
-        <div class="perspectives-list">
-          <article>
-            <a href="">
-              <header>
-                <h3 class="title">Vulputate Condimentum Euismod Mollis</h3>
-                <time class="published">Oct 5</time>
-              </header>
-              <div class="content">
-                <p>Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Sed posuere consectetur est at lobortis. Donec sed odio dui. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla.</p>
-              </div>
-            </a>
-          </article>
-
-          <article>
-            <a href="">
-              <header>
-                <h3 class="title">Vulputate Condimentum Euismod Mollis</h3>
-                <time class="published">Oct 5</time>
-              </header>
-              <div class="content">
-                <p>Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Sed posuere consectetur est at lobortis. Donec sed odio dui. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla.</p>
-              </div>
-            </a>
-          </article>
-
-          <article>
-            <a href="">
-              <header>
-                <h3 class="title">Vulputate Condimentum Euismod Mollis</h3>
-                <time class="published">Oct 5</time>
-              </header>
-              <div class="content">
-                <p>Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Sed posuere consectetur est at lobortis. Donec sed odio dui. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla.</p>
-              </div>
-            </a>
-          </article>
-        </div>
-      </section>
-      <!-- end perspective -->
+      {% if page.perspectives.docs.size > 0 %}
+        <section class="perspectives-landing">
+          <header style="background-image: url('//crds-cms-uploads.imgix.net/content/images/another-perspective-bg.png?blend64=MTUxNTE1&balph=60&bm=normal&w=10')" data-optimize-bg-img>
+            <img class="branding" src="//crds-cms-uploads.imgix.net/content/images/logo-another-perspective.svg" alt="another perspective">
+          </header>
+          <div class="perspectives-list">
+            {% for perspective in page.perspectives.docs %}
+              <article>
+                <a href="{{ perspective.url }}">
+                  <header>
+                    <h3 class="title">{{ perspective.title }}</h3>
+                    <time class="published">{{ perspective.published_at | date: '%b %-d' }}</time>
+                  </header>
+                  <div class="content">
+                    {{ perspective.body | markdownify | strip_html | truncatewords: 25 }}
+                  </div>
+                </a>
+              </article>
+            {% endfor %}
+          </div>
+        </section>
+      {% endif %}
 
       {% if page.series.docs.size != 0 %}
         <div class="push-bottom soft-bottom">
