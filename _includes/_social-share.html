@@ -1,3 +1,6 @@
+{% assign share_url = include.url %}
+{% unless share_url %}{% assign share_url = page.url %}{% endunless %}
+
 <div class="addthis_toolbox addthis_default_style">
   <div class="custom_images">
     <a class="addthis_button_facebook">
@@ -10,7 +13,7 @@
         <use xlink:href="/assets/svgs/icons.svg#twitter"></use>
       </svg>
     </a>
-    <a href="javascript:void(0);" class="clipboard" data-clipboard-text="{{ site.url }}{{ page.url }}" data-clipboard-success="{{ site.url }}{{ page.url }} copied to clipboard!">
+    <a href="javascript:void(0);" class="clipboard" data-clipboard-text="{{ site.url }}{{ share_url }}" data-clipboard-success="{{ site.url }}{{ share_url }} copied to clipboard!">
       <svg class="icon" viewBox="0 0 256 256">
         <use xlink:href="/assets/svgs/icons.svg#link"></use>
       </svg>
