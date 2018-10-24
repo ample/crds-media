@@ -70,16 +70,50 @@ paginate:
       {% endif %}
     </div>
     <div class="col-md-4">
+      <!-- start perspective -->
+      <section class="perspectives-landing">
+        <header style="background-image: url('//crds-cms-uploads.imgix.net/content/images/another-perspective-bg.png?blend64=MTUxNTE1&balph=60&bm=normal&w=10')" data-optimize-bg-img>
+          <img class="branding" src="//crds-cms-uploads.imgix.net/content/images/logo-another-perspective.svg" alt="another perspective">
+        </header>
+        <div class="perspectives-list">
+          <article>
+            <a href="">
+              <header>
+                <h3 class="title">Vulputate Condimentum Euismod Mollis</h3>
+                <time class="published">Oct 5</time>
+              </header>
+              <div class="content">
+                <p>Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Sed posuere consectetur est at lobortis. Donec sed odio dui. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla.</p>
+              </div>
+            </a>
+          </article>
 
-      {% if page.perspectives.docs.size != 0 %}
-        <div class="push-bottom soft-bottom">
-          <h2 class="collection-header push-bottom text-gray-light">another perspective</h2>
-          {% for featured in page.perspectives.docs %}
-            {% include _media-object-list.html media_type="perspective" %}
-          {% endfor %}
-          <a class="font-size-small" href="/perspectives">see all</a>
+          <article>
+            <a href="">
+              <header>
+                <h3 class="title">Vulputate Condimentum Euismod Mollis</h3>
+                <time class="published">Oct 5</time>
+              </header>
+              <div class="content">
+                <p>Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Sed posuere consectetur est at lobortis. Donec sed odio dui. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla.</p>
+              </div>
+            </a>
+          </article>
+
+          <article>
+            <a href="">
+              <header>
+                <h3 class="title">Vulputate Condimentum Euismod Mollis</h3>
+                <time class="published">Oct 5</time>
+              </header>
+              <div class="content">
+                <p>Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Sed posuere consectetur est at lobortis. Donec sed odio dui. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla.</p>
+              </div>
+            </a>
+          </article>
         </div>
-      {% endif %}
+      </section>
+      <!-- end perspective -->
 
       {% if page.series.docs.size != 0 %}
         <div class="push-bottom soft-bottom">
