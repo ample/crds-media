@@ -1,0 +1,14 @@
+<article>
+  <a href="{{ include.perspective.url }}">
+    <header>
+      <h3 class="title">{{ include.perspective.title }}</h3>
+      <time class="published">{{ include.perspective.published_at | date: '%b %-d' }}</time>
+    </header>
+    <div class="content">
+      {{ include.perspective.body | markdownify | strip_html | truncatewords: 25 }}
+    </div>
+    <footer>
+      {% include _social-share.html %}
+    </footer>
+  </a>
+</article>

@@ -181,8 +181,7 @@ defaults:
       path: ""
       type: perspective_sets
     values:
-      # layout: perspective
-      layout: p_set
+      layout: perspective_set
 
 assets:
   source_maps: true # false on JEKYLL_ENV=production
