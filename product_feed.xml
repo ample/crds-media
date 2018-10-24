@@ -17,82 +17,23 @@ Topics?
 <?xml version="1.0" encoding="utf-8"?>
 <catalog>
   <!-- Articles -->
-  {% for item in site.articles %}
-    <product>
-      <product_id>{{ item.contentful_id }}</product_id>
-      <product_name>{{ item.title }}</product_name>
-      <product_description>{{ item.body | markdownify | strip_html | xml_escape | replace: '&amp;', '&' | truncate: 1024 }}</product_description>
-      <categories>
-        <category>
-          <category_name>{{ item.category.title }}{% if item.tags.size > 0 %}|{% endif %}{% for tag in item.tags %}{{ tag.title }}{% if forloop.last == false %}|{% endif %}{% endfor %}</category_name>
-        </category>
-      </categories>
-      <price>1</price>
-      <url>{{ item.slug }}</url>
-      <product_image_url>{% if item.image.url %}{{ item.image.url }}
-    {% else %}{{ site.default_image }}{% endif %}</product_image_url>
-    </product>
-  {% endfor %}
+  {% include _product-feed.html collection=site.articles %}
+
   <!-- Messages -->
-  {% for item in site.messages %}
-    <product>
-      <product_id>{{ item.contentful_id }}</product_id>
-      <product_name>{{ item.title | rstrip }}</product_name>
-      <product_description>{% if item.description %}{{ item.description | markdownify | strip_html | xml_escape | replace: '&amp;', '&' | truncate: 1024 }}
-    {% else %}{{ item.series.description | markdownify | strip_html | xml_escape | replace: '&amp;', '&' | truncate: 1024 }}{% endif %}</product_description>
-      <categories>
-        <category>
-          <category_name>{{ item.category.title }}{% if item.tags.size > 0 %}|{% endif %}{% for tag in item.tags %}{{ tag.title }}{% if forloop.last == false %}|{% endif %}{% endfor %}</category_name>
-        </category>
-      </categories>
-      <price>1</price>
-      <url>{{ item.slug }}</url>
-      <product_image_url>{% if item.image.url %}{{ item.image.url }}
-    {% else %}{{ site.default_image }}{% endif %}</product_image_url>
-    </product>
-  {% endfor %}
+  {% include _product-feed.html collection=site.messages %}
+
   <!-- Episodes -->
-  {% for item in site.episodes %}
-    <product>
-      <product_id>{{ item.contentful_id }}</product_id>
-      <product_name>{{ item.title | rstrip }}</product_name>
-      <product_description>{% if item.description %}{{ item.description | markdownify | strip_html | xml_escape | replace: '&amp;', '&' | truncate: 1024 }}
-    {% else %}{{ item.series.description | markdownify | strip_html | xml_escape | replace: '&amp;', '&' | truncate: 1024 }}{% endif %}</product_description>
-      <categories>
-        <category>
-          <category_name>{{ item.category.title }}{% if item.tags.size > 0 %}|{% endif %}{% for tag in item.tags %}{{ tag.title }}{% if forloop.last == false %}|{% endif %}{% endfor %}</category_name>
-        </category>
-      </categories>
-      <price>1</price>
-      <url>{{ item.slug }}</url>
-      <product_image_url>{% if item.image.url %}{{ item.image.url }}
-    {% else %}{{ site.default_image }}{% endif %}</product_image_url>
-    </product>
-  {% endfor %}
+  {% include _product-feed.html collection=site.episodes %}
+
   <!-- Songs -->
-  {% for item in site.songs %}
-    <product>
-      <product_id>{{ item.contentful_id }}</product_id>
-      <product_name>{{ item.title | rstrip }}</product_name>
-      <product_description>{{ item.description | markdownify | strip_html | xml_escape | replace: '&amp;', '&' | truncate: 1024 }}</product_description>
-      <categories>
-        <category>
-          <category_name>{{ item.category.title }}{% if item.tags.size > 0 %}|{% endif %}{% for tag in item.tags %}{{ tag.title }}{% if forloop.last == false %}|{% endif %}{% endfor %}</category_name>
-        </category>
-      </categories>
-      <price>1</price>
-      <url>{{ item.slug }}</url>
-      <product_image_url>{% if item.image.url %}{{ item.image.url }}
-    {% else %}{{ site.default_image }}{% endif %}</product_image_url>
-    </product>
-  {% endfor %}
+  {% include _product-feed.html collection=site.songs %}
+
   <!-- Podcasts -->
   {% for item in site.podcasts %}
     <product>
       <product_id>{{ item.contentful_id }}</product_id>
       <product_name>{{ item.title | rstrip }}</product_name>
-      <product_description>{% if item.description %}{{ item.description | markdownify | strip_html | xml_escape | replace: '&amp;', '&' | truncate: 1024 }}
-    {% else %}{{ item.series.description | markdownify | strip_html | xml_escape | replace: '&amp;', '&' | truncate: 1024 }}{% endif %}</product_description>
+      <product_description>{{ item.description | markdownify | strip_html | xml_escape | replace: '&amp;', '&' | truncate: 1024 }}</product_description>
       <categories>
         <category>
           <category_name>{{ item.category.title }}{% if item.tags.size > 0 %}|{% endif %}{% for tag in item.tags %}{{ tag.title }}{% if forloop.last == false %}|{% endif %}{% endfor %}</category_name>
