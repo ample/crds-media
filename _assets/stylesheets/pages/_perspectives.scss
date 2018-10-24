@@ -103,15 +103,6 @@
         margin-bottom: initial;
         padding: initial;
       }
-
-      .list-inline {
-        margin-bottom: 0;
-      }
-
-      .icon-2 {
-        height: 24px;
-        width: auto;
-      }
     }
   }
 
@@ -151,18 +142,19 @@
         margin-bottom: 1rem;
       }
 
-      footer {
-        ul {
-          margin-bottom: 0;
-        }
+    footer {
+      svg {
+        height: 1rem;
+        width: auto;
+      }
 
-        a {
-          color: $cr-gray-light;
+      a {
+        color: $cr-gray-light;
+        cursor: pointer;
 
-          &:hover {
-            color: $cr-gray;
-            text-decoration: none;
-          }
+        &:hover {
+          color: $cr-gray;
+          text-decoration: none;
         }
       }
     }
