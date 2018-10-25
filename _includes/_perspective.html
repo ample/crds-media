@@ -7,8 +7,10 @@
     <div class="content">
       {{ include.perspective.body | markdownify | strip_html | truncatewords: 25 }}
     </div>
-    <footer>
-      {% include _social-share.html item=include.perspective %}
-    </footer>
+    {% unless include.exclude_footer %}
+      <footer>
+        {% include _social-share.html item=include.perspective %}
+      </footer>
+    {% endunless %}
   </a>
 </article>

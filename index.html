@@ -77,17 +77,7 @@ paginate:
           </header>
           <div class="perspectives-list">
             {% for perspective in page.perspectives.docs %}
-              <article>
-                <a href="{{ perspective.url }}">
-                  <header>
-                    <h3 class="title">{{ perspective.title }}</h3>
-                    <time class="published">{{ perspective.published_at | date: '%b %-d' }}</time>
-                  </header>
-                  <div class="content">
-                    {{ perspective.body | markdownify | strip_html | truncatewords: 25 }}
-                  </div>
-                </a>
-              </article>
+              {% include _perspective.html perspective=perspective exclude_footer=true %}
             {% endfor %}
           </div>
         </section>
