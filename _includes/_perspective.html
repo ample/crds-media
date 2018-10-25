@@ -5,7 +5,7 @@
       <time class="published">{{ include.perspective.published_at | date: '%b %-d' }}</time>
     </header>
     <div class="content">
-      {{ include.perspective.body | markdownify | strip_html | truncatewords: 25 }}
+      {{ include.perspective.body | markdownify | strip_html | truncate: 125 }}
     </div>
     {% unless include.exclude_footer %}
       <footer>
