@@ -74,6 +74,9 @@ collections:
   perspectives:
     output: true
     permalink: /:collection/:title
+  perspective_sets:
+    output: true
+    permalink: /perspectives/sets/:title
 
 contentful:
   article:
@@ -89,6 +92,8 @@ contentful:
     map:
       page_path: path
   message:
+    map:
+      date: published_at
     belongs_to:
       series: videos
   series:
@@ -103,8 +108,9 @@ contentful:
   perspective:
     map:
       date: published_at
-    exclude:
-      - category
+  perspective_set:
+    map:
+      date: published_at
   exclude:
     - location
     - migrations
@@ -171,6 +177,11 @@ defaults:
       type: perspectives
     values:
       layout: perspective
+  - scope:
+      path: ""
+      type: perspective_sets
+    values:
+      layout: perspective_set
 
 assets:
   source_maps: true # false on JEKYLL_ENV=production

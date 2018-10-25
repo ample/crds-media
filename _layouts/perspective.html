@@ -3,34 +3,25 @@ layout: default_footer_flush
 ---
 
 <div class="perspective-tpl">
-  <header class="container-fluid" style="background-image: url('//crds-cms-uploads.imgix.net/content/images/another-perspective-bg.png?blend64=MTUxNTE1&balph=60&bm=normal&w=10')" data-optimize-bg-img>
-    <div class="row">
-      <div class="col-sm-10 col-sm-offset-1">
-        <ol class="breadcrumb text-white hard-left">
-          <li><a href="/">Media</a></li>
-          <li><a href="/perspectives">Perspectives</a></li>
-          <li><a href="/perspectives">Oct 1</a></li>
-        </ol>
-        <div class="page-title"><img src="//crds-cms-uploads.imgix.net/content/images/logo-another-perspective.svg" alt="another perspective"></div>
-        <p class="page-tagline">What's happening in the world matters more than you might think.</p>
-      </div>
-    </div>
-  </header>
+  {% include _perspective_header.html %}
 
   <main class="container">
     <div class="row">
       <div class="featured-article">
         <article>
           <header>
-            <h1 class="title">Making a murder</h1>
-            <time class="published">Oct 5</time>
+            <h1 class="title">{{ page.title }}</h1>
+            <time class="published">{{ page.published_at | date: '%b %-d' }}</time>
           </header>
           <div class="content">
-            <p>Donec id elit non mi porta gravida at eget metus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec sed odio dui. Donec sed odio dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id ligula porta felis euismod semper. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam id dolor id nibh ultricies vehicula ut id elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+            {{ page.body | markdownify }}
           </div>
           <footer>
             {% include _social-share.html %}
-            <address>Written by <a href="#">Liz Young</a></address>
+            {% if page.author %}
+              {% assign author = page.author | get_doc %}
+              <address>Written by <a href="{{ author.url }}">{{ author.full_name }}</a></address>
+            {% endif %}
           </footer>
         </article>
       </div>
@@ -38,70 +29,15 @@ layout: default_footer_flush
 
     <div class="row">
       <div class="related-articles">
-        <article>
-          <a href="#">
-            <header>
-              <h2 class="title">Fusce Sit Sem Venenatis Ipsum</h2>
-              <time class="published">Sep 28</time>
-            </header>
-            <div class="content">
-              <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            </div>
-          </a>
-          <footer>
-            {% include _social-share.html %}
-          </footer>
-        </article>
-
-        <article>
-          <a href="#">
-            <header>
-              <h2 class="title">Fusce Sit Sem Venenatis Ipsum</h2>
-              <time class="published">Sep 28</time>
-            </header>
-            <div class="content">
-              <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            </div>
-          </a>
-          <footer>
-            {% include _social-share.html %}
-          </footer>
-        </article>
-
-        <article>
-          <a href="#">
-            <header>
-              <h2 class="title">Fusce Sit Sem Venenatis Ipsum</h2>
-              <time class="published">Sep 28</time>
-            </header>
-            <div class="content">
-              <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            </div>
-          </a>
-          <footer>
-            {% include _social-share.html %}
-          </footer>
-        </article>
-
-        <article>
-          <a href="#">
-            <header>
-              <h2 class="title">Fusce Sit Sem Venenatis Ipsum</h2>
-              <time class="published">Sep 28</time>
-            </header>
-            <div class="content">
-              <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            </div>
-          </a>
-          <footer>
-            {% include _social-share.html %}
-          </footer>
-        </article>
+        {% assign perspectives = site.perspectives | sort: 'published_at' | reverse | exclude: page.title | slice: 0, 4 %}
+        {% for perspective in perspectives %}
+          {% include _perspective.html perspective=perspective %}
+        {% endfor %}
       </div>
     </div>
   </main>
 
   <footer class="footer-btn">
-    <a href="" role="button">See more perspectives</a>
+    <a href="/perspectives" role="button">See more perspectives</a>
   </footer>
 </div>
