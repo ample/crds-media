@@ -7,7 +7,7 @@
         </a>
 
         {% assign perspectives = include.set.perspectives | get_docs | sort: 'published_at' | reverse %}
-        {% for perspective in perspectives %}
+        {% for perspective in perspectives limit:3 %}
           {% include _perspective.html perspective=perspective %}
         {% endfor %}
       </main>
