@@ -10,7 +10,7 @@ excerpt: "Our thoughts on culture."
   {% include _perspective_header.html %}
 
   {% assign perspective_sets = site.perspective_sets | sort: 'published_at' | reverse %}
-  {% for set in perspective_sets %}
+  {% for set in perspective_sets limit:4 %}
     {% include _perspective_set.html set=set %}
   {% endfor %}
 </div>
