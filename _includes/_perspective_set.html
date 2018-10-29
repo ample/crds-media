@@ -1,4 +1,4 @@
-<div class="perspective-set" style="background-image: url('{{ include.set.image.url | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}');" data-optimize-bg-img>
+<div class="perspective-set"{% if include.set.image.url %} style="background-image: url('{{ include.set.image.url | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}?{{ site.imgix_params.overlay_50 }}');" data-optimize-bg-img{% endif %}>
   <div class="container">
     <div class="row">
       <main class="related-articles">

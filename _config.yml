@@ -193,6 +193,7 @@ assets:
   - _assets/javascripts
 
 imgix_params:
+  overlay_50: "blend64=MTUxNTE1&balph=50&bm=normal"
   placeholder: "auto=format,compress&w=10"
   placeholder_card: "auto=format,compress&w=12&h=9&fit=crop"
   placeholder_square: "auto=format,compress&w=10&h=10&fit=crop"
