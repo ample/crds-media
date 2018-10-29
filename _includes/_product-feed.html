@@ -1,30 +1,44 @@
 {% for item in include.collection %}
-  {% if include.collection == site.articles or include.collection == site.perspectives%}
-    {%- assign text = item.body -%}
+  {% if include.collection == site.articles %}
+    {%- assign subdomain = 'articles' -%}
+  {% elsif include.collection == site.series or include.collection == site.messages %}
+    {%- assign subdomain = 'series' -%}
+  {% elsif include.collection == site.podcasts or include.collection == site.episodes %}
+    {%- assign subdomain = 'podcasts' -%}
+  {% elsif include.collection == site.songs %}
+    {%- assign subdomain = 'songs' -%}
+  {% elsif include.collection == site.perspectives %}
+    {%- assign subdomain = 'perspectives' -%}
+  {% elsif include.collection == site.videos %}
+    {%- assign subdomain = 'videos' -%}
+  {% endif %}
 
-  {% elsif include.collection == site.messages %}
-    {% if item.description %}{%- assign text = item.description -%}{% else %}{%- assign text = item.series.description -%}{% endif %}
-
+  {% if include.collection == site.messages %}
+    {%- assign subsubdomain = item.series.slug -%}
   {% elsif include.collection == site.episodes %}
-    {% if item.description %}{%- assign text = item.description -%}
-  {% else %}{%- assign text = item.podcast.description -%}{% endif %}
-
-  {% else %}
-    {%- assign text = item.description -%}
+    {%- assign subsubdomain = item.podcasts.slug -%}
   {% endif %}
 
   <product>
-    <product_id>{{ item.contentful_id }}</product_id>
-    <product_name>{{ item.title }}</product_name>
+    <product_id>{{ item.slug }}</product_id>
+    <product_name>{{ item.title | truncate: 128 }}</product_name>
     <categories>
+      {% if item.category.size > 0 %}
       <category>
-        <category_name>{{ item.category.title }}{% if item.tags.size > 0 %}|{% endif %}{% for tag in item.tags %}{{
-          tag.title }}{% if forloop.last == false %}|{% endif %}{% endfor %}</category_name>
+        <category_name>{{ item.category.title }}</category_name>
       </category>
+      {% endif %}
+      {% if item.tags.size > 0 %}
+        {% for tag in item.tags %}
+      <category>
+        <category_name>{{ tag.title | truncate: 128 }}</category_name>
+      </category>
+        {% endfor %}
+      {% endif %}
     </categories>
-    <price>1</price>
-    <url>{{ item.slug }}</url>
-    <product_image_url>{% if item.image.url %}{{ item.image.url | imgix: site.imgix }}?auto=format,compress
+    <price>1.00</price>
+    <url>{{ site.url }}/{{subdomain}}/{% if subsubdomain %}{{ subsubdomain}}/{% endif %}{{ item.slug }}</url>
+    <product_image_url>{% if item.image.url %}https:{{ item.image.url | imgix: site.imgix }}?auto=format,compress
       {% else %}{{ site.default_image | imgix: site.imgix }}?auto=format,compress{% endif %}</product_image_url>
   </product>
 {% endfor %}
