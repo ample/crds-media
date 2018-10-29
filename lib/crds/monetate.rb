@@ -5,7 +5,7 @@ require 'net/sftp'
 module CRDS
   class Monetate
 
-    attr_accessor :xml
+    attr_accessor :xml, :success
     def initialize
       @xml = "#{Dir.pwd}/_site/product_feed.xml"
       upload_the_feed!
@@ -14,11 +14,17 @@ module CRDS
     def upload_the_feed!
       Net::SFTP.start('sftp.monetate.net', ENV['MONETATE_USERNAME'], :password => ENV['MONETATE_PASSWORD']) do |sftp|
         # upload a file or directory to the remote host
-        sftp.upload!( @xml, "/upload/product_feed.xml")
+
+        sftp.upload!( @xml, "/upload/product_feed.xml") do |event, uploader, *args|
+          if event == :finish
+            @success = true
+          end
+        end
+
       end
     end
 
   end
 end
 
-CRDS::Monetate.new()
+# CRDS::Monetate.new()
