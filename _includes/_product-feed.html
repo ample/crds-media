@@ -16,9 +16,6 @@
   <product>
     <product_id>{{ item.contentful_id }}</product_id>
     <product_name>{{ item.title }}</product_name>
-
-    <product_description>{{ text | markdownify | strip_newlines | strip_html | escape | xml_escape | truncate: 1024 }}</product_description>
-
     <categories>
       <category>
         <category_name>{{ item.category.title }}{% if item.tags.size > 0 %}|{% endif %}{% for tag in item.tags %}{{
