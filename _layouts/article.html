@@ -30,8 +30,8 @@ title: Articles
       <main class="col-md-8 col-md-offset-2" data-body></main>
       {% else %}
       <main class="col-md-8 col-md-offset-2">
-        {% if page.lead %}
-        <p class="lead">{{ page.lead }}</p>
+        {% if page.lead_text %}
+        <p class="lead">{{ page.lead_text }}</p>
         {% endif %}
 
         {{ page.body | markdownify }}
@@ -41,14 +41,15 @@ title: Articles
       {% if site.sign_off %}
         <div class="col-md-8 col-md-offset-2">
           <section class="signoff">
-            {{ site.sign_off.body | markdownify }}
+            {{ site.sign_off.content | markdownify }}
           </section>
         </div>
       {% endif %}
 
       {% if page.discussion %}
+      {% assign discussion = page.discussion | get_doc %}
       <div class="col-md-8 col-md-offset-2 soft-top">
-        {% include _discussion-questions.html discussion=page.discussion %}
+        {% include _discussion-questions.html discussion=discussion %}
       </div>
       {% endif %}
 

@@ -7,7 +7,7 @@
       {{ featured.description | markdownify | strip_html | truncatewords: 15 }}
     </div>
     {% if include.media_type == "podcast" %}
-      <p class="font-size-smaller text-gray-light">{% include _count.html key="podcast" subject=featured.title collection=site.episodes label="episode" %}</p>
+      <p class="font-size-smaller text-gray-light">{% include _count.html key="podcast.title" subject=featured.title collection=site.episodes label="episode" %}</p>
     {% else %}
       <p class="font-size-smaller text-gray-light">{% include _count.html key="series" subject=featured.title collection=site.messages label="message" %}</p>
     {% endif %}

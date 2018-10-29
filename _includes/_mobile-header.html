@@ -121,6 +121,19 @@
       </ul>
     </li>
     <li>
+      <a class="megamenu-header collapsed" role="button" data-toggle="collapse" href="#megamenu-about" aria-expanded="false" aria-controls="#megamenu-about">
+          About
+        <svg class="icon icon-1" viewBox="0 0 256 256">
+          <use xlink:href="/assets/svgs/icons.svg#chevron-right-thin"></use>
+        </svg>
+      </a>
+      <ul class="subnav collapse list-unstyled" id="megamenu-about">
+        {% for option in data.megamenu.about %}
+        <li><a href="{{ option.url | replace: '(CRDS_DOMAIN)', site.crds_domain }}">{{ option.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </li>
+    <li>
       <a class="megamenu-header collapsed" role="button" data-toggle="collapse" href="#megamenu-media" aria-expanded="false" aria-controls="#megamenu-media">
           Media
         <svg class="icon icon-1" viewBox="0 0 256 256">

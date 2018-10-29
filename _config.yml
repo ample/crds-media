@@ -74,6 +74,9 @@ collections:
   perspectives:
     output: true
     permalink: /:collection/:title
+  perspective_sets:
+    output: true
+    permalink: /perspectives/sets/:title
 
 contentful:
   article:
@@ -89,19 +92,25 @@ contentful:
     map:
       page_path: path
   message:
+    map:
+      date: published_at
     belongs_to:
       series: videos
   series:
     map:
       date: starts_at
+  song:
+    map:
+      date: published_at
   video:
     map:
       date: published_at
   perspective:
     map:
       date: published_at
-    exclude:
-      - category
+  perspective_set:
+    map:
+      date: published_at
   exclude:
     - location
     - migrations
@@ -168,6 +177,11 @@ defaults:
       type: perspectives
     values:
       layout: perspective
+  - scope:
+      path: ""
+      type: perspective_sets
+    values:
+      layout: perspective_set
 
 assets:
   source_maps: true # false on JEKYLL_ENV=production
@@ -179,6 +193,7 @@ assets:
   - _assets/javascripts
 
 imgix_params:
+  overlay_50: "blend64=MTUxNTE1&balph=50&bm=normal"
   placeholder: "auto=format,compress&w=10"
   placeholder_card: "auto=format,compress&w=12&h=9&fit=crop"
   placeholder_square: "auto=format,compress&w=10&h=10&fit=crop"
