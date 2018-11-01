@@ -60,7 +60,7 @@ paginate:
         <div>
           <h2 class="collection-header text-gray-light push-bottom">most recent</h2>
           <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
-            <div class="feature-cards">
+            <div class="feature-cards card-deck--expanded-layout">
               {% for card in recent_media %}
                 {% include _media-card.html carousel=true %}
               {% endfor %}
