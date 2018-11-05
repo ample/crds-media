@@ -10,20 +10,23 @@ paginate:
     sort: date desc
 ---
 
-<div class="perspective-tpl" data-page="perspective_sets">
+<div class="perspective-tpl">
   {% include _perspective_header.html %}
 
-  <div data-page-number="{{ page.perspective_sets.page }}">
-    {% for set in page.perspective_sets.docs %}
-      {% include _perspective_set.html set=set %}
-    {% endfor %}
+  <div data-page="perspective_sets">
+    <div data-page-number="{{ page.perspective_sets.page }}">
+      {% for set in page.perspective_sets.docs %}
+        {% include _perspective_set.html set=set %}
+      {% endfor %}
+    </div>
+    <div class="loading hide">
+      {% include _preloader.html %}
+    </div>
   </div>
+
+  <footer class="footer-btn">
+    {% include _pagination.html collection="perspective_sets" remote=true link_root="perspectives" label="" %}
+  </footer>
 </div>
 
-<div class="loading hide">
-  {% include _preloader.html %}
-</div>
 
-<div class="push-top">
-  {% include _pagination.html collection="perspective_sets" remote=true label="" %}
-</div>
