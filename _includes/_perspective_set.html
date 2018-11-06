@@ -6,7 +6,7 @@
           <h2 class="flush-top">{{ include.set.title }}</h2>
         </a>
 
-        {% assign perspectives = include.set.perspectives | get_docs | sort: 'published_at' | reverse %}
+        {% assign perspectives = include.set.perspectives | get_docs | reverse %}
         {% for perspective in perspectives %}
           {% include _perspective.html perspective=perspective %}
         {% endfor %}
