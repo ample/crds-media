@@ -1,5 +1,7 @@
-<div class="alert alert-success hide" data-role="copy-success">{{site.url}}{{ page.url }} copied to clipboard!</div>
-<div class="addthis_toolbox addthis_default_style">
+{% assign item = include.item %}
+{% unless item %}{% assign item = page %}{% endunless %}
+
+<div class="addthis_toolbox addthis_default_style" {% if item.url != page.url %}addthis:url="{{ site.url }}{{ item.url }}" addthis:title="{{ item.title }}" addthis:description="{{ item.description | markdownify | strip_html | truncatewords: 25 }}" addthis:media="https:{{ item.image.url | imgix: site.imgix }}"{% endif %}>
   <div class="custom_images">
     <a class="addthis_button_facebook">
       <svg class="icon" viewBox="0 0 256 256">
@@ -11,7 +13,7 @@
         <use xlink:href="/assets/svgs/icons.svg#twitter"></use>
       </svg>
     </a>
-    <a href="javascript:void(0);" class="clipboard" data-clipboard-text="{{site.url}}{{ page.url }}">
+    <a href="javascript:void(0);" class="clipboard" data-clipboard-text="{{ site.url }}{{ item.url }}" data-clipboard-success="{{ site.url }}{{ item.url }} copied to clipboard!">
       <svg class="icon" viewBox="0 0 256 256">
         <use xlink:href="/assets/svgs/icons.svg#link"></use>
       </svg>

@@ -91,6 +91,15 @@
       </ul>
     </div>
     <div class="menu-list">
+      <p class="menu-header">About</p>
+      <ul class="list-unstyled font-size-smaller">
+        {% for option in data.megamenu.about %}
+        {% assign option_url = option.url | split: '/' %}
+        <li><a href="{{ option.url | replace: '(CRDS_DOMAIN)', site.crds_domain }}" class="{% if option_url == page_url %}active{% endif %}">{{ option.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="menu-list">
       <p class="menu-header">Media</p>
       <ul class="list-unstyled font-size-smaller">
         {% for option in data.megamenu.media %}
