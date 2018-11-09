@@ -19,6 +19,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - Guardfile
+  - .github/
   - package.json
   - README.md
   - spec
