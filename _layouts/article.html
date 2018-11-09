@@ -18,7 +18,7 @@ title: Articles
             <li><a href="/articles">Articles</a></li>
           </ol>
           <h1 class="text-white flush-top" data-title>{{ page.title | escape | upcase }}</h1>
-          <p class="flush-bottom soft-half-top">{% if topic %}<a href="{{ topic.url }}">{{ topic.title | upcase | append: '  |  ' }}</a>{% endif %}{% include _read-time.html content_type=page %}</p>
+          <p class="flush-bottom soft-half-top">{% if topic %}<a href="{{ topic.url }}">{{ topic.title | upcase | append: '  |  ' }}</a>{% endif %}{% include _read-time.html duration=page.duration content_type=article %}</p>
         </div>
       </div>
     </div>
@@ -41,7 +41,7 @@ title: Articles
       {% if site.sign_off %}
         <div class="col-md-8 col-md-offset-2">
           <section class="signoff">
-            {{ site.sign_off.body | markdownify }}
+            {{ site.sign_off.content | markdownify }}
           </section>
         </div>
       {% endif %}

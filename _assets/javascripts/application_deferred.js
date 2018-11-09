@@ -8,6 +8,7 @@
 //= require ./vendor/moment.min
 //= require ./vendor/reactive-auth-v0.0.1.umd
 //= require ./vendor/knockout-3.4.2
+//= require ./vendor/crds-status-message-v0.1.3.min
 //= require ./components/clipboard
 //= require ./components/header
 //= require ./components/images
@@ -18,4 +19,5 @@
 //= require ./components/roll-call
 //= require ./components/dates
 //= require ./components/menu-squencher
+//= require ./components/status-message
 //= require ./lib/header
