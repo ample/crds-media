@@ -27,4 +27,4 @@ module CRDS
   end
 end
 
-# CRDS::Monetate.new()
+CRDS::Monetate.new()
