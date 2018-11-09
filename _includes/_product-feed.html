@@ -20,8 +20,8 @@
   {% endif %}
 
   <product>
-    <product_id>{{ item.slug | truncate: 32 | slugify: "ascii" }}</product_id>
-    <product_name>{{ item.title | truncate: 128 }}</product_name>
+    <product_id>{{ item.contentful_id }}</product_id>
+    <product_name>{{ item.title | truncate: 128 | asciify }}</product_name>
     <categories>
       {% if item.category.size > 0 %}
       <category>
