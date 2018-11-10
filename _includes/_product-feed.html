@@ -1,27 +1,28 @@
 {% for item in include.collection %}
   {% if include.collection == site.articles %}
-    {%- assign subdomain = 'articles' -%}
+    {%- assign path_one = 'articles' -%}
   {% elsif include.collection == site.series or include.collection == site.messages %}
-    {%- assign subdomain = 'series' -%}
+    {%- assign path_one = 'series' -%}
   {% elsif include.collection == site.podcasts or include.collection == site.episodes %}
-    {%- assign subdomain = 'podcasts' -%}
+    {%- assign path_one = 'podcasts' -%}
   {% elsif include.collection == site.songs %}
-    {%- assign subdomain = 'songs' -%}
+    {%- assign path_one = 'songs' -%}
   {% elsif include.collection == site.perspectives %}
-    {%- assign subdomain = 'perspectives' -%}
+    {%- assign path_one = 'perspectives' -%}
   {% elsif include.collection == site.videos %}
-    {%- assign subdomain = 'videos' -%}
+    {%- assign path_one = 'videos' -%}
   {% endif %}
 
   {% if include.collection == site.messages %}
-    {%- assign subsubdomain = item.series.slug -%}
+    {%- assign path_two = item.series.slug -%}
   {% elsif include.collection == site.episodes %}
-    {%- assign subsubdomain = item.podcasts.slug -%}
+    {%- assign path_two = item.podcasts.slug -%}
   {% endif %}
 
   <product>
     <product_id>{{ item.contentful_id }}</product_id>
     <product_name>{{ item.title | truncate: 128 | asciify }}</product_name>
+    <brand_name>{{ path_one }}</brand_name>
     <categories>
       {% if item.category.size > 0 %}
       <category>
@@ -37,7 +38,7 @@
       {% endif %}
     </categories>
     <price>1.00</price>
-    <url>{{ site.url }}/{{subdomain}}/{% if subsubdomain %}{{ subsubdomain}}/{% endif %}{{ item.slug }}</url>
+    <url>{{ site.url }}/{{ path_one }}/{% if path_two %}{{ path_two }}/{% endif %}{{ item.slug }}</url>
     <product_image_url>{% if item.image.url %}https:{{ item.image.url | imgix: site.imgix }}?auto=format,compress
       {% else %}{{ site.default_image | imgix: site.imgix }}?auto=format,compress{% endif %}</product_image_url>
   </product>
