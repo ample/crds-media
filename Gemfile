@@ -21,6 +21,9 @@ gem 'wdm', '~> 0.1.0' if Gem.win_platform?
 
 gem 'dotenv'
 
+# For uploading to Monetate SFTP
+gem 'net-sftp'
+
 group :development do
   gem 'pry'
   gem 'pry-nav'
