@@ -8,7 +8,7 @@ layout: default
   {% include _author-bio.html %}
 
   <!-- Articles -->
-  {% assign articles = site.articles | filter: 'author.full_name', author.full_name %}
+  {% assign articles = site.articles | filter: 'author.full_name', author.full_name | reverse %}
 
   {% if articles.size > 0 %}
     <div class="push-ends">
@@ -26,7 +26,7 @@ layout: default
   {% endif %}
 
   <!-- Podcasts -->
-  {% assign podcasts = site.podcasts | filter: 'author.full_name', author.full_name %}
+  {% assign podcasts = site.podcasts | filter: 'author.full_name', author.full_name | reverse %}
 
   {% if podcasts.size > 0 %}
     <div class="push-ends">
@@ -44,7 +44,7 @@ layout: default
   {% endif %}
 
   <!-- Albums -->
-  {% assign albums = site.albums | filter: 'author.full_name', author.full_name %}
+  {% assign albums = site.albums | filter: 'author.full_name', author.full_name | reverse %}
 
   {% if albums.size > 0 %}
     <div class="push-ends">
@@ -62,7 +62,7 @@ layout: default
   {% endif %}
 
   <!-- Videos -->
-  {% assign videos = site.videos | filter: 'author.full_name', author.full_name %}
+  {% assign videos = site.videos | filter: 'author.full_name', author.full_name | reverse %}
 
   {% if videos.size > 0 %}
     <div class="push-ends">
