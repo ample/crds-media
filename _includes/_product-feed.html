@@ -26,13 +26,13 @@
     <categories>
       {% if item.category.size > 0 %}
       <category>
-        <category_name>{{ item.category.title }}</category_name>
+        <category_name>{{ item.category.title | truncate: 128 | asciify }}</category_name>
       </category>
       {% endif %}
       {% if item.tags.size > 0 %}
         {% for tag in item.tags %}
       <category>
-        <category_name>{{ tag.title | truncate: 128 }}</category_name>
+        <category_name>{{ tag.title | truncate: 128 | asciify }}</category_name>
       </category>
         {% endfor %}
       {% endif %}
