@@ -57,7 +57,7 @@ layout: default
           {% endif %}
         {% endfor %}
 
-        <p>{{ page.published_at | format_date }} {% if page.audio_duration != nil %}<span class="divider push-quarter-sides">•</span> {{ page.audio_duration }} mins{% endif %}</p>
+        <p>{{ page.published_at | format_date }} {% if page.duration != nil %} <span class="divider push-quarter-sides">•</span> {% include _read-time.html duration=page.duration content_type='episode' %} {% endif %}</p>
 
         <div class="soft-half-top push-top">
             {% include _social-share.html %}
