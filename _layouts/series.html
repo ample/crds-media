@@ -2,13 +2,13 @@
 layout: default
 title: Series
 ---
-{% if page.bg_image.url == nil %}
+{% if page.background_image.url == nil %}
   {% assign overflow-hidden = "overflow-hidden" %}
 {% endif %}
 
 <div class="media-series-detail">
-  <div class="jumbotron jumbotron-xl soft-14-top soft-2-bottom mobile-soft-top {{ overflow-hidden }}" style="background-image: url('{{ page.bg_image.url | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
-    {% if page.bg_image.url == nil %}
+  <div class="jumbotron jumbotron-xl soft-14-top soft-2-bottom mobile-soft-top {{ overflow-hidden }}" style="background-image: url('{{ page.background_image.url | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
+    {% if page.background_image.url == nil %}
       <div class="blur" style="background-image: url('{{ page.image.url | imgix: site.imgix }}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img></div>
       <div class="bg-overlay"></div>
     {% endif %}
