@@ -228,16 +228,15 @@
 
   /* 4. Pagination btn styles */
   footer.footer-btn {
-    background: $cr-gray-light;
-    border-radius: 0;
-    display: block;
-    padding: 1rem 0;
-    text-align: center;
-    width: 100%;
-
     a {
+      background: $cr-gray-light;
+      border-radius: 0;
       color: $cr-white;
+      display: block;
       font-size: $font-size-base;
+      padding: 1rem 0;
+      text-align: center;
+      width: 100%;
     }
   }
 }
