@@ -100,7 +100,7 @@ contentful:
       series: videos
   series:
     map:
-      date: starts_at
+      date: published_at
   song:
     map:
       date: published_at
