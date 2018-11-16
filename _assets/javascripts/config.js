@@ -1,16 +1,20 @@
 module.exports = [
   {
     name: 'application',
+    deps: [
+      'vendor/jquery-3.3.1.min',
+      'vendor/bootstrap.min'
+    ],
     files: [
-      'vendor/jquery-3.3.1.min.js',
-      'lib/set-redirect-url.js'
+      'lib/header',
+      'lib/set-redirect-url'
     ]
   },
   {
     name: 'preview',
     files: [
-      'vendor/jquery-3.3.1.min.js',
-      'lib/set-redirect-url.js'
+      'vendor/jquery-3.3.1.min',
+      'lib/set-redirect-url'
     ]
   }
 ];

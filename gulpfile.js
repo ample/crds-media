@@ -1,8 +1,10 @@
-const gulp = require('gulp');
+const { series, parallel, src, dest } = require('gulp');
 
 const babel = require('gulp-babel');
-var concat = require('gulp-concat');
+const concat = require('gulp-concat');
+const del = require('del');
 const exec = require('child_process').exec;
+const plumber = require('gulp-plumber');
 const sass = require('gulp-sass');
 const tildeImporter = require('node-sass-tilde-importer');
 const uglify = require('gulp-uglify');
@@ -11,58 +13,106 @@ const jsConfig = require('./_assets/javascripts/config');
 
 const assetDir = './_site/assets'
 
-gulp.task('sass', function() {
-  return gulp.src('_assets/stylesheets/application.scss')
+function compileSass(done) {
+  return src('_assets/stylesheets/application.scss')
+    .pipe(plumber())
     .pipe(sass({
       importer: tildeImporter,
-      outputStyle: 'compressed'
+      outputStyle: 'compact'
     }))
-    .pipe(gulp.dest(assetDir));
-});
+    .pipe(dest(assetDir));
+}
 
-gulp.task('purgecss', ['sass'], function() {
-  exec(`purgecss --config ./purgecss.config.json --out ${assetDir}`, function(err) {
+function purgeCss(done) {
+  return exec(`purgecss --config ./purgecss.config.json --out ${assetDir}`, function(err) {
     if (err) return console.error(err);
     return;
   });
-});
-
-gulp.task('css', ['purgecss'], function() {
-  return;
-});
-
-// TODO: Add CSS watch task
-
-// gulp.task('sass:watch', function () {
-//   gulp.watch('./sass/**/*.scss', ['sass']);
-// });
-
-//
-
-let jsTasks = [];
-
-for (config of jsConfig) {
-  const taskName = `${config.name}-js`;
-  jsTasks.push(taskName);
-
-  gulp.task(taskName, ['coffee'], function() {
-    const files = config.files.map(f => `_assets/javascripts/${f}`);
-    return gulp.src(files)
-      .pipe(concat(`${config.name}.js`))
-      .pipe(babel({
-        presets: [
-          ['@babel/env', {
-            modules: false
-          }]
-        ]
-      }))
-      .pipe(uglify())
-      .pipe(gulp.dest(assetDir))
-  });
 }
 
-gulp.task('js', jsTasks, function() {
-  return
-});
 
-// TODO: Add JS watch task
+function jsDeps(done) {
+  const tasks = jsConfig.map((config) => {
+    return (done) => {
+      const deps = (config.deps || []).map(f => `_assets/javascripts/${f}.js`);
+      if (deps.length == 0) {
+        done();
+        return;
+      }
+      return src(deps)
+        .pipe(concat(`${config.name}.deps.js`))
+        .pipe(dest(assetDir));
+    }
+  });
+
+  return series(...tasks, (seriesDone) => {
+    seriesDone();
+    done();
+  })();
+}
+
+function jsBuild(done) {
+  const tasks = jsConfig.map((config) => {
+    return (done) => {
+      const files = config.files.map(f => `_assets/javascripts/${f}.js`);
+      if (files.length == 0) {
+        done();
+        return;
+      }
+      return src(files)
+        .pipe(plumber())
+        .pipe(concat(`${config.name}.files.js`))
+        .pipe(babel({
+          presets: [
+            ['@babel/env', {
+              modules: false
+            }]
+          ]
+        }))
+        .pipe(uglify())
+        .pipe(dest(assetDir))
+    }
+  })
+
+  return series(...tasks, (seriesDone) => {
+    seriesDone();
+    done();
+  })();
+}
+
+function jsConcat(done) {
+  const tasks = jsConfig.map((config) => {
+    return (done) => {
+      const files = [`${assetDir}/${config.name}.deps.js`, `${assetDir}/${config.name}.files.js`];
+      return src(files, { allowEmpty: true })
+        .pipe(plumber())
+        .pipe(concat(`${config.name}.js`))
+        .pipe(dest(assetDir))
+    }
+  })
+
+  return series(...tasks, (seriesDone) => {
+    seriesDone();
+    done();
+  })();
+}
+
+function jsClean(done) {
+  const tasks = jsConfig.map((config) => {
+    return (done) => {
+      const files = [`${assetDir}/${config.name}.deps.js`, `${assetDir}/${config.name}.files.js`];
+      return del(files);
+    }
+  })
+  return series(...tasks, (seriesDone) => {
+    seriesDone();
+    done();
+  })();
+}
+
+// TODO: Add watch tasks ???
+
+exports.default = parallel(
+  series(compileSass, purgeCss),
+  series(jsDeps, jsBuild, jsConcat, jsClean)
+);
