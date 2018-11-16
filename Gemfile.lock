@@ -37,10 +37,11 @@ GIT
 
 GIT
   remote: https://github.com/crdschurch/jekyll-cloudsearch
-  revision: fee0f94b3f19b005d433e6a804cfcede6188bf30
-  tag: 0.0.5
+  revision: 18aae390f519c00a18e75ab4cb2a3a0c50f77163
+  tag: 0.1.0
   specs:
-    jekyll-cloudsearch (0.0.5)
+    jekyll-cloudsearch (0.1.0)
+      activesupport
       aws-sdk-cloudsearchdomain
       contentful-management (~> 1.10.1)
       jekyll
@@ -75,11 +76,11 @@ GEM
     autoprefixer-rails (9.3.1)
       execjs
     aws-eventstream (1.0.1)
-    aws-partitions (1.110.0)
+    aws-partitions (1.113.0)
     aws-sdk-cloudsearchdomain (1.5.0)
       aws-sdk-core (~> 3, >= 3.26.0)
       aws-sigv4 (~> 1.0)
-    aws-sdk-core (3.37.0)
+    aws-sdk-core (3.38.0)
       aws-eventstream (~> 1.0)
       aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.0)
@@ -290,4 +291,4 @@ DEPENDENCIES
   video-tags (~> 0.0.1)!
 
 BUNDLED WITH
-   1.16.1
+   1.16.3

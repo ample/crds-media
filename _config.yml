@@ -220,3 +220,8 @@ image_sizes:
   topic_feature_sub: "(min-width: 992px) 370px, (min-width: 0px) 100px"
 
 typekit_url: https://use.typekit.net/ccb3vpa.css
+
+cloudsearch:
+  article:
+    - body
+    - lead_text
