@@ -112,25 +112,7 @@ function jsClean(done) {
   })();
 }
 
-function cleanBuildToken(done) {
-  return fs.unlink(tokenFile, (err, _data) => {
-    if (err) console.log(err);
-    done();
-  });
-}
-
-function createBuildToken(done) {
-  return fs.writeFile(tokenFile, Date.now(), (err, _data) => {
-    if (err) throw err;
-    done();
-  });
-}
-
-exports.default = series(
-  cleanBuildToken,
-  parallel(
-    series(compileSass, purgeCss),
-    series(jsDeps, jsBuild, jsConcat, jsClean),
-  ),
-  createBuildToken
+exports.default = parallel(
+  series(compileSass, purgeCss),
+  series(jsDeps, jsBuild, jsConcat, jsClean),
 );
