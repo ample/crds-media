@@ -1,15 +1,19 @@
 module Jekyll
   class JavascriptLinkTag < Liquid::Tag
 
+    include LiquidExtensions
+
     def initialize(tag_name, filename, tokens)
       super
-      site = Jekyll.sites.first
-      dest = site.config.dig('assets', 'destination') || 'assets'
-      @file_path = "#{site.config['destination']}/#{dest}/#{filename.strip}"
+      @filename = filename
     end
 
     def render(context)
-      "<script async type=\"text/javascript\" src=\"#{@file_path}\"></script>"
+      site = Jekyll.sites.first
+      filename = lookup_variable(context, @filename.strip)
+      dest = site.config.dig('assets', 'destination') || 'assets'
+      file_path = "/#{dest}/#{filename.strip}-#{site.config['asset_hash']}.js"
+      "<script async type=\"text/javascript\" src=\"#{file_path}\"></script>"
     end
 
   end

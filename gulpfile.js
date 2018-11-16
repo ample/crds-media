@@ -6,6 +6,7 @@ const del = require('del');
 const exec = require('child_process').exec;
 const fs = require('fs');
 const plumber = require('gulp-plumber');
+const rename = require('gulp-rename');
 const sass = require('gulp-sass');
 const tildeImporter = require('node-sass-tilde-importer');
 const uglify = require('gulp-uglify');
@@ -13,15 +14,22 @@ const uglify = require('gulp-uglify');
 const jsConfig = require('./_assets/javascripts/config');
 
 const assetDir = './_site/assets'
+const hash = process.env.ASSET_HASH;
 const tokenFile = `tmp/_token`;
+
+function filename(basename, ext) {
+  if (hash) basename += `-${hash}`;
+  return `${basename}.${ext}`;
+}
 
 function compileSass(done) {
   return src('_assets/stylesheets/application.scss')
     .pipe(plumber())
     .pipe(sass({
       importer: tildeImporter,
-      outputStyle: 'compact'
+      outputStyle: 'compressed'
     }))
+    .pipe(rename(filename('application', 'css')))
     .pipe(dest(assetDir));
 }
 
@@ -88,7 +96,7 @@ function jsConcat(done) {
       const files = [`${assetDir}/${config.name}.deps.js`, `${assetDir}/${config.name}.files.js`];
       return src(files, { allowEmpty: true })
         .pipe(plumber())
-        .pipe(concat(`${config.name}.js`))
+        .pipe(concat(filename(config.name, 'js')))
         .pipe(dest(assetDir))
     }
   })
