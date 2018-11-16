@@ -4,6 +4,7 @@ const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 const del = require('del');
 const exec = require('child_process').exec;
+const fs = require('fs');
 const plumber = require('gulp-plumber');
 const sass = require('gulp-sass');
 const tildeImporter = require('node-sass-tilde-importer');
@@ -12,6 +13,7 @@ const uglify = require('gulp-uglify');
 const jsConfig = require('./_assets/javascripts/config');
 
 const assetDir = './_site/assets'
+const tokenFile = `tmp/_token`;
 
 function compileSass(done) {
   return src('_assets/stylesheets/application.scss')
@@ -110,9 +112,25 @@ function jsClean(done) {
   })();
 }
 
-// TODO: Add watch tasks ???
+function cleanBuildToken(done) {
+  return fs.unlink(tokenFile, (err, _data) => {
+    if (err) console.log(err);
+    done();
+  });
+}
 
-exports.default = parallel(
-  series(compileSass, purgeCss),
-  series(jsDeps, jsBuild, jsConcat, jsClean)
+function createBuildToken(done) {
+  return fs.writeFile(tokenFile, Date.now(), (err, _data) => {
+    if (err) throw err;
+    done();
+  });
+}
+
+exports.default = series(
+  cleanBuildToken,
+  parallel(
+    series(compileSass, purgeCss),
+    series(jsDeps, jsBuild, jsConcat, jsClean),
+  ),
+  createBuildToken
 );

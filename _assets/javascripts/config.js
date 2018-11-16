@@ -2,42 +2,56 @@ module.exports = [
   {
     name: 'application',
     deps: [
-      'vendor/jquery-3.3.1.min',
-      'vendor/bootstrap.min'
+      'vendor/jquery-3.3.1.min'
     ],
     files: [
-      'lib/header',
       'lib/set-redirect-url'
     ]
   },
   {
-    name: 'preview',
+    name: 'application_deferred',
+    deps: [
+      'vendor/bootstrap.min',
+      'vendor/imgix.min',
+      'vendor/addthis_widget.min',
+      'vendor/clipboard.min',
+      'vendor/crds-card-carousel-v0.2.0.min',
+      'vendor/flickity.pkgd.min',
+      'vendor/imgix-optimizer',
+      'vendor/moment.min',
+      'vendor/reactive-auth-v0.0.1.umd',
+      'vendor/knockout-3.4.2'
+    ],
     files: [
-      'vendor/jquery-3.3.1.min',
-      'lib/set-redirect-url'
+      'components/clipboard',
+      'components/header',
+      'components/images',
+      'components/carousels',
+      'components/pagination',
+      'components/tabs',
+      'components/track-viewport',
+      'components/roll-call',
+      'components/dates',
+      'components/menu-squencher',
+      'lib/header'
+    ]
+  },
+  {
+    name: 'preview_deferred',
+    deps: [
+      'vendor/bootstrap.min',
+      'vendor/imgix.min',
+      'vendor/addthis_widget.min',
+      'vendor/clipboard.min',
+      'vendor/marked',
+      'vendor/imgix-optimizer'
+    ],
+    files: [
+      'components/clipboard',
+      'components/header',
+      'components/images',
+      'components/preview',
+      'components/menu-squencher'
     ]
   }
 ];
-
-
-//= require ./vendor/bootstrap.min
-//= require ./vendor/imgix.min
-//= require ./vendor/addthis_widget.min
-//= require ./vendor/clipboard.min
-//= require ./vendor/crds-card-carousel-v0.2.0.min
-//= require ./vendor/flickity.pkgd.min
-//= require ./vendor/imgix-optimizer
-//= require ./vendor/moment.min
-//= require ./vendor/reactive-auth-v0.0.1.umd
-//= require ./vendor/knockout-3.4.2
-//= require ./components/clipboard
-//= require ./components/header
-//= require ./components/images
-//= require ./components/carousels
-//= require ./components/pagination
-//= require ./components/tabs
-//= require ./components/track-viewport
-//= require ./components/roll-call
-//= require ./components/dates
-//= require ./components/menu-squencher
-//= require ./lib/header

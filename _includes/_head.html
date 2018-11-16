@@ -25,7 +25,7 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
 
-  {% asset application.scss !integrity %}
+  {% stylesheet_link_tag application.css %}
 
   <title>{% if page.title and page.title != site.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
   <meta name="description" content="{% if page.lead %}{{ page.lead | strip_html | truncate: 160 }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description | strip_html | truncate: 160 }}{% endif %}">
@@ -58,5 +58,5 @@
 
 {% include _gtm.html %}
 {% if page.js_vars %}{% include _js_vars.html %}{% endif %}
-<script type="text/javascript" src="{% asset application.js @path %}"></script>
+{% javascript_link_tag application.js %}
 </head>

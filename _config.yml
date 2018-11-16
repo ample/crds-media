@@ -175,15 +175,6 @@ defaults:
     values:
       layout: perspective
 
-assets:
-  source_maps: true # false on JEKYLL_ENV=production
-  destination: "/assets"
-  compression: true
-  js_compressor: uglifier
-  sources:
-  - _assets/stylesheets
-  - _assets/javascripts
-
 imgix_params:
   placeholder: "auto=format,compress&w=10"
   placeholder_card: "auto=format,compress&w=12&h=9&fit=crop"
