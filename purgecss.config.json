@@ -1,6 +1,6 @@
 {
   "content": ["_site/**/*.html"],
-  "css": ["_site/assets/application.css"],
+  "css": ["_site/assets/application*.css"],
   "whitelist": [
     "pull-right",
     "border-bottom",
