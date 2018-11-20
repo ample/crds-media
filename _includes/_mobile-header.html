@@ -116,7 +116,20 @@
       </a>
       <ul class="subnav collapse list-unstyled" id="megamenu-crossroads">
         {% for option in data.megamenu.crossroads %}
-        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}">{{ option.title }}</a></li>
+        <li><a href="{{ option.url | replace: '(CRDS_DOMAIN)', site.crds_domain }}">{{ option.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </li>
+    <li>
+      <a class="megamenu-header collapsed" role="button" data-toggle="collapse" href="#megamenu-about" aria-expanded="false" aria-controls="#megamenu-about">
+          About
+        <svg class="icon icon-1" viewBox="0 0 256 256">
+          <use xlink:href="/assets/svgs/icons.svg#chevron-right-thin"></use>
+        </svg>
+      </a>
+      <ul class="subnav collapse list-unstyled" id="megamenu-about">
+        {% for option in data.megamenu.about %}
+        <li><a href="{{ option.url | replace: '(CRDS_DOMAIN)', site.crds_domain }}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </li>
@@ -129,7 +142,7 @@
       </a>
       <ul class="subnav collapse list-unstyled" id="megamenu-media">
         {% for option in data.megamenu.media %}
-        <li><a href="{{ option.url }}">{{ option.title }}</a></li>
+        <li><a href="{{ option.url | replace: '(CRDS_DOMAIN)', site.crds_domain }}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </li>
@@ -142,7 +155,7 @@
       </a>
       <ul class="subnav collapse list-unstyled" id="megamenu-grow">
         {% for option in data.megamenu.grow %}
-        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}">{{ option.title }}</a></li>
+        <li><a href="{{ option.url | replace: '(CRDS_DOMAIN)', site.crds_domain }}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </li>
@@ -155,7 +168,7 @@
       </a>
       <ul class="subnav collapse list-unstyled" id="megamenu-care">
         {% for option in data.megamenu.care %}
-        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}">{{ option.title }}</a></li>
+        <li><a href="{{ option.url | replace: '(CRDS_DOMAIN)', site.crds_domain }}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </li>
@@ -168,7 +181,7 @@
       </a>
       <ul class="subnav collapse list-unstyled" id="megamenu-ministry">
         {% for option in data.megamenu.ministry %}
-        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}">{{ option.title }}</a></li>
+        <li><a href="{{ option.url | replace: '(CRDS_DOMAIN)', site.crds_domain }}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </li>
@@ -181,7 +194,7 @@
       </a>
       <ul class="subnav collapse list-unstyled" id="megamenu-contact">
         {% for option in data.megamenu.contact %}
-        <li><a href="{{ site.shared_header.app }}{{ option.url | remove_first: '/' }}">{{ option.title }}</a></li>
+        <li><a href="{{ option.url | replace: '(CRDS_DOMAIN)', site.crds_domain }}">{{ option.title }}</a></li>
         {% endfor %}
       </ul>
     </li>

@@ -71,8 +71,9 @@ layout: default
             {% endif %}
 
             {% if page.discussion %}
+            {% assign discussion = page.discussion | get_doc %}
             <div class="push-bottom" data-track-viewport='{ "duration": 60000, "event": "ChaserView" }'>
-              {% include _discussion-questions.html type='chaser' discussion=page.discussion %}
+              {% include _discussion-questions.html type='chaser' discussion=discussion %}
               <div class="triangle-up"></div>
               {% include _chaser-rollcall.html %}
             </div>
@@ -86,7 +87,7 @@ layout: default
               {% endfor %}
             {% endif %}
 
-            <p>{{ page.published_at | format_date }}{% if page.video_duration != nil %} <span class="divider push-quarter-sides">•</span> {{ page.video_duration }} {% endif %}</p>
+            <p>{{ page.published_at | format_date }}{% if page.duration != nil %} <span class="divider push-quarter-sides">•</span> {% include _read-time.html duration=page.duration content_type='message' %} {% endif %}</p>
 
             <div class="soft-half-top push-top">
               {% include _social-share.html %}

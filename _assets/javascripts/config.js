@@ -20,7 +20,8 @@ module.exports = [
       'vendor/imgix-optimizer',
       'vendor/moment.min',
       'vendor/reactive-auth-v0.0.1.umd',
-      'vendor/knockout-3.4.2'
+      'vendor/knockout-3.4.2',
+      'vendor/crds-status-message-v0.1.3.min'
     ],
     files: [
       'components/clipboard',
@@ -33,6 +34,7 @@ module.exports = [
       'components/roll-call',
       'components/dates',
       'components/menu-squencher',
+      'components/status-message',
       'lib/header'
     ]
   },

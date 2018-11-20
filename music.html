@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Music
 paginate:
   songs:
     offset: 4
@@ -18,7 +19,9 @@ paginate:
     {% if page.songs.page == 1 %}
       {% assign featured = page.songs.offset %}
       {% for item in featured %}
-      <a href="{{ item.url }}" class="splash-card" style="background-image:url('{% if item.bg_image.url %}{{ item.bg_image.url | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder_sixteen_nine }}')" sizes="{{ site.image_sizes.full_width }}" alt="{{ item.bg_image.title }}" data-optimize-bg-img>
+        {% assign bg_img = item.bg_image %}
+        {% unless bg_img %}{% assign bg_img = item.image %}{% endunless %}
+      <a href="{{ item.url }}" class="splash-card" style="background-image:url('{% if bg_img.url %}{{ bg_img.url | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder_sixteen_nine }}')" sizes="{{ site.image_sizes.full_width }}" alt="{{ bg_img.title }}" data-optimize-bg-img>
         <div class="container">
           <div class="content">
             {% if item.featured_label %}

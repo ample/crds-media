@@ -16,12 +16,13 @@ plugins:
 
 # The following items will not be processed, by default.
 exclude:
+  - .github/
   - Gemfile
   - Gemfile.lock
   - Guardfile
+  - lib
   - node_modules
   - package-lock.json
-  - package.json
   - package.json
   - README.md
   - spec
@@ -77,6 +78,9 @@ collections:
   perspectives:
     output: true
     permalink: /:collection/:title
+  perspective_sets:
+    output: true
+    permalink: /perspectives/sets/:title
 
 contentful:
   article:
@@ -92,12 +96,14 @@ contentful:
     map:
       page_path: path
   message:
+    map:
+      date: published_at
     belongs_to:
       series: videos
   series:
     map:
-      date: starts_at
-  series:
+      date: published_at
+  song:
     map:
       date: published_at
   video:
@@ -106,8 +112,9 @@ contentful:
   perspective:
     map:
       date: published_at
-    exclude:
-      - category
+  perspective_set:
+    map:
+      date: published_at
   exclude:
     - location
     - migrations
@@ -174,8 +181,14 @@ defaults:
       type: perspectives
     values:
       layout: perspective
+  - scope:
+      path: ""
+      type: perspective_sets
+    values:
+      layout: perspective_set
 
 imgix_params:
+  overlay_50: "blend64=MTUxNTE1&balph=50&bm=normal"
   placeholder: "auto=format,compress&w=10"
   placeholder_card: "auto=format,compress&w=12&h=9&fit=crop"
   placeholder_square: "auto=format,compress&w=10&h=10&fit=crop"
@@ -200,3 +213,8 @@ image_sizes:
   topic_feature_sub: "(min-width: 992px) 370px, (min-width: 0px) 100px"
 
 typekit_url: https://use.typekit.net/ccb3vpa.css
+
+cloudsearch:
+  article:
+    - body
+    - lead_text

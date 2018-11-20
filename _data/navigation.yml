@@ -21,11 +21,11 @@ topics:
   - title: Faith
     url: /topics/faith
 
-  - title: Family
-    url: /topics/family
+  - title: Leadership
+    url: /topics/leadership
 
   - title: Finance
-    url: /topics/finance
+    url: /topics/finances
 
   - title: Relationships
     url: /topics/relationships
@@ -33,19 +33,26 @@ topics:
 megamenu:
   crossroads:
     - title: Home
-      url: /
+      url: (CRDS_DOMAIN)
 
     - title: Serve
-      url: /serve
+      url: (CRDS_DOMAIN)/serve
 
     - title: Give
-      url: /giving
+      url: (CRDS_DOMAIN)/giving
 
     - title: Updates
-      url: /updates
+      url: (CRDS_DOMAIN)/updates
 
     - title: Locations
-      url: /locations
+      url: (CRDS_DOMAIN)/locations
+
+  about:
+    - title: Explore
+      url: (CRDS_DOMAIN)/explore
+
+    - title: Our History
+      url: (CRDS_DOMAIN)/ourhistory/
 
   media:
     - title: All Media
@@ -71,61 +78,61 @@ megamenu:
 
   grow:
     - title: Get Started
-      url: /getstarted
+      url: (CRDS_DOMAIN)/getstarted
 
     - title: Groups
-      url: /groups
+      url: (CRDS_DOMAIN)/groups
 
     - title: Serving Opportunities
-      url: /serve
+      url: (CRDS_DOMAIN)/serve
 
     - title: GO Somewhere
-      url: /reachout/go
+      url: (CRDS_DOMAIN)/reachout/go
 
     - title: The Chaser
-      url: /the-chaser
+      url: (CRDS_DOMAIN)/the-chaser
 
     - title: See who is nearby
-      url: /connect
+      url: (CRDS_DOMAIN)/connect
 
     - title: Put yourself on the map
-      url: /connect
+      url: (CRDS_DOMAIN)/connect
 
   care:
     - title: Weddings
-      url: /care/weddings
+      url: (CRDS_DOMAIN)/care/weddings
 
     - title: Counselors
-      url: /care/counselors
+      url: (CRDS_DOMAIN)/care/counselors
 
     - title: Funerals
-      url: /care/funerals
+      url: (CRDS_DOMAIN)/care/funerals
 
     - title: Prayer
-      url: /prayer
+      url: (CRDS_DOMAIN)/prayer
 
   ministry:
     - title: Kids' Club
-      url: /anywhere-resources/kids-club
+      url: (CRDS_DOMAIN)/anywhere-resources/kids-club
 
     - title: Students 6-12th
-      url: /studentministry
+      url: (CRDS_DOMAIN)/studentministry
 
     - title: ReachOut
-      url: /reachout
+      url: (CRDS_DOMAIN)/reachout
 
     - title: Community Care
-      url: /care/communitycare/
+      url: (CRDS_DOMAIN)/care/communitycare/
 
     - title: First Impressions
-      url: /firstimpressions
+      url: (CRDS_DOMAIN)/firstimpressions
 
   contact:
     - title: Ask a Question
-      url: /frequentquestions
+      url: (CRDS_DOMAIN)/frequentquestions
 
     - title: Staff Contacts
-      url: /contactus
+      url: (CRDS_DOMAIN)/contactus
 
     - title: Prayer Requests
-      url: /prayer
+      url: (CRDS_DOMAIN)/prayer

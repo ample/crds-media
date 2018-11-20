@@ -105,11 +105,11 @@ title: Podcast
                   </a>
 
                   <p class="metadata push-quarter-bottom">{{ episode.date | format_date }}
-                    {% if episode.date != nil and episode.audio_duration != nil %}
+                    {% if episode.date != nil and episode.duration != nil %}
                     <span class="divider">•</span>
                     {% endif %}
-                    {% if episode.audio_duration %}
-                      {{ episode.audio_duration }} mins
+                    {% if episode.duration %}
+                      {% include _read-time.html duration=episode.duration content_type='episode' %}
                     {% endif %}
                   </p>
 

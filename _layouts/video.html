@@ -64,7 +64,7 @@ layout: default
               {% endfor %}
             {% endif %}
 
-            <p>{{ page.published_at | format_date }} {% if page.video_duration != nil %}<span class="divider push-quarter-sides">•</span> {{ page.video_duration }} {% endif %}</p>
+            <p>{{ page.published_at | format_date }} {% if page.duration != nil %} <span class="divider push-quarter-sides">•</span> {% include _read-time.html duration=page.duration content_type='video' %} {% endif %}</p>
 
 
             <div class="soft-half-top push-top">

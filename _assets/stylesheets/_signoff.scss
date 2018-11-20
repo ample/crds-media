@@ -1,29 +1,38 @@
 .signoff {
-  background: $cr-gray-lighter;
-  font-size: $font-size-small;
-  padding: 20px;
-  padding-top: 45px;
+  margin: 28px 0 45px;
 
-  @media screen and (min-width: $screen-sm) {
-    padding: 45px;
+  h1, h2, h3, h4 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.17;
   }
 
-  h2, h3 {
-    font-size: 1.5rem;
-    font-weight: 500;
-    margin-top: 0;
-    margin-bottom: 6px;
-  }
-
-  ol, ul {
+  ul, ol {
     list-style: none;
-    padding-left: 0;
+    margin: 20px 0 0;
+    padding: 0;
 
     li {
-      margin-bottom: 20px;
+      border-left: 3px solid $cr-blue;
+      font-size: $base-font-size;
+      line-height: 1.25;
+      margin-bottom: 15px;
+      padding: 5px 15px;
+    }
+  }
+}
 
-      &:first-of-type {
-        margin-top: 1.75rem;
+@media screen and (min-width: $screen-sm) {
+  .signoff {
+    ul, ol {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-content: flex-start;
+
+      li {
+        flex: 1 1 33%;
+        padding: 5px 20px;
       }
     }
   }

@@ -6,20 +6,19 @@
     {% assign content_type = include.source.content_type | singularize %}
   {% endif %}
 
-  {% if content_type == "article" %}
-    {% assign words = include.source.content | number_of_words %}
-    {% assign read_time = words | divided_by: 184.0 | ceil %}
-    {% if read_time > 0 %}
-      <span class="font-size-smallest">{{ read_time }} min read</span>
+  {% if include.source.duration %}
+    {% if content_type == 'article' %}
+      {% assign format = 'short' %}
+    {% else %}
+      {% assign format = 'long' %}
     {% endif %}
-  {% else %}
-    <span class="font-size-smallest">{{ include.source.duration }}</span>
+    <span class="font-size-smallest">{{ include.source.duration | duration: format }}</span>
   {% endif %}
 
   <svg class="icon" viewBox="0 0 256 256">
     {% if content_type == "article" %}
       <use xlink:href="/assets/svgs/icons.svg#media-article"></use>
-    {% elsif content_type == "video" %}
+    {% elsif content_type == "video" or content_type == "message" %}
       <use xlink:href="/assets/svgs/icons.svg#media-video"></use>
     {% elsif content_type == "song" %}
       <use xlink:href="/assets/svgs/icons.svg#media-music"></use>
