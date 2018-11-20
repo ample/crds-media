@@ -13,7 +13,6 @@ describe 'Jekyll::AssetHooks' do
     expect(@site.config['keep_files']).to include('assets')
   end
 
-
   it 'sets build_assets to true' do
     expect(@site.config['build_assets']).to eq(nil)
     @hook.init_build

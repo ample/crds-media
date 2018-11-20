@@ -22,6 +22,11 @@ function filename(basename, ext) {
   return `${basename}.${ext}`;
 }
 
+/**
+ * compileSass
+ *
+ * Compiles application.scss into build directory.
+ */
 function compileSass(done) {
   return src('_assets/stylesheets/application.scss')
     .pipe(plumber())
@@ -33,6 +38,12 @@ function compileSass(done) {
     .pipe(dest(assetDir));
 }
 
+/**
+ * purgeCss
+ *
+ * Runs purgecss against the compiled application.css file. The purgeCSS config
+ * is in purgecss.config.json.
+ */
 function purgeCss(done) {
   return exec(`purgecss --config ./purgecss.config.json --out ${assetDir}`, function(err) {
     if (err) return console.error(err);
@@ -40,7 +51,16 @@ function purgeCss(done) {
   });
 }
 
-
+/**
+ * jsDeps
+ *
+ * Loops through the JS config and builds a temporary file of concatenated
+ * dependencies for each (eventual) build file.
+ *
+ * The filename is in the format ${name}.deps.js (e.g. application.deps.js).
+ *
+ * These files will eventually be removed with the jsClean task.
+ */
 function jsDeps(done) {
   const tasks = jsConfig.map((config) => {
     return (done) => {
@@ -61,6 +81,16 @@ function jsDeps(done) {
   })();
 }
 
+/**
+ * jsBuild
+ *
+ * Loops through the JS config, concatenates all JS components into a single
+ * file and then run Bablel against the combined file.
+ *
+ * The filename is in the format ${name}.files.js (e.g. application.files.js).
+ *
+ * These files will eventually be removed with the jsClean task.
+ */
 function jsBuild(done) {
   const tasks = jsConfig.map((config) => {
     return (done) => {
@@ -90,6 +120,13 @@ function jsBuild(done) {
   })();
 }
 
+/**
+ * jsConcat
+ *
+ * Loops through the JS config and concatenates the *.deps.js files with the
+ * appropriate *.files.js files. These are the final build files that remain
+ * when the build is complete.
+ */
 function jsConcat(done) {
   const tasks = jsConfig.map((config) => {
     return (done) => {
@@ -107,6 +144,11 @@ function jsConcat(done) {
   })();
 }
 
+/**
+ * jsClean
+ *
+ * Removes all *.deps.js and *.files.js (temporary) files.
+ */
 function jsClean(done) {
   const tasks = jsConfig.map((config) => {
     return (done) => {
