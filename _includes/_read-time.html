@@ -4,5 +4,5 @@
   {% else %}
     {% assign format = 'long' %}
   {% endif %}
-  <span class="read-time font-size-smaller push-quarter-ends">{{ include.duration | duration: format }}</span>
+  <span class="read-time push-quarter-ends">{{ include.duration | duration: format }}</span>
 {% endif %}
