@@ -1,0 +1,12 @@
+{
+  "content": ["_site/**/*.html"],
+  "css": ["_site/assets/application*.css"],
+  "whitelist": [
+    "pull-right",
+    "border-bottom",
+    "flickity-viewport",
+    "tmp-img-placeholder",
+    "card-deck--expanded-layout",
+    "carousel-cell"
+  ]
+}
