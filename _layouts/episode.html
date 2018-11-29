@@ -64,8 +64,8 @@ layout: default
         </div>
 
         <!-- Topic -->
-        {% assign topic = site.topics | where: "title", page.topic | first %}
-        {% if page.topic %}
+        {% assign topic = page.category | get_doc %}
+        {% if topic %}
         <p class="flush-bottom soft-top">
           <strong>Topic</strong>
         </p>
