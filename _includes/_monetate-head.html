@@ -1,0 +1,23 @@
+{% if page.content_type contains 'article'
+  or page.content_type contains 'episode'
+  or page.content_type contains 'message'
+  or page.content_type contains 'perspectives'
+  or page.content_type contains 'podcast'
+  or page.content_type contains 'series'
+  or page.content_type contains 'song'
+  or page.content_type contains 'video' %}
+<script>
+  window.monetateQ = window.monetateQ || [];
+  window.monetateQ.push(["setPageType", "product"]);
+  window.monetateQ.push([
+    "addCategories", [{% if page.category.size > 0 %}"{{ page.category.title | truncate: 128 | asciify }}",{% endif %}
+      {% if page.tags.size > 0 %} {% for tag in page.tags %}
+        "{{ tag.title | truncate: 128 | asciify }}",
+      {% endfor %} {% endif %}
+      ]
+  ]);
+
+</script>
+{% endif %}
+
+<!-- articles  episodes messages perspectives podcasts series songs videos -->
