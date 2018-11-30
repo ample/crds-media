@@ -58,6 +58,11 @@ GIT
       jekyll
 
 PATH
+  remote: /Users/seandavis/code/jekyll-asset-pipeline
+  specs:
+    jekyll-asset-pipeline (0.1.0)
+
+PATH
   remote: vendor/gems/video-tags
   specs:
     video-tags (0.0.1)
@@ -252,6 +257,7 @@ DEPENDENCIES
   guard-rspec
   hashie
   jekyll (~> 3.7.2)
+  jekyll-asset-pipeline (~> 0.1)!
   jekyll-cloudsearch!
   jekyll-coffeescript
   jekyll-contentful (~> 1.0)!
@@ -271,4 +277,4 @@ DEPENDENCIES
   video-tags (~> 0.0.1)!
 
 BUNDLED WITH
-   1.16.4
+   1.17.1
