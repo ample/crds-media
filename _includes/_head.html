@@ -38,25 +38,26 @@
   <meta name="twitter:site" content="@crdschurch">
 
   <script>
-  var CRDS = window.CRDS || {};
+    var CRDS = window.CRDS || {};
 
-  CRDS.media = {
-    cms: '{{ site.shared_header.cms }}',
-    app: '{{ site.shared_header.app }}',
-    img: '{{ site.shared_header.img }}',
-    prefix: '{{ site.shared_header.prefix }}'
-  }
+    CRDS.media = {
+      cms: '{{ site.shared_header.cms }}',
+      app: '{{ site.shared_header.app }}',
+      img: '{{ site.shared_header.img }}',
+      prefix: '{{ site.shared_header.prefix }}'
+    }
 
-  CRDS.rollCall = {
-    formUrl: '{{ site.ENV.ROLL_CALL_FORM_URL }}',
-    totalFieldId: '{{ site.ENV.ROLL_CALL_TOTAL_FIELD_ID }}',
-    urlFieldId: '{{ site.ENV.ROLL_CALL_URL_FIELD_ID }}'
-  }
+    CRDS.rollCall = {
+      formUrl: '{{ site.ENV.ROLL_CALL_FORM_URL }}',
+      totalFieldId: '{{ site.ENV.ROLL_CALL_TOTAL_FIELD_ID }}',
+      urlFieldId: '{{ site.ENV.ROLL_CALL_URL_FIELD_ID }}'
+    }
 
-  var JEKYLL_ENV = '{{ site.jekyll_env }}';
-  </script>
+    var JEKYLL_ENV = '{{ site.jekyll_env }}';
+    </script>
 
 {% include _gtm.html %}
+{% include _monetate-head.html %}
 {% include _facebook.html %}
 {% if page.js_vars %}{% include _js_vars.html %}{% endif %}
 {% javascript_link_tag application %}
