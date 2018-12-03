@@ -9,15 +9,29 @@
 <script>
   window.monetateQ = window.monetateQ || [];
   window.monetateQ.push(["setPageType", "product"]);
-  window.monetateQ.push([
-    "addCategories", [{% if page.category.size > 0 %}"{{ page.category.title | truncate: 128 | asciify }}",{% endif %}
-      {% if page.tags.size > 0 %} {% for tag in page.tags %}
-        "{{ tag.title | truncate: 128 | asciify }}",
-      {% endfor %} {% endif %}
-      ]
-  ]);
-
+  window.monetateQ.push(["addProductDetails",
+    ["{{ page.contentful_id }}"]]);
 </script>
 {% endif %}
 
-<!-- articles  episodes messages perspectives podcasts series songs videos -->
+{% if page.content_type == 'category' %}
+<script>
+  window.monetateQ = window.monetateQ || [];
+  window.monetateQ.push(["setPageType", "topic"]);
+  window.monetateQ.push([
+    "addCategories", ["{{ page.title | truncate: 128 | asciify }}"]
+  ]);
+  window.monetateQ.push([
+    "addProducts", [
+      {% for item in page.featured_media %}
+      "{{ item.contentful_id }}",
+      {% endfor %}
+      {% for data in page.featured_tag_data %}
+      {% assign media_items = data.media %}
+        {% for item in media_items %}
+        "{{ item.contentful_id }}",
+        {% endfor %}
+      {% endfor %}
+    ]]);
+</script>
+{% endif %}
