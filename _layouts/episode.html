@@ -64,17 +64,8 @@ layout: default
         </div>
 
         <!-- Topic -->
-        {% assign topic = site.topics | where: "title", page.topic | first %}
-        {% if page.topic %}
-        <p class="flush-bottom soft-top">
-          <strong>Topic</strong>
-        </p>
-        <ul class="list-inline">
-          <li>
-            <a href="{{ topic.url }}">{{ topic.title }}</a>
-          </li>
-        </ul>
-        {% endif %}
+        {% assign topic = page.category | get_doc %}
+        {% include _topic.html %}
 
         <!-- Tags -->
         {% include _tags_list.html tags=page.tags %}
