@@ -36,6 +36,15 @@ GIT
       sass (~> 3.2)
 
 GIT
+  remote: https://github.com/crdschurch/jekyll-asset-pipeline
+  revision: d5b8a8e338af25ebd0c732544a346db4150da9de
+  tag: 0.0.1
+  specs:
+    jekyll-asset-pipeline (0.0.1)
+      activesupport
+      jekyll (~> 3.7)
+
+GIT
   remote: https://github.com/crdschurch/jekyll-cloudsearch
   revision: 18aae390f519c00a18e75ab4cb2a3a0c50f77163
   tag: 0.1.0
@@ -56,13 +65,6 @@ GIT
       activesupport
       httparty
       jekyll
-
-PATH
-  remote: /Users/seandavis/code/jekyll-asset-pipeline
-  specs:
-    jekyll-asset-pipeline (0.0.1)
-      activesupport
-      jekyll (~> 3.7)
 
 PATH
   remote: vendor/gems/video-tags
