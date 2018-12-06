@@ -64,7 +64,7 @@ layout: default
               {% endfor %}
             {% endif %}
 
-            <p>{{ page.published_at | format_date }} {% if page.video_duration != nil %}<span class="divider push-quarter-sides">•</span> {{ page.video_duration }} {% endif %}</p>
+            <p>{{ page.published_at | format_date }} {% if page.duration != nil %} <span class="divider push-quarter-sides">•</span> {% include _read-time.html duration=page.duration content_type='video' %} {% endif %}</p>
 
 
             <div class="soft-half-top push-top">
@@ -72,17 +72,8 @@ layout: default
             </div>
 
             <!-- Only 1 topic per page -->
-            {% if page.category %}
-              {% assign topic = site.categories | where: 'slug', page.category.slug | first %}
-              <p class="flush-bottom soft-top">
-                <strong>Topic</strong>
-              </p>
-              <ul class="list-inline">
-                <li>
-                  <a href="{{ topic.url }}">{{ topic.title }}</a>
-                </li>
-              </ul>
-            {% endif %}
+            {% assign topic = site.categories | where: 'slug', page.category.slug | first %}
+            {% include _topic.html %}
 
             <!-- Page can have many tags -->
             {% include _tags_list.html tags=page.tags %}

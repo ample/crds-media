@@ -28,18 +28,20 @@ GIT
 
 GIT
   remote: https://github.com/crdschurch/crds-styles.git
-  revision: 26e644317981c6338372ac51e494c39351b81ac0
-  tag: v3.0.6
+  revision: 27cc4640f73674ecffd23e409056c1018b820e72
+  tag: v3.0.8
   specs:
-    crds-styles (3.0.6)
+    crds-styles (3.0.8)
       bootstrap-sass (~> 3.3)
       sass (~> 3.2)
 
 GIT
-  remote: https://github.com/crdschurch/jekyll-cloudsearch.git
-  revision: 7e36695f47eb07a3848343fd5b0a1d9aa77b5238
+  remote: https://github.com/crdschurch/jekyll-cloudsearch
+  revision: 18aae390f519c00a18e75ab4cb2a3a0c50f77163
+  tag: 0.1.0
   specs:
-    jekyll-cloudsearch (0.0.2)
+    jekyll-cloudsearch (0.1.0)
+      activesupport
       aws-sdk-cloudsearchdomain
       contentful-management (~> 1.10.1)
       jekyll
@@ -71,14 +73,14 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    autoprefixer-rails (9.1.4)
+    autoprefixer-rails (9.3.1)
       execjs
     aws-eventstream (1.0.1)
-    aws-partitions (1.105.0)
-    aws-sdk-cloudsearchdomain (1.3.0)
+    aws-partitions (1.113.0)
+    aws-sdk-cloudsearchdomain (1.5.0)
       aws-sdk-core (~> 3, >= 3.26.0)
       aws-sigv4 (~> 1.0)
-    aws-sdk-core (3.30.0)
+    aws-sdk-core (3.38.0)
       aws-eventstream (~> 1.0)
       aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.0)
@@ -93,9 +95,9 @@ GEM
       execjs
     coffee-script-source (1.11.1)
     colorator (1.1.0)
-    concurrent-ruby (1.0.5)
-    contentful (2.9.3)
-      http (> 0.8, < 3.0)
+    concurrent-ruby (1.1.3)
+    contentful (2.11.0)
+      http (> 0.8, < 4.0)
       multi_json (~> 1)
     contentful-management (1.10.1)
       http (> 1.0, < 3.0)
@@ -110,9 +112,6 @@ GEM
       http_parser.rb (~> 0.6.0)
     eventmachine (1.2.7)
     execjs (2.7.0)
-    extras (0.3.0)
-      forwardable-extended (~> 2.5)
-    fastimage (2.1.3)
     ffi (1.9.25)
     formatador (0.2.5)
     forwardable-extended (2.6.0)
@@ -157,39 +156,23 @@ GEM
       pathutil (~> 0.9)
       rouge (>= 1.7, < 4)
       safe_yaml (~> 1.0)
-    jekyll-assets (3.0.11)
-      activesupport (~> 5.0)
-      execjs (~> 2.7)
-      extras (~> 0.2)
-      fastimage (~> 2.0, >= 1.8)
-      jekyll (>= 3.5, < 4.0)
-      jekyll-sanity (~> 1.2)
-      liquid-tag-parser (~> 1.0)
-      nokogiri (~> 1.8)
-      pathutil (~> 0.16)
-      sprockets (>= 3.3, < 4.1.beta)
     jekyll-coffeescript (1.1.1)
       coffee-script (~> 2.2)
       coffee-script-source (~> 1.11.1)
-    jekyll-feed (0.10.0)
+    jekyll-feed (0.11.0)
       jekyll (~> 3.3)
     jekyll-redirect-from (0.14.0)
       jekyll (~> 3.3)
-    jekyll-sanity (1.2.0)
-      jekyll (~> 3.1)
     jekyll-sass-converter (1.5.2)
       sass (~> 3.4)
-    jekyll-watch (2.0.0)
+    jekyll-watch (2.1.2)
       listen (~> 3.0)
     jmespath (1.4.0)
     json (1.8.6)
     kramdown (1.17.0)
     launchy (2.4.3)
       addressable (~> 2.3)
-    liquid (4.0.0)
-    liquid-tag-parser (1.9.0)
-      extras (~> 0.3)
-      liquid (>= 3.0, < 5.0)
+    liquid (4.0.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -202,12 +185,15 @@ GEM
     multi_json (1.13.1)
     multi_xml (0.6.0)
     nenv (0.3.0)
-    nokogiri (1.8.4)
+    net-sftp (2.1.2)
+      net-ssh (>= 2.6.5)
+    net-ssh (5.0.2)
+    nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    pathutil (0.16.1)
+    pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -216,7 +202,7 @@ GEM
     pry-nav (0.2.4)
       pry (>= 0.9.10, < 0.11.0)
     public_suffix (3.0.3)
-    rack (2.0.5)
+    rack (2.0.6)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -227,7 +213,7 @@ GEM
       rspec-mocks (~> 3.8.0)
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
-    rspec-expectations (3.8.1)
+    rspec-expectations (3.8.2)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-mocks (3.8.0)
@@ -236,7 +222,7 @@ GEM
     rspec-support (3.8.0)
     ruby_dep (1.5.0)
     safe_yaml (1.0.4)
-    sass (3.6.0)
+    sass (3.7.2)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -250,7 +236,7 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.18)
+    uglifier (4.1.19)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
@@ -266,8 +252,7 @@ DEPENDENCIES
   guard-rspec
   hashie
   jekyll (~> 3.7.2)
-  jekyll-assets
-  jekyll-cloudsearch (~> 0.0.1)!
+  jekyll-cloudsearch!
   jekyll-coffeescript
   jekyll-contentful (~> 1.0)!
   jekyll-crds!
@@ -275,6 +260,7 @@ DEPENDENCIES
   jekyll-placeholders (~> 0.0)!
   jekyll-redirect-from
   launchy
+  net-sftp
   paging-mister-hyde (~> 0.2)!
   pry
   pry-nav
@@ -285,4 +271,4 @@ DEPENDENCIES
   video-tags (~> 0.0.1)!
 
 BUNDLED WITH
-   1.16.3
+   1.16.4

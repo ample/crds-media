@@ -17,10 +17,6 @@ paginate:
     per: 4
     limit: 1
     sort: starts_at desc
-  perspectives:
-    per: 3
-    limit: 1
-    sort: date desc
 ---
 
 {% assign feature_obj = site.featured_media | where: 'page_path', page.url | first %}
@@ -60,7 +56,7 @@ paginate:
         <div>
           <h2 class="collection-header text-gray-light push-bottom">most recent</h2>
           <div class="card-deck carousel" data-crds-carousel="mobile-scroll">
-            <div class="feature-cards">
+            <div class="feature-cards card-deck--expanded-layout">
               {% for card in recent_media %}
                 {% include _media-card.html carousel=true %}
               {% endfor %}
@@ -70,17 +66,6 @@ paginate:
       {% endif %}
     </div>
     <div class="col-md-4">
-
-      {% if page.perspectives.docs.size != 0 %}
-        <div class="push-bottom soft-bottom">
-          <h2 class="collection-header push-bottom text-gray-light">another perspective</h2>
-          {% for featured in page.perspectives.docs %}
-            {% include _media-object-list.html media_type="perspective" %}
-          {% endfor %}
-          <a class="font-size-small" href="/perspectives">see all</a>
-        </div>
-      {% endif %}
-
       {% if page.series.docs.size != 0 %}
         <div class="push-bottom soft-bottom">
           <h2 class="collection-header push-bottom text-gray-light">series</h2>

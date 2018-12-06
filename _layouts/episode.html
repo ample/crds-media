@@ -57,24 +57,15 @@ layout: default
           {% endif %}
         {% endfor %}
 
-        <p>{{ page.published_at | format_date }} {% if page.audio_duration != nil %}<span class="divider push-quarter-sides">•</span> {{ page.audio_duration }} mins{% endif %}</p>
+        <p>{{ page.published_at | format_date }} {% if page.duration != nil %} <span class="divider push-quarter-sides">•</span> {% include _read-time.html duration=page.duration content_type='episode' %} {% endif %}</p>
 
         <div class="soft-half-top push-top">
             {% include _social-share.html %}
         </div>
 
         <!-- Topic -->
-        {% assign topic = site.topics | where: "title", page.topic | first %}
-        {% if page.topic %}
-        <p class="flush-bottom soft-top">
-          <strong>Topic</strong>
-        </p>
-        <ul class="list-inline">
-          <li>
-            <a href="{{ topic.url }}">{{ topic.title }}</a>
-          </li>
-        </ul>
-        {% endif %}
+        {% assign topic = page.category | get_doc %}
+        {% include _topic.html %}
 
         <!-- Tags -->
         {% include _tags_list.html tags=page.tags %}
