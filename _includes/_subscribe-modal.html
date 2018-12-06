@@ -8,17 +8,25 @@
       </div>
       <div class="modal-body">
         <h3 class="font-family-condensed-extra font-size-h2 text-uppercase">Subscribe</h3>
-        <form name="mediaSubscribe" method="POST" autocomplete="on">
-          <div class="form-group flush-bottom">
-            <p>Get stories, different perspectives, and meaningful ideas delivered to your inbox every week.</p>
-            <input class="form-control" name="input" placeholder="Email Address" value="" type="text" autocomplete="email">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <div class="btn-block-mobile">
-          <button type="button" class="btn btn-cyan btn-lg">Submit</button>
-        </div>
+
+        <!--[if lte IE 8]>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+            portalId: '3993985',
+            formId: '52b50268-5d9c-4369-8359-e96ff69094f9',
+            submitButtonClass: 'btn btn-cyan btn-lg push-top',
+            errorMessageClass: 'hs-error-msgs inputs-list list-unstyled',
+            onFormReady($form, ctx) {
+              $('div[data-reactid=".hbspt-forms-0.1:$0.0"]').addClass('push-bottom').change();
+              $('label[data-reactid=".hbspt-forms-0.1:$0.$email.0"]').hide().change();
+              $('input[data-reactid=".hbspt-forms-0.1:$0.$email.$email.0"]').addClass('form-control').attr("placeholder", "Email Address").change();
+            }
+          });
+        </script>
+
       </div>
     </div>
   </div>
