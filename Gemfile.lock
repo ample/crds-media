@@ -37,9 +37,10 @@ GIT
 
 GIT
   remote: https://github.com/crdschurch/jekyll-asset-pipeline
-  revision: c079b3c79424535f324f71d10fde746a9daddb67
+  revision: 141b80a196b2b40a5aa1385d08dae761bbf629c5
+  tag: 0.0.1
   specs:
-    jekyll-asset-pipeline (0.1.0)
+    jekyll-asset-pipeline (0.0.1)
       activesupport
       jekyll (~> 3.7)
 
