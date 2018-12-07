@@ -36,6 +36,15 @@ GIT
       sass (~> 3.2)
 
 GIT
+  remote: https://github.com/crdschurch/jekyll-asset-pipeline
+  revision: d5b8a8e338af25ebd0c732544a346db4150da9de
+  tag: 0.0.1
+  specs:
+    jekyll-asset-pipeline (0.0.1)
+      activesupport
+      jekyll (~> 3.7)
+
+GIT
   remote: https://github.com/crdschurch/jekyll-cloudsearch
   revision: 18aae390f519c00a18e75ab4cb2a3a0c50f77163
   tag: 0.1.0
@@ -66,7 +75,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (5.2.1)
+    activesupport (5.2.2)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
@@ -252,6 +261,7 @@ DEPENDENCIES
   guard-rspec
   hashie
   jekyll (~> 3.7.2)
+  jekyll-asset-pipeline!
   jekyll-cloudsearch!
   jekyll-coffeescript
   jekyll-contentful (~> 1.0)!
@@ -271,4 +281,4 @@ DEPENDENCIES
   video-tags (~> 0.0.1)!
 
 BUNDLED WITH
-   1.16.4
+   1.17.1
