@@ -35,6 +35,7 @@ module.exports = [
       'components/dates',
       'components/menu-squencher',
       'components/status-message',
+      'components/yt-event-handler',
       'lib/header'
     ]
   },
