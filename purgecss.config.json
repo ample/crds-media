@@ -7,6 +7,9 @@
     "flickity-viewport",
     "tmp-img-placeholder",
     "card-deck--expanded-layout",
-    "carousel-cell"
+    "carousel-cell",
+    "modal",
+    "modal-backdrop",
+    "in"
   ]
 }
