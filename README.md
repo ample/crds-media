@@ -11,10 +11,11 @@ Getting Started
 1. Clone the project.
 2. Install Ruby 2.4.0. If you haven't installed Ruby, consider using [rbenv](https://github.com/rbenv/rbenv).
 3. Install Ruby dependencies (`bundle install`).
-4. Install JavaScript dependencies (`npm install`)
-5. Add appropriate environment variables.
-6. Pull down content (`bundle exec jekyll contentful`)
-7. Start the server (`bundle exec jekyll serve`)
+4. Install PurgeCSS globally (`npm i -g purgecss`)
+5. Install the other JavaScript dependencies (`npm install`)
+6. Add appropriate environment variables.
+7. Pull down content (`bundle exec jekyll contentful`)
+8. Start the server (`bundle exec jekyll serve`)
 
 Troubleshooting
 ----------
