@@ -10,6 +10,7 @@
     "carousel-cell",
     "modal",
     "modal-backdrop",
+    "modal-footer",
     "in"
   ]
 }
