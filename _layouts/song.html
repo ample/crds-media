@@ -110,16 +110,7 @@ layout: default
 
       <!-- Topic -->
       {% assign topic = page.category | get_doc %}
-      {% if topic %}
-        <p class="flush-bottom soft-top">
-          <strong>Topic</strong>
-        </p>
-        <ul class="list-inline">
-          <li>
-            <a href="{{ topic.url }}">{{ topic.title }}</a>
-          </li>
-        </ul>
-      {% endif %}
+      {% include _topic.html %}
 
       <!-- Tags -->
       {% include _tags_list.html tags=page.tags %}
