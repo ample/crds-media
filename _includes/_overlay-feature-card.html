@@ -1,15 +1,17 @@
 
 {% comment %}
-// This assures the songs content type uses the background image instead of the thumbnail image like all other content types.
+// This assures the songs and messages content types use the background image instead of the thumbnail image like all other content types.
 {% endcomment %}
 {% assign handle = item.content_type %}
 {% case handle %}
   {% when 'song' %}
-     {% assign image_source = item.bg_image.url %}
+    {% assign image_source = item.bg_image.url %}
+  {% when 'message' %}
+    {% assign image_source = item.background_image.url %}
   {% when 'episode' %}
-     {% assign image_source = item.podcast.image.url %}
+    {% assign image_source = item.podcast.image.url %}
   {% else %}
-     {% assign image_source = item.image.url %}
+    {% assign image_source = item.image.url %}
 {% endcase %}
 
 <a href="{{ item.url }}" class="overlay-feature-card-link">

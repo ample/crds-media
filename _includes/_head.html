@@ -25,7 +25,7 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
 
-  {% asset application.scss !integrity %}
+  {% stylesheet_link_tag application %}
 
   <title>{{ page | meta_title }}</title>
   <meta name="description" content="{{ page | meta_description }}">
@@ -57,7 +57,8 @@
   </script>
 
 {% include _gtm.html %}
+{% include _monetate-head.html %}
 {% include _facebook.html %}
 {% if page.js_vars %}{% include _js_vars.html %}{% endif %}
-<script type="text/javascript" src="{% asset application.js @path %}"></script>
+{% javascript_link_tag application %}
 </head>

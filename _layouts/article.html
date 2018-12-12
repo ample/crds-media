@@ -62,18 +62,9 @@ title: Articles
         </div>
 
         <!-- Topic -->
-        {% if topic %}
-          <div class="keywords">
-            <p class="flush-bottom soft-top">
-              <strong>Topic</strong>
-            </p>
-            <ul class="list-inline">
-              <li>
-                <a href="{{ topic.url }}">{{ topic.title }}</a>
-              </li>
-            </ul>
-          </div>
-        {% endif %}
+        <div class="keywords">
+          {% include _topic.html %}
+        </div>
 
         <!-- Tags -->
         {% include _tags_list.html tags=page.tags %}

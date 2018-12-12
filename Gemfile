@@ -40,9 +40,10 @@ end
 # ---------------------------------------- | Plugins
 
 group :jekyll_plugins do
-  gem 'jekyll-assets'
   gem 'jekyll-contentful', '~> 1.0', github: 'crdschurch/jekyll-contentful', tag: '1.1.0'
   # gem 'jekyll-contentful', '~> 1.0', path: File.expand_path('../jekyll-contentful', __dir__)
+  gem 'jekyll-asset-pipeline', git: 'https://github.com/crdschurch/jekyll-asset-pipeline', tag: '0.0.1'
+  # gem 'jekyll-asset-pipeline', path: File.expand_path('../jekyll-asset-pipeline', __dir__)
   gem 'jekyll-redirect-from'
   gem 'jekyll-feed', '~> 0.6'
   gem 'jekyll-crds', git: 'https://github.com/crdschurch/jekyll-crds.git', tag: '0.0.1'
@@ -55,7 +56,6 @@ group :jekyll_plugins do
   gem 'paging-mister-hyde', '~> 0.2', git: 'https://github.com/ample/paging-mister-hyde.git'
   gem 'video-tags', '~> 0.0.1', path: File.expand_path('./vendor/gems/video-tags', __dir__)
 
-  # Must be loaded after jekyll-assets, otherwise the assets won't be discoverable.
   # gem 'crds-styles', path: File.join(File.dirname(__FILE__), '../crds-styles')
   # gem 'crds-styles', git: 'https://github.com/crdschurch/crds-styles.git', branch: 'development'
   gem 'crds-styles', git: 'https://github.com/crdschurch/crds-styles.git', tag: 'v3.0.8'
