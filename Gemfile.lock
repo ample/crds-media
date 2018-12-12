@@ -1,16 +1,4 @@
 GIT
-  remote: git://github.com/crdschurch/jekyll-contentful.git
-  revision: 3289cffead190c35af3be63218447f9f887082d7
-  tag: 1.1.0
-  specs:
-    jekyll-contentful (1.1.0)
-      activesupport
-      contentful (>= 2.6.0)
-      contentful-management (~> 1.10.1)
-      dotenv
-      jekyll
-
-GIT
   remote: https://github.com/ample/jekyll-placeholders.git
   revision: 503eef68d21b020b8d611025ab7029c80e569186
   specs:
@@ -27,20 +15,11 @@ GIT
       jekyll
 
 GIT
-  remote: https://github.com/crdschurch/crds-styles.git
-  revision: 27cc4640f73674ecffd23e409056c1018b820e72
-  tag: v3.0.8
-  specs:
-    crds-styles (3.0.8)
-      bootstrap-sass (~> 3.3)
-      sass (~> 3.2)
-
-GIT
   remote: https://github.com/crdschurch/jekyll-asset-pipeline
-  revision: d5b8a8e338af25ebd0c732544a346db4150da9de
-  tag: 0.0.1
+  revision: 8022ae37a0b07e5bbbbe3ca94cfd34ae86a82514
+  tag: 0.0.2
   specs:
-    jekyll-asset-pipeline (0.0.1)
+    jekyll-asset-pipeline (0.0.2)
       activesupport
       jekyll (~> 3.7)
 
@@ -55,6 +34,18 @@ GIT
       contentful-management (~> 1.10.1)
       jekyll
       nokogiri
+
+GIT
+  remote: https://github.com/crdschurch/jekyll-contentful
+  revision: 3289cffead190c35af3be63218447f9f887082d7
+  tag: 1.1.0
+  specs:
+    jekyll-contentful (1.1.0)
+      activesupport
+      contentful (>= 2.6.0)
+      contentful-management (~> 1.10.1)
+      dotenv
+      jekyll
 
 GIT
   remote: https://github.com/crdschurch/jekyll-crds.git
@@ -82,8 +73,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    autoprefixer-rails (9.3.1)
-      execjs
     aws-eventstream (1.0.1)
     aws-partitions (1.113.0)
     aws-sdk-cloudsearchdomain (1.5.0)
@@ -95,9 +84,6 @@ GEM
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
     aws-sigv4 (1.0.3)
-    bootstrap-sass (3.3.7)
-      autoprefixer-rails (>= 5.2.1)
-      sass (>= 3.3.4)
     coderay (1.1.2)
     coffee-script (2.4.1)
       coffee-script-source
@@ -256,7 +242,6 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-  crds-styles!
   dotenv
   guard-rspec
   hashie
@@ -279,6 +264,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier
   video-tags (~> 0.0.1)!
+  wdm (~> 0.1.0)
 
 BUNDLED WITH
    1.17.1
