@@ -40,6 +40,7 @@ end
 # ---------------------------------------- | Plugins
 
 group :jekyll_plugins do
+  gem 'jekyll-sitemap'
   gem 'jekyll-contentful', '~> 1.0', github: 'crdschurch/jekyll-contentful', tag: '1.1.0'
   # gem 'jekyll-contentful', '~> 1.0', path: File.expand_path('../jekyll-contentful', __dir__)
   gem 'jekyll-asset-pipeline', git: 'https://github.com/crdschurch/jekyll-asset-pipeline', tag: '0.0.1'
