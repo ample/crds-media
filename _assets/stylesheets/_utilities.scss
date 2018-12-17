@@ -14,15 +14,6 @@ a.hover-text-gray-lighter:hover * {
   color: $cr-gray-lighter;
 }
 
-.bg-overlay {
-  position: absolute;
-  top: 25%;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background-image: linear-gradient(to bottom, rgba(23, 23, 23, 0), $cr-gray-darker);
-}
-
 .blur {
   @extend .bg-overlay;
   top: 0;
@@ -34,16 +25,18 @@ a.hover-text-gray-lighter:hover * {
 }
 
 .bg-black-50 {
-  background-color: rgba(0,0,0,.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .border-white-15 {
-  border: 1px solid rgba(255,255,255,.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .white-faded {
-  &, a {
-    &, .jumbotron & {
+  &,
+  a {
+    &,
+    .jumbotron & {
       @media screen and (min-width: $screen-sm) {
         color: rgba($cr-white, 0.8);
       }
@@ -54,7 +47,7 @@ a.hover-text-gray-lighter:hover * {
 .text-uppercase {
   &.font-size-smaller {
     font-size: 13px !important;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
   }
 }
 
@@ -66,12 +59,12 @@ a.hover-text-gray-lighter:hover * {
   font-size: 48px;
   @media (min-width: $screen-sm) {
     font-size: 90px;
-    line-height: .89;
+    line-height: 0.89;
   }
 }
 
 .font-family-base-mid {
-  font-family: "acumin-pro",helvetica,arial,sans-serif;
+  font-family: "acumin-pro", helvetica, arial, sans-serif;
   font-weight: 500;
 }
 
@@ -139,5 +132,5 @@ a.hover-text-gray-lighter:hover * {
 }
 
 .w-100 {
-  width: 100%!important;
+  width: 100% !important;
 }
