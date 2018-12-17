@@ -2,7 +2,7 @@
   "devDependencies": {
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
-    "crds-styles": "^3.0.9",
+    "crds-styles": "crdschurch/crds-styles#development",
     "del": "^3.0.0",
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",
