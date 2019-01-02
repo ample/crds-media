@@ -1,11 +1,10 @@
-<div class="media-label bg-charcoal text-white">
-
+<div class="card-stamp bg-charcoal text-white">
   {% if include.source.collection %}
     {% assign content_type = include.source.collection | singularize %}
   {% else %}
     {% assign content_type = include.source.content_type | singularize %}
   {% endif %}
-
+  
   {% if include.source.duration %}
     {% if content_type == 'article' %}
       {% assign format = 'short' %}
