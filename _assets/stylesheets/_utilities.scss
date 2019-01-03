@@ -14,6 +14,19 @@ a.hover-text-gray-lighter:hover * {
   color: $cr-gray-lighter;
 }
 
+.bg-overlay {
+  position: absolute;
+  top: 25%;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(23, 23, 23, 0),
+    $cr-gray-darker
+  );
+}
+
 .blur {
   @extend .bg-overlay;
   top: 0;
@@ -49,10 +62,6 @@ a.hover-text-gray-lighter:hover * {
     font-size: 13px !important;
     letter-spacing: 0.5px;
   }
-}
-
-.font-size-smallest {
-  font-size: 10px;
 }
 
 .font-size-giant {
