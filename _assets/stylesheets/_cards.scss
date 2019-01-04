@@ -38,13 +38,13 @@
   flex: 1 0 auto;
 
   @media (min-width: $screen-sm) {
-    flex-basis: calc(100%/3);
-    max-width: calc(100%/3);
+    flex-basis: calc(100% / 3);
+    max-width: calc(100% / 3);
     padding-left: 15px;
     padding-right: 15px;
 
     // every 4th item starting at 1
-    &:nth-child(3n+1) {
+    &:nth-child(3n + 1) {
       margin-left: -15px;
     }
 
@@ -82,7 +82,7 @@
 
 .card {
   .font-family-condensed-extra.font-size-h3 {
-    line-height: .9;
+    line-height: 0.9;
   }
 
   > a {
@@ -120,10 +120,9 @@
 
 .card-block {
   .component-header {
-    line-height: .95;
+    line-height: 0.95;
   }
 }
-
 
 .overlay-card {
   display: block;
@@ -157,7 +156,7 @@
   }
 
   .overlay-card-category {
-    color: rgba($cr-white, .8);
+    color: rgba($cr-white, 0.8);
     font-size: $font-size-smaller;
     line-height: 1.6;
     margin-bottom: 4px;
@@ -168,7 +167,7 @@
     color: $cr-white;
     font-family: $condensed-extra-font-face;
     font-size: 8vw;
-    line-height: .9;
+    line-height: 0.9;
     margin-top: 0;
     text-transform: uppercase;
   }
@@ -208,7 +207,7 @@
   @media screen and (min-width: $screen-lg) {
     .overlay-card-title {
       font-size: 4.5rem;
-      line-height: .8;
+      line-height: 0.8;
     }
 
     .overlay-card-image {
@@ -235,7 +234,7 @@
     }
     .overlay-card-title {
       font-size: 4rem;
-      margin-left: -.2rem;
+      margin-left: -0.2rem;
 
       @media (min-width: $screen-sm) {
         font-size: 6.875rem;
@@ -272,10 +271,10 @@
     position: relative;
 
     .overlay-feature-card-category {
-      color: rgba($cr-white, .8);
+      color: rgba($cr-white, 0.8);
       font-size: $font-size-small;
       line-height: 1.2;
-      margin-bottom: .5rem;
+      margin-bottom: 0.5rem;
       text-transform: uppercase;
     }
 
@@ -283,7 +282,7 @@
       color: $cr-white;
       font-family: $condensed-extra-font-face;
       font-size: 4rem;
-      line-height: .9;
+      line-height: 0.9;
       margin-top: 0;
       text-transform: uppercase;
 
