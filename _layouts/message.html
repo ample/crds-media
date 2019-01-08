@@ -20,17 +20,17 @@ layout: default
 
           <header>
             {% if page.audio_file.url or page.video_file.url or page.program.url %}
-              <div class="sources push-quarter-top">
-                {% if page.audio_file.url %}
-                  <a class="secondary" href="{{ page.audio_file.url | imgix: site.imgix }}?dl={{ page.audio_file.url | split: '/' | last }}">Download audio</a>
-                {% endif %}
-                {% if page.video_file.url %}
-                  <a class="secondary" href="{{ page.video_file.url | imgix: site.imgix }}?dl={{ page.video_file.url | split: '/' | last }}">Download video</a>
-                {% endif %}
-                {% if page.program.url %}
-                  <a class="secondary" href="{{ page.program.url }}" target="_blank">View program</a>
-                {% endif %}
-              </div>
+            <div class="sources push-quarter-top">
+              {% if page.audio_file.url %}
+              <a class="secondary" href="{{ page.audio_file.url | imgix: site.imgix }}?dl={{ page.audio_file.url | split: '/' | last }}">Download audio</a>
+              {% endif %}
+              {% if page.video_file.url %}
+              <a class="secondary" href="{{ page.video_file.url | imgix: site.imgix }}?dl={{ page.video_file.url | split: '/' | last }}">Download video</a>
+              {% endif %}
+              {% if page.program.url %}
+              <a class="secondary" href="{{ page.program.url }}" target="_blank">View program</a>
+              {% endif %}
+            </div>
             {% endif %}
 
             <div>
@@ -64,10 +64,10 @@ layout: default
     <div class="row push-ends">
       <div class="col-md-10 col-md-offset-1">
         <div class="row">
-          <div class="col-md-9">
+          <div class="col-md-8 col-lg-9">
             {% assign tabs = 'description transcription' | split: ' ' %}
             {% if page.transcription or page.description %}
-              {% include _tabs.html tabs=tabs %}
+            {% include _tabs.html tabs=tabs %}
             {% endif %}
 
             {% if page.discussion %}
@@ -81,10 +81,10 @@ layout: default
 
             <!-- List of contributors -->
             {% if page.authors %}
-              {% for author_name in page.authors %}
-                {% assign author = site.authors | where: "name", author_name | first %}
-                {% if forloop.first %}<p class="flush-bottom">Featuring{% elsif forloop.last %}and{% else %}&comma;{% endif %} <a href="{{ author.url }}">{{author_name | titleize}}</a>{% if forloop.last %}</p>{% endif %}
-              {% endfor %}
+            {% for author_name in page.authors %}
+            {% assign author = site.authors | where: "name", author_name | first %}
+            {% if forloop.first %}<p class="flush-bottom">Featuring{% elsif forloop.last %}and{% else %}&comma;{% endif %} <a href="{{ author.url }}">{{author_name | titleize}}</a>{% if forloop.last %}</p>{% endif %}
+            {% endfor %}
             {% endif %}
 
             <p>{{ page.published_at | format_date }}{% if page.duration != nil %} <span class="divider push-quarter-sides">•</span> {% include _read-time.html duration=page.duration content_type='message' %} {% endif %}</p>
@@ -100,7 +100,7 @@ layout: default
             <!-- Page can have many tags -->
             {% include _tags_list.html tags=page.tags %}
           </div>
-          <div class="col-md-3 soft-half-top">
+          <div class="col-md-4 col-lg-3 sm-text-left md-text-right soft-half-top">
             {% include _subscribe-buttons.html content_type=page youtube=true row=false subscribe=false %}
           </div>
         </div>
@@ -109,7 +109,7 @@ layout: default
 
     {% assign series = site.series | where: 'slug', page.series_slug %}
     {% for messages in series %}
-      {% assign videos = messages.associations['videos'] | exclude: page.title %}
+    {% assign videos = messages.associations['videos'] | exclude: page.title %}
     {% endfor %}
 
     <div class="push-top soft-top row">
@@ -120,9 +120,9 @@ layout: default
 
         <div class="cards-4x cards-2x-xs">
           <div class="row">
-          {% for message in videos %}
+            {% for message in videos %}
             {% include _message-card.html series=false %}
-          {% endfor %}
+            {% endfor %}
           </div>
         </div>
       </section>
