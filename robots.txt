@@ -1,2 +1,4 @@
 User-agent: *
-Disallow:
+Disallow: /tmp
+
+Sitemap: https://media.crossroads.net/sitemap.xml
