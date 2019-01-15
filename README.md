@@ -3,7 +3,7 @@ Crossroads Media
 
 Media site for Crossroads.
 
-You can find documentation related to custom functionality of this project [in the wiki](https://github.com/crdschurch/crds-media/wiki).
+You can find documentation of custom features and troubleshooting of common problems [in the wiki](https://github.com/crdschurch/crds-media/wiki).
 
 Getting Started
 ----------
@@ -15,16 +15,6 @@ Getting Started
 5. Add appropriate environment variables.
 6. Pull down content (`bundle exec jekyll contentful`)
 7. Start the server (`bundle exec jekyll serve`)
-
-Troubleshooting
-----------
-
-If you run into an error on your terminal saying `NoMethodError: undefined method 'sub' for nil:NilClass` here are some steps to fix it:
-
-1. Make sure your `.env` is correct
-2. Delete the `/collections` directory
-3. Run `bundle update jekyll-contentful`
-4. Run `bundle exec jekyll contentful && bundle exec jekyll serve`
 
 License
 ----------
