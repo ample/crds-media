@@ -1,9 +1,9 @@
 <div class="media featured">
   <div class="media-body">
     <h5 class="component-header flush-ends">
-      <a href="{{ featured.url }}">{{ featured.title }}</a>
+      <a href="{{ featured.url }}" data-automation-id="featured-title">{{ featured.title }}</a>
     </h5>
-    <div class="soft-quarter-top font-size-smaller flush-bottom">
+    <div class="soft-quarter-top font-size-smaller flush-bottom" data-automation-id="featured-description">
       {{ featured.description | markdownify | strip_html | truncatewords: 15 }}
     </div>
     {% if include.media_type == "podcast" %}
@@ -12,7 +12,7 @@
       <p class="font-size-smaller text-gray-light">{% include _count.html key="series" subject=featured.title collection=site.messages label="message" %}</p>
     {% endif %}
   </div>
-  <a href="{{ featured.url }}" class="push-half-bottom">
+  <a href="{{ featured.url }}" class="push-half-bottom" data-automation-id="featured-image">
     {% if include.media_type == "podcast" or include.media_type == "episode" or include.media_type == "song" or include.media_type == "album" %}
       {% if featured.image.url %}
         <img class="media-img" src="{{ featured.image.url | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.one_hundred }}" data-optimize-img />
