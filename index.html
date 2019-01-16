@@ -67,7 +67,7 @@ paginate:
     </div>
     <div class="col-md-4">
       {% if page.series.docs.size != 0 %}
-        <div class="push-bottom soft-bottom">
+        <div class="push-bottom soft-bottom" data-automation-id="series-section">
           <h2 class="collection-header push-bottom text-gray-light">series</h2>
 
           {% assign featured = page.series.docs | first %}
