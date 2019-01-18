@@ -40,16 +40,24 @@
     font-size: 7.5rem;
   }
 }
-.header-content  {
 
+.jumbotron-media {
+  padding-bottom: 90px;
+
+  @media screen and (min-width: $screen-sm) {
+    padding-bottom: 48px;
+  }
+}
+
+.header-content  {
   .media-header-form {
     color:  $cr-gray-light;
     background-color: $cr-gray-lighter;
     max-width: 360px;
     display: inline;
   }
+
   .hs-input {
-    @extend .form-control;
     @extend .media-header-form;
   }
 
@@ -68,4 +76,18 @@
   }
 }
 
+.hs-input {
+  @extend .form-control;
+}
 
+.hs-form-52b50268-5d9c-4369-8359-e96ff69094f9 p {
+  font-size: 1rem;
+}
+
+.overlap-header {
+  top: -5.25rem;
+
+  @media screen and (min-width: $screen-sm) {
+    top: -9rem;
+  }
+}
