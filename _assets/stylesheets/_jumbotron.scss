@@ -42,10 +42,10 @@
 }
 
 .jumbotron-media {
-  padding-bottom: 90px;
+  padding-bottom: 6rem;
 
-  @media screen and (min-width: $screen-sm) {
-    padding-bottom: 48px;
+  @media screen and (min-width: $screen-md) {
+    padding-bottom: 4rem;
   }
 }
 
@@ -55,6 +55,10 @@
     background-color: $cr-gray-lighter;
     max-width: 360px;
     display: inline;
+
+    @media screen and (min-width: $screen-xs) and (max-width: $screen-sm)  {
+      max-width: 327px;
+    }
   }
 
   .hs-input {
@@ -63,6 +67,11 @@
 
   .hs-error-msgs {
     padding-top: 0.625rem;
+  }
+
+  // Hubspot Success Message
+  .submitted-message p {
+    font-size: 1rem;
   }
 
   .btn {
@@ -80,14 +89,10 @@
   @extend .form-control;
 }
 
-.hs-form-52b50268-5d9c-4369-8359-e96ff69094f9 p {
-  font-size: 1rem;
-}
-
 .overlap-header {
   top: -5.25rem;
 
-  @media screen and (min-width: $screen-sm) {
-    top: -9rem;
+  @media screen and (min-width: $screen-md) {
+    top: -8rem;
   }
 }
