@@ -10,12 +10,43 @@ Getting Started
 
 1. Clone the project.
 2. Install Ruby 2.4.3. If you haven't installed Ruby, consider using [rbenv](https://github.com/rbenv/rbenv).
-3. Install Ruby dependencies (`bundle install`).
-4. Clone crds-styles (`git submodule init; git submodule update`).
-5. Install the other JavaScript dependencies (`npm install`).
+3. Install Ruby dependencies:
+
+    ```
+    $ bundle install
+    ```
+
+4. Clone crds-styles:
+
+    ```
+    $ git submodule init
+    $ git submodule update
+    ```
+
+5. Install the other JavaScript dependencies:
+
+    ```
+    $ npm install
+    ```
+
 6. Add appropriate environment variables. Consider using [direnv](https://direnv.net/) to help manage environment variables.
-7. Pull down content (`bundle exec jekyll contentful`). You may want to limit content here so local builds don't take forever (`bundle exec jekyll contentful --limit 50`).
-8. Start the server (`bundle exec jekyll serve`)
+7. Pull down content:
+
+    ```
+    $ bundle exec jekyll contentful
+    ```
+
+    You may want to limit content here so local builds don't take forever:
+  
+    ```
+    $ bundle exec jekyll contentful --limit 50
+    ```
+
+8. Start the server:
+
+    ```
+    $ bundle exec jekyll serve
+    ```
 
 License
 ----------
