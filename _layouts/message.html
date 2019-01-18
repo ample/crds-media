@@ -8,19 +8,32 @@ layout: default
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
 
-          {% if page.source_url %}
-          <div class="push-top soft-top">
-            <div class="mobile-flush">
-              <!-- Needed for YT partial to load video -->
-              {% assign video_id = page.source_url | youtube_id %}
-              {% include _yt-embed.html %}
+          {% if page.source_url or page.audio_source_url %}
+            <div class="push-top soft-top">
+              <div class="mobile-flush">
+                {% comment %} audio_video_toggler.js handles switching between video and audio. {% endcomment %}
+                <div class="embed-responsive embed-responsive-16by9 hide" data-audio-video-control>
+                  {% if page.source_url %}
+                    {% assign video_id = page.source_url | youtube_id %}
+                    <iframe id="js-media-video" width="560" height="315" src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen data-video-player></iframe>
+                  {% endif %}
+                  {% if page.audio_source_url %}
+                    <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url={{ page.audio_source_url }}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" data-audio-player></iframe>
+                  {% endif %}
+                </div>
+              </div>
             </div>
-          </div>
           {% endif %}
 
           <header>
-            {% if page.audio_file.url or page.video_file.url or page.program.url %}
+            {% if page.audio_file.url or page.video_file.url or page.program.url or page.audio_source_url %}
             <div class="sources push-quarter-top">
+              {% if page.source_url %}
+              <a class="secondary hide" href="javascript:void(0)" data-video-trigger>Watch video</a>
+              {% endif %}
+              {% if page.audio_source_url %}
+              <a class="secondary hide" href="javascript:void(0)" data-audio-trigger>Listen to audio</a>
+              {% endif %}
               {% if page.audio_file.url %}
               <a class="secondary" href="{{ page.audio_file.url | imgix: site.imgix }}?dl={{ page.audio_file.url | split: '/' | last }}">Download audio</a>
               {% endif %}
