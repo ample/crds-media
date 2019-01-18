@@ -53,6 +53,10 @@
     @extend .media-header-form;
   }
 
+  .hs-error-msgs {
+    padding-top: 0.625rem;
+  }
+
   .btn {
     margin-top: 0.625rem;
     margin-left: 0;
