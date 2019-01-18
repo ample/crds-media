@@ -35,4 +35,64 @@
       padding-bottom: 2rem;
     }
   }
+
+  .title-xlg {
+    font-size: 7.5rem;
+  }
+}
+
+.jumbotron-media {
+  padding-bottom: 6rem;
+
+  @media screen and (min-width: $screen-md) {
+    padding-bottom: 4rem;
+  }
+}
+
+.header-content  {
+  .media-header-form {
+    color:  $cr-gray-light;
+    background-color: $cr-gray-lighter;
+    max-width: 360px;
+    display: inline;
+
+    @media screen and (min-width: $screen-xs) and (max-width: $screen-sm)  {
+      max-width: 327px;
+    }
+  }
+
+  .hs-input {
+    @extend .media-header-form;
+  }
+
+  .hs-error-msgs {
+    padding-top: 0.625rem;
+  }
+
+  // Hubspot Success Message
+  .submitted-message p {
+    font-size: 1rem;
+  }
+
+  .btn {
+    margin-top: 0.625rem;
+    margin-left: 0;
+
+    @media screen and (min-width: $screen-xs) {
+      margin-top: 0;
+      margin-left: 0.625rem;
+    }
+  }
+}
+
+.hs-input {
+  @extend .form-control;
+}
+
+.overlap-header {
+  top: -5.25rem;
+
+  @media screen and (min-width: $screen-md) {
+    top: -8rem;
+  }
 }
