@@ -84,29 +84,38 @@ collections:
 
 contentful:
   article:
+    limit: 10
     map:
       date: published_at
   discussion:
     map:
       date: published_at
+  discussion_question:
+    limit: 10
   episode:
+    limit: 10
     map:
       date: published_at
   featured_media:
     map:
       page_path: path
   message:
+    limit: 10
     map:
       date: published_at
     belongs_to:
       series: videos
   series:
+    limit: 10
     map:
       date: published_at
   song:
     map:
       date: published_at
+  tag:
+    limit: 10
   video:
+    limit: 10
     map:
       date: published_at
   perspective:
@@ -116,10 +125,12 @@ contentful:
     map:
       date: published_at
   exclude:
+    - content_block
     - location
     - migrations
     - page
     - promo
+    - redirect
 
 defaults:
   - scope:
