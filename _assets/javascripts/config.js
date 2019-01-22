@@ -24,6 +24,7 @@ module.exports = [
       'vendor/crds-status-message-v0.1.3.min'
     ],
     files: [
+      'components/audio_video_toggler',
       'components/clipboard',
       'components/header',
       'components/images',

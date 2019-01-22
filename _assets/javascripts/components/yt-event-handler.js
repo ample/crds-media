@@ -28,15 +28,26 @@
     }
 
     function onPlayerStateChange(event) {
-      if (typeof analytics !== 'undefined') {
-        analytics.track('Media Video Details', {
-          Title: this.player.getVideoData().title,
-          VideoId: this.player.getVideoData().video_id,
-          Source: window.location.href,
-          VideoTotalDuration: this.player.getDuration(),
-          CurrentTime: this.player.getCurrentTime(),
-          ReasonForEnding: videoStopped(event)
-        });
+      if (event.data == YT.PlayerState.ENDED || event.data == YT.PlayerState.PAUSED) {
+        if (typeof analytics !== 'undefined') {
+          analytics.track('VideoEnded', {
+            Title: this.player.getVideoData().title,
+            VideoId: this.player.getVideoData().video_id,
+            Source: 'CrossroadsNet',
+            VideoTotalDuration: this.player.getDuration(),
+            CurrentTime: this.player.getCurrentTime(),
+            ReasonForEnding: videoStopped(event)
+          });
+        }
+      } else {
+        if (typeof analytics !== 'undefined') {
+          analytics.track('VideoStarted', {
+            Title: this.player.getVideoData().title,
+            VideoId: this.player.getVideoData().video_id,
+            Source: 'CrossroadsNet',
+            VideoTotalDuration: this.player.getDuration()
+          });
+        }
       }
     }
   }

@@ -1,16 +1,4 @@
 GIT
-  remote: git://github.com/crdschurch/jekyll-contentful.git
-  revision: 3289cffead190c35af3be63218447f9f887082d7
-  tag: 1.1.0
-  specs:
-    jekyll-contentful (1.1.0)
-      activesupport
-      contentful (>= 2.6.0)
-      contentful-management (~> 1.10.1)
-      dotenv
-      jekyll
-
-GIT
   remote: https://github.com/ample/jekyll-placeholders.git
   revision: 503eef68d21b020b8d611025ab7029c80e569186
   specs:
@@ -27,34 +15,37 @@ GIT
       jekyll
 
 GIT
-  remote: https://github.com/crdschurch/crds-styles.git
-  revision: 27cc4640f73674ecffd23e409056c1018b820e72
-  tag: v3.0.8
-  specs:
-    crds-styles (3.0.8)
-      bootstrap-sass (~> 3.3)
-      sass (~> 3.2)
-
-GIT
   remote: https://github.com/crdschurch/jekyll-asset-pipeline
-  revision: d5b8a8e338af25ebd0c732544a346db4150da9de
-  tag: 0.0.1
+  revision: 8022ae37a0b07e5bbbbe3ca94cfd34ae86a82514
+  tag: 0.0.2
   specs:
-    jekyll-asset-pipeline (0.0.1)
+    jekyll-asset-pipeline (0.0.2)
       activesupport
       jekyll (~> 3.7)
 
 GIT
   remote: https://github.com/crdschurch/jekyll-cloudsearch
-  revision: 18aae390f519c00a18e75ab4cb2a3a0c50f77163
-  tag: 0.1.0
+  revision: 485ba05052b208f2c6789c34ed88e438c9cf21e0
+  tag: 0.3.0
   specs:
-    jekyll-cloudsearch (0.1.0)
+    jekyll-cloudsearch (0.3.0)
       activesupport
       aws-sdk-cloudsearchdomain
-      contentful-management (~> 1.10.1)
+      contentful-management (~> 2.6)
       jekyll
       nokogiri
+
+GIT
+  remote: https://github.com/crdschurch/jekyll-contentful
+  revision: 87fc96761ab8c7471f8048e94e0a077f4860512e
+  tag: 1.2.0
+  specs:
+    jekyll-contentful (1.2.0)
+      activesupport
+      contentful (>= 2.6.0)
+      contentful-management (~> 2.6)
+      dotenv
+      jekyll
 
 GIT
   remote: https://github.com/crdschurch/jekyll-crds.git
@@ -80,51 +71,46 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    addressable (2.5.2)
+    addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
-    autoprefixer-rails (9.3.1)
-      execjs
     aws-eventstream (1.0.1)
-    aws-partitions (1.113.0)
-    aws-sdk-cloudsearchdomain (1.5.0)
-      aws-sdk-core (~> 3, >= 3.26.0)
+    aws-partitions (1.133.0)
+    aws-sdk-cloudsearchdomain (1.6.0)
+      aws-sdk-core (~> 3, >= 3.39.0)
       aws-sigv4 (~> 1.0)
-    aws-sdk-core (3.38.0)
+    aws-sdk-core (3.46.0)
       aws-eventstream (~> 1.0)
       aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
     aws-sigv4 (1.0.3)
-    bootstrap-sass (3.3.7)
-      autoprefixer-rails (>= 5.2.1)
-      sass (>= 3.3.4)
     coderay (1.1.2)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
     coffee-script-source (1.11.1)
     colorator (1.1.0)
-    concurrent-ruby (1.1.3)
+    concurrent-ruby (1.1.4)
     contentful (2.11.0)
       http (> 0.8, < 4.0)
       multi_json (~> 1)
-    contentful-management (1.10.1)
+    contentful-management (2.6.0)
       http (> 1.0, < 3.0)
       json (~> 1.8)
       multi_json (~> 1)
     diff-lcs (1.3)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
-    dotenv (2.5.0)
+    dotenv (2.6.0)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
     eventmachine (1.2.7)
     execjs (2.7.0)
-    ffi (1.9.25)
+    ffi (1.10.0)
     formatador (0.2.5)
     forwardable-extended (2.6.0)
-    guard (2.14.2)
+    guard (2.15.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
       lumberjack (>= 1.0.12, < 2.0)
@@ -148,7 +134,8 @@ GEM
       domain_name (~> 0.5)
     http-form_data (1.0.3)
     http_parser.rb (0.6.0)
-    httparty (0.16.2)
+    httparty (0.16.3)
+      mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
@@ -174,6 +161,8 @@ GEM
       jekyll (~> 3.3)
     jekyll-sass-converter (1.5.2)
       sass (~> 3.4)
+    jekyll-sitemap (1.2.0)
+      jekyll (~> 3.3)
     jekyll-watch (2.1.2)
       listen (~> 3.0)
     jmespath (1.4.0)
@@ -189,16 +178,19 @@ GEM
     lumberjack (1.0.13)
     mercenary (0.3.6)
     method_source (0.8.2)
-    mini_portile2 (2.3.0)
+    mime-types (3.2.2)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2018.0812)
+    mini_portile2 (2.4.0)
     minitest (5.11.3)
     multi_json (1.13.1)
     multi_xml (0.6.0)
     nenv (0.3.0)
     net-sftp (2.1.2)
       net-ssh (>= 2.6.5)
-    net-ssh (5.0.2)
-    nokogiri (1.8.5)
-      mini_portile2 (~> 2.3.0)
+    net-ssh (5.1.0)
+    nokogiri (1.10.1)
+      mini_portile2 (~> 2.4.0)
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
@@ -213,8 +205,8 @@ GEM
     public_suffix (3.0.3)
     rack (2.0.6)
     rb-fsevent (0.10.3)
-    rb-inotify (0.9.10)
-      ffi (>= 0.5.0, < 2)
+    rb-inotify (0.10.0)
+      ffi (~> 1.0)
     rouge (3.3.0)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
@@ -231,7 +223,7 @@ GEM
     rspec-support (3.8.0)
     ruby_dep (1.5.0)
     safe_yaml (1.0.4)
-    sass (3.7.2)
+    sass (3.7.3)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -241,11 +233,11 @@ GEM
     sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    thor (0.20.0)
+    thor (0.20.3)
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.19)
+    uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
@@ -256,7 +248,6 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-  crds-styles!
   dotenv
   guard-rspec
   hashie
@@ -264,11 +255,12 @@ DEPENDENCIES
   jekyll-asset-pipeline!
   jekyll-cloudsearch!
   jekyll-coffeescript
-  jekyll-contentful (~> 1.0)!
+  jekyll-contentful!
   jekyll-crds!
   jekyll-feed (~> 0.6)
   jekyll-placeholders (~> 0.0)!
   jekyll-redirect-from
+  jekyll-sitemap
   launchy
   net-sftp
   paging-mister-hyde (~> 0.2)!
@@ -279,6 +271,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier
   video-tags (~> 0.0.1)!
+  wdm (~> 0.1.0)
 
 BUNDLED WITH
-   1.17.1
+   1.17.3
