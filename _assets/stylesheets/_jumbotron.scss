@@ -37,7 +37,13 @@
   }
 
   .title-xlg {
-    font-size: 7.5rem;
+    font-size: 5.5rem;
+    line-height: 5rem;
+
+    @media screen and (min-width: $screen-sm) {
+      font-size: 7.5rem;
+      line-height: 7rem;
+    }
   }
 }
 
@@ -65,8 +71,13 @@
     @extend .media-header-form;
   }
 
-  .hs-error-msgs {
-    padding-top: 0.625rem;
+  .hs-form-required {
+    display: none;
+  }
+
+  .hs-richtext {
+    @extend .tagline;
+    font-size: 14px;
   }
 
   // Hubspot Success Message
@@ -74,7 +85,7 @@
     font-size: 1rem;
   }
 
-  .btn {
+  .btn-hs {
     margin-top: 0.625rem;
     margin-left: 0;
 
@@ -93,6 +104,6 @@
   top: -5.25rem;
 
   @media screen and (min-width: $screen-md) {
-    top: -8rem;
+    top: -7.5rem;
   }
 }
