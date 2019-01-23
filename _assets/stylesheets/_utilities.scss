@@ -38,11 +38,15 @@ a.hover-text-gray-lighter:hover * {
 }
 
 .bg-black-50 {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba($cr-black, 0.5);
 }
 
 .border-white-15 {
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba($cr-white, 0.15);
+}
+
+.border-light-gray {
+  border: 1px solid rgba($cr-gray-light, 0.3)
 }
 
 .white-faded {
@@ -138,6 +142,12 @@ a.hover-text-gray-lighter:hover * {
   @media (min-width: $screen-md) {
     flex-direction: row;
   }
+}
+
+svg.icon-small {
+  height: 1rem;
+  width: 1rem;
+  vertical-align: middle;
 }
 
 .w-100 {
