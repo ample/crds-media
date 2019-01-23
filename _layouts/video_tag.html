@@ -1,18 +1,20 @@
 ---
 paginate:
   videos:
-    per: 8
+    per: 80
     sort: published_at desc
     where:
       tags.slug: :slug
 ---
 
 <div class="container">
-  <p class="breadcrumb hard-sides hard-top">
-    <a href="/">Media</a> /
-    <a href="/videos">Videos</a> /
-  </p>
-  <h2 class="section-header landing-header flush-top push-bottom">{{ page.title }}</h2>
+
+  <ol class="breadcrumb hard-sides hard-bottom push-top flush-bottom">
+    <li><a href="/">Media</a></li>
+    <li><a href="/videos">Videos</a></li>
+  </ol>
+
+  <h1 class="font-family-condensed-extra text-uppercase flush-top push-bottom">{{ page.title }}</h1>
   <div class="row">
     <div class="col-md-2 text-left">
       {% include _video-nav.html %}
