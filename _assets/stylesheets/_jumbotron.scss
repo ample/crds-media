@@ -65,8 +65,8 @@
     @extend .media-header-form;
   }
 
-  .hs-error-msgs {
-    padding-top: 0.625rem;
+  .hs-form-required {
+    display: none;
   }
 
   // Hubspot Success Message
@@ -74,7 +74,7 @@
     font-size: 1rem;
   }
 
-  .btn {
+  .btn-hs {
     margin-top: 0.625rem;
     margin-left: 0;
 
@@ -93,6 +93,6 @@
   top: -5.25rem;
 
   @media screen and (min-width: $screen-md) {
-    top: -8rem;
+    top: -7.5rem;
   }
 }
