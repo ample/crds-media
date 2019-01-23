@@ -69,6 +69,11 @@
     display: none;
   }
 
+  .hs-richtext {
+    @extend .tagline;
+    font-size: 14px;
+  }
+
   // Hubspot Success Message
   .submitted-message p {
     font-size: 1rem;
