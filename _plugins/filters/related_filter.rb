@@ -8,12 +8,11 @@ module Jekyll
 
       unless tags.empty?
         site['articles'].reverse.each do |article|
-          if article.id != obj.id
+          if obj['id'] && article.id != obj['id']
             unless (tags & article['tags'].collect{|a| a['slug']}).empty?
               related.push(article)
             end
           end
-          
           break if related.count == 3
         end
       end
