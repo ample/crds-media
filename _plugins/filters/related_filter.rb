@@ -7,7 +7,7 @@ module Jekyll
       related = []
 
       unless tags.empty?
-        site['articles'].each do |article|
+        site['articles'].reverse.each do |article|
           if article != obj
             unless (tags & article['tags'].collect{|a| a['slug']}).empty?
               related.push(article)
