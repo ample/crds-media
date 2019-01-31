@@ -71,6 +71,7 @@ title: Podcast
         {% include _social-share.html %}
       </div>
     </div>
+    {% if episodes.size > 0 %}
     <div class="row soft-bottom push-bottom">
       <div class="col-sm-8 col-sm-offset-2">
         <h2 class="component-header">Episodes</h2>
@@ -128,6 +129,7 @@ title: Podcast
         </div>
       </div>
     </div>
+    {% endif %}
 
     {% include _subscribe-buttons.html content_type=page youtube=false %}
 
