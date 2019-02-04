@@ -24,6 +24,10 @@
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#a37304">
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
+  <meta property="cfl:space_id" content="{{ site.ENV.CONTENTFUL_SPACE_ID }}">
+  <meta property="cfl:env" content="{{ site.ENV.CONTENTFUL_ENV }}">
+  <meta property="cfl:token" content="{{ site.ENV.CONTENTFUL_ACCESS_TOKEN }}">
+  <meta property="crds:interactions-endpoint" content="{{ site.ENV.INTERACTIONS_ENDPOINT }}">
 
   {% stylesheet_link_tag application %}
 
