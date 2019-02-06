@@ -48,8 +48,10 @@ get_doc %} {% assign tags = page.tags | get_doc %}
         {% if page.lead_text %}
         <p class="lead">{{ page.lead_text }}</p>
         {% endif %}
+        <div class="col-sm-4 col-md-3 pull-right">{% include _subscribe-call-to-action.html %}</div>
 
         {{ page.body | markdownify }}
+
       </main>
       {% endif %} {% if site.sign_off %}
       <div class="col-md-8 col-md-offset-2">
