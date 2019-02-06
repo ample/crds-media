@@ -100,7 +100,7 @@ get_doc %} {% assign tags = page.tags | get_doc %}
                   {% include _article-card.html %}
                 {% endfor %}
               {% else %}
-              {% assign recent = site.articles | sort: 'date' | reverse | slice: 0, 3 | exclude: page.title %}
+              {% assign recent = site.articles | sort: 'date' | reverse | slice: 0, 4 | exclude: page.title | limit: 3 %}
                 {% for post in recent %}
                   {% include _article-card.html %}
                 {% endfor %}
