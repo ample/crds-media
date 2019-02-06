@@ -1,11 +1,5 @@
 <section class="discussion-questions {% if include.type == 'chaser' %}chaser-questions{% endif %}">
 
-  {% if include.type  == 'chaser' %}
-    <div class="push-quarter-bottom">
-      <img class="chaser-logo" src="//d1tmclqz61gqwd.cloudfront.net/images/logo-chaser.svg">
-    </div>
-  {% endif %}
-
   {{ include.discussion.intro | markdownify }}
 
   {% if include.discussion.discussion_questions.size > 0 %}

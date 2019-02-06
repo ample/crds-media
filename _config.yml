@@ -116,10 +116,12 @@ contentful:
     map:
       date: published_at
   exclude:
+    - content_block
     - location
     - migrations
     - page
     - promo
+    - redirect
 
 defaults:
   - scope:

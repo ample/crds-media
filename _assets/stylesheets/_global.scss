@@ -28,7 +28,7 @@
     a {
       font-size: 1.5rem;
       margin-bottom: 0;
-      padding-top: .25rem;
+      padding-top: 0.25rem;
 
       &:hover,
       &:active,
@@ -42,6 +42,15 @@
         width: 24px;
       }
     }
+  }
+}
+
+.social-share {
+  > div {
+    float: right;
+  }
+  > heart-button {
+    float: left;
   }
 }
 
