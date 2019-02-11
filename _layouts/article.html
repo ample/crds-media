@@ -83,7 +83,8 @@ get_doc %} {% assign tags = page.tags | get_doc %}
 
         <section class="soft-top">
           <header class="more-media-header">
-            <h3>related articles</h3>
+            {% assign related = page | related: site %}
+            <h3>{% if related != blank %}related{% else %}recent{% endif %} articles</h3>
             <a class="font-size-small" href="/articles">See all articles</a>
           </header>
 
@@ -94,10 +95,16 @@ get_doc %} {% assign tags = page.tags | get_doc %}
               data-card-deck
             >
               <div class="feature-cards feature-cards-3x">
-                {% assign related = page | related: site %}
+              {% if related != blank %}
                 {% for post in related %}
                   {% include _article-card.html %}
                 {% endfor %}
+              {% else %}
+              {% assign recent = site.articles | sort: 'date' | reverse | slice: 0, 4 | exclude: page.title | limit: 3 %}
+                {% for post in recent %}
+                  {% include _article-card.html %}
+                {% endfor %}
+              {% endif %}
               </div>
             </div>
           </div>
