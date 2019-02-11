@@ -58,6 +58,12 @@ GIT
       jekyll
 
 PATH
+  remote: vendor/gems/article-tags
+  specs:
+    article-tags (0.0.1)
+      jekyll
+
+PATH
   remote: vendor/gems/video-tags
   specs:
     video-tags (0.0.1)
@@ -248,6 +254,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
+  article-tags (~> 0.0.1)!
   dotenv
   guard-rspec
   hashie
@@ -274,4 +281,4 @@ DEPENDENCIES
   wdm (~> 0.1.0)
 
 BUNDLED WITH
-   1.17.3
+   2.0.1

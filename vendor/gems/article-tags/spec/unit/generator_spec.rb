@@ -1,0 +1,19 @@
+require 'spec_helper'
+
+describe Jekyll::ArticleTags::Generator do
+
+  before do
+    @site = JekyllHelper.scaffold(
+      collections_dir: File.expand_path('../support/collections', __dir__),
+      collections: %w(articles categories tags)
+    )
+    @generator = Jekyll::ArticleTags::Generator.new
+    @generator.generate(@site)
+  end
+
+  it 'should generate pages for article tags' do
+    urls = %w(/articles/tags/cat-a+tag-a1/index.html)
+    expect(@site.pages.collect(&:url)).to match_array(urls)
+  end
+
+end
