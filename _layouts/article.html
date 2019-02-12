@@ -3,8 +3,9 @@ layout: default
 title: Articles
 ---
 
-{% assign author = page.author | get_doc %} {% assign topic = page.category |
-get_doc %} {% assign tags = page.tags | get_doc %}
+{% assign author = page.author | get_doc %}
+{% assign topic = page.category | get_doc %}
+{% assign tags = page.tags | get_doc %}
 
 <article class="article-tpl">
   <header

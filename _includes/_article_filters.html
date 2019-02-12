@@ -1,0 +1,13 @@
+<ul>
+  <li><a href="/articles" class="{% if page.url == '/articles/' %}active{% endif %}">Most Recent</a></li>
+  {% assign filters = site.article_filters | group_by: "category_title" | sort: "name" %}
+  {% for filter in filters %}
+    <li>{{ filter.name }}</li>
+    <ul>
+      {% for item in filter.items %}
+        {% assign item_url = item.url | append: '/index.html' %}
+        <li><a href="{{ item.url }}" class="{% if page.url == item_url %}active{% endif %}">{{ item.title }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+</ul>
