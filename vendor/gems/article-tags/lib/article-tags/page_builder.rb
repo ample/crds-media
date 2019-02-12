@@ -31,15 +31,19 @@ module Jekyll
             site.config['article_filters'] = []
 
             tag_map.each do |map|
+              category = map[:category]
               map[:tags].each do |tag|
                 site.config['article_filters'] << {
                   'title' => tag['title'],
-                  'slug' => tag['slug'],
-                  'url' => "/articles/filters/#{map[:category]['slug']}+#{tag['slug']}"
+                  'slug' => "#{category['slug']}+#{tag['slug']}",
+                  'tag_title' => tag['title'],
+                  'tag_slug' => tag['slug'],
+                  'category_title' => category['title'],
+                  'category_slug' => category['slug'],
+                  'url' => "/articles/filters/#{category['slug']}+#{tag['slug']}"
                 }
               end
             end
-            binding.pry
           rescue NoMethodError => e
             site.config['article_filters'] = []
           end
@@ -48,15 +52,13 @@ module Jekyll
         def generate_pages
           # For each article tag, build out a corresponding page using the article_tag
           # layout.
-          featureable_tags.each do |tag|
-            page = Jekyll::Page.new(site, site.source, '_layouts', 'article_tag.html')
+          site.config['article_filters'].each do |tag|
+            page = Jekyll::Page.new(site, site.source, '_layouts', 'article_filter.html')
             # Customize the URL for the new page.
-            page.instance_variable_set('@url', "/articles/tags/#{tag.data['slug']}/index.html")
+            page.instance_variable_set('@url', "#{tag['url']}/index.html")
             # Add default frontmatter to the new page.
-            (page.data ||= {}).merge!(
-              'layout' => 'default',
-              'slug' => tag.data['slug'],
-              'title' => tag.data['title']
+            page.data = (page.data ||= {}).merge!(tag).merge!(
+              'layout' => 'default'
             )
             # Inject the page into the site's pages.
             site.pages << page

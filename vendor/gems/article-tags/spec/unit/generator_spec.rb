@@ -12,7 +12,10 @@ describe Jekyll::ArticleTags::Generator do
   end
 
   it 'should generate pages for article tags' do
-    urls = %w(/articles/tags/cat-a+tag-a1/index.html)
+    urls = %w(
+      /articles/filters/cat-a+tag-a1/index.html
+      /articles/filters/cat-b+tag-b2/index.html
+    )
     expect(@site.pages.collect(&:url)).to match_array(urls)
   end
 
