@@ -1,0 +1,7 @@
+{% assign item = include.item %}
+<!-- // -->
+{% unless item %}{% assign item = page %}{% endunless %}
+
+<div class="clearfix">
+  <heart-button id="{{ item.contentful_id }}"></heart-button>
+</div>

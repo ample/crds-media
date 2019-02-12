@@ -1,0 +1,19 @@
+.social-share {
+  a {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    padding-top: 0.25rem;
+
+    &:hover,
+    &:active,
+    &:active:hover,
+    &:focus {
+      text-decoration: none;
+    }
+
+    svg {
+      height: 23px;
+      width: 23px;
+    }
+  }
+}
