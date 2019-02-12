@@ -5,7 +5,7 @@ paginate:
     sort: published_at desc
     where:
       tags.slug: :tag_slug
-      category.slug: category_slug
+      category.slug: :category_slug
 ---
 
 <div class="container">

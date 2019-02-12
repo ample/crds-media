@@ -40,8 +40,7 @@ describe Jekyll::ArticleTags::PageBuilder do
   end
 
   it 'runs the paginator' do
-    exp_doc_titles = [["Powerhouse Trailer", "What's Crossroads?"]]
-    binding.pry
+    exp_doc_titles = [["Article A1 B1 X1"], ["Article B2"]]
     page_doc_titles = @site.pages.collect { |d| d.data['articles']['docs'].collect(&:title) }
     expect(page_doc_titles).to match_array(exp_doc_titles)
   end
