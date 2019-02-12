@@ -1,4 +1,12 @@
-<!-- 🛠Assign item is only here for perspectives, delete if that gets pulled -->
+{% if include.heart != false %}
+<!-- // -->
+<div class="clearfix">
+  <div class="pull-left">
+    <heart-button id="{{ item.contentful_id }}"></heart-button>
+  </div>
+  <div class="pull-right">
+{% endif %}
+
 {% assign item = include.item %}
 {% unless item %}{% assign item = page %}{% endunless %}
 
@@ -21,3 +29,8 @@
     </svg>
   </a>
 </div>
+
+{% if include.heart != false %}
+  </div>
+</div>
+{% endif %}
