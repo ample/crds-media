@@ -1,5 +1,9 @@
+<!-- 🛠Assign item is only here for perspectives, delete if that gets pulled -->
+{% assign item = include.item %}
+{% unless item %}{% assign item = page %}{% endunless %}
+
 <div class="social-share sidebar">
-  <a href="#">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://mediaint.crossroads.net{{ page.url }}" target="_blank">
     <svg class="icon" viewBox="0 0 256 256">
       <use xlink:href="/assets/svgs/icons.svg#facebook"></use>
     </svg>

@@ -48,7 +48,17 @@ get_doc %} {% assign tags = page.tags | get_doc %}
         {% if page.lead_text %}
         <p class="lead">{{ page.lead_text }}</p>
         {% endif %}
-        <div class="col-sm-4 col-md-3 pull-right">{% include _subscribe-call-to-action.html %}</div>
+        <div class="col-xs-6 col-sm-4 col-md-3 pull-right">
+          {% include _subscribe-call-to-action.html %}
+          <div class="push-top soft-top border-top border-bottom">
+            <div class="text-center">
+              {% include _social-share.html %}
+            </div>
+            <p class="font-family-base-bold font-size-smaller text-center text-cyan">
+              Share with others
+            </p>
+          </div>
+        </div>
 
         {{ page.body | markdownify }}
 
@@ -75,7 +85,7 @@ get_doc %} {% assign tags = page.tags | get_doc %}
         </p>
         <date data-post-date>{{ page.date | format_date }}</date>
 
-        <div class="soft-top">{% include _social-share.html %}</div>
+        <div class="soft-top">{% include _heart-button.html %}</div>
 
         <!-- Topic -->
         <div class="keywords">{% include _topic.html %}</div>
