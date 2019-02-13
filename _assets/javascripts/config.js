@@ -2,7 +2,7 @@ module.exports = [
   {
     name: 'application',
     deps: ['vendor/jquery-3.3.1.min'],
-    files: ['lib/set-redirect-url']
+    files: ['lib/set-redirect-url'],
   },
   {
     name: 'application_deferred',
@@ -16,11 +16,12 @@ module.exports = [
       'vendor/moment.min',
       'vendor/reactive-auth-v0.0.1.umd',
       'vendor/knockout-3.4.2',
-      'vendor/crds-status-message-v0.1.3.min'
+      'vendor/crds-status-message-v0.1.3.min',
     ],
     files: [
       'components/audio_video_toggler',
       'components/clipboard',
+      'components/discussion-questions',
       'components/header',
       'components/images',
       'components/carousels',
@@ -32,8 +33,8 @@ module.exports = [
       'components/menu-squencher',
       'components/status-message',
       'components/yt-event-handler',
-      'lib/header'
-    ]
+      'lib/header',
+    ],
   },
   {
     name: 'preview_deferred',
@@ -42,14 +43,14 @@ module.exports = [
       'vendor/imgix.min',
       'vendor/clipboard.min',
       'vendor/marked',
-      'vendor/imgix-optimizer'
+      'vendor/imgix-optimizer',
     ],
     files: [
       'components/clipboard',
       'components/header',
       'components/images',
       'components/preview',
-      'components/menu-squencher'
-    ]
-  }
+      'components/menu-squencher',
+    ],
+  },
 ];

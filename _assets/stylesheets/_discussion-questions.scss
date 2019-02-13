@@ -1,6 +1,39 @@
 .discussion-questions {
+  small {
+    display: block;
+  }
+
+  .link-primary {
+    &:active {
+      text-decoration: none;
+    }
+
+    &.collapsed {
+      .icon {
+        transform: none;
+      }
+    }
+
+    .icon {
+      $size: 8px;
+
+      height: $size;
+      margin-left: 5px;
+      transform: rotate(180deg);
+      width: $size;
+
+      svg {
+        height: $size;
+        width: $size;
+      }
+    }
+  }
+}
+
+.discussion-questions-container {
   background: $cr-gray-lighter;
   font-size: $font-size-small;
+  margin-top: 20px;
   padding: 20px;
   padding-top: 45px;
 
@@ -35,10 +68,6 @@
 
     li {
       margin-bottom: 20px;
-
-      &:first-of-type {
-        margin-top: 1.75rem;
-      }
 
       &::before {
         content: 'Question ' counter(li);
