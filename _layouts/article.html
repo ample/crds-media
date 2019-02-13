@@ -3,16 +3,13 @@ layout: default
 title: Articles
 ---
 
-{% assign author = page.author | get_doc %} {% assign topic = page.category |
-get_doc %} {% assign tags = page.tags | get_doc %}
+{% assign author = page.author | get_doc %}
+{% assign topic = page.category | get_doc %}
+{% assign tags = page.tags | get_doc %}
 
 <article class="article-tpl">
   <header
-    style="background-image: url('{% if page.image.url %}{{
-      page.image.url | imgix: site.imgix
-    }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{
-      site.imgix_params.placeholder
-    }}')"
+    style="background-image: url('{% if page.image.url %}{{ page.image.url | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder }}')"
     data-optimize-bg-img
     data-hero-image
   >
@@ -28,12 +25,14 @@ get_doc %} {% assign tags = page.tags | get_doc %}
             {{ page.title | escape | upcase }}
           </h1>
           <p class="flush-bottom soft-half-top">
-            {% if topic %}<a href="{{ topic.url }}">{{
-              topic.title | upcase | append: "  |  "
-            }}</a
-            >{% endif %}{% include _read-time.html duration=page.duration
-            content_type=article %}
+            {% if topic %}
+            <a href="{{ topic.url }}">{{  topic.title | upcase | append: "  |  " }}</a>
+            {% endif %}
+            {% include _read-time.html duration=page.duration content_type=article %}
           </p>
+          <div class="soft-top">
+            {% include _social-share.html type='light' %}
+          </div>
         </div>
       </div>
     </div>
@@ -63,14 +62,16 @@ get_doc %} {% assign tags = page.tags | get_doc %}
         {{ page.body | markdownify }}
 
       </main>
-      {% endif %} {% if site.sign_off %}
+      {% endif %}
+      {% if site.sign_off %}
       <div class="col-md-8 col-md-offset-2">
         <section class="signoff">
           {{ site.sign_off.content | markdownify }}
         </section>
       </div>
-      {% endif %} {% if page.discussion %} {% assign discussion =
-      page.discussion | get_doc %}
+      {% endif %}
+      {% if page.discussion %}
+      {% assign discussion = page.discussion | get_doc %}
       <div class="col-md-8 col-md-offset-2 soft-top">
         {% include _discussion-questions.html discussion=discussion %}
       </div>
@@ -79,13 +80,11 @@ get_doc %} {% assign tags = page.tags | get_doc %}
       <footer class="col-md-8 col-md-offset-2">
         <p class="flush-bottom">
           Written by
-          <a href="{{ author.url }}" data-author-name>{{
-            page.author.full_name | titleize
-          }}</a>
+          <a href="{{ author.url }}" data-author-name>
+            {{ page.author.full_name | titleize }}
+          </a>
         </p>
         <date data-post-date>{{ page.date | format_date }}</date>
-
-        <div class="soft-top">{% include _social-share.html %}</div>
 
         <!-- Topic -->
         <div class="keywords">{% include _topic.html %}</div>
