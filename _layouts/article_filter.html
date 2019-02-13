@@ -16,7 +16,13 @@ paginate:
 
   <h1 class="font-family-condensed-extra text-uppercase flush-top push-bottom">{{ page.title }}</h1>
 
-  {% include _article_filters.html %}
+  <div class="row">
+    <aside class="col-md-2">
+      {% include _article_filters.html label=page.title %}
+    </aside>
 
-  {% include _article_index.html %}
+    <div class="col-md-10">
+      {% include _article_index.html %}
+    </div>
+  </div>
 </div>
