@@ -63,63 +63,103 @@ get_doc %} {% assign tags = page.tags | get_doc %}
         {{ page.body | markdownify }}
 
       </main>
-      {% endif %} {% if site.sign_off %}
-      <div class="col-md-8 col-md-offset-2">
-        <section class="signoff">
-          {{ site.sign_off.content | markdownify }}
-        </section>
-      </div>
-      {% endif %} {% if page.discussion %} {% assign discussion =
+      {% endif %}
+
+      <!-- {% if site.sign_off %}
+        <div class="col-md-8 col-md-offset-2">
+          <section class="signoff">
+            {{ site.sign_off.content | markdownify }}
+          </section>
+        </div>
+      {% endif %} -->
+
+      <address>
+        <small class="flush-bottom">
+          Written by
+          <a href="{{ author.url }}" data-author-name>{{ page.author.full_name | titleize }}</a>
+          on
+          <date data-post-date>{{ page.date | format_date }}</date>
+        </small>
+      </address>
+
+      {% if page.discussion %} {% assign discussion =
       page.discussion | get_doc %}
-      <div class="col-md-8 col-md-offset-2 soft-top">
+      <div class="col-md-8 col-md-offset-2">
         {% include _discussion-questions.html discussion=discussion %}
       </div>
       {% endif %}
 
       <footer class="col-md-8 col-md-offset-2">
-        <p class="flush-bottom">
-          Written by
-          <a href="{{ author.url }}" data-author-name>{{
-            page.author.full_name | titleize
-          }}</a>
-        </p>
-        <date data-post-date>{{ page.date | format_date }}</date>
-
-        <!-- Topic -->
-        <div class="keywords">{% include _topic.html %}</div>
-
-        <!-- Tags -->
-        {% include _tags_list.html tags=page.tags %}
-
         <section class="soft-top">
-          <header class="more-media-header">
-            {% assign related = page | related: site %}
-            <h3>{% if related != blank %}related{% else %}recent{% endif %} articles</h3>
-            <a class="font-size-small" href="/articles">See all articles</a>
-          </header>
-
-          <div class="soft-half-top">
-            <div
-              class="card-deck carousel"
-              data-crds-carousel="mobile-scroll"
-              data-card-deck
-            >
-              <div class="feature-cards feature-cards-3x">
-              {% if related != blank %}
-                {% for post in related %}
-                  {% include _article-card.html %}
-                {% endfor %}
-              {% else %}
-              {% assign recent = site.articles | sort: 'date' | reverse | slice: 0, 4 | exclude: page.title | limit: 3 %}
-                {% for post in recent %}
-                  {% include _article-card.html %}
-                {% endfor %}
-              {% endif %}
+          <div class="row">
+            <div class="col-xs-12 col-sm-6">
+              {% include _article-card.html %}
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <div class="signoff-card">
+                <div class="content" style="background-image: url('{% if page.image.url %}{{
+                  page.image.url | imgix: site.imgix
+                }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{
+                  site.imgix_params.placeholder
+                }}')"
+                data-optimize-bg-img>
+                  <h1>Lorem Ipsum</h1>
+                  <p>Dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <footer>
+                  <p>Call <a href="tel:5137317400">513-731-7400</a> or <a href="mailt:hello@crossroads.net">email us</a></p>
+                </footer>
               </div>
             </div>
           </div>
+
+          <div class="soft-top">
+            <div class="row">
+            {% if related != blank %}
+              {% for post in related %}
+                <div class="col-xs-12 col-sm-4">
+                  {% include _article-card.html %}
+                </div>
+              {% endfor %}
+            {% else %}
+              {% assign recent = site.articles | sort: 'date' | reverse | slice: 0, 4 | exclude: page.title | limit: 3 %}
+                {% for post in recent %}
+                  <div class="col-xs-12 col-sm-4">
+                    {% include _article-card.html %}
+                  </div>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
         </section>
+
+        {% if topic %}
+          <div class="topic-and-tags soft-top">
+            <a class="topic" href="{{ topic.url }}">{{ topic.title }}</a>
+
+            <ul class="tags list-inline">
+              <li><a href="">Love</a></li>
+              <li><a href="">Relationship</a></li>
+              <li><a href="">Loss of faith</a></li>
+              <li><a href="">hardship</a></li>
+              <li><a href="">moms</a></li>
+              <li><a href="">children</a></li>
+            </ul>
+
+          </div>
+        {% endif %}
+
+        <!-- Tags -->
+        {% include _tags_list.html tags=page.tags %}
       </footer>
     </div>
   </div>
 </article>
+
+<!-- <ul class="list-inline">
+    {% for tag in tags %}
+      <li>
+        <a href="{{ tag.url }}">{{ tag.title }}</a>
+      </li>
+    {% endfor %}
+  </ul> -->
