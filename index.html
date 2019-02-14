@@ -108,9 +108,13 @@ paginate:
         {% endfor %}
       </div>
       {% endif %}
+      <p>managed_features size {{ managed_features.size }}</p>
+      <p>managed_features size {{ managed_features.size }}</p>
       {% if managed_features.size > 0 %}
+      <h4 class="text-cyan">Managed Features on this page</h4>
         {% assign recent_media = page.recent_media.docs | slice: 0, 8 %}
       {% else %}
+      <h4 class="text-cyan">NO Managed Features on this page</h4>
         {% assign recent_media = page.recent_media.docs | slice: 4, 8 %}
       {% endif %}
       {% if recent_media.size > 0 %}

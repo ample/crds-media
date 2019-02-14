@@ -2,6 +2,9 @@
 layout: default_footer_flush
 ---
 
+{% assign feature_obj = site.featured_media | where: 'page_path', page.url | first %}
+{% assign managed_features = feature_obj.entries | get_docs %}
+
 <div class="topics-detail-tpl">
 
   <header style="background-image: url('{% if page.image.url %}{{ page.image.url | imgix: site.imgix }}{% else %}{{ site.default_image }}{% endif %}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
@@ -26,7 +29,12 @@ layout: default_footer_flush
   <div class="featured-media">
     <div class="container">
       <div class="featured-media-grid">
-        {% for item in page.featured_media %}
+        {% if managed_features.size > 0 %}
+          {% assign features = feature_obj.docs | slice: 0, 3 %}
+        {% else %}
+          {% assign features = page.featured_media %}
+        {% endif %}
+        {% for item in features %}
           <div>
             <a href="{{ item.url }}">
               <div class="image">
