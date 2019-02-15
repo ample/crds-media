@@ -151,28 +151,18 @@ get_doc %} {% assign tags = page.tags | get_doc %}
             <a class="topic" href="{{ topic.url }}">{{ topic.title }}</a>
 
             <ul class="tags list-inline">
-              <li><a href="">Love</a></li>
-              <li><a href="">Relationship</a></li>
-              <li><a href="">Loss of faith</a></li>
-              <li><a href="">hardship</a></li>
-              <li><a href="">moms</a></li>
-              <li><a href="">children</a></li>
+              {% for tag in tags %}
+                <li>
+                  <a href="{{ tag.url }}">{{ tag.title }}</a>
+                </li>
+              {% endfor %}
             </ul>
-
           </div>
         {% endif %}
 
-        <!-- Tags -->
-        {% include _tags_list.html tags=page.tags %}
       </footer>
     </div>
   </div>
 </article>
 
-<!-- <ul class="list-inline">
-    {% for tag in tags %}
-      <li>
-        <a href="{{ tag.url }}">{{ tag.title }}</a>
-      </li>
-    {% endfor %}
-  </ul> -->
+
