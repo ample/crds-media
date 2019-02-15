@@ -2,7 +2,7 @@ require 'pry'
 
 module Jekyll
   module Related
-    def related(obj, site)
+    def related(obj, site, n=3)
       tags = obj['tags'].collect{|a| a['slug']}
       related = []
 
@@ -13,10 +13,10 @@ module Jekyll
               related.push(article)
             end
           end
-          break if related.count == 3
+          break if related.count == n
         end
       end
-      
+
       related
     end
   end

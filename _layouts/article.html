@@ -89,11 +89,19 @@ get_doc %} {% assign tags = page.tags | get_doc %}
       </div>
       {% endif %}
 
+
+      {% assign related = page | related: site, 5 | exclude: page.title %}
+      {% if page.recommended_media and page.recommended_media != page %}
+        {% assign recommended = page.recommended_media %}
+      {% else %}
+        {% assign recommended = related | first %}
+      {% endif %}
+
       <footer class="col-md-8 col-md-offset-2">
         <section class="soft-top">
           <div class="row">
             <div class="col-xs-12 col-sm-6">
-              {% include _article-card.html %}
+              {% include _article-card.html post=recommended %}
             </div>
             <div class="col-xs-12 col-sm-6">
               <div class="signoff-card">
@@ -115,20 +123,21 @@ get_doc %} {% assign tags = page.tags | get_doc %}
 
           <div class="soft-top">
             <div class="row">
-            {% if related != blank %}
-              {% for post in related %}
+
+
+              {% assign first_post = posts | first %}
+              {% if page.recommended_media and page.recommended_media != page %}
+                {% assign posts = related | slice: 0, 3 %}
+              {% else %}
+                {% assign posts = related | slice: 1, 4 %}
+              {% endif %}
+
+              {% for post in posts %}
                 <div class="col-xs-12 col-sm-4">
-                  {% include _article-card.html %}
+                  {% include _article-card.html post=post %}
                 </div>
               {% endfor %}
-            {% else %}
-              {% assign recent = site.articles | sort: 'date' | reverse | slice: 0, 4 | exclude: page.title | limit: 3 %}
-                {% for post in recent %}
-                  <div class="col-xs-12 col-sm-4">
-                    {% include _article-card.html %}
-                  </div>
-                {% endfor %}
-              {% endif %}
+
             </div>
           </div>
         </section>
