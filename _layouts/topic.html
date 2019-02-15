@@ -30,11 +30,12 @@ layout: default_footer_flush
     <div class="container">
       <div class="featured-media-grid">
         {% if managed_features.size > 0 %}
-          {% assign features = feature_obj.docs | slice: 0, 3 %}
+        {% assign features = managed_features %}
         {% else %}
-          {% assign features = page.featured_media %}
+        {% assign features = page.featured_media %}
         {% endif %}
-        {% for item in features %}
+
+        {% for item in features limit: 3 %}
           <div>
             <a href="{{ item.url }}">
               <div class="image">
