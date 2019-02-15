@@ -17,7 +17,9 @@ module Jekyll
         return nil if objs.nil?
         return get_doc(objs) unless objs.is_a?(Array)
         ids = objs.collect { |obj| obj['id'] }
-        docs = collection_from_obj(objs.first).select { |doc| ids.include?(doc.data['id']) }
+        docs = collection_from_obj(objs.first)
+          .select { |doc| ids.include?(doc.data['id']) }
+          .sort_by { |d| ids.index(d.data['id']) }
         docs.map(&:to_liquid)
       rescue
         binding.pry
