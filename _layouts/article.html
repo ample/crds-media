@@ -104,18 +104,24 @@ get_doc %} {% assign tags = page.tags | get_doc %}
               {% include _article-card.html post=recommended %}
             </div>
             <div class="col-xs-12 col-sm-6">
+              {% if page.sign_off %}
+                {% assign sign_off = page.sign_off %}
+              {% else %}
+                {% assign sign_off = site.sign_offs | sort: "published_at" | first %}
+              {% endif %}
+
               <div class="signoff-card">
-                <div class="content" style="background-image: url('{% if page.image.url %}{{
-                  page.image.url | imgix: site.imgix
+                <div class="content" style="background-image: url('{% if sign_off.background_image.url %}{{
+                  sign_off.background_image.url | imgix: site.imgix
                 }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{
                   site.imgix_params.placeholder
                 }}')"
                 data-optimize-bg-img>
-                  <h1>Lorem Ipsum</h1>
-                  <p>Dolor sit amet consectetur adipisicing elit.</p>
+                  <h1>{{ sign_off.title }}</h1>
+                  {{ sign_off.body | markdownify }}
                 </div>
                 <footer>
-                  <p>Call <a href="tel:5137317400">513-731-7400</a> or <a href="mailt:hello@crossroads.net">email us</a></p>
+                  {{ sign_off.cta | markdownify }}
                 </footer>
               </div>
             </div>
@@ -123,8 +129,6 @@ get_doc %} {% assign tags = page.tags | get_doc %}
 
           <div class="soft-top">
             <div class="row">
-
-
               {% assign first_post = posts | first %}
               {% if page.recommended_media and page.recommended_media != page %}
                 {% assign posts = related | slice: 0, 3 %}
