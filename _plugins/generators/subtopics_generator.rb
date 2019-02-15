@@ -53,7 +53,7 @@ module Jekyll
           { 'tag' => tag, 'media' => media }
         end
         # Set `tags` to be all associated tags used within the topic.
-        topic.data['tags'] = topic_tags
+        topic.data['all_tags'] = topic_tags
       end
     end
 
