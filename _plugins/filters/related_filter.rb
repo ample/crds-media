@@ -5,7 +5,6 @@ module Jekyll
     def related(obj, site, n=3)
       tags = obj['tags'].collect{|a| a['slug']}
       related = []
-
       unless tags.empty?
         site['articles'].reverse.each do |article|
           if obj['id'] && article.id != obj['id']
@@ -16,8 +15,7 @@ module Jekyll
           break if related.count == n
         end
       end
-
-      related
+      related.empty? ? site['articles'].reverse.take(n) : related
     end
   end
 end

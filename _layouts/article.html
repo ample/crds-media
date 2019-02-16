@@ -91,6 +91,7 @@ get_doc %} {% assign tags = page.tags | get_doc %}
 
 
       {% assign related = page | related: site, 5 | exclude: page.title %}
+
       {% if page.recommended_media and page.recommended_media != page %}
         {% assign recommended = page.recommended_media %}
       {% else %}
@@ -129,11 +130,11 @@ get_doc %} {% assign tags = page.tags | get_doc %}
 
           <div class="soft-top">
             <div class="row">
-              {% assign first_post = posts | first %}
+
               {% if page.recommended_media and page.recommended_media != page %}
                 {% assign posts = related | slice: 0, 3 %}
               {% else %}
-                {% assign posts = related | slice: 1, 4 %}
+                {% assign posts = related | slice: 1, 3 %}
               {% endif %}
 
               {% for post in posts %}
@@ -141,7 +142,6 @@ get_doc %} {% assign tags = page.tags | get_doc %}
                   {% include _article-card.html post=post %}
                 </div>
               {% endfor %}
-
             </div>
           </div>
         </section>
