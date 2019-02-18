@@ -81,6 +81,7 @@ title: Articles
       {% endif %}
 
       {% assign related = page | related: site, 5 | exclude: page.title %}
+
       {% if page.recommended_media and page.recommended_media != page %}
         {% assign recommended = page.recommended_media %}
       {% else %}
@@ -121,9 +122,9 @@ title: Articles
             <div class="row">
 
               {% if page.recommended_media and page.recommended_media != page %}
-                {% assign posts = related | slice: 0, 3 %}
+                {% assign posts = related | exclude: page.title | slice: 0, 3 %}
               {% else %}
-                {% assign posts = related | slice: 1, 3 %}
+                {% assign posts = related | exclude: page.title | slice: 1, 3 %}
               {% endif %}
 
               {% for post in posts %}
