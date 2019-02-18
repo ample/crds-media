@@ -37,3 +37,38 @@
     }
   }
 }
+
+.signoff-card {
+  h1 {
+    color: $cr-white;
+    font-family: $condensed-font-face;
+    font-size: 40px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .content {
+    background-color: #666;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: $cr-white;
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  footer {
+    background-color: $cr-blue-dark;
+    color: $cr-white;
+    margin-top: 0;
+    padding: 16px;
+    text-align: center;
+
+    a {
+      color: $cr-cyan-light;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}

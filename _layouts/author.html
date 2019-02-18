@@ -18,7 +18,7 @@ layout: default
       <div class="cards-4x">
         <div class="row">
           {% for post in articles %}
-            {% include _article-card.html %}
+            {% include _article-card.html post=post %}
           {% endfor %}
         </div>
       </div>

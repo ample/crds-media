@@ -1,3 +1,4 @@
+{% assign post = include.post %}
 {% assign author = post.author | get_doc %}
 {% assign topic = post.category | get_doc %}
 
@@ -10,5 +11,7 @@
   <a href="{{ post.url }}">
     <h2 class="font-family-condensed-extra font-size-h3 flush-ends">{{ post.title | upcase }}</h2>
   </a>
-  <p class="text-gray-light font-size-small flush-bottom push-quarter-top"><a href="{{ author.url }}">{{ author.name | titleize }}</a></p>
+  <p class="text-gray-light font-size-small flush-bottom push-quarter-top"><a href="{{ author.url }}">
+    {{ author.name | titleize }}
+  </a></p>
 </div>

@@ -50,6 +50,13 @@
     }
   }
 
+  address {
+    background: none;
+    margin-bottom: 16px;
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+
   footer {
     font-size: 1rem;
     margin-top: 30px;
@@ -82,6 +89,42 @@
     > header {
       margin-bottom: 44px;
       padding: 390px 0 44px;
+    }
+  }
+  .topic-and-tags {
+    font-size: 14px;
+    text-align: center;
+
+    .topic {
+      @extend .font-family-base-bold;
+      text-transform: uppercase;
+    }
+
+    .tags {
+      position: relative;
+
+      &::before {
+        content: '\25FD';
+        display: inline-block;
+        font-size: 4px;
+        margin-left: 10px;
+        margin-right: 2px;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    ul {
+      display: inline;
+
+      &::before {
+        display: inline;
+      }
+
+      li {
+        text-transform: lowercase;
+      }
     }
   }
 }
