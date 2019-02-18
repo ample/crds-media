@@ -2,6 +2,7 @@ require 'rspec'
 require 'jekyll'
 require 'jekyll-crds'
 require 'jekyll-placeholders'
+require 'article-tags'
 require 'video-tags'
 
 require 'pry'

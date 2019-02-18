@@ -28,7 +28,7 @@ title: Topics
             <a href="{{ topic.url }}">{{ topic.title }}</a>
           </h2>
           <ul class="list-unstyled">
-            {% for tag in topic.tags %}
+            {% for tag in topic.featured_tags %}
               <li>
                 <a href="/tags/{{ tag.slug }}/" class="topic-card-link">{{ tag.title | capitalize }}</a>
               </li>

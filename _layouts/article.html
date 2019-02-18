@@ -3,16 +3,13 @@ layout: default
 title: Articles
 ---
 
-{% assign author = page.author | get_doc %} {% assign topic = page.category |
-get_doc %} {% assign tags = page.tags | get_doc %}
+{% assign author = page.author | get_doc %}
+{% assign topic = page.category | get_doc %}
+{% assign tags = page.tags | get_doc %}
 
 <article class="article-tpl">
   <header
-    style="background-image: url('{% if page.image.url %}{{
-      page.image.url | imgix: site.imgix
-    }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{
-      site.imgix_params.placeholder
-    }}')"
+    style="background-image: url('{% if page.image.url %}{{ page.image.url | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder }}')"
     data-optimize-bg-img
     data-hero-image
   >
@@ -24,16 +21,18 @@ get_doc %} {% assign tags = page.tags | get_doc %}
             <li><a href="/">Media</a></li>
             <li><a href="/articles">Articles</a></li>
           </ol>
-          <h1 class="text-white flush-top" data-title>
-            {{ page.title | escape | upcase }}
+          <h1 class="media-title flush-top" data-title>
+            {{ page.title | escape }}
           </h1>
           <p class="flush-bottom soft-half-top">
-            {% if topic %}<a href="{{ topic.url }}">{{
-              topic.title | upcase | append: "  |  "
-            }}</a
-            >{% endif %}{% include _read-time.html duration=page.duration
-            content_type=article %}
+            {% if topic %}
+            <a href="{{ topic.url }}">{{  topic.title | upcase | append: "  |  " }}</a>
+            {% endif %}
+            {% include _read-time.html duration=page.duration content_type=article %}
           </p>
+          <div class="soft-top">
+            {% include _social-share.html type='light' %}
+          </div>
         </div>
       </div>
     </div>
@@ -65,14 +64,6 @@ get_doc %} {% assign tags = page.tags | get_doc %}
       </main>
       {% endif %}
 
-      <!-- {% if site.sign_off %}
-        <div class="col-md-8 col-md-offset-2">
-          <section class="signoff">
-            {{ site.sign_off.content | markdownify }}
-          </section>
-        </div>
-      {% endif %} -->
-
       <address>
         <small class="flush-bottom">
           Written by
@@ -89,9 +80,7 @@ get_doc %} {% assign tags = page.tags | get_doc %}
       </div>
       {% endif %}
 
-
       {% assign related = page | related: site, 5 | exclude: page.title %}
-
       {% if page.recommended_media and page.recommended_media != page %}
         {% assign recommended = page.recommended_media %}
       {% else %}

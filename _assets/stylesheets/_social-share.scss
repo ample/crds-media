@@ -16,6 +16,10 @@
       width: 23px;
     }
   }
+
+  &.text-gray-light a svg {
+    color: $cr-gray-light;
+  }
 }
 
 .cta-subscribe {

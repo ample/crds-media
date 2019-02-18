@@ -1,3 +1,6 @@
+{% assign item = include.item %}
+{% unless item %}{% assign item = page %}{% endunless %}
+
 {% if include.heart != false %}
 <!-- // -->
 <div class="clearfix">
@@ -7,10 +10,7 @@
   <div class="pull-right">
 {% endif %}
 
-{% assign item = include.item %}
-{% unless item %}{% assign item = page %}{% endunless %}
-
-<div class="social-share sidebar">
+<div class="social-share sidebar {% if include.type == 'light' %}text-gray-light{% endif %}">
   <a href="https://www.facebook.com/sharer/sharer.php?u=https://mediaint.crossroads.net{{ page.url }}" target="_blank">
     <svg class="icon" viewBox="0 0 256 256">
       <use xlink:href="/assets/svgs/icons.svg#facebook"></use>
