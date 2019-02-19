@@ -58,17 +58,17 @@ title: Articles
 
         {{ page.body | markdownify }}
 
+        <address>
+          <small class="flush-bottom">
+            Written by
+            <a href="{{ author.url }}" data-author-name>{{ page.author.full_name | titleize }}</a>
+            on
+            <date data-post-date>{{ page.date | format_date }}</date>
+          </small>
+        </address>
+
       </main>
       {% endif %}
-
-      <address>
-        <small class="flush-bottom">
-          Written by
-          <a href="{{ author.url }}" data-author-name>{{ page.author.full_name | titleize }}</a>
-          on
-          <date data-post-date>{{ page.date | format_date }}</date>
-        </small>
-      </address>
 
       {% if page.discussion %} {% assign discussion =
       page.discussion | get_doc %}
