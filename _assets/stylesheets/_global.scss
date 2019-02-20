@@ -9,6 +9,18 @@
   font-size: 1.4rem;
 }
 
+.media-title {
+  color: $cr-white;
+  font-family: $condensed-extra-font-face;
+  font-size: 4rem;
+  line-height: 0.9;
+  text-transform: uppercase;
+
+  @media screen and (min-width: $screen-sm) {
+    font-size: 5.625rem;
+  }
+}
+
 .alert {
   position: fixed;
   top: 0;
@@ -19,38 +31,6 @@
   &.show {
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  }
-}
-
-// Overwrite addthis styles on social icons
-.addthis_default_style {
-  .custom_images {
-    a {
-      font-size: 1.5rem;
-      margin-bottom: 0;
-      padding-top: 0.25rem;
-
-      &:hover,
-      &:active,
-      &:active:hover,
-      &:focus {
-        text-decoration: none;
-      }
-
-      svg {
-        height: 24px;
-        width: 24px;
-      }
-    }
-  }
-}
-
-.social-share {
-  > div {
-    float: right;
-  }
-  > heart-button {
-    float: left;
   }
 }
 

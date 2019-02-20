@@ -1,17 +1,28 @@
-<section class="discussion-questions {% if include.type == 'chaser' %}chaser-questions{% endif %}">
+<section class="discussion-questions">
+  <small>Process, journal or discuss the themes of this article - here's a few questions to get the ball rolling...</small>
+  <div class="collapse" id="collapse-discussion-questions">
+    <div class="well discussion-questions-container {% if include.type == 'chaser' %}chaser-questions{% endif %}">
+        {% if include.discussion.discussion_questions.size > 0 %}
+          <ol>
+            {% for q in include.discussion.discussion_questions %}
+              <li>{{ q.question | markdownify }}</li>
+            {% endfor %}
+          </ol>
+        {% endif %}
 
-  {{ include.discussion.intro | markdownify }}
+        {% if include.discussion.challenge %}
+          <p class="label">Challenge</p>
+          {{ include.discussion.challenge | markdownify }}
+        {% endif %}
+    </div>
+  </div>
 
-  {% if include.discussion.discussion_questions.size > 0 %}
-    <ol>
-      {% for q in include.discussion.discussion_questions %}
-        <li>{{ q.question | markdownify }}</li>
-      {% endfor %}
-    </ol>
-  {% endif %}
-
-  {% if include.discussion.challenge %}
-    <p class="label">Challenge</p>
-    {{ include.discussion.challenge | markdownify }}
-  {% endif %}
+  <a class="link-primary font-size-smaller collapsed" role="button" data-toggle="collapse" data-toggle-text="Hide questions" href="#collapse-discussion-questions" aria-expanded="false" aria-hidden="true" aria-controls="collapse-discussion-questions">
+    <span class="text">View questions</span>
+    <span>
+      <svg class="icon" viewBox="0 0 256 256">
+        <use xlink:href="/assets/svgs/icons.svg#chevron-down-thin"></use>
+      </svg>
+    </span>
+  </a>
 </section>

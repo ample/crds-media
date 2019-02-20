@@ -55,5 +55,6 @@ group :jekyll_plugins do
   gem 'jekyll-placeholders', '~> 0.0', git: 'https://github.com/ample/jekyll-placeholders.git'
   gem 'jekyll-coffeescript'
   gem 'paging-mister-hyde', '~> 0.2', git: 'https://github.com/ample/paging-mister-hyde.git'
+  gem 'article-tags', '~> 0.0.1', path: File.expand_path('./vendor/gems/article-tags', __dir__)
   gem 'video-tags', '~> 0.0.1', path: File.expand_path('./vendor/gems/video-tags', __dir__)
 end
