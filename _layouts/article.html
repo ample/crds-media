@@ -80,9 +80,9 @@ title: Articles
       {% assign related = page | related: site, 5 | exclude: page.title %}
 
       {% if page.recommended_media and page.recommended_media != page %}
-      {% assign recommended = page.recommended_media %}
+        {% assign recommended = page.recommended_media | get_doc %}
       {% else %}
-      {% assign recommended = related | first %}
+        {% assign recommended = related | first %}
       {% endif %}
 
       <footer class="col-md-8 col-md-offset-2">
