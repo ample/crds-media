@@ -81,6 +81,8 @@ collections:
   perspective_sets:
     output: true
     permalink: /perspectives/sets/:title
+  content_blocks:
+    output: false
 
 contentful:
   article:
@@ -115,8 +117,11 @@ contentful:
   perspective_set:
     map:
       date: published_at
+  content_block:
+    query: fields.category=media
+    map:
+      description: content
   exclude:
-    - content_block
     - location
     - migrations
     - page
