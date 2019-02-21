@@ -29,10 +29,6 @@
       }
     }
   }
-
-  .rollcall {
-    margin-top: -16px;
-  }
 }
 
 .discussion-questions-container {
@@ -81,6 +77,11 @@
       }
     }
   }
+}
+
+.chaser-wrapper .rollcall,
+.discussion-questions-container .rollcall {
+  margin-top: -16px;
 }
 
 .chaser-questions {

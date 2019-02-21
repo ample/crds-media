@@ -85,7 +85,7 @@ layout: default
 
             {% if page.discussion %}
               {% assign discussion = page.discussion | get_doc %}
-              {% include _discussion-questions.html type='chaser' discussion=discussion %}
+              {% include _collapsible-discussion-questions.html type='chaser' discussion=discussion %}
             {% endif %}
 
             <!-- List of contributors -->
