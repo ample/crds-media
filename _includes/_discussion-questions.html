@@ -1,5 +1,7 @@
 <div class="push-top {% if include.type == 'chaser' %}chaser-wrapper{% endif %}" data-track-viewport='{ "duration": 60000, "event": "ChaserView" }'>
   <div class="well discussion-questions-container {% if include.type == 'chaser' %}chaser-questions{% endif %}">
+      {{ include.discussion.intro | markdownify }}
+
       {% if include.discussion.discussion_questions.size > 0 %}
         <ol>
           {% for q in include.discussion.discussion_questions %}
