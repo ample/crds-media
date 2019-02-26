@@ -19,6 +19,7 @@
 
     {% for filter in filters %}
       {% assign filter_url = filter.name | slugify %}
+      {% assign category_url = filter.items | map: 'category_url' | first  %}
       <li class="sidebar-nav-item">
         <a class="sidebar-nav-link" href="#collapse-{{ filter.name | slugify }}" data-toggle="collapse" aria-expanded="{% if current_category_slug == filter_url %}true{% endif %}">
           {{ filter.name }}
@@ -27,10 +28,15 @@
           </svg>
         </a>
         <ul class="sidebar-subnav collapse {% if current_category_slug == filter_url %}in{% endif %}" id="collapse-{{ filter.name | slugify }}">
+          <li class="sidebar-subnav-item">
+            <a class="sidebar-subnav-link {% if page_url == category_url %}active{% endif %}" href="{{ category_url }}">
+              All {{ filter.name }}
+            </a>
+          </li>
           {% for item in filter.items %}
             <li class="sidebar-subnav-item">
               <a class="sidebar-subnav-link {% if page_url == item.url %}active{% endif %}" href="{{ item.url }}">
-                {{ item.title }}
+                {{ item.title | titleize }}
               </a>
             </li>
           {% endfor %}
