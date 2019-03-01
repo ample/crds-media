@@ -1,5 +1,5 @@
 module Pluralize
-  def pluralize(number, singular, plural = nil)
+  def pluralize(number, singular = nil, plural = nil)
     number = number.to_i
     if number == 1
       "#{number} #{singular}"

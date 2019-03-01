@@ -84,12 +84,8 @@ layout: default
             {% endif %}
 
             {% if page.discussion %}
-            {% assign discussion = page.discussion | get_doc %}
-            <div class="push-bottom" data-track-viewport='{ "duration": 60000, "event": "ChaserView" }'>
-              {% include _discussion-questions.html type='chaser' discussion=discussion %}
-              <div class="triangle-up"></div>
-              {% include _chaser-rollcall.html %}
-            </div>
+              {% assign discussion = page.discussion | get_doc %}
+              {% include _collapsible-discussion-questions.html type='chaser' discussion=discussion %}
             {% endif %}
 
             <!-- List of contributors -->

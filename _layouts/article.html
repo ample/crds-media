@@ -73,7 +73,7 @@ title: Articles
       {% if page.discussion %} {% assign discussion =
       page.discussion | get_doc %}
       <div class="col-md-8 col-md-offset-2">
-        {% include _discussion-questions.html discussion=discussion %}
+        {% include _collapsible-discussion-questions.html discussion=discussion %}
       </div>
       {% endif %}
 
@@ -96,13 +96,7 @@ title: Articles
               {% if page.sign_off %}
                 {% assign sign_off = page.sign_off %}
               {% else %}
-                {% if site.ENV.CONTENTFUL_ENV == 'int' %}
-                  {% assign sign_off = site.sign_offs | where: "contentful_id", "7Fdd5gUt6J5IpP2rMSNppu" | first %}
-                {% elsif site.ENV.CONTENTFUL_ENV == 'demo' %}
-                  {% assign sign_off = site.sign_offs | where: "contentful_id", "5Up7fuirlt7IacZwIUhkDO" | first %}
-                {% else %}
-                  {% assign sign_off = site.sign_offs | where: "contentful_id", "78sjxWdCasEVBc6ID2R5cJ" | first %}
-                {% endif %}
+                {% assign sign_off = site.sign_offs | where: "contentful_id", site.ENV['DEFAULT_SIGN_OFF_ID'] | first %}
               {% endif %}
 
               <div class="signoff-card">

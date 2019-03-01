@@ -3,7 +3,7 @@
     bundle exec jekyll crds &&
     bundle exec jekyll contentful &&
     bundle exec rspec ./vendor ./spec &&
-    bundle exec jekyll build -- --cloudsearch &&
+    bundle exec jekyll build &&
     bundle exec ruby ./lib/crds/monetate.rb
   '''
 
