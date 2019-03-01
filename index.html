@@ -24,9 +24,7 @@ paginate:
 {% assign data = site.data.navigation %}
 {% assign page_url = page.url | split: '/' %}
 
-{% assign jumbotron = site.content_blocks | first %}
-
-<pre></pre>
+{% assign jumbotron = site.content_blocks | where: 'slug', 'media-homepage-jumbotron' | first %}
 
 <div
   class="jumbotron jumbotron-media hard-top"
