@@ -45,6 +45,15 @@
       line-height: 7rem;
     }
   }
+
+  .description {
+    @extend .font-family-base;
+    @extend .font-size-base;
+
+    p {
+      font-weight: 300;
+    }
+  }
 }
 
 .jumbotron-media {
