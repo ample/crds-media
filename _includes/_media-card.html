@@ -14,7 +14,9 @@
 
     {% assign image = card.image %}
     {% if card.content_type == 'episode' %}{% assign image = card.podcast.image %}{% endif %}
-    {% if image.url %}
+    {% if image.url and card.content_type == 'song' %}
+      <img src="{{ image.url | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>
+    {% elsif image.url %}
       <img src="{{ image.url | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>
     {% else %}
       <img src="{{ site.default_image | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_2x }}" data-optimize-img>
