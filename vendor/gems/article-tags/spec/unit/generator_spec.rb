@@ -15,6 +15,8 @@ describe Jekyll::ArticleTags::Generator do
     urls = %w(
       /articles/filters/cat-a+tag-a1/index.html
       /articles/filters/cat-b+tag-b2/index.html
+      /articles/filters/cat-a/index.html
+      /articles/filters/cat-b/index.html
     )
     expect(@site.pages.collect(&:url)).to match_array(urls)
   end

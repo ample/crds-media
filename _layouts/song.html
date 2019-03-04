@@ -161,7 +161,7 @@ layout: default
               {% for song in recent limit: 9 %}
                 <div class="card card-3x">
                   <a href="{{ song.url }}">
-                    <img src="{{ song.image.url | imgix: site.imgix }}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.cards_3x_centered_carousel }}" data-optimize-img>
+                    <img src="{{ song.image.url | imgix: site.imgix }}?{{ site.imgix_params.placeholder_square }}" sizes="{{ site.image_sizes.cards_3x_centered_carousel }}" data-optimize-img>
                   </a>
                   <div class="card-block hard">
                     <a href="{{ song.url }}">

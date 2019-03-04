@@ -9,7 +9,7 @@ module Jekyll
       # Loop through each topic doc.
       all_topics.each do |topic|
         # Get all docs that have applied this topic.
-        topic_docs = all_docs.select { |d| d.data.dig('category', 'id') == topic.data['contentful_id'] }
+        topic_docs = all_docs.select { |d| d.data['category'].is_a?(Hash) && d.data.dig('category', 'id') == topic.data['contentful_id'] }
         # Create a reference to publishable docs within this topic. Docs that
         # have a `published_at` field are considered publishable.
         topic_media = topic_docs.select { |d| d.data['published_at'] }

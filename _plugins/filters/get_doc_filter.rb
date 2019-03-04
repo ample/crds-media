@@ -5,7 +5,7 @@ module Jekyll
       begin
         return nil if obj.nil?
         return get_docs(obj) if obj.is_a?(Array)
-        doc = collection_from_obj(obj).detect { |doc| doc.data['id'] == obj['id'] }
+        doc = (collection_from_obj(obj) || []).detect { |doc| doc.data['id'] == obj['id'] }
         doc ? doc.to_liquid : nil
       rescue
         binding.pry
@@ -35,7 +35,7 @@ module Jekyll
       def collection_from_obj(obj)
         begin
           return [] if obj.nil?
-          site.collections[obj['content_type'].pluralize].docs
+          site.collections[obj['content_type'].pluralize].try(:docs)
         rescue
           binding.pry
         end
