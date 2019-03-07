@@ -5,7 +5,7 @@ module Jekyll
       begin
         return nil if obj.nil?
         return get_docs(obj) if obj.is_a?(Array)
-        doc = (collection_from_obj(obj) || []).detect { |doc| doc.data['id'] == obj['id'] }
+        doc = find_by_obj(obj)
         doc ? doc.to_liquid : nil
       rescue
         binding.pry
@@ -17,9 +17,7 @@ module Jekyll
         return nil if objs.nil?
         return get_doc(objs) unless objs.is_a?(Array)
         ids = objs.collect { |obj| obj['id'] }
-        docs = collection_from_obj(objs.first)
-          .select { |doc| ids.include?(doc.data['id']) }
-          .sort_by { |d| ids.index(d.data['id']) }
+        docs = objs.map { |obj| find_by_obj(obj) }.compact.sort_by { |d| ids.index(d.data['id']) }
         docs.map(&:to_liquid)
       rescue
         binding.pry
@@ -30,6 +28,10 @@ module Jekyll
 
       def site
         @site ||= site = Jekyll.sites.first
+      end
+
+      def find_by_obj(obj)
+        (collection_from_obj(obj) || []).detect { |d| d.data['id'] == obj['id'] }
       end
 
       def collection_from_obj(obj)
