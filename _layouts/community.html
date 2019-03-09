@@ -1,0 +1,155 @@
+---
+layout: default_footer_flush
+---
+
+{% assign feature_obj = site.featured_media | where: 'page_path', page.url | first %}
+{% assign managed_features = feature_obj.entries | get_docs %}
+
+<div class="topics-detail-tpl community">
+
+  <header style="background-image: url('{% if page.image.url %}{{ page.image.url | imgix: site.imgix }}{% else %}{{ site.default_image }}{% endif %}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <ol class="breadcrumb text-white hard-sides push-top">
+            <li><a href="/">Media</a></li>
+          </ol>
+
+            <h1 class="media-title flush-top">{{page.title}}</h1>
+
+          <div class="description font-size-base white-faded">
+            {{ page.description | markdownify }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {% assign subtopic = data.tag %}
+  {% assign media_items = page.articles %}
+  <section class="subtopic-layout container">
+    <div class="row">
+      <main class="col-md-8">
+        <div class="feature-main">
+          {% assign item = media_items | first %}
+          {% include _overlay-card.html %}
+        </div>
+
+        {% assign feature_subs = media_items | slice: 1, 2 %}
+        {% for item in feature_subs %}
+          <div class="feature-sub">
+            <a href="{{ item.url }}" class="list-card">
+              <div class="image">
+                <img src="{% if item.image.url %}{{ item.image.url | imgix: site.imgix }}{% else %}{{ site.default_image }}{% endif %}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.topic_feature_sub }}" alt="" data-optimize-img>
+                {% include _media-label.html source=item %}
+              </div>
+              {% if item.category %}
+                <p class="topic">{{ item.category.title }}</p>
+              {% endif %}
+              <h3 class="title">{{ item.title }}</h3>
+
+              <div class="content">
+                {{ item.body | markdownify | strip_html | truncate: 125 }}
+              </div>
+              <p class="credit">
+                {% if item.author %}
+                  {% assign author = item.author %}
+                  {{ author.full_name }}
+                {% elsif item.authors %}
+                  {% assign authors = item.author | get_docs %}
+                  {{ authors | map: 'full_name' | join: ', ' }}
+                {% endif %}
+              </p>
+            </a>
+          </div>
+        {% endfor %}
+      </main>
+
+      <aside class="col-md-4">
+        {% assign list_cards = media_items | slice: 3, 4 %}
+        {% for item in list_cards %}
+          <a class="list-card" href="{{ item.url }}">
+            <div class="image">
+              <img src="{% if item.image.url %}{{ item.image.url | imgix: site.imgix }}{% else %}{{ site.default_image }}{% endif %}?{{ site.imgix_params.placeholder_sixteen_nine }}" sizes="{{ site.image_sizes.media_object }}" alt="" data-optimize-img>
+              {% include _media-label.html source=item %}
+            </div>
+
+            <h4 class="title flush-top">{{ item.title }}</h4>
+            <div class="content">
+              {{ item.body | markdownify | strip_html | truncate: 125 }}
+            </div>
+            <div class="credit">
+              {% if item.author %}
+                {% assign author = item.author %}
+                {{ author.full_name }}
+              {% elsif item.authors %}
+                {% assign authors = item.author | get_docs %}
+                {{ authors | map: 'full_name' | join: ', ' }}
+              {% endif %}
+            </div>
+          </a>
+        {% endfor %}
+      </aside>
+    </div>
+  </section>
+
+  <div class="jumbotron inline-video jumbotron-xl" style="background-image: url('//crds-cms-uploads.imgix.net/media/stills/crossroads-church-home.jpg');">
+    <div class="inline-video-player"></div>
+    <div class="jumbotron-content">
+      <a href="#" class="inline-video-trigger" data-video-id="LIdCR2rywl4"></a>
+      <h3 class="title">{{ page.video.title }}</h3>
+      {{ page.video.description | markdownify | strip_html | truncate: 125 }}
+    </div>
+  </div>
+
+  <script src="//d1tmclqz61gqwd.cloudfront.net/javascripts/crds-jumbotron-video-v0.2.1.min.js"></script>
+
+  <script>
+    (function () {
+      new CRDS.JumbotronVideos();
+    })();
+
+  </script>
+
+  <div class="featured-media">
+    <div class="container">
+      <p>more stories</p>
+      <div class="featured-media-grid">
+        {% assign more_cards = media_items | slice: 7, 6 %}
+
+        {% for item in more_cards limit: 6 %}
+          <div>
+            <a href="{{ item.url }}">
+              <div class="image">
+                {% assign image = item.image %}
+                {% if item.content_type == 'episode' %}{% assign image = item.podcast.image %}{% endif %}
+                <img src="{% if image.url %}{{ image.url | imgix: site.imgix }}{% else %}{{ site.default_image | imgix: site.imgix }}{% endif %}?{{ site.imgix_params.placeholder_sixteen_nine }}" alt="{{ image.title }}" sizes="{{ site.image_sizes.cards_3x }}" data-optimize-img>
+                {% include _media-label.html source=item %}
+              </div>
+              <div class="topic soft-quarter-top">{{ item.category.title }}</div>
+              <h3 class="title flush-ends">{{ item.title }}</h3>
+              <div class="credit">
+                {% if item.author %}
+                  {% assign author = item.author %}
+                  {{ author.full_name }}
+                {% elsif item.authors %}
+                  {% assign authors = item.author | get_docs %}
+                  {{ authors | map: 'full_name' | join: ', ' }}
+                {% endif %}
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="jumbotron" style="background-image: url('//crds-cms-uploads.imgix.net/content/images/streaming-anywhere-hero-off.jpg?auto=format,compress&w=100&fit=crop');">
+    <h3 class="title">Subscribe to things</h3>
+    <div class="form-group">
+      <label class="sr-only" for="email">Email</label>
+      <input class="form-control" name="email" placeholder="Email Address" value="" type="email">
+      <input class="form-control btn btn-cyan" value="Subscribe" type="submit">
+    </div>
+  </div>
+</div>

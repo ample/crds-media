@@ -1,0 +1,33 @@
+.community {
+  background: $cr-gray-darker;
+
+  .subtopic-layout {
+    main, aside {
+      .list-card, .feature-sub {
+        .title, .content {
+          color: $cr-white;
+        }
+
+        .topic {
+          color: $cr-gray-light;
+        }
+
+        .credit {
+          color: $cr-gray;
+
+          >.list-card {
+            color: $cr-gray-light;
+          }
+        }
+      }
+    }
+  }
+
+  .jumbotron {
+    h3 {
+      font-family: acumin-pro-extra-condensed;
+      text-transform: uppercase;
+      color: $cr-white;
+    }
+  }
+}
