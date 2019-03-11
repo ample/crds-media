@@ -25,9 +25,10 @@
 
   .jumbotron {
     h3 {
-      font-family: acumin-pro-extra-condensed;
-      text-transform: uppercase;
       color: $cr-white;
+    }
+    .form-control.btn {
+      margin-top: 0;
     }
   }
 }

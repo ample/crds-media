@@ -14,11 +14,12 @@ layout: default_footer_flush
           <ol class="breadcrumb text-white hard-sides push-top">
             <li><a href="/">Media</a></li>
           </ol>
-
-            <h1 class="media-title flush-top">{{page.title}}</h1>
-
+          <h1 class="media-title flush-top">{{page.title}}</h1>
           <div class="description font-size-base white-faded">
             {{ page.description | markdownify }}
+          </div>
+          <div class="soft-top">
+            {% include _social-share.html type='light' %}
           </div>
         </div>
       </div>
@@ -144,12 +145,15 @@ layout: default_footer_flush
     </div>
   </div>
 
-  <div class="jumbotron" style="background-image: url('//crds-cms-uploads.imgix.net/content/images/streaming-anywhere-hero-off.jpg?auto=format,compress&w=100&fit=crop');">
-    <h3 class="title">Subscribe to things</h3>
-    <div class="form-group">
-      <label class="sr-only" for="email">Email</label>
-      <input class="form-control" name="email" placeholder="Email Address" value="" type="email">
-      <input class="form-control btn btn-cyan" value="Subscribe" type="submit">
+  <div class="jumbotron flush-ends" style="background-image: url('//crds-cms-uploads.imgix.net/content/images/streaming-anywhere-hero-off.jpg?auto=format,compress&w=100&fit=crop');">
+    <h3 class="section-header">Subscribe to things</h3>
+    <div class="form-inline">
+      <div class="form-group">
+        <label class="sr-only" for="email">Email</label>
+        <input class="form-control" name="email" placeholder="Email Address" value="" type="email">
+        <input class="form-control btn btn-cyan" value="Subscribe" type="submit">
+      </div>
     </div>
+    <p class="tagline push-half-top font-size-smaller">Dolor nisi laboris dolor est veniam.</p>
   </div>
 </div>
