@@ -43,6 +43,9 @@ collections:
   categories:
     output: true
     permalink: /topics/:title
+  collections:
+    output: true
+    permalink: /collections/:title
   authors:
     output: true
     permalink: /:collection/:title
@@ -95,6 +98,7 @@ contentful:
     map:
       date: published_at
   featured_media:
+    query: fields.site=media
     map:
       page_path: path
   message:
@@ -138,6 +142,11 @@ defaults:
       type: articles
     values:
       layout: article
+  - scope:
+      path: ""
+      type: collections
+    values:
+      layout: collection
   - scope:
       path: ""
       type: categories

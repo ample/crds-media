@@ -2,11 +2,12 @@
 layout: default_footer_flush
 ---
 
-{% assign feature_obj = site.featured_media | where: 'page_path', page.url | first %}
-{% assign managed_features = feature_obj.entries | get_docs %}
+{% assign managed_features = page.featured_media | get_docs %}
 
 <div class="topics-detail-tpl community">
-
+<pre>
+  DEBUG: {{ page.debug | jsonify | escape }}
+</pre>
   <header style="background-image: url('{% if page.image.url %}{{ page.image.url | imgix: site.imgix }}{% else %}{{ site.default_image }}{% endif %}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
     <div class="container">
       <div class="row">
@@ -14,7 +15,7 @@ layout: default_footer_flush
           <ol class="breadcrumb text-white hard-sides push-top">
             <li><a href="/">Media</a></li>
           </ol>
-          <h1 class="media-title flush-top">{{page.title}}</h1>
+          <h1 class="media-title flush-top">{{page.title}} {{page.all_collections.size}}</h1>
           <div class="description font-size-base white-faded">
             {{ page.description | markdownify }}
           </div>
@@ -26,17 +27,21 @@ layout: default_footer_flush
     </div>
   </header>
 
-  {% assign subtopic = data.tag %}
-  {% assign media_items = page.articles %}
+  {% if managed_features.size > 0 %}
+  {% assign features = managed_features %}
+  {% else %}
+  {% assign features = page.featured_media %}
+  {% endif %}
+
   <section class="subtopic-layout container">
     <div class="row">
       <main class="col-md-8">
         <div class="feature-main">
-          {% assign item = media_items | first %}
+          {% assign item = features | first %}
           {% include _overlay-card.html %}
         </div>
 
-        {% assign feature_subs = media_items | slice: 1, 2 %}
+        {% assign feature_subs = features | slice: 1, 2 %}
         {% for item in feature_subs %}
           <div class="feature-sub">
             <a href="{{ item.url }}" class="list-card">
@@ -45,16 +50,15 @@ layout: default_footer_flush
                 {% include _media-label.html source=item %}
               </div>
               {% if item.category %}
-                <p class="topic">{{ item.category.title }}</p>
+                {% assign category = item.category.title %}
+              {% else %}
+                {% assign category = item.content_type %}
               {% endif %}
+              <p class="topic">{{ category }}</p>
               <h3 class="title">{{ item.title }}</h3>
-
-              <div class="content">
-                {{ item.body | markdownify | strip_html | truncate: 125 }}
-              </div>
               <p class="credit">
                 {% if item.author %}
-                  {% assign author = item.author %}
+                  {% assign author = item.author | get_docs %}
                   {{ author.full_name }}
                 {% elsif item.authors %}
                   {% assign authors = item.author | get_docs %}
@@ -67,7 +71,7 @@ layout: default_footer_flush
       </main>
 
       <aside class="col-md-4">
-        {% assign list_cards = media_items | slice: 3, 4 %}
+        {% assign list_cards = features | slice: 3, 4 %}
         {% for item in list_cards %}
           <a class="list-card" href="{{ item.url }}">
             <div class="image">
@@ -77,7 +81,7 @@ layout: default_footer_flush
 
             <h4 class="title flush-top">{{ item.title }}</h4>
             <div class="content">
-              {{ item.body | markdownify | strip_html | truncate: 125 }}
+              {{ item | content | markdownify | strip_html | truncate: 125 }}
             </div>
             <div class="credit">
               {% if item.author %}
@@ -116,9 +120,7 @@ layout: default_footer_flush
     <div class="container">
       <p>more stories</p>
       <div class="featured-media-grid">
-        {% assign more_cards = media_items | slice: 7, 6 %}
-
-        {% for item in more_cards limit: 6 %}
+        {% for item in page.collection_media limit: 6 %}
           <div>
             <a href="{{ item.url }}">
               <div class="image">
