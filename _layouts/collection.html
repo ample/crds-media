@@ -5,9 +5,6 @@ layout: default_footer_flush
 {% assign managed_features = page.featured_media | get_docs %}
 
 <div class="topics-detail-tpl community">
-<pre>
-  DEBUG: {{ page.debug | jsonify | escape }}
-</pre>
   <header style="background-image: url('{% if page.image.url %}{{ page.image.url | imgix: site.imgix }}{% else %}{{ site.default_image }}{% endif %}?{{ site.imgix_params.placeholder }}')" data-optimize-bg-img>
     <div class="container">
       <div class="row">
