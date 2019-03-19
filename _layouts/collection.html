@@ -117,7 +117,7 @@ layout: default_footer_flush
     <div class="container">
       <p>more stories</p>
       <div class="featured-media-grid">
-        {% for item in page.collection_media limit: 6 %}
+        {% for item in page.collection_media %}
           <div>
             <a href="{{ item.url }}">
               <div class="image">
